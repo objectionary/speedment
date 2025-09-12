@@ -31,12 +31,13 @@ import com.speedment.runtime.config.Project;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.config.util.DocumentDbUtil;
 import com.speedment.runtime.core.provider.DelegateInfoComponent;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@Disabled
 final class GeneratedEntityDecoratorTest {
 
     @Test

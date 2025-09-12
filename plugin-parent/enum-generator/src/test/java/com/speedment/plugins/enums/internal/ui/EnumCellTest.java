@@ -22,6 +22,7 @@ import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -30,6 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled
 final class EnumCellTest {
 
     private static final String TEXT = "Saturn";

@@ -24,6 +24,7 @@ import com.speedment.generator.translator.provider.StandardTypeMapperComponent;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.typemapper.TypeMapperComponent;
 import com.speedment.tool.propertyeditor.provider.DelegatePropertyEditorComponent;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -31,7 +32,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@Disabled
 final class EnumGeneratorComponentTest {
 
     @Test

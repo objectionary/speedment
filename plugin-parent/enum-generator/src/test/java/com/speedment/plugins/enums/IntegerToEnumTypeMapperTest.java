@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Type;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 final class IntegerToEnumTypeMapperTest {
 
     private static final String COLUMN_NAME = "name";

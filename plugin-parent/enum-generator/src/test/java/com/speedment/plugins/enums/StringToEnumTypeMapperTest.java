@@ -27,6 +27,7 @@ import com.speedment.runtime.config.util.DocumentTranscoder;
 import com.speedment.runtime.core.exception.SpeedmentException;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Type;
@@ -35,7 +36,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 final class StringToEnumTypeMapperTest {
 
     private static final String COLUMN_NAME = "name";

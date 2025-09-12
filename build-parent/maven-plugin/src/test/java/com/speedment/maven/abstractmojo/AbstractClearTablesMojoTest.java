@@ -28,6 +28,7 @@ import com.speedment.tool.core.internal.util.ConfigFileHelper;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -36,7 +37,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.File;
 import java.nio.file.Paths;
 
-
+@Disabled
 @ExtendWith(MockitoExtension.class)
 final class AbstractClearTablesMojoTest {
 

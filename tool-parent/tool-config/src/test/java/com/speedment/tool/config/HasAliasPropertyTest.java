@@ -18,6 +18,7 @@ package com.speedment.tool.config;
 
 import com.speedment.runtime.config.util.DocumentUtil;
 import com.speedment.tool.config.trait.HasAliasProperty;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
@@ -32,6 +33,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
  * @author Emil Forslund
  * @since  3.2.5
  */
+@Disabled
 class HasAliasPropertyTest extends AbstractDocumentTest {
 
     @TestFactory

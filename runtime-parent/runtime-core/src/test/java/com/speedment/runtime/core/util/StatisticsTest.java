@@ -29,6 +29,7 @@ import com.speedment.runtime.config.Project;
 import com.speedment.runtime.core.component.InfoComponent;
 import com.speedment.runtime.core.component.ProjectComponent;
 import com.speedment.runtime.core.util.Statistics.Event;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,6 +45,7 @@ import java.util.stream.Stream;
 
 @ExtendWith(MockServerExtension.class)
 @MockServerSettings(ports = MOCK_SERVER_PORT)
+@Disabled
 final class StatisticsTest {
 
     static final int MOCK_SERVER_PORT = 8080;

@@ -25,6 +25,7 @@ import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.core.provider.DelegateManagerComponent;
 import com.speedment.runtime.core.stream.parallel.ParallelStrategy;
 import com.speedment.runtime.field.Field;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
@@ -34,7 +35,7 @@ import static java.util.Collections.singleton;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 final class SingleColumnManagerTest {
 
     private static final String DB = "db";

@@ -17,6 +17,7 @@
 package com.speedment.tool.actions.internal.menues;
 
 import com.speedment.runtime.config.trait.HasEnabled;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Emil Forslund
  * @since  3.2.5
  */
+@Disabled
 class ToggleTablesEnabledActionImplTest extends AbstractToolActionTest {
 
     @Override

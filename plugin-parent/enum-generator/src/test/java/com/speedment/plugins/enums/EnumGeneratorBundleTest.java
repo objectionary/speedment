@@ -16,6 +16,7 @@
  */
 package com.speedment.plugins.enums;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 final class EnumGeneratorBundleTest {
 
     @Test

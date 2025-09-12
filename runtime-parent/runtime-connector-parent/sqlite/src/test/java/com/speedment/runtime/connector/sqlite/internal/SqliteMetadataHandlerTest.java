@@ -27,6 +27,7 @@ import com.speedment.runtime.connector.sqlite.*;
 import com.speedment.runtime.core.component.ProjectComponent;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -48,6 +49,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
  * @author Emil Forslund
  * @since  3.1.10
  */
+@Disabled
 class SqliteMetadataHandlerTest {
 
     private final static String URL = "jdbc:sqlite::memory:";

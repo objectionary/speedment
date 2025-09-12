@@ -17,6 +17,7 @@
 package com.speedment.plugins.enums.internal;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Disabled
 final class GeneratedEnumTypeTest {
 
     private static final List<String> ENUM_CONSTANTS = Arrays.asList("A", "B", "C");

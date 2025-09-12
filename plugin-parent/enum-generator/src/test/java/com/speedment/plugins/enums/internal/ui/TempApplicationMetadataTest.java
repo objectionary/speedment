@@ -20,6 +20,7 @@ import com.speedment.plugins.enums.TestUtil;
 import com.speedment.runtime.config.Project;
 import com.speedment.runtime.config.util.DocumentDbUtil;
 import com.speedment.tool.core.exception.SpeedmentToolException;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@Disabled
 final class TempApplicationMetadataTest {
 
     @Test

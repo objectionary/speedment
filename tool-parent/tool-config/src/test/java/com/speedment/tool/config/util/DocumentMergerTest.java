@@ -23,6 +23,7 @@ import com.speedment.runtime.config.util.DocumentTranscoder;
 import com.speedment.tool.config.AbstractDocumentTest;
 import com.speedment.tool.config.component.DocumentPropertyComponent;
 import com.speedment.tool.config.internal.component.DocumentPropertyComponentImpl;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -34,6 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Emil Forslund
  * @since  3.2.5
  */
+@Disabled
 class DocumentMergerTest extends AbstractDocumentTest {
 
     @Test

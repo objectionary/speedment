@@ -21,7 +21,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
 import java.lang.reflect.Field;
+import org.junit.jupiter.api.Disabled;
 
+@Disabled
 public class AbstractClearTablesMojoTestImpl extends AbstractClearTablesMojo {
 	@Override
 	protected String launchMessage() {
