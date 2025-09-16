@@ -283,7 +283,6 @@
           <configuration>
             <timeout>400</timeout>
             <threads>0</threads>
-            <skipPhino>true</skipPhino>
             <jeoVersion>0.14.5</jeoVersion>
             <grepIn>(66-69-6C-74-65-72|6D-61-70)</grepIn>
             <rules>none</rules>
