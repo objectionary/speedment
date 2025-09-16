@@ -261,7 +261,6 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>3.9.1</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${maven-dependency-plugin-version}</version>
