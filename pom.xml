@@ -285,7 +285,7 @@
             <threads>0</threads>
             <jeoVersion>0.14.7</jeoVersion>
             <grepIn>(66-69-6C-74-65-72|6D-61-70)</grepIn>
-            <rules>none</rules>
+            <rules>streams/*</rules>
           </configuration>
         </plugin>
 
