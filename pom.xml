@@ -283,7 +283,7 @@
           <configuration>
             <timeout>400</timeout>
             <threads>0</threads>
-            <jeoVersion>0.14.5</jeoVersion>
+            <jeoVersion>0.14.7</jeoVersion>
             <grepIn>AutoConstructor</grepIn>
             <rules>streams/*</rules>
           </configuration>
