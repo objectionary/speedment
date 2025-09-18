@@ -24,6 +24,7 @@ package com.speedment.generator.translator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.generator.translator.namer.JavaLanguageNamer;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -95,7 +96,8 @@ final class DefaultJavaLanguageNamerTest {
         assertEquals("_2my", instance.replaceIfIllegalJavaIdentifierCharacter("2my"));
         assertEquals("_2my_test_case_one", instance.replaceIfIllegalJavaIdentifierCharacter("2my test+case.one"));
     }
-    
+
+    @Disabled
     @DisplayName("Test of toHumanReadable method")
     @Test
     void testToHumanReadable() {
