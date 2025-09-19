@@ -97,7 +97,6 @@ final class DefaultJavaLanguageNamerTest {
         assertEquals("_2my_test_case_one", instance.replaceIfIllegalJavaIdentifierCharacter("2my test+case.one"));
     }
 
-    @Disabled
     @DisplayName("Test of toHumanReadable method")
     @Test
     void testToHumanReadable() {
