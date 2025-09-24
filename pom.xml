@@ -281,6 +281,7 @@
           <artifactId>hone-maven-plugin</artifactId>
           <version>0.17.0</version>
           <configuration>
+            <skip>true</skip>
             <timeout>600</timeout>
             <threads>0</threads>
             <jeoVersion>0.14.8</jeoVersion>
