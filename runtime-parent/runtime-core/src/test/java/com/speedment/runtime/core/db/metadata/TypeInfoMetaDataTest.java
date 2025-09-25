@@ -21,14 +21,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 final class TypeInfoMetaDataTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void javaSqlTypeName() throws SQLException {
         final TypeInfoMetaData typeInfoMetaData = TypeInfoMetaData.of(mockResultSet());
 

@@ -21,11 +21,11 @@ import static com.speedment.runtime.compute.expression.ExpressionType.BYTE_NULLA
 import static com.speedment.runtime.compute.expression.ExpressionType.SHORT_NULLABLE;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 class ExpressionTypeTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNullable() {
         assertFalse(BYTE.isNullable());
         assertFalse(SHORT.isNullable());

@@ -24,7 +24,7 @@ import com.speedment.runtime.core.exception.SpeedmentException;
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.test_support.MockStringManager;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ManagerComponentImplTest {
 
@@ -35,12 +35,12 @@ final class ManagerComponentImplTest {
         instance = new ManagerComponentImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
         assertThrows(NullPointerException.class, () -> instance.put(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void managerOf() {
         assertThrows(NullPointerException.class, () -> instance.managerOf(null));
         assertThrows(SpeedmentException.class, () -> instance.managerOf(Integer.class));
@@ -51,7 +51,7 @@ final class ManagerComponentImplTest {
         assertDoesNotThrow(() -> instance.managerOf(manager.getEntityClass()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stream() {
         final Manager<String> manager = new MockStringManager();
         instance.put(manager);

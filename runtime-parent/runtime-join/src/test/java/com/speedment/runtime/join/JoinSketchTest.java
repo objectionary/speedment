@@ -40,7 +40,7 @@ import com.speedment.runtime.join.internal.component.join.JoinComponentImpl;
 import com.speedment.runtime.join.internal.component.join.test_support.MockEmptyJoinStreamSupplierComponent;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  *
@@ -79,7 +79,7 @@ final class JoinSketchTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void simpleProblemTest() {
         assertDoesNotThrow(() ->
             jc.from(PictureManager.IDENTIFIER)

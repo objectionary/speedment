@@ -19,7 +19,7 @@ package com.speedment.common.codegen.provider;
 import com.speedment.common.codegen.Transform;
 import com.speedment.common.codegen.internal.DefaultDependencyManager;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.condition.DisabledOnJre;
 
 import java.util.Map;
@@ -40,12 +40,12 @@ final class StandardTransformFactoryTest {
         instance = new StandardTransformFactory(NAME);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, instance.getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void install() {
         final Transform<Integer, String> transform = (g, i) -> Optional.of(Integer.toString(i));
         instance.install(Integer.class, String.class, () -> transform);
@@ -54,7 +54,7 @@ final class StandardTransformFactoryTest {
         assertEquals("1", result.orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void allFrom() {
         final Transform<Integer, String> transform = (g, i) -> Optional.of(Integer.toString(i));
         instance.install(Integer.class, String.class, () -> transform);

@@ -19,7 +19,7 @@ package com.speedment.runtime.compute.internal;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -28,7 +28,7 @@ final class ToEnumImplTest {
     private final ToEnumImpl<String, TestEnum> instance =
             new ToEnumImpl<>(TestEnum.class, TestEnum::valueOf);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumClass() {
         assertEquals(TestEnum.class, instance.enumClass());
     }
@@ -57,7 +57,7 @@ final class ToEnumImplTest {
         assertNotEquals(0, instance.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         Pair<String, String> pair1 = new Pair<>("FIRST", "FIRST");
         Pair<String, String> pair2 = new Pair<>("FIRST", "SECOND");

@@ -40,7 +40,7 @@ import static com.speedment.runtime.join.stage.JoinOperator.EQUAL;
 import com.speedment.runtime.join.stage.JoinType;
 import com.speedment.runtime.join.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -75,7 +75,7 @@ final class JoinBuilderTest {
         bldr = new JoinBuilder1Impl<>(ss, E0Manager.IDENTIFIER);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIllegalField() {
         try {
             bldr.leftJoinOn(E1.ID1).equal(EX.IDX)
@@ -89,7 +89,7 @@ final class JoinBuilderTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNullBuildArgument() {
         try {
             bldr.leftJoinOn(E1.ID1).equal(E0.ID0)
@@ -103,7 +103,7 @@ final class JoinBuilderTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCrossJoin() {
         bldr.crossJoin(E1Manager.IDENTIFIER)
             .crossJoin(E2Manager.IDENTIFIER)
@@ -134,7 +134,7 @@ final class JoinBuilderTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLeftJoin() {
         bldr.leftJoinOn(E1.ID1).equal(E0.ID0)
             .leftJoinOn(E2.ID2).equal(E0.ID0)
@@ -195,7 +195,7 @@ final class JoinBuilderTest {
 
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testJoins() {
 //        bldr.leftJoinOn(E1.ID1).equal(E0.ID0)
 //            .leftJoinOn(E2.ID2).between(E0.ID0, E0.ID0, Inclusion.START_INCLUSIVE_END_INCLUSIVE)

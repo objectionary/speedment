@@ -16,25 +16,25 @@
  */
 package com.speedment.common.injector.internal;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class StandardInjectorProxyTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isApplicable() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newInstance() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void invoke() {
     }
 }

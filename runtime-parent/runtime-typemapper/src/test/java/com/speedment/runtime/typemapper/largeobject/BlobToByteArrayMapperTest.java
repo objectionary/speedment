@@ -17,7 +17,7 @@
 package com.speedment.runtime.typemapper.largeobject;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.sql.Blob;
 import java.util.Random;
@@ -38,12 +38,12 @@ public class BlobToByteArrayMapperTest {
         random = new Random(0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaType() {
         assertEquals(byte[].class,mapper.getJavaType(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void dbTypeToJavaType() {
         byte[] array= new byte[10];
         IntStream.range(0,array.length).forEach(index -> array[index] = nextByte());
@@ -52,7 +52,7 @@ public class BlobToByteArrayMapperTest {
         assertArrayEquals(array,actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void javaTypeToDbType() {
         byte[] array= new byte[10];
         Blob blob = new StandardBlob(array);

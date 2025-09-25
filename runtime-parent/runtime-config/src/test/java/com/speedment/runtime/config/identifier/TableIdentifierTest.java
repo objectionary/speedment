@@ -25,33 +25,33 @@ package com.speedment.runtime.config.identifier;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class TableIdentifierTest {
 
     private final TableIdentifier<String> tableIdentifier = TableIdentifier.of("dbms", "schema", "table");
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asSchemaIdentifier() {
         assertNotNull(tableIdentifier.asSchemaIdentifier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asColumnIdentifier() {
         assertNotNull(tableIdentifier.asColumnIdentifier("column"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDbmsId() {
         assertEquals("dbms", tableIdentifier.getDbmsId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaId() {
         assertEquals("schema", tableIdentifier.getSchemaId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTableId() {
         assertEquals("table", tableIdentifier.getTableId());
     }

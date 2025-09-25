@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.util;
 
 import com.speedment.common.invariant.NullUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 final class ArrayUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_Object_Object() {
         Object o0 = "A";
         Object o1 = null;

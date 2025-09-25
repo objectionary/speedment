@@ -18,131 +18,131 @@ package com.speedment.common.codegenxml;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ElementsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void rows() {
         assertNotNull(Elements.rows("string"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void a() {
         assertNotNull(Elements.a());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void body() {
         assertNotNull(Elements.body());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void br() {
         assertNotNull(Elements.br());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void div() {
         assertNotNull(Elements.div());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void form() {
         assertNotNull(Elements.form());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void input() {
         assertNotNull(Elements.input());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void html() {
         assertNotNull(Elements.html());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void head() {
         assertNotNull(Elements.head());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void h1() {
         assertNotNull(Elements.h1());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void h2() {
         assertNotNull(Elements.h2());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void h3() {
         assertNotNull(Elements.h3());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void h4() {
         assertNotNull(Elements.h4());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void h5() {
         assertNotNull(Elements.h5());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void img() {
         assertNotNull(Elements.img());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void meta() {
         assertNotNull(Elements.meta());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void p() {
         assertNotNull(Elements.p());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void span() {
         assertNotNull(Elements.span());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void table() {
         assertNotNull(Elements.table());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tbody() {
         assertNotNull(Elements.tbody());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void td() {
         assertNotNull(Elements.td());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tfoot() {
         assertNotNull(Elements.tfoot());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void title() {
         assertNotNull(Elements.title());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void th() {
         assertNotNull(Elements.th());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tr() {
         assertNotNull(Elements.tr());
     }

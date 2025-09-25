@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -39,47 +39,47 @@ final class FileImplTest extends AbstractTest<File> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setName() {
         instance().setName("Z");
         assertNotEquals(NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         final Javadoc javadoc = Javadoc.of("Z");
         instance().set(javadoc);
         assertEquals(javadoc, instance().getJavadoc().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSet() {
         final LicenseTerm licenseTerm = LicenseTerm.of("Z");
         instance().set(licenseTerm);
         assertEquals(licenseTerm, instance().getLicenseTerm().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertFalse(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLicenseTerm() {
         assertFalse(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getClasses() {
         assertTrue(instance().getClasses().isEmpty());
     }

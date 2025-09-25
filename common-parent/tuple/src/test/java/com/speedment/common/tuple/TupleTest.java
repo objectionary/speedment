@@ -17,12 +17,12 @@
 package com.speedment.common.tuple;
 
 import com.speedment.common.tuple.getter.TupleGetter;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class TupleTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple1() {
         final Tuple1<Integer> tuple = Tuples.of(0);
         tupleTest(tuple);
@@ -36,7 +36,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple2() {
         final Tuple2<Integer, Integer> tuple = Tuples.of(0, 1);
         tupleTest(tuple);
@@ -54,7 +54,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple3() {
         final Tuple3<Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2);
         tupleTest(tuple);
@@ -76,7 +76,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple4() {
         final Tuple4<Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3);
         tupleTest(tuple);
@@ -102,7 +102,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple5() {
         final Tuple5<Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4);
         tupleTest(tuple);
@@ -132,7 +132,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple6() {
         final Tuple6<Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5);
         tupleTest(tuple);
@@ -166,7 +166,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple7() {
         final Tuple7<Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6);
         tupleTest(tuple);
@@ -204,7 +204,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple8() {
         final Tuple8<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7);
         tupleTest(tuple);
@@ -246,7 +246,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple9() {
         final Tuple9<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
         tupleTest(tuple);
@@ -292,7 +292,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple10() {
         final Tuple10<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         tupleTest(tuple);
@@ -342,7 +342,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple11() {
         final Tuple11<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         tupleTest(tuple);
@@ -396,7 +396,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple12() {
         final Tuple12<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
         tupleTest(tuple);
@@ -454,7 +454,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple13() {
         final Tuple13<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         tupleTest(tuple);
@@ -516,7 +516,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple14() {
         final Tuple14<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
         tupleTest(tuple);
@@ -582,7 +582,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple15() {
         final Tuple15<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
         tupleTest(tuple);
@@ -652,7 +652,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple16() {
         final Tuple16<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
         tupleTest(tuple);
@@ -726,7 +726,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple17() {
         final Tuple17<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
         tupleTest(tuple);
@@ -804,7 +804,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple18() {
         final Tuple18<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
         tupleTest(tuple);
@@ -886,7 +886,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple19() {
         final Tuple19<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
         tupleTest(tuple);
@@ -972,7 +972,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple20() {
         final Tuple20<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
         tupleTest(tuple);
@@ -1062,7 +1062,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple21() {
         final Tuple21<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
         tupleTest(tuple);
@@ -1156,7 +1156,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple22() {
         final Tuple22<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21);
         tupleTest(tuple);
@@ -1254,7 +1254,7 @@ final class TupleTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple23() {
         final Tuple23<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
         tupleTest(tuple);

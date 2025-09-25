@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,33 +55,33 @@ final class EnumCellTest {
         converter = instance.getConverter();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String actual = converter.toString(TEXT);
         assertEquals(TEXT, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToStringNull() {
         assertThrows(NullPointerException.class, () -> converter.fromString(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFromStringDup() {
         assertNull(converter.fromString("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFromStringIllegal() {
         assertNull(converter.fromString("7%^45$"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFromStringSpace() {
         assertEquals("A B", converter.fromString("A B"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFromString() {
         final String actual = converter.fromString("");
         assertEquals(null, actual); // label is null before startEdit()

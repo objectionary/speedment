@@ -37,7 +37,7 @@ import com.speedment.runtime.core.stream.parallel.ParallelStrategy;
 import com.speedment.runtime.field.Field;
 import com.speedment.runtime.test_support.MockDbmsType;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -132,12 +132,12 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         assertArrayEquals(ELEMENTS, stream.toArray(String[]::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPredicateGreaterThanB() {
         assertEquals(
             Arrays.asList("c", "d", "e"),
@@ -145,7 +145,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPredicateLessThanC() {
         assertEquals(
             Arrays.asList("a", "b", "a"),
@@ -153,7 +153,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFilter() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -179,7 +179,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTakeWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -205,7 +205,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDropWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -231,12 +231,12 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoubleStream() {
         assertArrayEquals(DOUBLE_ELEMENTS, stream.mapToDouble(TO_DOUBLE_FUNCTION).toArray(), EPSILON);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoublePredicateGreaterThanB() {
         assertArrayEquals(
             new double[]{3.0, 4.0, 5.0},
@@ -245,7 +245,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoublePredicateLessThanC() {
         assertArrayEquals(
             new double[]{1.0, 2.0, 1.0},
@@ -254,7 +254,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoubleFilter() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -281,7 +281,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoubleTakeWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -307,7 +307,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoubleDropWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -334,12 +334,12 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
      void testIntStream() {
         assertArrayEquals(INT_ELEMENTS, stream.mapToInt(TO_INT_FUNCTION).toArray());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIntPredicateGreaterThanB() {
         assertArrayEquals(
             new int[]{3, 4, 5},
@@ -347,7 +347,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIntPredicateLessThanC() {
         assertArrayEquals(
             new int[]{1, 2, 1},
@@ -355,7 +355,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIntFilter() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -382,7 +382,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIntTakeWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -408,7 +408,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIntDropWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -435,12 +435,12 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongStream() {
         assertArrayEquals(LONG_ELEMENTS, stream.mapToLong(TO_LONG_FUNCTION).toArray());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongPredicateGreaterThanB() {
         assertArrayEquals(
             new long[]{3, 4, 5},
@@ -448,7 +448,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongPredicateLessThanC() {
         assertArrayEquals(
             new long[]{1, 2, 1},
@@ -456,7 +456,7 @@ final class Issue403TakeWhileDropWhileTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongFilter() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -483,7 +483,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongTakeWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();
@@ -509,7 +509,7 @@ final class Issue403TakeWhileDropWhileTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLongDropWhile() {
         try {
             final AtomicInteger closeCounter = new AtomicInteger();

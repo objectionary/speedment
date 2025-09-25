@@ -27,11 +27,11 @@ import com.speedment.runtime.compute.ToInt;
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.expression.UnaryExpression.Operator;
 import com.speedment.runtime.compute.internal.expression.NegateUtil.AbstractNegate;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class NegateUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negateBoolean() {
         final ToBoolean<Boolean> toBoolean = NegateUtil.negateBoolean(b -> b);
 
@@ -39,7 +39,7 @@ final class NegateUtilTest {
         assertTrue(toBoolean.applyAsBoolean(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractNegate() {
         final DummyNegate instance = new DummyNegate(i -> i);
 

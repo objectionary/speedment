@@ -34,23 +34,23 @@ import com.speedment.runtime.compute.internal.expression.MinusUtil.AbstractMinus
 import com.speedment.runtime.compute.internal.expression.MinusUtil.AbstractMinusFloat;
 import com.speedment.runtime.compute.internal.expression.MinusUtil.AbstractMinusInt;
 import com.speedment.runtime.compute.internal.expression.MinusUtil.AbstractMinusLong;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class MinusUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortMinusInt() {
         final ToInt<Short> instance = MinusUtil.shortMinusInt(s -> s, 1);
         assertEquals(0, instance.applyAsInt((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortMinusShort() {
         final ToShort<Short> instance = MinusUtil.shortMinusShort(s -> s, s -> s);
         assertEquals(0, instance.applyAsShort((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatMinusFloat() {
         ToFloat<Float> instance = MinusUtil.floatMinusFloat(f -> f, f -> f);
         assertEquals(0, instance.applyAsFloat((float) 1));
@@ -59,7 +59,7 @@ final class MinusUtilTest {
         assertEquals(0, instance.applyAsFloat((float) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinus() {
         final DummyMinus instance = new DummyMinus(i -> i, i -> i);
 
@@ -91,7 +91,7 @@ final class MinusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinusByte() {
         final DummyMinusByte instance = new DummyMinusByte(i -> i, (byte) 1);
 
@@ -123,7 +123,7 @@ final class MinusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinusInt() {
         final DummyMinusInt instance = new DummyMinusInt(i -> i, 1);
 
@@ -155,7 +155,7 @@ final class MinusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinusLong() {
         final DummyMinusLong instance = new DummyMinusLong(i -> i, 1);
 
@@ -187,7 +187,7 @@ final class MinusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinusFloat() {
         final DummyMinusFloat instance = new DummyMinusFloat(i -> i, 1);
 
@@ -219,7 +219,7 @@ final class MinusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMinusDouble() {
         final DummyMinusDouble instance = new DummyMinusDouble(i -> i, 1);
 

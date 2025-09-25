@@ -19,7 +19,7 @@ package com.speedment.runtime.compute.internal;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -43,22 +43,22 @@ class JoiningExpressionImplTest {
             }
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressions() {
         assertEquals(2, instance.expressions().size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void prefix() {
         assertEquals(PREFIX, instance.prefix());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void suffix() {
         assertEquals(SUFFIX, instance.suffix());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void separator() {
         assertEquals(SEPARATOR, instance.separator());
     }

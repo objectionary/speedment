@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.config.mapper.string;
 
 import com.speedment.runtime.typemapper.string.YesNoStringToBooleanMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -37,7 +37,7 @@ public class YesNoStringToBooleanMapperTest {
         mapper = new YesNoStringToBooleanMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testStringYesMapping() {
         String string = "YES";
 
@@ -48,7 +48,7 @@ public class YesNoStringToBooleanMapperTest {
         assertTrue(string.equalsIgnoreCase(databaseType), "DatabaseType should have value 'yes'");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testStringNoMapping() {
         String string = "NO";
 

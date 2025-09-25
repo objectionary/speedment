@@ -22,7 +22,7 @@ import com.speedment.common.injector.State;
 import com.speedment.common.injector.annotation.Execute;
 import com.speedment.common.injector.annotation.ExecuteBefore;
 import com.speedment.common.injector.annotation.InjectKey;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -64,7 +64,7 @@ final class ReflectionUtilTest {
         public int baz3() {return baz;}
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void traverseFields() throws NoSuchFieldException {
         final List<Field> fields = ReflectionUtil.traverseFields(Bar.class)
                 .filter(f -> !f.getName().contains("jacocoData")) // Jaccoco intrumentation fields
@@ -72,7 +72,7 @@ final class ReflectionUtilTest {
         assertEquals(2, fields.size(), fields.toString());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void traverseMethods() {
         final Set<String> methodNames = Stream.of("foo", "bar").collect(toSet());
         final List<Method> methods = ReflectionUtil.traverseMethods(Bar.class)
@@ -81,7 +81,7 @@ final class ReflectionUtilTest {
         assertEquals(2, methods.size(), methods.toString());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void traverseAncestors() {
         final Set<Class<?>> expected = Stream.of(Object.class, Foo.class, Bar.class).collect(toSet());
         final Set<Class<?>> actual = ReflectionUtil.traverseAncestors(Bar.class)
@@ -89,34 +89,34 @@ final class ReflectionUtilTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void missingArgumentStrategy() throws NoSuchMethodException {
         final Method method = Baz.class.getMethod("baz");
         final MissingArgumentStrategy strategy = ReflectionUtil.missingArgumentStrategy(method);
         assertEquals(MissingArgumentStrategy.THROW_EXCEPTION, strategy);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void missingArgumentStrategyExecute() throws NoSuchMethodException {
         final Method method = Baz.class.getMethod("baz2");
         final MissingArgumentStrategy strategy = ReflectionUtil.missingArgumentStrategy(method);
         assertEquals(MissingArgumentStrategy.SKIP_INVOCATION, strategy);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void missingArgumentStrategyExecuteBefore() throws NoSuchMethodException {
         final Method method = Baz.class.getMethod("baz3");
         final MissingArgumentStrategy strategy = ReflectionUtil.missingArgumentStrategy(method);
         assertEquals(MissingArgumentStrategy.SKIP_INVOCATION, strategy);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryToCreate() throws InstantiationException {
         final Optional<Integer> actual = ReflectionUtil.tryToCreate(Integer.class, new Properties(), emptyList(), emptySet(), new MyInjectorProxy());
         assertFalse(actual.isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void errorMsg() {
         final String actual = ReflectionUtil.errorMsg(Baz.class, Arrays.asList(String.class, Long.class));
         assertTrue(actual.contains(Baz.class.getName()));
@@ -124,12 +124,12 @@ final class ReflectionUtilTest {
         assertTrue(actual.contains("Missing"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseChar() {
         assertEquals('A', ReflectionUtil.parse(Character.class, "A").orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseCharLarge() {
         assertThrows(IllegalArgumentException.class, () -> ReflectionUtil.parse(Character.class, "AB").orElseThrow(NoSuchElementException::new));
     }

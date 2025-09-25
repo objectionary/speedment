@@ -22,7 +22,7 @@ import com.speedment.runtime.field.comparator.FieldComparator;
 import com.speedment.runtime.field.comparator.NullOrder;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Comparator;
 import java.util.List;
@@ -51,7 +51,7 @@ final class CombinedComparatorImplTest {
         list   = Stream.generate(this::next).limit(ENTITIES).collect(toList());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp -> {
             final Comparator<Entity> mock = mockComparator(
@@ -79,7 +79,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void reversed() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp -> {
             final boolean reversed = comp.isReversed();
@@ -87,7 +87,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparing() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(
@@ -118,7 +118,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparing1() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(
@@ -141,7 +141,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparing2() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(
@@ -164,7 +164,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparingInt() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(
@@ -187,7 +187,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparingLong() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(
@@ -210,7 +210,7 @@ final class CombinedComparatorImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void thenComparingDouble() throws Exception {
         comparatorsAndReverses().forEachOrdered(comp1 -> {
             final Comparator<Entity> mock1 = mockComparator(

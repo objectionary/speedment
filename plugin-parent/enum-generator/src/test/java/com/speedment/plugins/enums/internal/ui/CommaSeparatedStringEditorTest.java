@@ -21,7 +21,7 @@ import com.speedment.tool.config.ColumnProperty;
 import com.speedment.tool.config.trait.HasEnumConstantsProperty;
 import javafx.beans.property.StringProperty;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -43,7 +43,7 @@ final class CommaSeparatedStringEditorTest {
     @Mock
     private StringProperty enumConstants;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void fieldsFor() throws InstantiationException {
         final Injector injector = Injector.builder().build();
 

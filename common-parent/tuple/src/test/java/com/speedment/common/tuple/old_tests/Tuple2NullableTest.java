@@ -24,7 +24,7 @@ package com.speedment.common.tuple.old_tests;
 import com.speedment.common.tuple.TuplesOfNullables;
 import com.speedment.common.tuple.nullable.Tuple2OfNullables;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -50,50 +50,50 @@ final class Tuple2NullableTest {
         instance = TuplesOfNullables.ofNullables(FIRST, SECOND);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet0() {
         assertEquals(FIRST, instance.get0().get().intValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet1() {
         assertEquals(SECOND, instance.get1().get().intValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet() {
         assertEquals(FIRST, instance.get(0).get());
         assertEquals(SECOND, instance.get(1).get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCasting() {
         Tuple2OfNullables<Integer, String> t2 = TuplesOfNullables.ofNullables(1, null);
         assertEquals(Optional.of(1), t2.get0());
         assertEquals(Optional.empty(), t2.get1());
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSet0() {
 //        System.out.println("set0");
 //        instance.set1(32);
 //        assertEquals(32, instance.get1().get().intValue());
 //    }
 //
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSet1() {
 //        System.out.println("set1");
 //        instance.set1(64);
 //        assertEquals(64, instance.get1().get().intValue());
 //    }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDefConstructor() {
         final Tuple2OfNullables<Integer, Integer> newInstance = TuplesOfNullables.ofNullables(1, 2);
         assertTrue(newInstance.get0().isPresent());
         assertTrue(newInstance.get1().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHash() {
         int hashCodeInstance = instance.hashCode();
         final Tuple2OfNullables<Integer, Integer> newInstance = TuplesOfNullables.ofNullables(FIRST, SECOND);
@@ -101,19 +101,19 @@ final class Tuple2NullableTest {
         assertEquals(hashCodeInstance, hashCodenewInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final Tuple2OfNullables<Integer, Integer> newInstance = TuplesOfNullables.ofNullables(FIRST, SECOND);
         assertEquals(instance, newInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final Tuple2OfNullables<Integer, Integer> newInstance = TuplesOfNullables.ofNullables(null, null);
         assertNotNull(newInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         final List<Object> content = instance.stream().collect(toList());
         final List<Optional<Integer>> expected = Arrays.asList(Optional.of(FIRST), Optional.of(SECOND));
@@ -125,7 +125,7 @@ final class Tuple2NullableTest {
         assertEquals(expected2, content2);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStreamOf() {
         final Tuple2OfNullables<Integer, Integer> newInstance = TuplesOfNullables.ofNullables(FIRST, null);
         List<Integer> content = newInstance.streamOf(Integer.class).collect(toList());
@@ -133,7 +133,7 @@ final class Tuple2NullableTest {
         assertEquals(expected, content);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStreamOf2() {
         final Tuple2OfNullables<Integer, String> newInstance = TuplesOfNullables.ofNullables(FIRST, "Tryggve");
         List<Integer> content = newInstance.streamOf(Integer.class).collect(toList());

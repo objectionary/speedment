@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.internal.util;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class SetUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void unmodifiableSet() {
         final String[] words = {"A", "B", "C"};
         final Set<String> set = SetUtil.unmodifiableSet(words);

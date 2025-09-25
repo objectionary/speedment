@@ -19,7 +19,7 @@ package com.speedment.generator.translator.internal.component;
 import com.speedment.common.injector.Injector;
 import com.speedment.common.injector.annotation.Inject;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,60 +34,60 @@ class CodeGenerationComponentImplTest {
         injectorEmpty = Injector.builder().build();
    }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setInjector() {
         instance.setInjector(injectorEmpty);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newClass() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newEnum() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newInterface() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEveryTable() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEverySchema() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEveryDbms() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void decorate() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void translators() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void translatorKeys() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findTranslator() {
     }
 }

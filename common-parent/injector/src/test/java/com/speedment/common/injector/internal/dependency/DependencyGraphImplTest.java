@@ -26,7 +26,7 @@ import com.speedment.common.injector.dependency.DependencyGraph;
 import com.speedment.common.injector.dependency.DependencyNode;
 import com.speedment.common.injector.exception.CyclicReferenceException;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -70,7 +70,7 @@ final class DependencyGraphImplTest {
         instance = new DependencyGraphImpl(c -> proxy);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         assertThrows(IllegalArgumentException.class, () -> instance.get(Foo.class));
         instance.getOrCreate(Foo.class);
@@ -78,13 +78,13 @@ final class DependencyGraphImplTest {
         assertEquals(Foo.class, dependencyNode.getRepresentedType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrCreate() {
         final DependencyNode dependencyNode = instance.getOrCreate(Foo.class);
         assertEquals(Foo.class, dependencyNode.getRepresentedType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getIfPresent() {
         assertFalse(instance.getIfPresent(Foo.class).isPresent());
         ;
@@ -93,7 +93,7 @@ final class DependencyGraphImplTest {
         assertEquals(Foo.class, optionalNode.orElseThrow(NoSuchElementException::new).getRepresentedType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void inject() {
         instance.getOrCreate(Foo.class);
         final DependencyGraph dependencyGraph = instance.inject();
@@ -101,7 +101,7 @@ final class DependencyGraphImplTest {
         assertEquals(2, dependencyNode.getExecutions().size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nodes() {
         instance.nodes().forEach(System.out::println);
         // Injector is always present
@@ -110,7 +110,7 @@ final class DependencyGraphImplTest {
         assertEquals(2, instance.nodes().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void methodName() throws NoSuchMethodException {
         final String name = "execute";
         final String methodName = DependencyGraphImpl.methodName(Foo.class.getDeclaredMethod(name));
@@ -119,7 +119,7 @@ final class DependencyGraphImplTest {
     }
 
 
- /*   @Test
+ /*   @com.yegor256.AggregateRepeatedTest(100)
     void cyclic() {
         instance.getOrCreate(Cyclic1.class);
         instance.getOrCreate(Cyclic2.class);

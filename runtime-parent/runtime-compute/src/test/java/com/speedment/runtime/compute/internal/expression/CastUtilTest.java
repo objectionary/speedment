@@ -28,13 +28,13 @@ import com.speedment.runtime.compute.ToLong;
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.expression.UnaryExpression.Operator;
 import com.speedment.runtime.compute.internal.expression.CastUtil.AbstractCast;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Objects;
 
 final class CastUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castBooleanToDouble() {
         final ToDouble<String> toDouble = CastUtil.castBooleanToDouble(Objects::nonNull);
 
@@ -43,7 +43,7 @@ final class CastUtilTest {
         assertEquals(0, toDouble.applyAsDouble(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castBooleanToInt() {
         final ToInt<String> toInt = CastUtil.castBooleanToInt(Objects::nonNull);
 
@@ -52,7 +52,7 @@ final class CastUtilTest {
         assertEquals(0, toInt.applyAsInt(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castBooleanToLong() {
         final ToLong<String> toLong = CastUtil.castBooleanToLong(Objects::nonNull);
 
@@ -61,7 +61,7 @@ final class CastUtilTest {
         assertEquals(0, toLong.applyAsLong(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castCharToDouble() {
         final ToDouble<String> toDouble = CastUtil.castCharToDouble(string -> string.toCharArray()[0]);
 
@@ -69,7 +69,7 @@ final class CastUtilTest {
         assertNotEquals(0, toDouble.applyAsDouble("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castCharToInt() {
         final ToInt<String> toInt = CastUtil.castCharToInt(string -> string.toCharArray()[0]);
 
@@ -77,7 +77,7 @@ final class CastUtilTest {
         assertNotEquals(0, toInt.applyAsInt("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castCharToLong() {
         final ToLong<String> toLong = CastUtil.castCharToLong(string -> string.toCharArray()[0]);
 
@@ -85,7 +85,7 @@ final class CastUtilTest {
         assertNotEquals(0, toLong.applyAsLong("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractCast() {
         DummyCast abstractCast = new DummyCast(String::length);
 

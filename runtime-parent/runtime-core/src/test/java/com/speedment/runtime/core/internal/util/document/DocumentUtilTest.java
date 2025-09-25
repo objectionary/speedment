@@ -21,7 +21,7 @@ import com.speedment.runtime.config.trait.HasId;
 import com.speedment.runtime.config.util.DocumentUtil;
 import com.speedment.runtime.core.util.TestUtil;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.*;
 
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 final class DocumentUtilTest extends AbstractDocumentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTraverseOver() {
 
         final List<Document> visited = DocumentUtil.traverseOver(schemaA).collect(toList());
@@ -73,7 +73,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAncestor() {
         assertEquals(Optional.empty(), DocumentUtil.ancestor(project, Project.class));
         stream().filter(d -> !(d instanceof Project)).forEach(d -> {
@@ -105,7 +105,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testRelativeName3Arg() {
         {
@@ -120,7 +120,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testRelativeName4Arg() {
         final String expected = "#Dbms A.#Schema A.#Table A.#Column A";
@@ -128,7 +128,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testRelativeName5Arg() {
         final String expected = "#Dbms A|#Schema A|#Table A|#Column A";
@@ -137,7 +137,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createInstance() {
         TestUtil.assertNonInstansiable(DocumentUtil.class);
     }

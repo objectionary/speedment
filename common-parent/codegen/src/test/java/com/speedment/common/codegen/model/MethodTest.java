@@ -16,7 +16,7 @@
  */
 package com.speedment.common.codegen.model;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -24,12 +24,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class MethodTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         assertNotNull(Method.of("x", int.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void override() {
         final Method method = Method.of("x", int.class);
         method.override();

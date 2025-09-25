@@ -16,7 +16,7 @@
  */
 package com.speedment.common.tuple.internal.nonnullable;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.stream.IntStream;
 
@@ -28,7 +28,7 @@ final class Tuple0ImplTest extends AbstractTupleImplTest<Tuple0Impl> {
         super(() -> (Tuple0Impl) Tuple0Impl.EMPTY_TUPLE, 0);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         IntStream.range(0, 0).forEach(i -> assertEquals(i, instance.get(i)));
         assertThrows(IndexOutOfBoundsException.class, () -> instance.get(-1));

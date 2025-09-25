@@ -24,7 +24,7 @@ import com.speedment.tool.config.AbstractDocumentTest;
 import com.speedment.tool.config.component.DocumentPropertyComponent;
 import com.speedment.tool.config.internal.component.DocumentPropertyComponentImpl;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Disabled
 class DocumentMergerTest extends AbstractDocumentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMergeSimple() {
 
         Project newProject = createFromJson(
@@ -77,7 +77,7 @@ class DocumentMergerTest extends AbstractDocumentTest {
         assertEquals("double", table1Column3.getDatabaseType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMergeNewColumn() {
 
         Project newProject = createFromJson(

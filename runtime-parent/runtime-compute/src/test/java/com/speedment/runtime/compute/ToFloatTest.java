@@ -25,7 +25,7 @@ import static com.speedment.runtime.compute.TestUtil.strings;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.expression.ExpressionType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  *
@@ -42,7 +42,7 @@ final class ToFloatTest extends AbstractToTest<ToFloat<String>> {
         return s -> (byte) s.length();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testApplyAsInt() {
         strings().forEach(s -> {
             final long actual = mapper.applyAsLong(s);
@@ -51,7 +51,7 @@ final class ToFloatTest extends AbstractToTest<ToFloat<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMapToDouble() {
         strings().forEach(s -> {
             final double expected = (double) mapper.applyAsLong(s)+ 1.0;
@@ -61,7 +61,7 @@ final class ToFloatTest extends AbstractToTest<ToFloat<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMap() {
         strings().forEach(s -> {
             final double expected = (double) mapper.applyAsLong(s) + 1.0;
@@ -71,7 +71,7 @@ final class ToFloatTest extends AbstractToTest<ToFloat<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompose() {
         strings().forEach(s -> {
             final ToFloatNullable<String> composed = instance.compose(str -> str + "A");
@@ -79,7 +79,7 @@ final class ToFloatTest extends AbstractToTest<ToFloat<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOf() {
         strings().forEach(s -> {
             final ToFloat<String> created = ToFloat.of(String::length);

@@ -20,7 +20,7 @@ import com.speedment.plugins.json.*;
 import com.speedment.plugins.json.datamodel.*;
 import com.speedment.runtime.config.Project;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 import java.util.Set;
@@ -74,120 +74,120 @@ final class JsonEncoderImplTest {
         instance = new JsonEncoderImpl<>(project, userManager);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getManager() {
         assertSame(userManager, instance.getManager());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
         instance.put(User.NAME);
         assertContainsWhenRendered(NAME);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putByte() {
         instance.putByte(User.BYTE_FIELD);
         assertContainsWhenRendered(BYTE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putShort() {
         instance.putShort(User.SHORT_FIELD);
         assertContainsWhenRendered(SHORT);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putInt() {
         instance.putInt(User.ID);
         assertContainsWhenRendered(ID);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putLong() {
         instance.putLong(User.LONG_FIELD);
         assertContainsWhenRendered(LONG);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putFloat() {
         instance.putFloat(User.FLOAT_FIELD);
         assertContainsWhenRendered(FLOAT);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putDouble() {
         instance.putDouble(User.DOUBLE_FIELD);
         assertContainsWhenRendered(DOUBLE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putChar() {
         instance.putChar(User.CHAR_FIELD);
         assertContainsWhenRendered(CHAR);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putBoolean() {
         instance.putBoolean(User.BOOLEAN_FIELD);
         assertContainsWhenRendered(BOOLEAN);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPut() {
         instance.put("A", User.NAME.getter());
         assertContainsWhenRendered(NAME, "A");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutByte() {
         instance.putByte("B", User.BYTE_FIELD.getter());
         assertContainsWhenRendered(BYTE, "B");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutShort() {
         instance.putShort("S", User.SHORT_FIELD.getter());
         assertContainsWhenRendered(SHORT, "S");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutInt() {
         instance.putInt("I", User.ID.getter());
         assertContainsWhenRendered(ID, "I");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutLong() {
         instance.putLong("L", User.LONG_FIELD.getter());
         assertContainsWhenRendered(LONG, "L");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutFloat() {
         instance.putFloat("F", User.FLOAT_FIELD.getter());
         assertContainsWhenRendered(FLOAT, "F");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutDouble() {
         instance.putDouble("D", User.DOUBLE_FIELD.getter());
         assertContainsWhenRendered(DOUBLE, "D");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutChar() {
         instance.putChar("C", User.CHAR_FIELD.getter());
         assertContainsWhenRendered(CHAR, "C");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutBoolean() {
         instance.putBoolean("B", User.BOOLEAN_FIELD.getter());
         assertContainsWhenRendered(BOOLEAN, "B");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPut1() {
         final JsonEncoder<Language> other = new JsonEncoderImpl<>(project, languageManager);
         other.put(Language.NAME);
@@ -195,7 +195,7 @@ final class JsonEncoderImplTest {
         assertContainsWhenRendered( "Swedish");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPut2() {
         final String label = "lang";
         final JsonEncoder<Language> other = new JsonEncoderImpl<>(project, languageManager);
@@ -205,7 +205,7 @@ final class JsonEncoderImplTest {
         assertContainsWhenRendered("Swedish");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void putStreamer() {
         final String label = "lang";
         final JsonEncoder<Language> other = new JsonEncoderImpl<>(project, languageManager);
@@ -215,7 +215,7 @@ final class JsonEncoderImplTest {
         assertContainsWhenRendered(NAME, LANGUAGE_NAME, label);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPutStreamer() {
         final String label = "lang";
         final JsonEncoder<Language> other = new JsonEncoderImpl<>(project, languageManager);
@@ -225,14 +225,14 @@ final class JsonEncoderImplTest {
         assertContainsWhenRendered(NAME, LANGUAGE_NAME, label);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
         instance.put(User.NAME);
         instance.remove(User.NAME);
         assertContainsWhenRendered(); // Nothing
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRemove() {
         final String label = "A";
         instance.put(label, User.NAME.getter());
@@ -240,17 +240,17 @@ final class JsonEncoderImplTest {
         assertContainsWhenRendered(); // Nothing
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         instance.apply(null);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyNull() {
         assertEquals("null", instance.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyWithOptionalEmptyProperty() {
         instance.put("optional", e -> Optional.empty());
         final String actual = instance.apply(user);
@@ -258,7 +258,7 @@ final class JsonEncoderImplTest {
         assertTrue(actual.contains("null"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyWithOptionalProperty() {
         final String val = "A";
         instance.put("optional", e -> Optional.of(val));
@@ -267,7 +267,7 @@ final class JsonEncoderImplTest {
         assertTrue(actual.contains(val));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyWithNullProperty() {
         final String val = "A";
         instance.put("optional", e -> null);
@@ -276,7 +276,7 @@ final class JsonEncoderImplTest {
         assertTrue(actual.contains("null"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void collector() {
         instance.putInt(User.ID);
         instance.put(User.NAME);

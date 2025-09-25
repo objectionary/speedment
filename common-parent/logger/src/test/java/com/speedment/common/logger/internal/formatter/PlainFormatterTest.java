@@ -18,7 +18,7 @@ package com.speedment.common.logger.internal.formatter;
 
 import com.speedment.common.logger.Level;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.time.Instant;
 
@@ -37,7 +37,7 @@ final class PlainFormatterTest {
         instance = new PlainFormatter();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void Java9TestInstantNowToString() {
         final String s = Instant.now().toString();
         // Java 9 test
@@ -45,7 +45,7 @@ final class PlainFormatterTest {
         assertNotNull(s);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testApply() {
         final String actual = instance.apply(Level.DEBUG, "LOGGER_NAME", "Some message");
         assertTrue(actual.contains("DEBUG"));
@@ -57,14 +57,14 @@ final class PlainFormatterTest {
         assertTrue(actual.contains("Z"));
     }
 
-    /*@Test
+    /*@com.yegor256.AggregateRepeatedTest(100)
     void testHighResolutionTime() {
         final String actual = instance.formatInstance("2017-03-30T02:02:42.988290Z");
         System.out.println("Hi resolution:" + actual);
         assertNotNull(actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatInstanceCorrectLength() {
         final String expected = "2017-03-29T21:55:39.169Z";
         final String actual = instance.formatInstance("2017-03-29T21:55:39.169Z");
@@ -72,7 +72,7 @@ final class PlainFormatterTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatInstance1Missing() {
         final String expected = "2017-03-29T21:55:39.160Z";
         final String actual = instance.formatInstance("2017-03-29T21:55:39.16Z");
@@ -80,7 +80,7 @@ final class PlainFormatterTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatInstance2Missing() {
         final String expected = "2017-03-29T21:55:39.100Z";
         final String actual = instance.formatInstance("2017-03-29T21:55:39.1Z");
@@ -88,7 +88,7 @@ final class PlainFormatterTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatInstance3Missing() {
         final String expected = "2017-03-29T21:55:39.000Z";
         final String actual = instance.formatInstance("2017-03-29T21:55:39.Z");
@@ -96,7 +96,7 @@ final class PlainFormatterTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatInstance4Missing() {
         final String expected = "2017-03-29T21:55:39.000Z";
         final String actual = instance.formatInstance("2017-03-29T21:55:39Z");

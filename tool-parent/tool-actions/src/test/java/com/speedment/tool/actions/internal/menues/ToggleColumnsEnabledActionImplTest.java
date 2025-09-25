@@ -19,7 +19,7 @@ package com.speedment.tool.actions.internal.menues;
 import com.speedment.runtime.config.trait.HasEnabled;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.tool.actions.internal.menues.ToggleColumnsEnabledActionImpl.DISABLE_ALL_COLUMNS;
 import static com.speedment.tool.actions.internal.menues.ToggleColumnsEnabledActionImpl.ENABLE_ALL_COLUMNS;
@@ -37,14 +37,14 @@ class ToggleColumnsEnabledActionImplTest extends AbstractToolActionTest {
         return new ToggleColumnsEnabledActionImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Table context menu not empty")
     void testTableContextMenuNotEmpty() {
         assertAnyMenuExistsFor(table1);
         assertAnyMenuExistsFor(table2);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("'Toggle Columns' shows up in context menu")
     void testMenuItemShowsUp() {
         assertMenuExistsFor(table1, ENABLE_ALL_COLUMNS);
@@ -53,7 +53,7 @@ class ToggleColumnsEnabledActionImplTest extends AbstractToolActionTest {
         assertMenuExistsFor(table2, DISABLE_ALL_COLUMNS);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Test clicking on 'Toggle Columns'")
     void testToggle() {
         installContextMenu();

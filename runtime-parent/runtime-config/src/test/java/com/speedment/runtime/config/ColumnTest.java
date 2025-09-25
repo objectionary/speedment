@@ -21,7 +21,7 @@ import static com.speedment.runtime.config.ColumnUtil.AUTO_INCREMENT;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ColumnTest extends BaseConfigTest<Column> {
 
@@ -30,7 +30,7 @@ final class ColumnTest extends BaseConfigTest<Column> {
         return Column.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isAutoIncrement() {
         final Column acColumn = Column.create(null, map(entry(AUTO_INCREMENT, true)));
         assertTrue(acColumn.isAutoIncrement());

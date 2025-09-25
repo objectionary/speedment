@@ -16,7 +16,7 @@
  */
 package com.speedment.common.tuple.internal.nullable;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
@@ -29,7 +29,7 @@ final class Tuple0OfNullablesImplTest extends AbstractTupleImplTest<Tuple0OfNull
         super(() -> (Tuple0OfNullablesImpl) Tuple0OfNullablesImpl.EMPTY_TUPLE, 0);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         IntStream.range(0, 0).forEach(i -> assertEquals(i, instance.get(i).orElseThrow(NoSuchElementException::new)));
         assertThrows(IndexOutOfBoundsException.class, () -> instance.get(-1));

@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,17 +26,17 @@ final class ShortUnaryOperatorTest {
     private static final ShortUnaryOperator TIMES_TWO = s -> (short) (s * (short) 2);
     private static final Short ZERO = (short) 0;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyAsShort() {
         assertEquals(1, PLUS_ONE.applyAsShort(ZERO));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertEquals(2, TIMES_TWO.compose(PLUS_ONE).applyAsShort(ZERO));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void andThen() {
         assertEquals(2, PLUS_ONE.andThen(TIMES_TWO).applyAsShort(ZERO));
     }

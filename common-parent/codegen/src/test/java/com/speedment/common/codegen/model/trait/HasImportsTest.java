@@ -19,7 +19,7 @@ package com.speedment.common.codegen.model.trait;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Import;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 
@@ -37,33 +37,33 @@ final class HasImportsTest {
         clazz = Class.of("Foo");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         clazz.add(IMPORT);
         assertContainsImport();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void imports() {
         clazz.imports(IMPORT);
         assertContainsImport();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImports() {
         clazz.imports(List.class);
         final Import import_ = clazz.getImports().iterator().next();
         assertTrue(import_.getType().getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImports1() {
         clazz.imports(List.class, "add");
         final Import import_ = clazz.getImports().iterator().next();
         assertTrue(import_.getType().getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(clazz.getImports().isEmpty());
     }

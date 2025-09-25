@@ -25,7 +25,7 @@ import com.speedment.runtime.compute.expression.Expression;
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.trait.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -78,12 +78,12 @@ abstract class AbstractToTest<T extends
         instance = create();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testExpressionType() {
         assertEquals(expressionType, instance.expressionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAsDouble() {
         strings().forEach(s -> {
             final double expected = mapper.applyAsLong(s);
@@ -94,7 +94,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAsInt() {
         strings().forEach(s -> {
             final int expected = (int) mapper.applyAsLong(s);
@@ -105,7 +105,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAsLong() {
         strings().forEach(s -> {
             final long expected = mapper.applyAsLong(s);
@@ -116,7 +116,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAbs() {
         strings().forEach(s -> {
             final long expected = mapper.applyAsLong(s);
@@ -127,7 +127,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSign() {
         strings().forEach(s -> {
 
@@ -144,7 +144,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSqrt() {
         strings().forEach(s -> {
             final double actual = instance.sqrt().asDouble().applyAsDouble(s);
@@ -153,7 +153,7 @@ abstract class AbstractToTest<T extends
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPow_int() {
         strings().forEach(s -> {
             final double actual = instance.pow(2).applyAsDouble(s);
@@ -161,7 +161,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPow_double() {
         strings().forEach(s -> {
             final double actual = instance.pow(2.0).applyAsDouble(s);
@@ -169,7 +169,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPow_ToInt() {
         strings().forEach(s -> {
             final double actual = instance.pow((ToInt<String>) u -> 2).applyAsDouble(s);
@@ -177,7 +177,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPow_ToDouble() {
         strings().forEach(s -> {
             final double actual = instance.pow((ToInt<String>) u -> 2).applyAsDouble(s);
@@ -185,7 +185,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_byte() {
         strings().forEach(s -> {
@@ -194,7 +194,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_ToByte() {
         strings().forEach(s -> {
@@ -203,7 +203,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_int() {
         strings().forEach(s -> {
@@ -212,7 +212,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_ToInt() {
         strings().forEach(s -> {
@@ -221,7 +221,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_long() {
         strings().forEach(s -> {
@@ -230,7 +230,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testPlus_ToLong() {
         strings().forEach(s -> {
@@ -239,7 +239,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPlus_double() {
         strings().forEach(s -> {
             final double actual = instance.plus(1.0).asDouble().applyAsDouble(s);
@@ -247,7 +247,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPlus_ToDouble() {
         strings().forEach(s -> {
             final double actual = instance.plus((ToDouble<String>) u -> 1.0).asDouble().applyAsDouble(s);
@@ -255,7 +255,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_byte() {
         strings().forEach(s -> {
@@ -264,7 +264,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_ToByte() {
         strings().forEach(s -> {
@@ -273,7 +273,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_int() {
         strings().forEach(s -> {
@@ -282,7 +282,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_ToInt() {
         strings().forEach(s -> {
@@ -291,7 +291,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_long() {
         strings().forEach(s -> {
@@ -300,7 +300,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMinus_ToLong() {
         strings().forEach(s -> {
@@ -309,7 +309,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMinus_double() {
         strings().forEach(s -> {
             final double actual = instance.minus(1.0).asDouble().applyAsDouble(s);
@@ -317,7 +317,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMinus_ToDouble() {
         strings().forEach(s -> {
             final double actual = instance.minus((ToDouble<String>) u -> 1.0).asDouble().applyAsDouble(s);
@@ -325,7 +325,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_byte() {
         strings().forEach(s -> {
@@ -334,7 +334,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_ToByte() {
         strings().forEach(s -> {
@@ -343,7 +343,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_int() {
         strings().forEach(s -> {
@@ -352,7 +352,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_ToInt() {
         strings().forEach(s -> {
@@ -361,7 +361,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_long() {
         strings().forEach(s -> {
@@ -370,7 +370,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testMultiply_ToLong() {
         strings().forEach(s -> {
@@ -379,7 +379,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMultiply_double() {
         strings().forEach(s -> {
             final double actual = instance.multiply(2.0).asDouble().applyAsDouble(s);
@@ -387,7 +387,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMultiply_ToDouble() {
         strings().forEach(s -> {
             final double actual = instance.multiply((ToDouble<String>) u -> 2).asDouble().applyAsDouble(s);
@@ -395,7 +395,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_int() {
         strings().forEach(s -> {
             final double actual = instance.divide(2).asDouble().applyAsDouble(s);
@@ -403,7 +403,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_ToInt() {
         strings().forEach(s -> {
             final double actual = instance.divide((ToInt<String>) u -> 2).asDouble().applyAsDouble(s);
@@ -411,7 +411,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_long() {
         strings().forEach(s -> {
             final double actual = instance.divide(2L).asDouble().applyAsDouble(s);
@@ -419,7 +419,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_ToLong() {
         strings().forEach(s -> {
             final double actual = instance.divide((ToLong<String>) u -> 2).asDouble().applyAsDouble(s);
@@ -427,7 +427,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_double() {
         strings().forEach(s -> {
             final double actual = instance.divide(2.0).asDouble().applyAsDouble(s);
@@ -435,7 +435,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDivide_ToDouble() {
         strings().forEach(s -> {
             final double actual = instance.divide((ToDouble<String>) u -> 2).asDouble().applyAsDouble(s);
@@ -443,7 +443,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNegate() {
         strings().forEach(s -> {
 
@@ -452,7 +452,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHash() {
         strings().forEach(s -> {
             final long actual = instance.hash(s);
@@ -462,7 +462,7 @@ abstract class AbstractToTest<T extends
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompare() {
         final int cmpAb = instance.compare("SHORT", "VERY LONG STRING");
         assertTrue(cmpAb < 0);

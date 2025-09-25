@@ -17,7 +17,7 @@
 package com.speedment.common.combinatorics;
 
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.Arrays;
@@ -42,14 +42,14 @@ final class PermutationTest {
             );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void factorialTooLarge() {
         assertThrows(IllegalArgumentException.class, () -> {
             Permutation.factorial(21);
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void factorialNegative() {
         assertThrows(IllegalArgumentException.class, () -> {
             Permutation.factorial(-1);
@@ -67,37 +67,37 @@ final class PermutationTest {
         3, 2, 1
     */
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation0() {
         assertEquals(Arrays.asList(1, 2, 3), Permutation.permutation(0, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation1() {
         assertEquals(Arrays.asList(1, 3, 2), Permutation.permutation(1, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation2() {
         assertEquals(Arrays.asList(2, 1, 3), Permutation.permutation(2, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation3() {
         assertEquals(Arrays.asList(2, 3, 1), Permutation.permutation(3, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation4() {
         assertEquals(Arrays.asList(3, 1, 2), Permutation.permutation(4, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void permutation5() {
         assertEquals(Arrays.asList(3, 2, 1), Permutation.permutation(5, LIST));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         final List<List<Integer>> expected = expectedFor123();
         final List<List<Integer>> actual =
@@ -108,7 +108,7 @@ final class PermutationTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofList() {
         final List<List<Integer>> expected = expectedFor123();
         final List<List<Integer>> actual =

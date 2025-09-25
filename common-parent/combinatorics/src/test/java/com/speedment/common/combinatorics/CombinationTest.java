@@ -16,7 +16,7 @@
  */
 package com.speedment.common.combinatorics;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 final class CombinationTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOfEmpty() {
         final List<List<String>> actual = Combination.<String>of()
             .collect(toList());
@@ -44,7 +44,7 @@ final class CombinationTest {
         assertTrue(actual.isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOfSingleton() {
         final List<List<String>> actual = Combination.of("a")
             .collect(toList());
@@ -57,7 +57,7 @@ final class CombinationTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOfTwo() {
         final Set<List<String>> actual = Combination.of("a", "b")
             .collect(toSet());
@@ -72,7 +72,7 @@ final class CombinationTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOfThree() {
         final Set<List<String>> actual = Combination.of("a", "b", "c")
             .collect(toSet());
@@ -90,7 +90,7 @@ final class CombinationTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOfTwoList() {
         final Set<List<String>> actual = Combination.of(Arrays.asList("a", "b"))
             .collect(toSet());

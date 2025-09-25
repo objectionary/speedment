@@ -46,7 +46,7 @@ import com.speedment.runtime.compute.internal.expression.ComposedUtil.ComposeToI
 import com.speedment.runtime.compute.internal.expression.ComposedUtil.ComposeToLong;
 import com.speedment.runtime.compute.internal.expression.ComposedUtil.ComposeToShort;
 import com.speedment.runtime.compute.internal.expression.ComposedUtil.ComposeToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 import java.util.function.Function;
@@ -54,7 +54,7 @@ import java.util.function.Function;
 @SuppressWarnings("unchecked")
 final class ComposedUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToByte() {
         final ToByte<String> toByte = string -> string.getBytes()[0];
         final ComposeToByte<String, String, ToByte<String>> composeToByte =
@@ -68,7 +68,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToByte.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToShort() {
         final ToShort<String> toShort = string -> (short) string.length();
         final ComposeToShort<String, String, ToShort<String>> composeToShort =
@@ -82,7 +82,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToShort.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToInt() {
         final ToInt<String> toInt = String::length;
         final ComposeToInt<String, String, ToInt<String>> composeToInt =
@@ -96,7 +96,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToInt.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToLong() {
         final ToLong<String> toLong = String::length;
         final ComposeToLong<String, String, ToLong<String>> composeToLong =
@@ -110,7 +110,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToLong.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToFloat() {
         final ToFloat<String> toFloat = String::length;
         final ComposeToFloat<String, String, ToFloat<String>> composeToFloat =
@@ -124,7 +124,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToFloat.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToDouble() {
         final ToDouble<String> toDouble = String::length;
         final ComposeToDouble<String, String, ToDouble<String>> composeToDouble =
@@ -138,7 +138,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToDouble.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToBoolean() {
         final ToBoolean<String> toBoolean = string -> string.length() > 2;
         final ComposeToBoolean<String, String, ToBoolean<String>> composeToBoolean =
@@ -153,7 +153,7 @@ final class ComposedUtilTest {
         assertFalse(composeToBoolean.applyAsBoolean("a"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToBooleanNullable() {
         final ToBooleanNullable<String> toBooleanNullable = string -> string.length() > 2;
         final ComposeToBooleanNullable<String, String, ToBooleanNullable<String>> composeToBooleanNullable =
@@ -169,7 +169,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToBooleanNullable.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToChar() {
         final ToChar<String> toChar = string -> string.toCharArray()[0];
         final ComposeToChar<String, String, ToChar<String>> composeToChar =
@@ -185,7 +185,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToChar.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToString() {
         final ToString<String> toString = string -> string;
         final ComposeToString<String, String, ToString<String>> composeToString =
@@ -199,7 +199,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToString.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToBigDecimal() {
         final ToBigDecimal<String> toBigDecimal = string -> BigDecimal.valueOf(string.length());
         final ComposeToBigDecimal<String, String, ToBigDecimal<String>> composeToBigDecimal =
@@ -213,7 +213,7 @@ final class ComposedUtilTest {
         assertNotNull(composeToBigDecimal.apply("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeToEnum() {
         final ToEnum<String, TestEnum> toEnum = ToEnum.of(TestEnum.class, TestEnum::valueOf);
         final ComposeToEnum<String, String, TestEnum, ToEnum<String, TestEnum>> composeToEnum =

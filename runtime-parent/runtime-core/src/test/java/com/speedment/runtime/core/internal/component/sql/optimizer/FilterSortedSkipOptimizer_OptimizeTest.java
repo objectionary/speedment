@@ -33,7 +33,7 @@ import com.speedment.runtime.test_support.MockDbmsType;
 import com.speedment.runtime.test_support.MockEntity;
 import com.speedment.runtime.test_support.MockEntityUtil;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;
@@ -89,7 +89,7 @@ class FilterSortedSkipOptimizer_OptimizeTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFilter1Order1Skip1() {
         assertDoesNotThrow(() -> {
             final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION, SKIP_ACTION);

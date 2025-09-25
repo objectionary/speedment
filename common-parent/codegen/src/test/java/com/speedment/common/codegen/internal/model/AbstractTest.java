@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.trait.HasCopy;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -52,7 +52,7 @@ abstract class AbstractTest<T extends HasCopy<T>> {
         instance = constructor.get();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void copy() {
         {
             final T copy = instance.copy();
@@ -66,7 +66,7 @@ abstract class AbstractTest<T extends HasCopy<T>> {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         assertNotEquals(0, instance.hashCode());
         for (Function<T, T> mutator : mutators) {
@@ -75,7 +75,7 @@ abstract class AbstractTest<T extends HasCopy<T>> {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         assertEquals(instance, instance);
         assertFalse(instance.equals(null));

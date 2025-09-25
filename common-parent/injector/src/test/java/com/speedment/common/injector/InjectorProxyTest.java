@@ -17,7 +17,7 @@
 package com.speedment.common.injector;
 
 import com.speedment.common.injector.internal.ClassUsedForTestingInternalPackage;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Predicate;
 
@@ -25,27 +25,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class InjectorProxyTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void samePackageOrBelow() {
         assertPredicateCorrect(InjectorProxy.samePackageOrBelow(InjectorProxyTest.class), false);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSamePackageOrBelowTrue() {
         assertPredicateCorrect(InjectorProxy.samePackageOrBelow(InjectorProxyTest.class, true), true);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSamePackageOrBelowFalse() {
         assertPredicateCorrect(InjectorProxy.samePackageOrBelow(InjectorProxyTest.class, false), false);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSamePackageOrBelowStringTrue() {
         assertPredicateCorrect(InjectorProxy.samePackageOrBelow(InjectorProxyTest.class.getPackage().getName(), true), true);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSamePackageOrBelowStringFalse() {
         assertPredicateCorrect(InjectorProxy.samePackageOrBelow(InjectorProxyTest.class.getPackage().getName(), false), false);
     }

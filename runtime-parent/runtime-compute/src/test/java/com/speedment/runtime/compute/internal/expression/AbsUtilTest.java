@@ -31,7 +31,7 @@ import com.speedment.runtime.compute.ToShort;
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.expression.UnaryExpression.Operator;
 import com.speedment.runtime.compute.internal.expression.AbsUtil.AbstractAbs;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -109,7 +109,7 @@ final class AbsUtilTest {
         assertEquals(input.length(), absToDouble.applyAsDouble(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractAbs() {
         DummyAbs abstractAbs = new DummyAbs(String::length);
 

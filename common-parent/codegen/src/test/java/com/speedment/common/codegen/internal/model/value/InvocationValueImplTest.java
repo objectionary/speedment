@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model.value;
 
 import com.speedment.common.codegen.model.Value;
 import com.speedment.common.codegen.model.value.InvocationValue;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 
@@ -34,31 +34,31 @@ final class InvocationValueImplTest extends AbstractValueTest<String, Invocation
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertNull(instance().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setValue() {
         final String value = "B";
         instance().setValue(value);
         assertEquals(value, instance().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertNull(instance().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         final Type value = int.class;
         instance().set(value);
         assertEquals(value, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValues() {
         assertTrue(instance().getValues().isEmpty());
     }

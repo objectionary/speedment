@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.util.testing;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
  */
 final class JavaVersionUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testGetJavaVersion() {
         assertNotEquals(JavaVersionUtil.JavaVersion.UNKNOWN, JavaVersionUtil.getJavaVersion());

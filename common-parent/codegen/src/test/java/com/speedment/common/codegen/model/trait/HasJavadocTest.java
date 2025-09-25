@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Initializer;
 import com.speedment.common.codegen.model.Javadoc;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -39,19 +39,19 @@ final class HasJavadocTest {
         javadoc = Javadoc.of("a");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         clazz.set(javadoc);
         assertEquals(javadoc, clazz.getJavadoc().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void javadoc() {
         clazz.javadoc(javadoc);
         assertEquals(javadoc, clazz.getJavadoc().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertEquals(Optional.empty(), clazz.getJavadoc());
     }

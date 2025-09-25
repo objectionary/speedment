@@ -40,7 +40,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -95,7 +95,7 @@ class MainAppTest extends ApplicationTest {
         mainApp.start(stage);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         // If it manages to load, that is enough.
         assertTrue(true);

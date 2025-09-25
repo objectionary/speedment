@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,19 +26,19 @@ final class BooleanUnaryOperatorTest {
     private static final BooleanUnaryOperator IDENTITY = b -> b;
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyAsBoolean() {
         assertFalse(INVERT.applyAsBoolean(true));
         assertTrue(INVERT.applyAsBoolean(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertTrue(INVERT.compose(INVERT).applyAsBoolean(true));
         assertTrue(INVERT.compose(IDENTITY).applyAsBoolean(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void andThen() {
         assertTrue(INVERT.compose(INVERT).applyAsBoolean(true));
         assertTrue(INVERT.compose(IDENTITY).applyAsBoolean(false));

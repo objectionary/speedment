@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,12 +27,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class InjectBundleTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void empty() {
         assertEquals(0, InjectBundle.empty().injectables().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         final Class<?>[] classes = {String.class, Integer.class, Long.class};
         final List<Class<?>> expected = Arrays.asList(classes);
@@ -40,7 +40,7 @@ final class InjectBundleTest {
         assertEquals(expected, bundle.injectables().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withBundle() {
         final InjectBundle first = InjectBundle.of(String.class);
         final InjectBundle second = InjectBundle.of(Integer.class);
@@ -48,7 +48,7 @@ final class InjectBundleTest {
         assertEquals(Arrays.asList(String.class, Integer.class), composite.injectables().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withComponent() {
         final InjectBundle composite = InjectBundle.of(String.class).withComponent(Integer.class);
         assertEquals(Arrays.asList(String.class, Integer.class), composite.injectables().collect(toList()));

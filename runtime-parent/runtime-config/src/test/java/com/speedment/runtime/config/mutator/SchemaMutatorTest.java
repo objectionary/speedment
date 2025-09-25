@@ -24,7 +24,7 @@ import com.speedment.runtime.config.Schema;
 import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -39,12 +39,12 @@ final class SchemaMutatorTest implements
         return (SchemaMutator<Schema>) Schema.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setDefaultSchema() {
         assertDoesNotThrow(() -> getMutatorInstance().setDefaultSchema(true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewTable() {
         assertNotNull(getMutatorInstance().addNewTable());
     }

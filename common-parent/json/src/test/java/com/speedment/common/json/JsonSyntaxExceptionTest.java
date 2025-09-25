@@ -18,14 +18,14 @@ package com.speedment.common.json;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.function.ThrowingSupplier;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 final class JsonSyntaxExceptionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor() {
         assertDoesNotThrow((ThrowingSupplier<JsonSyntaxException>) JsonSyntaxException::new);
         assertDoesNotThrow(() -> new JsonSyntaxException("message"));
@@ -40,7 +40,7 @@ final class JsonSyntaxExceptionTest {
         assertDoesNotThrow(() -> new JsonSyntaxException(row, col, "message", throwable));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMessage() {
         assertNotNull(new JsonSyntaxException().getMessage());
     }

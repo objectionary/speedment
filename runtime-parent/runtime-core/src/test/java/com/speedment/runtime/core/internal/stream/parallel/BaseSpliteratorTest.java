@@ -16,7 +16,7 @@
  */
 package com.speedment.runtime.core.internal.stream.parallel;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -39,13 +39,13 @@ public abstract class BaseSpliteratorTest {
         //System.out.println(name.getMethodName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCharacteristics() {
         assertTrue(instance.hasCharacteristics(Spliterator.SIZED));
         assertTrue(instance.hasCharacteristics(Spliterator.SUBSIZED));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetComparator() {
         assertThrows(IllegalStateException.class, () -> {
             instance.getComparator();

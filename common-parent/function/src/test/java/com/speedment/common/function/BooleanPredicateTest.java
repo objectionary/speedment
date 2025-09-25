@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,25 +25,25 @@ final class BooleanPredicateTest {
     private static final BooleanPredicate INVERT = b -> !b;
     private static final BooleanPredicate IDENTITY = b -> b;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         assertFalse(INVERT.test(true));
         assertTrue(INVERT.test(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void and() {
         assertFalse(INVERT.and(IDENTITY).test(true));
         assertFalse(INVERT.and(IDENTITY).test(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negate() {
         assertTrue(INVERT.negate().test(true));
         assertFalse(INVERT.negate().test(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void or() {
         assertTrue(INVERT.or(IDENTITY).test(true));
         assertTrue(INVERT.or(IDENTITY).test(false));

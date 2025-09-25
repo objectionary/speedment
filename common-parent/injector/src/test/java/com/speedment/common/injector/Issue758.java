@@ -21,7 +21,7 @@ import com.speedment.common.injector.internal.InjectorBuilderImpl;
 import com.speedment.common.logger.Level;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,7 +41,7 @@ final class Issue758 {
         InjectorBuilderImpl.INTERNAL_LOGGER.setLevel(defaultLevel);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructorInject() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(Bar.class)

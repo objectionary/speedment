@@ -18,7 +18,7 @@ package com.speedment.runtime.core.config.mapper.integer;
 
 import com.speedment.runtime.typemapper.integer.IntegerZeroOneToBooleanMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -36,7 +36,7 @@ final class IntegerZeroOneToBooleanMapperTest {
         mapper = new IntegerZeroOneToBooleanMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStringYesMapping() {
         assertEquals(Boolean.TRUE, mapper.toJavaType(null, null, 1), "JavaType should have value 'true'");
         assertEquals(Boolean.TRUE, mapper.toJavaType(null, null, 2), "JavaType should have value 'true'");
@@ -44,7 +44,7 @@ final class IntegerZeroOneToBooleanMapperTest {
         assertTrue( 1 == mapper.toDatabaseType(true), "DatabaseType should have value '1'");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStringNoMapping() {
     	assertEquals(Boolean.FALSE, mapper.toJavaType(null, null, 0), "JavaType should have value 'false'");
     	assertTrue( 0 == mapper.toDatabaseType(false), "DatabaseType should have value '0'");

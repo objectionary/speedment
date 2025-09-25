@@ -19,7 +19,7 @@ package com.speedment.generator.core.internal.component;
 import com.speedment.generator.core.component.EventComponent;
 import com.speedment.generator.core.event.Event;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +38,7 @@ final class EventComponentImplTest {
         instance = new EventComponentImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void on() {
         final FooEventConsumer eventConsumer = new FooEventConsumer();
         instance.on(FooEvent.class, eventConsumer);
@@ -48,7 +48,7 @@ final class EventComponentImplTest {
         assertEquals(expected, eventConsumer.events());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void onAny() {
         final EventConsumer eventConsumer = new EventConsumer();
         instance.onAny(eventConsumer);

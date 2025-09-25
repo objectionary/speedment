@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.stream.autoclose;
 
 import com.speedment.runtime.core.internal.util.testing.JavaVersionUtil;
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -56,7 +56,7 @@ abstract class AbstractAutoClosingStreamTest<T, S extends BaseStream<T, S>> {
             .flatMap(this::test);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAutoCloseSingleCloseProperty() {
         final AtomicInteger cnt = new AtomicInteger();
         try (S stream = createAutoclosableStream()) {

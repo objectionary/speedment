@@ -32,7 +32,7 @@ import com.speedment.common.logger.Level;
 import com.speedment.common.logger.Logger;
 import com.speedment.common.logger.LoggerManager;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -100,14 +100,14 @@ final class InjectorBuilderImplTest {
         instance = new InjectorBuilderImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct() throws InstantiationException {
         final InjectorBuilder builder = new InjectorBuilderImpl();
         final Injector injector = builder.build();
         assertEquals(0, injector.injectables().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct2() throws InstantiationException {
         final InjectorBuilder builder = new InjectorBuilderImpl(InjectorBuilderImpl.class.getClassLoader());
         final Injector injector = builder.build();
@@ -115,32 +115,32 @@ final class InjectorBuilderImplTest {
         assertEquals(InjectorBuilderImpl.class.getClassLoader(), injector.classLoader());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct3() throws InstantiationException {
         final InjectorBuilder builder = new InjectorBuilderImpl(singleton(Foo.class));
         final Injector injector = builder.build();
         assertEquals(1, injector.injectables().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withComponent() throws InstantiationException {
         final Injector injector = instance.withComponent(Foo.class).build();
         assertEquals(singletonList(Foo.class), injector.injectables().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWithComponent() throws InstantiationException {
         final Injector injector = instance.withComponent(Foo.class, Foo::new).build();
         assertEquals(singletonList(Foo.class), injector.injectables().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withBundle() throws InstantiationException {
         final Injector injector = instance.withBundle(TestBundle.class).build();
         assertEquals(asList(Foo.class, Bar.class), injector.injectables().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withInjectorProxy() throws InstantiationException {
         final class MyTestInjectorProxy implements InjectorProxy {
             @Override public boolean isApplicable(Class<?> clazz) { return true; }
@@ -161,7 +161,7 @@ final class InjectorBuilderImplTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withInjectorProxyConstructor() throws InstantiationException {
         final class MyTestInjectorProxy implements InjectorProxy {
             @Override public boolean isApplicable(Class<?> clazz) { return true; }
@@ -182,48 +182,48 @@ final class InjectorBuilderImplTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withConfigFileLocation() {
         assertDoesNotThrow(() -> instance.withConfigFileLocation(Paths.get(".")));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withLogging() {
         withLogging(() -> instance.withBundle(TestBundle.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withCannotInstantiate() {
         assertThrows(ConstructorResolutionException.class, () -> instance.withComponent(Baz.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withMissingAutoInject() {
         assertThrows(IllegalArgumentException.class, () -> instance.withComponent(Bez.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withIllegalAutoInject() {
         assertThrows(IllegalArgumentException.class, () -> instance.withComponent(PrivateFieldHolder.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withMissingComponent() {
         assertThrows(IllegalArgumentException.class, () -> instance.withComponent(Bez.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withMisusedAnnotation() {
         assertThrows(MisusedAnnotationException.class, () -> instance.withComponent(Foo.class).withComponent(Buz.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void injectInjectorProxy() throws InstantiationException {
         final Injector injector = instance.withComponent(MyInjectorProxy.class).build();
         assertEquals(MyInjectorProxy.class, injector.getOrThrow(MyInjectorProxy.class).getClass());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withUnableToCall() {
         final Level level = LOGGER.getLevel();
         LOGGER.setLevel(Level.DEBUG);
@@ -234,7 +234,7 @@ final class InjectorBuilderImplTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withUnableButIgnore() {
         final Level level = LOGGER.getLevel();
         LOGGER.setLevel(Level.DEBUG);
@@ -245,17 +245,17 @@ final class InjectorBuilderImplTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withClassThatIsPrivate() throws InstantiationException {
         assertThrows(InjectorException.class, () ->instance.withComponent(PrivateClass.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withClassWithPrivateConstructor() throws InstantiationException {
         assertThrows(InjectorException.class, () ->instance.withComponent(ClassWithPrivateConstructor.class).build());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void throwInjectorException() {
         try {
             final RuntimeException runtimeException = new RuntimeException("AnyReason");

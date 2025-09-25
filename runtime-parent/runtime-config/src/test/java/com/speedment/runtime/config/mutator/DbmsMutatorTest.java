@@ -24,7 +24,7 @@ import com.speedment.runtime.config.Dbms;
 import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -39,37 +39,37 @@ final class DbmsMutatorTest implements
         return (DbmsMutator<Dbms>) Dbms.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setTypeName() {
         assertDoesNotThrow(() -> getMutatorInstance().setTypeName("type"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setIpAddress() {
         assertDoesNotThrow(() -> getMutatorInstance().setIpAddress("128.0.0.1"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setPort() {
         assertDoesNotThrow(() -> getMutatorInstance().setPort(8080));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLocalPath() {
         assertDoesNotThrow(() -> getMutatorInstance().setLocalPath("/path"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setUsername() {
         assertDoesNotThrow(() -> getMutatorInstance().setUsername("username"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setConnectionUrl() {
         assertDoesNotThrow(() -> getMutatorInstance().setConnectionUrl("https://connection.url"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewSchema() {
         assertNotNull(getMutatorInstance().addNewSchema());
     }

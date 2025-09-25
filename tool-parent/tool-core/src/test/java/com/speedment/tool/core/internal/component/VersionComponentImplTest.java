@@ -24,7 +24,7 @@ import com.speedment.runtime.core.Speedment;
 import com.speedment.tool.core.TestInjectorProxy;
 import com.speedment.tool.core.ToolBundle;
 import com.speedment.tool.core.component.VersionComponent;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.net.UnknownHostException;
 import java.util.concurrent.ExecutionException;
@@ -48,7 +48,7 @@ final class VersionComponentImplTest {
     /**
      * Test of latestVersion method, of class VersionComponentImpl.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLatestVersion() {
         assertDoesNotThrow(() -> {
             LOGGER.info("Determining the latest version of Speedment.");

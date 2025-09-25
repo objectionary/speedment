@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.exception;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,17 +24,17 @@ final class InjectorExceptionTest {
 
     private static final String MSG = "Arne";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create1() {
         assertMsgIsResonable(new InjectorException(MSG));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create2() {
         assertMsgIsResonable(new InjectorException(MSG, new RuntimeException()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createEx() {
         assertMsgIsResonable(new InjectorException(new RuntimeException(MSG)));
     }

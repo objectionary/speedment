@@ -19,7 +19,7 @@ package com.speedment.runtime.config.util;
 import com.speedment.runtime.config.*;
 import com.speedment.runtime.config.trait.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -214,7 +214,7 @@ public abstract class AbstractDocumentTest {
         foreignKeyColumnB2_D1 = foreignKeyB2_D1.children(ForeignKeyUtil.FOREIGN_KEY_COLUMNS, ForeignKeyColumn::create).findFirst().get();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void assertSetup() {
         assertNotNull(project);
     }

@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.stream.autoclose;
 
 import com.speedment.runtime.core.stream.java9.Java9StreamUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class AutoClosingReferenceStreamTest extends AbstractAutoClosingStreamTest<Integer, Stream<Integer>> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAutoCloseSingleClosePropertyAAA() {
         final AtomicInteger cnt = new AtomicInteger();
         try (Stream<Integer> stream = createAutoclosableStream().onClose(cnt::incrementAndGet)) {
@@ -38,7 +38,7 @@ final class AutoClosingReferenceStreamTest extends AbstractAutoClosingStreamTest
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDoubleClose() {
         final AtomicInteger cnt = new AtomicInteger();
         final Stream<Integer> stream = Stream.of(0, 1).onClose(cnt::incrementAndGet);
@@ -47,7 +47,7 @@ final class AutoClosingReferenceStreamTest extends AbstractAutoClosingStreamTest
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReuseAfterClose() {
         final AtomicInteger cnt = new AtomicInteger();
         final Stream<Integer> stream = createAutoclosableStream();
@@ -60,7 +60,7 @@ final class AutoClosingReferenceStreamTest extends AbstractAutoClosingStreamTest
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMapToIntMapToLong() {
         final AtomicInteger cnt = new AtomicInteger();
 

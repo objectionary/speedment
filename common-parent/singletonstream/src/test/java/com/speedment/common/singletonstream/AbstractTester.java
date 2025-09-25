@@ -19,7 +19,7 @@ package com.speedment.common.singletonstream;
 import com.speedment.common.combinatorics.Combination;
 import com.speedment.common.combinatorics.Permutation;
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.List;
@@ -65,7 +65,7 @@ public abstract class AbstractTester<T, S extends BaseStream<T, S>> {
             );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void noOperator() {
         assertStreamsEqualWith(emptyList());
     }

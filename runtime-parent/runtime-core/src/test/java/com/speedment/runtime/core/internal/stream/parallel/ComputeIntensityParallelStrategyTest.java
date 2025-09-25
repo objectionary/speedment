@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.stream.parallel;
 
 import com.speedment.runtime.core.stream.parallel.ParallelStrategy;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collection;
 import java.util.List;
@@ -57,7 +57,7 @@ final class ComputeIntensityParallelStrategyTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSpliteratorUnknownSize() {
         strategies().forEach(strategy -> {
 
@@ -87,7 +87,7 @@ final class ComputeIntensityParallelStrategyTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAll() {
         for (int i = 2; i < 18; i++) {
             final int size = 1 << i;

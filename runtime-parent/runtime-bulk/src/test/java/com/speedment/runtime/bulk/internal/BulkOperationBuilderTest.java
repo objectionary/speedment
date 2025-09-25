@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.test_support.MockStringManager;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class BulkOperationBuilderTest {
 
@@ -28,17 +28,17 @@ final class BulkOperationBuilderTest {
 
     private final Manager<String> manager = new MockStringManager();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void persist() {
         assertNotNull(builder.persist(manager));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void update() {
         assertNotNull(builder.update(manager));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
         assertNotNull(builder.remove(manager));
     }

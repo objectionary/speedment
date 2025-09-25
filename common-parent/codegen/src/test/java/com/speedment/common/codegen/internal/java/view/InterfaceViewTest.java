@@ -21,7 +21,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.Interface;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.provider.StandardJavaGenerator;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,32 +30,32 @@ final class InterfaceViewTest {
     private static final InterfaceView INSTANCE = new InterfaceView();
     private static final Generator GENERATOR = new StandardJavaGenerator();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void renderDeclarationType() {
         assertEquals("interface ", INSTANCE.renderDeclarationType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void extendsOrImplementsInterfaces() {
         assertEquals("extends ", INSTANCE.extendsOrImplementsInterfaces());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void renderSupertype() {
         assertEquals("", INSTANCE.renderSupertype(GENERATOR, Interface.of("Foo")));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrapMethod() {
         assertNotNull(INSTANCE.wrapMethod(Method.of("x", int.class)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrapField() {
         assertNotNull(INSTANCE.wrapField(Field.of("x", int.class)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void renderConstructors() {
         assertEquals("", INSTANCE.renderConstructors(GENERATOR, Interface.of("A")));
     }

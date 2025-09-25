@@ -23,7 +23,7 @@ import com.speedment.runtime.core.component.connectionpool.ConnectionDecorator;
 import com.speedment.runtime.core.component.connectionpool.PoolableConnection;
 import com.speedment.runtime.core.db.DbmsType;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.sql.*;
 import java.util.*;
@@ -64,7 +64,7 @@ final class ConnectionPoolComponentImplTest {
         };
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetConnection() throws Exception {
         String uri = "thecooldatabase";
         String user = "tryggve";
@@ -73,7 +73,7 @@ final class ConnectionPoolComponentImplTest {
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReturnConnection() throws Exception {
         String uri = "thecooldatabase";
         String user = "tryggve";
@@ -84,7 +84,7 @@ final class ConnectionPoolComponentImplTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNewConnection() throws Exception {
         String uri = "someurl";
         String user = "a";
@@ -94,7 +94,7 @@ final class ConnectionPoolComponentImplTest {
         assertFalse(result.isClosed());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetMaxAge() {
         long result = instance.getMaxAge();
         assertTrue(result >= 0);
@@ -102,19 +102,19 @@ final class ConnectionPoolComponentImplTest {
         assertEquals(MAX_AGE, instance.getMaxAge());
     }
 
-/*    @Test
+/*    @com.yegor256.AggregateRepeatedTest(100)
     void testSetMaxAge() {
         //instance.setMaxAge(40_000);
         assertEquals(40_000, instance.getMaxAge());
     }*/
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetPoolSize() {
         assertEquals(MAX_RETAIN_SIZE, instance.getMaxRetainSize());
     }
 
 /*    // Leaking connections
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testLeak() throws Exception {
         String uri = "thecooldatabase";
@@ -129,7 +129,7 @@ final class ConnectionPoolComponentImplTest {
         }
     }*/
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMaxOutAndReturn() throws Exception {
         String uri = "thecooldatabase";
         String user = "tryggve";
@@ -157,7 +157,7 @@ final class ConnectionPoolComponentImplTest {
     *//**
      * Test of setPoolSize method, of class ConnectionPoolComponentImpl.
      *//*
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSetPoolSize() {
         int poolSize = 40;
         instance.setMaxRetainSize(poolSize);

@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -31,12 +31,12 @@ final class ToEnumTest {
 
     private static final ToEnum<String, TestEnum> DEFAULT_TO = ToEnum.of(TestEnum.class, TestEnum::valueOf);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumClass() {
         assertEquals(TestEnum.class, DEFAULT_TO.enumClass());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         assertEquals(ENUM, DEFAULT_TO.expressionType());
     }
@@ -77,7 +77,7 @@ final class ToEnumTest {
         assertNotEquals(0, DEFAULT_TO.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         Pair<String, String> pair1 = new Pair<>("FIRST", "FIRST");
         Pair<String, String> pair2 = new Pair<>("FIRST", "SECOND");
@@ -90,7 +90,7 @@ final class ToEnumTest {
         assertEquals(0, DEFAULT_TO.compare(pair4.getFirst(), pair4.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_TO.compose(null));
 

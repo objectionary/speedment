@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model.value;
 
 import com.speedment.common.codegen.model.trait.HasCopy;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -50,7 +50,7 @@ public abstract class AbstractValueTest<V, T extends HasCopy<?>> {
         instance = constructor.get();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void copy() {
         {
@@ -65,7 +65,7 @@ public abstract class AbstractValueTest<V, T extends HasCopy<?>> {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testHashCode() {
         assertNotEquals(0, instance.hashCode());
@@ -76,7 +76,7 @@ public abstract class AbstractValueTest<V, T extends HasCopy<?>> {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testEquals() {
         assertEquals(instance, instance);

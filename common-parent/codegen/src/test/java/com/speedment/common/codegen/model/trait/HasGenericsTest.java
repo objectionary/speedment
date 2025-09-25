@@ -21,7 +21,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.Generic;
 import com.speedment.common.codegen.model.Method;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 
@@ -42,42 +42,42 @@ final class HasGenericsTest {
         field  = Field.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         method.add(Generic.of(TYPE));
         final Generic generic = method.getGenerics().iterator().next();
         assertEquals(T, generic.asType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void generic() {
         method.generic(T);
         final Generic generic = method.getGenerics().iterator().next();
         assertEquals(T, generic.asType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneric() {
         method.generic(T);
         final Generic generic = method.getGenerics().iterator().next();
         assertEquals(T, generic.asType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneric1() {
         method.generic("T", TYPE);
         final Generic generic = method.getGenerics().iterator().next();
         assertEquals(T, generic.asType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneric2() {
         method.generic(TYPE);
         final Generic generic = method.getGenerics().iterator().next();
         assertEquals(T, generic.asType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getGenerics() {
         assertTrue(method.getGenerics().isEmpty());
     }

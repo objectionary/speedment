@@ -33,23 +33,23 @@ import com.speedment.runtime.compute.internal.expression.MultiplyUtil.AbstractMu
 import com.speedment.runtime.compute.internal.expression.MultiplyUtil.AbstractMultiplyFloat;
 import com.speedment.runtime.compute.internal.expression.MultiplyUtil.AbstractMultiplyInt;
 import com.speedment.runtime.compute.internal.expression.MultiplyUtil.AbstractMultiplyLong;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class MultiplyUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortMultiplyInt() {
         final ToInt<Short> instance = MultiplyUtil.shortMultiplyInt(s -> s, 1);
         assertEquals(1, instance.applyAsInt((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortMultiplyShort() {
         final ToInt<Short> instance = MultiplyUtil.shortMultiplyShort(s -> s, s -> s);
         assertEquals(1, instance.applyAsInt((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatMultiplyFloat() {
         ToFloat<Float> instance = MultiplyUtil.floatMultiplyFloat(f -> f, f -> f);
         assertEquals(1, instance.applyAsFloat((float) 1));
@@ -58,7 +58,7 @@ final class MultiplyUtilTest {
         assertEquals(1, instance.applyAsFloat((float) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiply() {
         final DummyMultiply instance = new DummyMultiply(i -> i, i -> i);
 
@@ -90,7 +90,7 @@ final class MultiplyUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiplyByte() {
         final DummyMultiplyByte instance = new DummyMultiplyByte(i -> i, (byte) 1);
 
@@ -122,7 +122,7 @@ final class MultiplyUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiplyInt() {
         final DummyMultiplyInt instance = new DummyMultiplyInt(i -> i, 1);
 
@@ -154,7 +154,7 @@ final class MultiplyUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiplyLong() {
         final DummyMultiplyLong instance = new DummyMultiplyLong(i -> i, 1);
 
@@ -186,7 +186,7 @@ final class MultiplyUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiplyFloat() {
         final DummyMultiplyFloat instance = new DummyMultiplyFloat(i -> i, 1);
 
@@ -218,7 +218,7 @@ final class MultiplyUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMultiplyDouble() {
         final DummyMultiplyDouble instance = new DummyMultiplyDouble(i -> i, 1);
 

@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal.model;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Javadoc;
 import com.speedment.common.codegen.model.JavadocTag;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 
@@ -38,35 +38,35 @@ final class JavadocImplTest extends AbstractTest<Javadoc> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         instance().setParent(Class.of(NAME));
         assertTrue(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertFalse(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getText() {
         assertEquals(NAME, instance().getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setText() {
         final String text = "C";
         instance().setText(text);
         assertEquals(text, instance().getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTags() {
         assertTrue(instance().getImports().isEmpty());
     }

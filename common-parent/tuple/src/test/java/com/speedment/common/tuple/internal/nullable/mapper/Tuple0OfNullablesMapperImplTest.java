@@ -17,19 +17,19 @@
 package com.speedment.common.tuple.internal.nullable.mapper;
 
 import com.speedment.common.tuple.TuplesOfNullables;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class Tuple0OfNullablesMapperImplTest {
     
     private final @SuppressWarnings(value = "unchecked") Tuple0OfNullablesMapperImpl<Integer> instance = (Tuple0OfNullablesMapperImpl) Tuple0OfNullablesMapperImpl.EMPTY_MAPPER;;
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree() {
         assertEquals(0, instance.degree());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         assertEquals(TuplesOfNullables.ofNullables(), instance.apply(0));
     }

@@ -34,7 +34,7 @@ import com.speedment.runtime.compute.internal.expression.PowUtil.DoublePower;
 import com.speedment.runtime.compute.internal.expression.PowUtil.IntPower;
 import com.speedment.runtime.compute.internal.expression.PowUtil.ToDoublePower;
 import com.speedment.runtime.compute.internal.expression.PowUtil.ToIntPower;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -414,7 +414,7 @@ final class PowUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void intPower() {
         final DummyIntPower intPower = new DummyIntPower(i -> i, 1);
 
@@ -454,7 +454,7 @@ final class PowUtilTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toIntPower() {
         final DummyToIntPower intPower = new DummyToIntPower(i -> i, i -> 1);
 
@@ -493,7 +493,7 @@ final class PowUtilTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void doublePower() {
         final DummyDoublePower doublePower = new DummyDoublePower(i -> i, 1);
 
@@ -533,7 +533,7 @@ final class PowUtilTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDoublePower() {
         final DummyToDoublePower doublePower = new DummyToDoublePower(i -> i, i -> 1);
 

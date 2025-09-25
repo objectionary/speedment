@@ -16,166 +16,166 @@
  */
 package com.speedment.common.tuple;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class TupleBuilderTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder1() {
         final Tuple expected = Tuples.of(0);
         final Tuple actual = TupleBuilder.builder().add(0).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder2() {
         final Tuple expected = Tuples.of(0, 1);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder3() {
         final Tuple expected = Tuples.of(0, 1, 2);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder4() {
         final Tuple expected = Tuples.of(0, 1, 2, 3);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder5() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder6() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder7() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder8() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder9() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder10() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder11() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder12() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder13() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder14() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder15() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder16() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder17() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder18() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder19() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).add(18).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder20() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).add(18).add(19).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder21() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).add(18).add(19).add(20).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder22() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).add(18).add(19).add(20).add(21).build();
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder23() {
         final Tuple expected = Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
         final Tuple actual = TupleBuilder.builder().add(0).add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10).add(11).add(12).add(13).add(14).add(15).add(16).add(17).add(18).add(19).add(20).add(21).add(22).build();

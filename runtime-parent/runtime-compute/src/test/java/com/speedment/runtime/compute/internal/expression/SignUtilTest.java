@@ -21,11 +21,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.speedment.runtime.compute.ToByte;
 import com.speedment.runtime.compute.ToInt;
 import com.speedment.runtime.compute.internal.expression.SignUtil.AbstractSign;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class SignUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void signFloat() {
         final ToByte<Float> signFloat = SignUtil.signFloat(f -> f);
 
@@ -34,7 +34,7 @@ final class SignUtilTest {
         assertEquals(1, signFloat.applyAsByte(1f));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void signLong() {
         final ToByte<Long> signLong = SignUtil.signLong(l -> l);
 
@@ -43,7 +43,7 @@ final class SignUtilTest {
         assertEquals(1, signLong.applyAsByte(1L));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void signInt() {
         final ToByte<Integer> signInt = SignUtil.signInt(i -> i);
 
@@ -52,7 +52,7 @@ final class SignUtilTest {
         assertEquals(1, signInt.applyAsByte(1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void signShort() {
         final ToByte<Short> signShort = SignUtil.signShort(s -> s);
 
@@ -61,7 +61,7 @@ final class SignUtilTest {
         assertEquals(1, signShort.applyAsByte((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void signByte() {
         final ToByte<Byte> signByte = SignUtil.signByte(b -> b);
 
@@ -70,7 +70,7 @@ final class SignUtilTest {
         assertEquals(1, signByte.applyAsByte((byte) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractSign() {
         final DummySign instance = new DummySign(i -> i);
 

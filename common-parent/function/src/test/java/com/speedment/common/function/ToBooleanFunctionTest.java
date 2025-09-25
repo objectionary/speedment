@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,13 +24,13 @@ final class ToBooleanFunctionTest {
 
     private static final ToBooleanFunction<Integer> IS_EVEN = i -> i % 2 == 0;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyAsBoolean() {
         assertTrue(IS_EVEN.applyAsBoolean(2));
         assertFalse(IS_EVEN.applyAsBoolean(1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         assertTrue(IS_EVEN.test(2));
         assertFalse(IS_EVEN.test(1));

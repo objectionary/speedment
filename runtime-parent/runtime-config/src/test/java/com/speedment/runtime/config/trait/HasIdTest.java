@@ -17,18 +17,18 @@
 package com.speedment.runtime.config.trait;
 
 import com.speedment.runtime.config.util.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class HasIdTest extends AbstractDocumentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFallbackToName() {
         assertEquals(tableA.getName(), tableA.getId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetId() {
         assertEquals(DBMS_A_ID, dbmsA.getId());
     }

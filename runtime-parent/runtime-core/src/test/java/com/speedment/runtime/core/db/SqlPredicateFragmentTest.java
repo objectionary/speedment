@@ -19,13 +19,13 @@ package com.speedment.runtime.core.db;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 
 final class SqlPredicateFragmentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void instance() {
         assertNotNull(SqlPredicateFragment.of("SELECT * FROM table"));
         assertNotNull(SqlPredicateFragment.of("SELECT * FROM table WHERE id > ?", 1));

@@ -28,14 +28,14 @@ import com.speedment.runtime.config.Dbms;
 import com.speedment.runtime.core.component.DbmsHandlerComponent;
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.runtime.core.exception.SpeedmentException;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
 final class DatabaseUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void dbmsTypeOf() {
         final Dbms dbms = mock(Dbms.class);
         when(dbms.getTypeName()).thenReturn("dbms_type_name");
@@ -55,7 +55,7 @@ final class DatabaseUtilTest {
         assertThrows(SpeedmentException.class, () -> DatabaseUtil.dbmsTypeOf(dbmsHandlerComponent, dbms2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findConnectionUrl() {
         final Dbms dbms = mock(Dbms.class);
         when(dbms.getTypeName()).thenReturn("dbms_type_name");
@@ -80,7 +80,7 @@ final class DatabaseUtilTest {
         assertEquals("another.connection.url", DatabaseUtil.findConnectionUrl(dbmsHandlerComponent, dbms2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findDbmsType() {
         final Dbms dbms = mock(Dbms.class);
         when(dbms.getTypeName()).thenReturn("dbms_type_name");

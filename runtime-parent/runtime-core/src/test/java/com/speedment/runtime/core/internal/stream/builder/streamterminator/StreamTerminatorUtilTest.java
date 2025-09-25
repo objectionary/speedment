@@ -25,7 +25,7 @@ import com.speedment.runtime.field.IntField;
 import com.speedment.runtime.field.predicate.SpeedmentPredicate;
 import com.speedment.runtime.test_support.MockDbmsType;
 import com.speedment.runtime.typemapper.TypeMapper;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -68,37 +68,37 @@ final class StreamTerminatorUtilTest {
     private static final SpeedmentPredicate<Person> ID_GT_0_OR_AGE_EQ_2 = ID_GT_0.or(AGE_EQ_2);
     private static final Predicate<Person> COMPLEX = ID_GT_0.and(AGE_EQ_2).or(ID_GT_1.and(AGE_EQ_3));
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateLambda() {
         assertFalse(isContainingOnlyFieldPredicate(p -> true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateSimple() {
         assertTrue(isContainingOnlyFieldPredicate(ID_GT_0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateAnd() {
         assertTrue(isContainingOnlyFieldPredicate(ID_GT_0_AND_AGE_EQ_2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateOr() {
         assertTrue(isContainingOnlyFieldPredicate(ID_GT_0_AND_AGE_EQ_2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateComplex() {
         assertTrue(isContainingOnlyFieldPredicate(COMPLEX));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsContainingOnlyFieldPredicateComplexAndPolluted() {
         assertFalse(isContainingOnlyFieldPredicate(COMPLEX.and(person -> true)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBasicRenderSqlWhere() {
         testRender(singletonList(ID_GT_0), rr -> {
             System.out.println(rr);
@@ -107,7 +107,7 @@ final class StreamTerminatorUtilTest {
         });
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRenderSqlWhereNot() {
         testRender(singletonList(ID_GT_0_AND_AGE_EQ_2.negate()), rr -> {
             System.out.println(rr);
@@ -116,7 +116,7 @@ final class StreamTerminatorUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test2RenderSqlWhere() {
         testRender(Arrays.asList(ID_GT_0, AGE_EQ_2), rr -> {
             System.out.println(rr);
@@ -125,7 +125,7 @@ final class StreamTerminatorUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAndComnbinedRenderSqlWhere() {
         testRender(singletonList(ID_GT_0_AND_AGE_EQ_2), rr -> {
             System.out.println(rr);
@@ -134,7 +134,7 @@ final class StreamTerminatorUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOrComnbinedRenderSqlWhere() {
         testRender(singletonList(ID_GT_0_OR_AGE_EQ_2), rr -> {
             System.out.println(rr);
@@ -143,7 +143,7 @@ final class StreamTerminatorUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testComplexComnbinedRenderSqlWhere() {
         testRender(singletonList(COMPLEX), rr -> {
             System.out.println(rr);
@@ -152,7 +152,7 @@ final class StreamTerminatorUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testComplexPollutedComnbinedRenderSqlWhere() {
         try {
             testRender(singletonList(COMPLEX.and(p -> true)), rr -> {

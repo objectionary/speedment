@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.File;
 import com.speedment.common.codegen.model.Method;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,13 +36,13 @@ final class HasMethodsTest {
         method = Method.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         clazz.add(method);
         assertEquals(singletonList(method), clazz.getMethods());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMethods() {
         assertTrue(clazz.getMethods().isEmpty());
     }

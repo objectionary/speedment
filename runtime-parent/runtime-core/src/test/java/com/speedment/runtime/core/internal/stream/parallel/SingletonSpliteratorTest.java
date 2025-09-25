@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.stream.parallel;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,13 +39,13 @@ final class SingletonSpliteratorTest extends BaseSpliteratorTest {
         instance = new SingletonSpliterator<>(VALUE, 0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrySplit() {
         printTestName();
         assertNull(instance.trySplit());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testForEachRemaining() {
         printTestName();
         final List<Integer> expected = Collections.singletonList(VALUE);
@@ -56,14 +56,14 @@ final class SingletonSpliteratorTest extends BaseSpliteratorTest {
         assertEquals(expected, list);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTryAdvance() {
         printTestName();
         assertTrue(instance.tryAdvance(DO_NOTHING));
         assertFalse(instance.tryAdvance(DO_NOTHING));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEstimateSize() {
         printTestName();
         assertEquals(1, instance.estimateSize());

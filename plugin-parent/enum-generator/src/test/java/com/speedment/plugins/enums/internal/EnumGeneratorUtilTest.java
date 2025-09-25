@@ -21,7 +21,7 @@ import com.speedment.runtime.config.Column;
 import com.speedment.runtime.config.Project;
 import com.speedment.runtime.config.util.DocumentDbUtil;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -34,7 +34,7 @@ import static org.mockito.Mockito.when;
 @Disabled
 final class EnumGeneratorUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumConstantsOfWithNoEnumConstants() {
         final Project project = TestUtil.project();
         final Column column = DocumentDbUtil.referencedColumn(project,"speedment_test","speedment_test", "user", "surname");

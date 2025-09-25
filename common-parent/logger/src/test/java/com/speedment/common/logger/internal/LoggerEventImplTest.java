@@ -18,7 +18,7 @@ package com.speedment.common.logger.internal;
 
 import com.speedment.common.logger.Level;
 import com.speedment.common.logger.LoggerEvent;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import javax.print.attribute.standard.MediaSize;
 
@@ -32,17 +32,17 @@ final class LoggerEventImplTest {
 
     private final LoggerEvent loggerEvent = new LoggerEventImpl(LEVEL, NAME, MESSAGE);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLevel() {
         assertEquals(LEVEL, loggerEvent.getLevel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, loggerEvent.getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMessage() {
         assertEquals(MESSAGE, loggerEvent.getMessage());
     }

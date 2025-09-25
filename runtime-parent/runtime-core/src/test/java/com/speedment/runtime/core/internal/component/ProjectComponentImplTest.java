@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import com.speedment.runtime.config.Project;
 import com.speedment.runtime.core.ApplicationMetadata;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,13 +37,13 @@ class ProjectComponentImplTest {
         instance.loadProjectFromMetadata(applicationMetadata);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getProject() {
         assertEquals(applicationMetadata.makeProject().getName(),
                 instance.getProject().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setProject() {
         final Project oldProject = instance.getProject();
 

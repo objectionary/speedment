@@ -27,7 +27,7 @@ import com.speedment.runtime.field.comparator.FieldComparator;
 import com.speedment.runtime.field.comparator.NullOrder;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Objects;
 import java.util.stream.IntStream;
@@ -50,7 +50,7 @@ final class ByteFieldComparatorImplTest {
         instance = new ByteFieldComparatorImpl<>(ByteValue.BYTE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetField() {
         final ByteField<ByteValue, Byte> expResult = ByteValue.BYTE;
         final ByteField<ByteValue, Byte> result =
@@ -58,21 +58,21 @@ final class ByteFieldComparatorImplTest {
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetNullOrder() {
         final NullOrder expResult = NullOrder.NONE;
         final NullOrder result = instance.getNullOrder();
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsReversed() {
         boolean expResult = false;
         boolean result = instance.isReversed();
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReversed() {
         final FieldComparator<ByteValue> expResult = new ByteFieldComparatorImpl<>(ByteValue.BYTE, true);
         final FieldComparator<ByteValue> result = instance.reversed();
@@ -80,7 +80,7 @@ final class ByteFieldComparatorImplTest {
         assertTrue(result.isReversed());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompareSimple() {
         final ByteValue first = ByteValue.of((byte) 0);
         final ByteValue second = ByteValue.of((byte) 1);
@@ -89,7 +89,7 @@ final class ByteFieldComparatorImplTest {
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompareAllTheThings() {
         IntStream.rangeClosed(Byte.MIN_VALUE, Byte.MAX_VALUE).forEach(first -> {
             IntStream.rangeClosed(Byte.MIN_VALUE, Byte.MAX_VALUE).forEach(second -> {
@@ -112,20 +112,20 @@ final class ByteFieldComparatorImplTest {
         return -1;
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         final int expResult = new ByteFieldComparatorImpl<>(ByteValue.BYTE, false).reversed().reversed().hashCode();
         final int result = instance.hashCode();
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final ByteFieldComparatorImpl<ByteValue, Byte> result = new ByteFieldComparatorImpl<>(ByteValue.BYTE, false);
         assertEquals(instance, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String result = instance.toString();
         assertNotNull(result);

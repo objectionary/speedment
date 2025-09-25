@@ -17,7 +17,7 @@
 package com.speedment.common.jvm_version.internal;
 
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -33,55 +33,55 @@ final class InternalJvmVersionTest {
 
     private static final InternalJvmVersion instance = new InternalJvmVersion();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetSpecificationTitle() {
         final String result = instance.getSpecificationTitle();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetSpecificationVersion() {
         final String result = instance.getSpecificationVersion();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetSpecificationVendor() {
         final String result = instance.getSpecificationVendor();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetImplementationTitle() {
         final String result = instance.getImplementationTitle();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetImplementationVersion() {
         final String result = instance.getImplementationVersion();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetImplementationVendor() {
         final String result = instance.getImplementationVendor();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMajor() {
         final int result = instance.major();
         assertTrue(result >= 8);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMinor() {
         final int result = instance.minor();
         assertTrue(result >= 0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSecurity() {
         final int result = instance.security();
         assertTrue(result >= 0);

@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasEnabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasEnabledMutatorMixin<TYPE extends Document & HasEnabled,
         MUTATOR extends DocumentMutator<TYPE> & HasEnabledMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setEnabled() {
         assertDoesNotThrow(() -> getMutatorInstance().setEnabled(true));
     }

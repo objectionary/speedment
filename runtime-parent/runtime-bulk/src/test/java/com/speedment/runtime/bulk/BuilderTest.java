@@ -26,7 +26,7 @@ import com.speedment.runtime.core.manager.Remover;
 import com.speedment.runtime.core.manager.Updater;
 import com.speedment.runtime.field.Field;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.stream.Stream;
 
@@ -43,7 +43,7 @@ final class BuilderTest {
         mgr = new PointManager();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRemoveAll() {
         assertDoesNotThrow(() -> {
                 final BulkOperation bo = BulkOperation.builder()
@@ -55,7 +55,7 @@ final class BuilderTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRemoveOnePredicate() {
         assertDoesNotThrow(() -> {
                 final BulkOperation bo = BulkOperation.builder()
@@ -67,7 +67,7 @@ final class BuilderTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRemoveTwoPredicates() {
         assertDoesNotThrow(() -> {
             final BulkOperation bo = BulkOperation.builder()
@@ -125,7 +125,7 @@ final class BuilderTest {
     
     */
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMixed() {
         assertDoesNotThrow(() -> {
             final BulkOperation bo = BulkOperation.builder()

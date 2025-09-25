@@ -20,11 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.common.codegen.Generator;
 import com.speedment.common.codegenxml.Document;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DocumentViewTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void transform() {
         final Generator generator = Generator.forJava();
 

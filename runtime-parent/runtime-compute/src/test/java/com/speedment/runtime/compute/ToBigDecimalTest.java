@@ -25,7 +25,7 @@ import static com.speedment.runtime.compute.TestUtil.strings;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.expression.ExpressionType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 
@@ -44,7 +44,7 @@ final class ToBigDecimalTest extends AbstractToTest<ToBigDecimal<String>> {
         return s -> BigDecimal.valueOf(s.length());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testApplyAsInt() {
         strings().forEach(s -> {
             final long actual = mapper.applyAsLong(s);
@@ -54,7 +54,7 @@ final class ToBigDecimalTest extends AbstractToTest<ToBigDecimal<String>> {
     }
 
     // NOT SUPPORTED
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testMapToDouble() {
 //        strings().forEach(s -> {
 //            final double expected = mapper.apply(s).doubleValue() + 1.0;
@@ -63,7 +63,7 @@ final class ToBigDecimalTest extends AbstractToTest<ToBigDecimal<String>> {
 //            assertEquals(expected, actual, EPSILON);
 //        });
 //    }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMap() {
         strings().forEach(s -> {
             final double expected = (double) mapper.applyAsLong(s) + 1.0;
@@ -73,7 +73,7 @@ final class ToBigDecimalTest extends AbstractToTest<ToBigDecimal<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompose() {
         strings().forEach(s -> {
             final ToBigDecimalNullable<String> composed = instance.compose(str -> str + "A");
@@ -81,7 +81,7 @@ final class ToBigDecimalTest extends AbstractToTest<ToBigDecimal<String>> {
         });
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOf() {
         strings().forEach(s -> {
             final ToBigDecimal<String> created = ToBigDecimal.of(str -> BigDecimal.valueOf(str.length()));

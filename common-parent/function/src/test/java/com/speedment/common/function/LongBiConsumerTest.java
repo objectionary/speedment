@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class LongBiConsumerTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void accept() {
         final AtomicLong atomicLong = new AtomicLong();
         final LongBiConsumer consumer = (a, b) -> atomicLong.set(a + b);
@@ -32,7 +32,7 @@ final class LongBiConsumerTest {
         assertEquals(3, atomicLong.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void andThen() {
         final AtomicLong atomicLong = new AtomicLong();
         final AtomicLong atomicLong2 = new AtomicLong();

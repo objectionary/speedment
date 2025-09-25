@@ -25,7 +25,7 @@ import com.speedment.runtime.core.db.DatabaseNamingConvention;
 import com.speedment.runtime.core.db.DbmsColumnHandler;
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.test.connector.support.Dummies;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 
@@ -37,87 +37,87 @@ public interface DbmsTypeMixin {
 
     DbmsType getDbmsTypeInstance();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDefaultSchemaName() {
         assertNotNull(getDbmsTypeInstance().getDefaultSchemaName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDefaultDbmsName() {
         assertNotNull(getDbmsTypeInstance().getDefaultDbmsName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDataTypes() {
         assertNotNull(getDbmsTypeInstance().getDataTypes());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void hasSchemaNames() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().hasSchemaNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void hasDatabaseNames() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().hasDatabaseNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void hasDatabaseUsers() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().hasDatabaseUsers());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void hasServerNames() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().hasServerNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getConnectionType() {
         assertNotNull(getDbmsTypeInstance().getConnectionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDefaultServerName() {
         assertNotNull(getDbmsTypeInstance().getDefaultServerName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getCollateFragment() {
         assertNotNull(getDbmsTypeInstance().getCollateFragment());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getName() {
         assertNotNull(getDbmsTypeInstance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDriverManagerName() {
         assertNotNull(getDbmsTypeInstance().getDriverManagerName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDefaultPort() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().getDefaultPort());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDbmsNameMeaning() {
         assertNotNull(getDbmsTypeInstance().getDbmsNameMeaning());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDriverName() {
         assertNotNull(getDbmsTypeInstance().getDriverName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getMetadataHandler() {
         assertNotNull(getDbmsTypeInstance().getMetadataHandler());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getColumnHandler() {
         final DbmsColumnHandler dbmsColumnHandler = getDbmsTypeInstance().getColumnHandler();
 
@@ -126,12 +126,12 @@ public interface DbmsTypeMixin {
         assertNotNull(dbmsColumnHandler.excludedInUpdateStatement());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getOperationHandler() {
         assertNotNull(getDbmsTypeInstance().getOperationHandler());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getConnectionUrlGenerator() {
         final ConnectionUrlGenerator connectionUrlGenerator = getDbmsTypeInstance().getConnectionUrlGenerator();
 
@@ -139,7 +139,7 @@ public interface DbmsTypeMixin {
         assertNotNull(connectionUrlGenerator.from(Dummies.dbms()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getDatabaseNamingConvention() {
         final DatabaseNamingConvention namingConvention = getDbmsTypeInstance().getDatabaseNamingConvention();
         assertNotNull(namingConvention);
@@ -150,47 +150,47 @@ public interface DbmsTypeMixin {
         assertNotNull(namingConvention.encloseField("field"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getFieldPredicateView() {
         assertNotNull(getDbmsTypeInstance().getFieldPredicateView());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void isSupported() {
         assertDoesNotThrow(() -> getDbmsTypeInstance().isSupported());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getInitialQuery() {
         assertNotNull(getDbmsTypeInstance().getInitialQuery());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getSchemaTableDelimiter() {
         assertNotNull(getDbmsTypeInstance().getSchemaTableDelimiter());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getResultSetTableSchema() {
         assertNotNull(getDbmsTypeInstance().getResultSetTableSchema());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getSkipLimitSupport() {
         assertNotNull(getDbmsTypeInstance().getSkipLimitSupport());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void applySkipLimit() {
         assertNotNull(getDbmsTypeInstance().applySkipLimit("SELECT * FROM table", new ArrayList<>(), 0, 0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getSubSelectAlias() {
         assertNotNull(getDbmsTypeInstance().getSubSelectAlias());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void getSortByNullOrderInsertion() {
         assertNotNull(getDbmsTypeInstance().getSortByNullOrderInsertion());
     }

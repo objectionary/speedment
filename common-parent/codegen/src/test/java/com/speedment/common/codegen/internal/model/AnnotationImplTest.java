@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.Annotation;
 import com.speedment.common.codegen.model.Javadoc;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,44 +42,44 @@ final class AnnotationImplTest extends AbstractTest<Annotation> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setName() {
         instance().setName(OTHER_NAME);
         assertEquals(OTHER_NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         instance().set(Javadoc.of("A"));
         assertEquals("A", instance().getJavadoc().orElseThrow(NoSuchElementException::new).getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertEquals(Optional.empty(), instance().getJavadoc());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnnotations() {
         assertTrue(instance().getFields().isEmpty());
     }

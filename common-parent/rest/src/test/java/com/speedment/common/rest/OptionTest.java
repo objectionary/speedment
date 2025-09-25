@@ -19,7 +19,7 @@ package com.speedment.common.rest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.common.rest.Option.Type;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class OptionTest {
 
@@ -29,37 +29,37 @@ final class OptionTest {
     private final AbstractOption abstractHeader = (AbstractOption) header;
     private final AbstractOption abstractParam = (AbstractOption) param;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertEquals(Type.HEADER, header.getType());
         assertEquals(Type.PARAM, param.getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getKey() {
         assertEquals("Content-Type", header.getKey());
         assertEquals("key", param.getKey());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertEquals("application/json", header.getValue());
         assertEquals("value", param.getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         assertNotEquals(0, abstractHeader.hashCode());
         assertNotEquals(0, abstractParam.hashCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         assertEquals("Content-Type=application/json", abstractHeader.toString());
         assertEquals("key=value", abstractParam.toString());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final AbstractOption copy = abstractHeader;
 

@@ -16,7 +16,7 @@
  */
 package com.speedment.common.tuple;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -36,7 +36,7 @@ final class TuplesExtraTest {
      * abstract base class {@code BasicAbstractTuple} accessed the
      * {@link Tuple#degree()}-method before the inner array was initialized.)
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofArrayLarge() {
         final Random random = new Random();
         final Integer[] array = new Integer[SIZE];
@@ -54,7 +54,7 @@ final class TuplesExtraTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofArray() {
         IntStream.range(0, SIZE).forEach(i -> {
             final Tuple tuple = TuplesTestUtil.createTupleFilled(i);

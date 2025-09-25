@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal;
 import com.speedment.common.codegen.*;
 import com.speedment.common.codegen.provider.StandardTransformFactory;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 
@@ -47,37 +47,37 @@ final class MetaImplTest {
                 .build();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getResult() {
         assertEquals("1", instance.getResult());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTransform() {
         assertEquals(transform, instance.getTransform());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFactory() {
         assertEquals(factory, instance.getFactory());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModel() {
         assertEquals(1, instance.getModel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRenderStack() {
         assertEquals(renderStack, instance.getRenderStack());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRenderTree() {
         assertEquals(renderTree, instance.getRenderTree());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String s = instance.toString();
         assertTrue(s.contains("model"));

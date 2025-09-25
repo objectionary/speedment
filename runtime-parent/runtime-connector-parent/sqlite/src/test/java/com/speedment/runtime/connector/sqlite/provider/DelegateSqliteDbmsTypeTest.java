@@ -26,7 +26,7 @@ import com.speedment.runtime.core.component.transaction.TransactionComponent;
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.runtime.core.db.DriverComponent;
 import com.speedment.test.connector.DbmsTypeMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.mockito.Mockito;
 
 final class DelegateSqliteDbmsTypeTest implements DbmsTypeMixin {
@@ -45,7 +45,7 @@ final class DelegateSqliteDbmsTypeTest implements DbmsTypeMixin {
                 transactionComponent);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void close() {
         final DelegateSqliteDbmsType dbmsType = (DelegateSqliteDbmsType) getDbmsTypeInstance();
 

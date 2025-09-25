@@ -56,7 +56,7 @@ import com.speedment.runtime.compute.internal.expression.MapperUtil.ToIntMapper;
 import com.speedment.runtime.compute.internal.expression.MapperUtil.ToLongMapper;
 import com.speedment.runtime.compute.internal.expression.MapperUtil.ToShortMapper;
 import com.speedment.runtime.compute.internal.expression.MapperUtil.ToStringMapper;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 import java.util.function.DoubleUnaryOperator;
@@ -70,7 +70,7 @@ import java.util.function.UnaryOperator;
 @SuppressWarnings("unchecked")
 final class MapperUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapBoolean() {
         final ToBoolean<Boolean> toBoolean = bool -> bool;
         final ToBooleanMapper<Boolean, ToBoolean<Boolean>, BooleanUnaryOperator> toBooleanMapper =
@@ -80,7 +80,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BOOLEAN_TO_BOOLEAN, toBooleanMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapBooleanToDouble() {
         final ToBoolean<Boolean> toBoolean = bool -> bool;
         final ToDoubleMapper<Boolean, ToBoolean<Boolean>, BooleanToDoubleFunction> toDoubleMapper =
@@ -90,7 +90,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BOOLEAN_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapChar() {
         final ToChar<Character> toChar = c -> c;
         final ToCharMapper<Character, ToChar<Character>, CharUnaryOperator> toCharMapper =
@@ -100,7 +100,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.CHAR_TO_CHAR, toCharMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapByte() {
         final ToByte<Byte> toByte = b -> b;
         final ToByteMapper<Byte, ToByte<Byte>, ByteUnaryOperator> toByteMapper =
@@ -110,7 +110,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BYTE_TO_BYTE, toByteMapper.mapperType());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapByteToDouble() {
         final ToByte<Byte> toByte = b -> b;
         final ToDoubleMapper<Byte, ToByte<Byte>, ByteToDoubleFunction> toDoubleMapper =
@@ -120,7 +120,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BYTE_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapShort() {
         final ToShort<Short> toShort = s -> s;
         final ToShortMapper<Short, ToShort<Short>, ShortUnaryOperator> toShortMapper =
@@ -130,7 +130,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.SHORT_TO_SHORT, toShortMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapShortToDouble() {
         final ToShort<Short> toShort = s -> s;
         final ToDoubleMapper<Short, ToShort<Short>, ShortToDoubleFunction> toDoubleMapper =
@@ -140,7 +140,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.SHORT_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapInt() {
         final ToInt<Integer> toInt = i -> i;
         final ToIntMapper<Integer, ToInt<Integer>, IntUnaryOperator> toIntMapper =
@@ -150,7 +150,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.INT_TO_INT, toIntMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIntToDouble() {
         final ToInt<Integer> toInt = i -> i;
         final ToDoubleMapper<Integer, ToInt<Integer>, IntToDoubleFunction> toDoubleMapper =
@@ -160,7 +160,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.INT_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapLong() {
         final ToLong<Long> toLong = l -> l;
         final ToLongMapper<Long, ToLong<Long>, LongUnaryOperator> toLongMapper =
@@ -170,7 +170,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.LONG_TO_LONG, toLongMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapLongToDouble() {
         final ToLong<Long> toLong = s -> s;
         final ToDoubleMapper<Long, ToLong<Long>, LongToDoubleFunction> toDoubleMapper =
@@ -180,7 +180,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.LONG_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapFloat() {
         final ToFloat<Float> toFloat = f -> f;
         final ToFloatMapper<Float, ToFloat<Float>, FloatUnaryOperator> toFloatMapper =
@@ -190,7 +190,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.FLOAT_TO_FLOAT, toFloatMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapFloatToDouble() {
         final ToFloat<Float> toFloat = f -> f;
         final ToDoubleMapper<Float, ToFloat<Float>, FloatToDoubleFunction> toDoubleMapper =
@@ -200,7 +200,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.FLOAT_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapDouble() {
         final ToDouble<Double> toDouble = d -> d;
         final ToDoubleMapper<Double, ToDouble<Double>, DoubleUnaryOperator> toDoubleMapper =
@@ -210,7 +210,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.DOUBLE_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapString() {
         final ToString<String> toString = string -> string;
         final ToStringMapper<String, ToString<String>, UnaryOperator<String>> toStringMapper =
@@ -220,7 +220,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.STRING_TO_STRING, toStringMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapEnum() {
         final ToEnum<String, TestEnum> toEnum = ToEnum.of(TestEnum.class, TestEnum::valueOf);
         final ToEnumMapper<String, TestEnum, ToEnum<String, TestEnum>, UnaryOperator<TestEnum>> toEnumMapper =
@@ -231,7 +231,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.ENUM_TO_ENUM, toEnumMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapBigDecimal() {
         final ToBigDecimal<BigDecimal> toBigDecimal = decimal -> decimal;
         final ToBigDecimalMapper<BigDecimal, ToBigDecimal<BigDecimal>, UnaryOperator<BigDecimal>> toBigDecimalMapper =
@@ -241,7 +241,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BIG_DECIMAL_TO_BIG_DECIMAL, toBigDecimalMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapBigDecimalToDouble() {
         final ToBigDecimal<BigDecimal> toBigDecimal = decimal -> decimal;
         final ToDoubleMapper<BigDecimal, ToBigDecimal<BigDecimal>, ToDoubleFunction<BigDecimal>> toDoubleMapper =
@@ -252,7 +252,7 @@ final class MapperUtilTest {
         assertEquals(MapperType.BIG_DECIMAL_TO_DOUBLE, toDoubleMapper.mapperType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractMapper() {
         final DummyMapper dummyMapper = new DummyMapper(string -> string, string -> string);
 

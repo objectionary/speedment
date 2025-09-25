@@ -22,7 +22,7 @@
 package com.speedment.runtime.application;
 
 import com.speedment.runtime.application.RuntimeBundle;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 final class RuntimeBundleTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInjectables() {
         assertTrue(new RuntimeBundle().injectables().count() > 0);
     }

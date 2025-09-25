@@ -25,7 +25,7 @@ import static com.speedment.runtime.compute.TestUtil.strings;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.expression.ExpressionType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  *
@@ -42,7 +42,7 @@ final class ToLongTest extends AbstractToTest<ToLong<String>> {
         return String::length;
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testApplyAsLong() {
         strings().forEach(s -> {
             final long actual = mapper.applyAsLong(s);
@@ -51,7 +51,7 @@ final class ToLongTest extends AbstractToTest<ToLong<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMapToDouble() {
         strings().forEach(s -> {
             final double expected = (double) mapper.applyAsLong(s) + 1.0;
@@ -61,7 +61,7 @@ final class ToLongTest extends AbstractToTest<ToLong<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMap() {
         strings().forEach(s -> {
             final double expected = (double) mapper.applyAsLong(s) + 1.0;
@@ -71,7 +71,7 @@ final class ToLongTest extends AbstractToTest<ToLong<String>> {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCompose() {
         strings().forEach(s -> {
             final ToLongNullable<String> composed = instance.compose(str -> str + "A");
@@ -79,7 +79,7 @@ final class ToLongTest extends AbstractToTest<ToLong<String>> {
         });
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOf() {
         strings().forEach(s -> {
             final ToLong<String> created = ToLong.of(String::length);

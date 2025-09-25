@@ -33,13 +33,13 @@ import com.speedment.runtime.compute.internal.expression.OrElseUtil.ToIntOrElseI
 import com.speedment.runtime.compute.internal.expression.OrElseUtil.ToLongOrElseImpl;
 import com.speedment.runtime.compute.internal.expression.OrElseUtil.ToShortOrElseImpl;
 import com.speedment.runtime.compute.internal.expression.OrElseUtil.ToStringOrElseImpl;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 
 final class OrElseUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDoubleOrElse() {
         final ToDoubleOrElseImpl<Double> instance = new ToDoubleOrElseImpl<>(d -> d, 1);
 
@@ -64,7 +64,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toFloatOrElse() {
         final ToFloatOrElseImpl<Float> instance = new ToFloatOrElseImpl<>(d -> d, 1);
 
@@ -89,7 +89,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toLongOrElse() {
         final ToLongOrElseImpl<Long> instance = new ToLongOrElseImpl<>(d -> d, 1);
 
@@ -114,7 +114,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toIntOrElse() {
         final ToIntOrElseImpl<Integer> instance = new ToIntOrElseImpl<>(d -> d, 1);
 
@@ -139,7 +139,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toShortOrElse() {
         final ToShortOrElseImpl<Short> instance = new ToShortOrElseImpl<>(d -> (short) d, (short) 1);
 
@@ -164,7 +164,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toByteOrElse() {
         final ToByteOrElseImpl<Byte> instance = new ToByteOrElseImpl<>(d -> d, (byte) 1);
 
@@ -189,7 +189,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toCharOrElse() {
         final ToCharOrElseImpl<Character> instance = new ToCharOrElseImpl<>(d -> d, (char) 1);
 
@@ -214,7 +214,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toBooleanOrElse() {
         final ToBooleanOrElseImpl<Boolean> instance = new ToBooleanOrElseImpl<>(d -> d, true);
 
@@ -239,7 +239,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringOrElse() {
         final ToStringOrElseImpl<String> instance = new ToStringOrElseImpl<>(d -> d, "Default");
 
@@ -264,7 +264,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toEnumOrElse() {
         final ToEnumOrElseImpl<String, TestEnum> instance = new ToEnumOrElseImpl<>(ToEnumNullable.of(TestEnum.class,
                 string -> string == null ? null : TestEnum.valueOf(string)), TestEnum.DEFAULT);
@@ -295,7 +295,7 @@ final class OrElseUtilTest {
         assertTrue(instance.equals(allSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toBigDecimalOrElse() {
         final ToBigDecimalOrElseImpl<BigDecimal> instance = new ToBigDecimalOrElseImpl<>(d -> d, BigDecimal.ONE);
 

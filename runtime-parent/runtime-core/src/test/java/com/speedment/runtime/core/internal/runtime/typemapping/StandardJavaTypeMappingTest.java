@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.runtime.typemapping;
 
 import com.speedment.runtime.core.component.resultset.ResultSetMapping;
 import com.speedment.runtime.core.internal.component.resultset.StandardJavaTypeMapping;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 final class StandardJavaTypeMappingTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse() {
         testMapping(Boolean.class, Boolean.TRUE, m -> m.parse("true"));
         testMapping(Boolean.class, Boolean.FALSE, m -> m.parse("false"));

@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 final class LongUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void cast() {
         assertThrows(NullPointerException.class, () -> LongUtil.cast(1L ,null));
         assertNull(LongUtil.cast(null, Long.class));

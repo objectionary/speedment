@@ -18,7 +18,7 @@ package com.speedment.runtime.typemapper;
 
 import com.speedment.runtime.config.Column;
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -80,22 +80,22 @@ public abstract class AbstractTypeMapperTest<D, V, T extends TypeMapper<D, V>> {
                 () -> assertEquals(e.getKey(), typeMapper().toDatabaseType(e.getValue())))));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     protected void getJavaType() {
         assertEquals(javaClass, typeMapper().getJavaType(column()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaTypeCategory() {
         assertEquals(category(), typeMapper().getJavaTypeCategory(column()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrdering() {
         assertEquals(ordering(), typeMapper().getOrdering());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLabel() {
         assertNotNull(typeMapper.getLabel());
     }

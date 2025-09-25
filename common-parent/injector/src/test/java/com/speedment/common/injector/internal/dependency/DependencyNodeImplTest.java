@@ -16,13 +16,13 @@
  */
 package com.speedment.common.injector.internal.dependency;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 final class DependencyNodeImplTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDependencies() {
         DependencyNodeImpl instance = new DependencyNodeImpl(Integer.class);
         assertTrue(instance.getDependencies().isEmpty());

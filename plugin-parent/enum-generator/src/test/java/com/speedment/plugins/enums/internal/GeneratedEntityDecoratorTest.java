@@ -32,7 +32,7 @@ import com.speedment.runtime.config.Table;
 import com.speedment.runtime.config.util.DocumentDbUtil;
 import com.speedment.runtime.core.provider.DelegateInfoComponent;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Disabled
 final class GeneratedEntityDecoratorTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() throws InstantiationException {
         final Injector injector = Injector.builder()
                 .withComponent(StandardJavaLanguageNamer.class)

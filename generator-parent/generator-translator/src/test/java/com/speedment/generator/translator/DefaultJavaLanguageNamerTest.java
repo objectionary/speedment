@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.speedment.generator.translator.namer.JavaLanguageNamer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  *
@@ -38,7 +38,7 @@ final class DefaultJavaLanguageNamerTest {
     private final JavaLanguageNamer instance = JavaLanguageNamer.create();
 
     @DisplayName("Test of javaTypeName method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testJavaTypeName() {
         assertEquals("MyObject", instance.javaTypeName("my_object"));
         assertEquals("MyObject", instance.javaTypeName("my.object"));
@@ -46,7 +46,7 @@ final class DefaultJavaLanguageNamerTest {
     }
 
     @DisplayName("Test of javaVariableName method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testJavaVariableName() {
         assertEquals("myObject", instance.javaVariableName("my_object"));
         assertEquals("myObject", instance.javaVariableName("my.object"));
@@ -55,7 +55,7 @@ final class DefaultJavaLanguageNamerTest {
 
 
     @DisplayName("Test of javaStaticFieldName method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testJavaStaticFieldName() {
         assertEquals("MY_OBJECT", instance.javaStaticFieldName("myObject"));
         assertEquals("MY_OBJECT", instance.javaStaticFieldName("my.object"));
@@ -63,7 +63,7 @@ final class DefaultJavaLanguageNamerTest {
     }
 
     @DisplayName("Test of javaNameFromExternal method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testJavaNameFromExternal() {
         assertEquals("MyObject", instance.javaNameFromExternal("my_object"));
         assertEquals("MyObject", instance.javaNameFromExternal("my.object"));
@@ -71,34 +71,34 @@ final class DefaultJavaLanguageNamerTest {
     }
 
     @DisplayName("Test of replaceIfJavaUsedWord method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReplaceIfJavaUsedWord() {
         assertEquals("integer_", instance.replaceIfJavaUsedWord("integer"));
     }
 
     @DisplayName("Test of javaObjectName method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testJavaObjectName() {
         assertEquals("Integer", instance.javaObjectName("int"));
         assertEquals("Integer[]", instance.javaObjectName("int[]"));
     }
 
     @DisplayName("Test of toUnderscoreSeparated method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToUnderscoreSeparated() {
         assertEquals("my_variable_name", instance.toUnderscoreSeparated("myVariableName"));
 
     }
 
     @DisplayName("Test of replaceIfIllegalJavaIdentifierCharacter method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReplaceIfIllegalJavaIdentifierCharacter() {
         assertEquals("_2my", instance.replaceIfIllegalJavaIdentifierCharacter("2my"));
         assertEquals("_2my_test_case_one", instance.replaceIfIllegalJavaIdentifierCharacter("2my test+case.one"));
     }
 
     @DisplayName("Test of toHumanReadable method")
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToHumanReadable() {
         assertEquals("My Variable Name", JavaLanguageNamer.toHumanReadable("myVariableName"));
     }

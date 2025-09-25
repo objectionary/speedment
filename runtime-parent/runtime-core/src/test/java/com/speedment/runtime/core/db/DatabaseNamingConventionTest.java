@@ -27,7 +27,7 @@ import com.speedment.runtime.config.Schema;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.config.identifier.ColumnIdentifier;
 import com.speedment.runtime.core.abstracts.AbstractDatabaseNamingConvention;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collections;
 import java.util.Set;
@@ -51,7 +51,7 @@ final class DatabaseNamingConventionTest {
         }
     };
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void fullNameOf() {
         assertNotNull(DATABASE_NAMING_CONVENTION.fullNameOf("schema", "table"));
@@ -85,12 +85,12 @@ final class DatabaseNamingConventionTest {
         assertNotNull(DATABASE_NAMING_CONVENTION.fullNameOf(primaryKeyColumn));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void quoteField() {
         assertNotNull(DATABASE_NAMING_CONVENTION.quoteField("field"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void encloseField() {
         assertNotNull(DATABASE_NAMING_CONVENTION.encloseField("field"));
     }

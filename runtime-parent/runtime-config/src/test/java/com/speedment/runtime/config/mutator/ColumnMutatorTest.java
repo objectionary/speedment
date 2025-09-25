@@ -27,7 +27,7 @@ import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasOrdinalPositionMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -46,27 +46,27 @@ final class ColumnMutatorTest implements
         return (ColumnMutator<Column>) Column.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setNullable() {
         assertDoesNotThrow(() -> getMutatorInstance().setNullable(true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setAutoIncrement() {
         assertDoesNotThrow(() -> getMutatorInstance().setAutoIncrement(true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setTypeMapper() {
         assertDoesNotThrow(() -> getMutatorInstance().setTypeMapper(String.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setDatabaseType() {
         assertDoesNotThrow(() -> getMutatorInstance().setDatabaseType(String.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setEnumConstants() {
         assertDoesNotThrow(() -> getMutatorInstance().setEnumConstants("constant"));
     }

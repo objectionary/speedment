@@ -38,7 +38,7 @@ import com.speedment.runtime.core.component.sql.override.reference.ToArrayGenera
 import com.speedment.runtime.core.component.sql.override.reference.ToArrayTerminator;
 import com.speedment.runtime.core.internal.component.sql.override.optimized.reference.OptimizedCountTerminator;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -63,14 +63,14 @@ final class SqlStreamTerminatorComponentImplTest {
         instance = new SqlStreamTerminatorComponentImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetters() {
         referenceTerminators()
             .filter(c -> !CountTerminator.class.equals(c)) // Count is optimized by default. Test separately
             .forEach(this::testGetter);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetCountTerminator() {
         assertEquals(
             OptimizedCountTerminator.create().getClass().getName(),
@@ -78,7 +78,7 @@ final class SqlStreamTerminatorComponentImplTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSetters() {
         referenceTerminators()
             .forEach(this::testSetter);

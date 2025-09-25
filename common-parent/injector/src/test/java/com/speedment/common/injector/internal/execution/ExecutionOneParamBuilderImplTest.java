@@ -21,7 +21,7 @@ import com.speedment.common.injector.dependency.DependencyGraph;
 import com.speedment.common.injector.dependency.DependencyNode;
 import com.speedment.common.injector.execution.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -48,20 +48,20 @@ final class ExecutionOneParamBuilderImplTest {
         builder = new ExecutionOneParamBuilderImpl<>(Integer.class, State.RESOLVED, String.class, State.RESOLVED);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withState() {
         final ExecutionTwoParamBuilder<Integer, String, Long> e1 = builder.withState(State.CREATED, Long.class);
         assertNotNull(e1);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withExecute() {
         final AtomicInteger cnt = new AtomicInteger();
         final ExecutionBuilder<Integer> b = builder.withExecute((i, s) -> cnt.set(i + s.length()));
         assertNotNull(b);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void build() throws InvocationTargetException, IllegalAccessException {
         builder.withExecute((i, s) -> {});
         when(dependencyGraph.get(String.class)).thenReturn(dependencyNode);

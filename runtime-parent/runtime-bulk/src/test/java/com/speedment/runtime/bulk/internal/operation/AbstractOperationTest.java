@@ -25,7 +25,7 @@ import com.speedment.runtime.bulk.RemoveOperation;
 import com.speedment.runtime.bulk.UpdateOperation;
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.test_support.MockStringManager;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -46,37 +46,37 @@ final class AbstractOperationTest {
             new UpdateOperationImpl<>(manager, new ArrayList<>(),
                     new ArrayList<>(), new ArrayList<>());
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void manager() {
         assertNotNull(persistOperation.manager());
         assertNotNull(updateOperation.manager());
         assertNotNull(removeOperation.manager());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void type() {
         assertEquals(Type.PERSIST, persistOperation.type());
         assertEquals(Type.UPDATE, updateOperation.type());
         assertEquals(Type.REMOVE, removeOperation.type());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void generatorSuppliers() {
         assertNotNull(persistOperation.generatorSuppliers());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void predicates() {
         assertNotNull(updateOperation.predicates());
         assertNotNull(removeOperation.predicates());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void consumers() {
         assertNotNull(updateOperation.consumers());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mappers() {
         assertNotNull(updateOperation.mappers());
     }

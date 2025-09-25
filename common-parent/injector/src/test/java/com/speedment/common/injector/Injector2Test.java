@@ -28,7 +28,7 @@ import com.speedment.common.injector.test_b.C;
 import com.speedment.common.injector.test_c.ChildType;
 import com.speedment.common.injector.test_c.ParentType;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 final class Injector2Test {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRepeatedInjection() {
         try {
             final Injector injector = Injector.builder()
@@ -63,7 +63,7 @@ final class Injector2Test {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSimpleInjector() {
         final Injector injector;
         
@@ -88,7 +88,7 @@ final class Injector2Test {
         assertEquals(mapper, mappers.toJavaTypeMappers().get(String.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInjectorWithSupplier() throws InstantiationException {
         Injector injector = Injector.builder()
                 .withComponent(String.class, () -> "foo")
@@ -100,7 +100,7 @@ final class Injector2Test {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPotentialCyclicDependency() {
         final Injector injector;
         
@@ -124,7 +124,7 @@ final class Injector2Test {
         assertNotNull(injector.getOrThrow(C.class).b);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInheritance() {
         final Injector injector;
         
@@ -147,7 +147,7 @@ final class Injector2Test {
         assertNotNull(injector.getOrThrow(ChildType.class).b);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testKeyMultiples() {
         final Injector injector;
         
@@ -177,7 +177,7 @@ final class Injector2Test {
     public final static class Bar implements Foo {}
     public final static class Baz implements Foo {}
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testKeyWithoutOverwrite() {
         final Injector injector;
         
@@ -239,7 +239,7 @@ final class Injector2Test {
         injector.inject(configTest);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDefaultConfig() {
         assertEquals("example", configTest.defaultString, "Test default string param: ");
         assertEquals(-104726, configTest.defaultInt, "Test default int param: ");
@@ -247,7 +247,7 @@ final class Injector2Test {
         assertEquals(false, configTest.defaultBoolean, "Test default boolean param: ");
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOverridenConfig() {
         assertEquals("anotherExample", configTest.overridenString, "Test overriden string param: ");
         assertEquals(56629, configTest.overridenInt, "Test overriden int param: ");
@@ -300,7 +300,7 @@ final class Injector2Test {
         }
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParentChildExecutors() {
         try {
             final Injector injector = Injector.builder()
@@ -347,7 +347,7 @@ final class Injector2Test {
         }
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInvokeExecutors() {
         try {
             final Injector injector = Injector.builder()
@@ -398,7 +398,7 @@ final class Injector2Test {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOptional() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ComponentWithOptionals.class)
@@ -410,7 +410,7 @@ final class Injector2Test {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOptionalPresent() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ComponentWithOptionals.class)
@@ -439,7 +439,7 @@ final class Injector2Test {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConfigDefault() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ComponentWithConfigInConstructor.class)
@@ -449,7 +449,7 @@ final class Injector2Test {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConfigCustom() throws InstantiationException {
         final long val = 999;
         final Injector injector = Injector.builder()

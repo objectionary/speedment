@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasColumnSize;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasColumnSizeMutatorMixin<TYPE extends Document & HasColumnSize,
         MUTATOR extends DocumentMutator<TYPE> & HasColumnSizeMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setColumnSize() {
         assertDoesNotThrow(() -> getMutatorInstance().setColumnSize(1));
     }

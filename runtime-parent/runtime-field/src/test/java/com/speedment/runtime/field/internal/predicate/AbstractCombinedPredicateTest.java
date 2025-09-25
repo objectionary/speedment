@@ -22,7 +22,7 @@
 package com.speedment.runtime.field.internal.predicate;
 
 import com.speedment.runtime.field.predicate.CombinedPredicate;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -87,7 +87,7 @@ final class AbstractCombinedPredicateTest {
         }
     };
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         final Set<Predicate<Integer>> set = Stream.of(MOD2, MOD4, MOD8).collect(toSet());
 
@@ -96,7 +96,7 @@ final class AbstractCombinedPredicateTest {
         assertTrue(p.stream().allMatch(set::contains));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSize() {
         CombinedPredicate<Integer> p = CombinedPredicate.and(MOD2, MOD4);
         p = p.and(MOD8);
@@ -104,7 +104,7 @@ final class AbstractCombinedPredicateTest {
         assertEquals(3, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetPredicates() {
         CombinedPredicate<Integer> p = new AbstractCombinedPredicate.AndCombinedBasePredicateImpl<>(Arrays.asList(MOD2, MOD4));
         p = p.and(MOD8);
@@ -113,7 +113,7 @@ final class AbstractCombinedPredicateTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetType() {
         final CombinedPredicate<Integer> or = CombinedPredicate.or(MOD2, MOD4);
         assertEquals(CombinedPredicate.Type.OR, or.getType());
@@ -127,7 +127,7 @@ final class AbstractCombinedPredicateTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAnd() {
         CombinedPredicate<Integer> p = CombinedPredicate.and(MOD2, MOD4);
         p = p.and(MOD8);
@@ -140,7 +140,7 @@ final class AbstractCombinedPredicateTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOr() {
         CombinedPredicate<Integer> p = CombinedPredicate.or(MOD2, MOD4);
         p = p.or(MOD8);
@@ -152,7 +152,7 @@ final class AbstractCombinedPredicateTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testComposed() {
         CombinedPredicate<Integer> p = CombinedPredicate.and(MOD2, MOD4);
         p = p.and(MOD8);
@@ -164,7 +164,7 @@ final class AbstractCombinedPredicateTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNegate() {
         CombinedPredicate<Integer> p = CombinedPredicate.and(MOD2, MOD4);
         p = p.and(MOD8);

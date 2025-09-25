@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.component;
 
 import com.speedment.runtime.core.component.InfoComponent;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,27 +43,27 @@ final class InfoComponentImplTest {
         instance = new InfoComponentImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testVendor() {
         assertEquals("Speedment, Inc.", instance.getVendor());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTitle() {
         assertNotNull(instance.getTitle());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSubtitle() {
         assertNotNull(instance.getSubtitle());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImplementationVersion() {
         assertEquals(versionFromPom(), instance.getImplementationVersion());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSpecificationVersion() {
         assertNotNull(instance.getSpecificationVersion());
         assertTrue(instance.getImplementationVersion().contains(instance.getSpecificationVersion()));

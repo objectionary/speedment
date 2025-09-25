@@ -19,7 +19,7 @@ package com.speedment.common.codegen.model.trait;
 import com.speedment.common.codegen.model.Javadoc;
 import com.speedment.common.codegen.model.JavadocTag;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -40,13 +40,13 @@ final class HasJavadocTagsTest {
         javadocTag = JavadocTag.of("a", "b");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         javadoc.add(javadocTag);
         assertEquals(singletonList(javadocTag), javadoc.getTags());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void author() {
         javadoc.author(TEXT);
         final JavadocTag tag = javadoc.getTags().iterator().next();
@@ -54,7 +54,7 @@ final class HasJavadocTagsTest {
         assertEquals(TEXT, tag.getValue().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void returns() {
         javadoc.returns(TEXT);
         final JavadocTag tag = javadoc.getTags().iterator().next();
@@ -62,7 +62,7 @@ final class HasJavadocTagsTest {
         assertEquals(TEXT, tag.getValue().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void since() {
         javadoc.since(TEXT);
         final JavadocTag tag = javadoc.getTags().iterator().next();
@@ -70,7 +70,7 @@ final class HasJavadocTagsTest {
         assertEquals(TEXT, tag.getValue().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void see() {
         javadoc.see(int.class);
         final JavadocTag tag = javadoc.getTags().iterator().next();
@@ -78,7 +78,7 @@ final class HasJavadocTagsTest {
         assertEquals("{@link int}", tag.getValue().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void param() {
         javadoc.param("x", "x-coordinate");
         final JavadocTag tag = javadoc.getTags().iterator().next();
@@ -87,7 +87,7 @@ final class HasJavadocTagsTest {
         assertEquals("x-coordinate", tag.getText().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTags() {
         assertTrue(javadoc.getTags().isEmpty());
     }

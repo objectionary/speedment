@@ -24,11 +24,11 @@ import static com.speedment.runtime.compute.expression.BinaryObjExpression.Opera
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class BinaryObjExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void operatorEnum() {
         new DummyBinaryObjExpression(POW);
         new DummyBinaryObjExpression(PLUS);

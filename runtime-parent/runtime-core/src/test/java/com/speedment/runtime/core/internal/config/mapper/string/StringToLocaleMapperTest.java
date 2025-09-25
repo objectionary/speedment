@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.config.mapper.string;
 
 import com.speedment.runtime.typemapper.string.StringToLocaleMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Locale;
 
@@ -39,7 +39,7 @@ public class StringToLocaleMapperTest {
         mapper = new StringToLocaleMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testStringLocaleMapping() {
         String string = "DE";
 

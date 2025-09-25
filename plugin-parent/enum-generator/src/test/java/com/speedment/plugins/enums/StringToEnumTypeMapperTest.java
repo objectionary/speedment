@@ -28,7 +28,7 @@ import com.speedment.runtime.core.exception.SpeedmentException;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.nio.file.Paths;
@@ -109,33 +109,33 @@ final class StringToEnumTypeMapperTest {
         injector.inject(instance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLabel() {
         assertTrue(instance.getLabel().toLowerCase().contains("enum"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isToolApplicable() {
         assertTrue(instance.isToolApplicable());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaType() {
         final Type type = instance.getJavaType(column);
         assertTrue(type.getTypeName().toLowerCase().contains(COLUMN_NAME.toLowerCase()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaTypeNull() {
         assertThrows(NullPointerException.class, () ->  instance.getJavaType(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaTypeCategory() {
         assertEquals(TypeMapper.Category.ENUM, instance.getJavaTypeCategory(column));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaType() {
         final User.Name actual = instance.toJavaType(column, User.class, "ONE");
         assertEquals(User.Name.ONE,  actual);
@@ -143,41 +143,41 @@ final class StringToEnumTypeMapperTest {
         assertEquals(User.Name.ONE,  instance.toJavaType(column, User.class, "ONE"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeNull() {
         assertNull(instance.toJavaType(column, User.class, null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeNoToDatabaseMethod() {
         final StringToEnumTypeMapper<A.NamE> tm = new StringToEnumTypeMapper<>();
         injector.inject(tm);
         assertThrows(NoSuchElementException.class, () -> tm.toJavaType(column, A.class, "ONE"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeUnableToAccessToDatabaseMethod() {
         final StringToEnumTypeMapper<B.NaMe> tm = new StringToEnumTypeMapper<>();
         injector.inject(tm);
         assertThrows(IllegalArgumentException.class, () -> tm.toJavaType(column, B.class, "ONE"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseType() {
         assertEquals("One", instance.toDatabaseType(User.Name.ONE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseTypeNull() {
         assertNull(instance.toDatabaseType(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseTypeNoSuchMethod() {
         assertThrows(IllegalArgumentException.class, () -> instance.toDatabaseType(User.Name.TWO));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseTypeIllegalAccess() {
         assertThrows(IllegalArgumentException.class, () -> instance.toDatabaseType(User.Name.THREE));
     }

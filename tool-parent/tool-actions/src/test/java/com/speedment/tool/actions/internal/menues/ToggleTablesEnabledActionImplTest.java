@@ -19,7 +19,7 @@ package com.speedment.tool.actions.internal.menues;
 import com.speedment.runtime.config.trait.HasEnabled;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.tool.actions.internal.menues.ToggleTablesEnabledActionImpl.DISABLE_ALL_TABLES;
 import static com.speedment.tool.actions.internal.menues.ToggleTablesEnabledActionImpl.ENABLE_ALL_TABLES;
@@ -37,20 +37,20 @@ class ToggleTablesEnabledActionImplTest extends AbstractToolActionTest {
         return new ToggleTablesEnabledActionImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Table context menu not empty")
     void testTableContextMenuNotEmpty() {
         assertAnyMenuExistsFor(schema);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("'Enable/Disable tables' shows up in context menu")
     void testMenuItemShowsUp() {
         assertMenuExistsFor(schema, ENABLE_ALL_TABLES);
         assertMenuExistsFor(schema, DISABLE_ALL_TABLES);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Test clicking on 'Enable All Tables'")
     void testToggle() {
         installContextMenu();

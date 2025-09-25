@@ -16,13 +16,13 @@
  */
 package com.speedment.common.injector.exception;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class ConstructorResolutionExceptionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct() {
         assertDoesNotThrow(() -> new ConstructorResolutionException("A"));
     }

@@ -21,7 +21,7 @@
  */
 package com.speedment.runtime.application.provider;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 final class SimpleModelTest extends SimpleModel {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testModel() {
         assertNotNull(project);
         assertNotNull(dbms);

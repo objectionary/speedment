@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.compute.util.Pair;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -55,12 +55,12 @@ final class ToFloatNullableTest {
         assertEquals(raw.apply(input), fromRaw.apply(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         Assertions.assertEquals(FLOAT_NULLABLE, DEFAULT_NULLABLE.expressionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         final ToFloatNullable<String> nullValue = string -> null;
         assertDoesNotThrow(nullValue::orThrow);
@@ -97,27 +97,27 @@ final class ToFloatNullableTest {
         assertEquals(input.length(), toFloat.applyAsFloat(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abs() {
         assertNotNull(DEFAULT_NULLABLE.abs());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negate() {
         assertNotNull(DEFAULT_NULLABLE.negate());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void sign() {
         assertNotNull(DEFAULT_NULLABLE.sign());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void sqrt() {
         assertNotNull(DEFAULT_NULLABLE.sqrt());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToDoubleIfPresent() {
         final ToDoubleNullable<String> toDoubleNullable = DEFAULT_NULLABLE
                 .mapToDoubleIfPresent(f -> 1);
@@ -143,7 +143,7 @@ final class ToFloatNullableTest {
         assertFalse(toDoubleNullable.isNull("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIfPresent() {
         final ToFloatNullable<String> toFloatNullable = DEFAULT_NULLABLE.mapIfPresent(f -> 1);
 
@@ -176,7 +176,7 @@ final class ToFloatNullableTest {
         assertNotEquals(0, DEFAULT_NULLABLE.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final ToFloatNullable<String> raw = string -> string.length() > 4 ? 1f : null;
 
@@ -191,7 +191,7 @@ final class ToFloatNullableTest {
         assertEquals(0, raw.compare(hasHas.getFirst(), hasHas.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_NULLABLE.compose(null));
 

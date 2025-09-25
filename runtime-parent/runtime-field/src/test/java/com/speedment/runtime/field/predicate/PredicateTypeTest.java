@@ -21,7 +21,7 @@
  */
 package com.speedment.runtime.field.predicate;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 final class PredicateTypeTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testComplementType() {
         // Make sure that each Type has a (unique) negated type
         final Map<PredicateType, PredicateType> map = new EnumMap<>(PredicateType.class);
@@ -57,19 +57,19 @@ final class PredicateTypeTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetComplementType() {
         assertEquals(EQUAL, NOT_EQUAL.negate());
         assertEquals(NOT_EQUAL, EQUAL.negate());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEffectiveType() {
         assertEquals(EQUAL, EQUAL.effectiveType(false));
         assertEquals(NOT_EQUAL, EQUAL.effectiveType(true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBetween() {
         assertEquals(BETWEEN, BETWEEN.effectiveType(false));
         assertEquals(NOT_BETWEEN, NOT_BETWEEN.effectiveType(false));

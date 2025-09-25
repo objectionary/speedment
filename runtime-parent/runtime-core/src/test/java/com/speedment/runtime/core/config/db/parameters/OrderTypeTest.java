@@ -18,7 +18,7 @@ package com.speedment.runtime.core.config.db.parameters;
 
 import com.speedment.runtime.config.parameter.OrderType;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
@@ -51,50 +51,50 @@ final class OrderTypeTest {
        // none.set(false);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testValues() {
         assertEquals(3, OrderType.values().length);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSelectLazilyASC() {
         assertEquals("A", OrderType.ASC.selectLazily(ascSupplier, descSupplier/*, noneSupplier*/));
         assertAscSelected();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSelectLazilyDESC() {
         assertEquals("B", OrderType.DESC.selectLazily(ascSupplier, descSupplier/*, noneSupplier*/));
         assertDescSelected();
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSelectLazilyNONE() {
 //        System.out.println("selectLazily");
 //        assertEquals("C", OrderType.NONE.selectLazily(ascSupplier, descSupplier/*, noneSupplier*/));
 //        assertNoneSelected();
 //    }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSelect() {
         assertEquals("A", OrderType.ASC.select("A", "B"));
         assertEquals("B", OrderType.DESC.select("A", "B"));
         assertEquals("A", OrderType.NONE.select("A", "B"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSelectRunnableASC() {
         OrderType.ASC.selectRunnable(() -> asc.set(true), () -> desc.set(true));
         assertAscSelected();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSelectRunnableDesc() {
         OrderType.DESC.selectRunnable(() -> asc.set(true), () -> desc.set(true));
         assertDescSelected();
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSelectRunnableNone() {
 //        System.out.println("selectRunnable");
 //        OrderType.NONE.selectRunnable(() -> asc.set(true), () -> desc.set(true));

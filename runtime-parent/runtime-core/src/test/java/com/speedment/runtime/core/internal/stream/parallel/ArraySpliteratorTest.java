@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.stream.parallel;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -50,7 +50,7 @@ final class ArraySpliteratorTest extends BaseSpliteratorTest {
         expectedSet = STREAM_SUPPLIER.get().collect(toSet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrySplit() {
         Set<String> threadNames = new HashSet<>();
         final Set<Integer> set = StreamSupport.stream(instance, true)
@@ -59,7 +59,7 @@ final class ArraySpliteratorTest extends BaseSpliteratorTest {
         assertEquals(expectedSet, set);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testForEachRemaining() {
         final Set<Integer> set = new HashSet<>();
         assertTrue(instance.tryAdvance(set::add));
@@ -67,13 +67,13 @@ final class ArraySpliteratorTest extends BaseSpliteratorTest {
         assertEquals(expectedSet, set);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTryAdvance() {
         IntStream.range(0, SIZE).forEach(i -> assertTrue( instance.tryAdvance(DO_NOTHING), "error for:" + i));
         assertFalse(instance.tryAdvance(DO_NOTHING));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEstimateSize() {
         int remains = SIZE;
         for (int i = 0; i < SIZE; i++) {

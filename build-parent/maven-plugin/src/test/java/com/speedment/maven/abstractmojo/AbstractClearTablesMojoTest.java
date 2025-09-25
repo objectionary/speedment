@@ -29,7 +29,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -62,7 +62,7 @@ final class AbstractClearTablesMojoTest {
 		};
 	}
 
-	@Test
+	@com.yegor256.AggregateRepeatedTest(100)
 	void execute() {
 		// Given
         when(mockedMavenProject.getBasedir()).thenReturn(new File("baseDir"));
@@ -77,7 +77,7 @@ final class AbstractClearTablesMojoTest {
 		verify(mockedConfigFileHelper).clearTablesAndSaveToFile();
 	}
 
-	@Test
+	@com.yegor256.AggregateRepeatedTest(100)
 	void executeException() {
 		// Given
         when(mockedMavenProject.getBasedir()).thenReturn(new File("baseDir"));
@@ -91,7 +91,7 @@ final class AbstractClearTablesMojoTest {
 		// Then
 	}
 
-	@Test
+	@com.yegor256.AggregateRepeatedTest(100)
 	void testDebugTrue() {
 		// Given
         mojo.setDebug(TRUE);
@@ -103,7 +103,7 @@ final class AbstractClearTablesMojoTest {
 		assertTrue(result);
 	}
 
-	@Test
+	@com.yegor256.AggregateRepeatedTest(100)
 	void testDebugFalse() {
 		// Given
         mojo.setDebug(FALSE);
@@ -115,7 +115,7 @@ final class AbstractClearTablesMojoTest {
 		assertFalse(result);
 	}
 
-	@Test
+	@com.yegor256.AggregateRepeatedTest(100)
 	void testDebugNull() {
 		// Given
 		mojo.setDebug(null);

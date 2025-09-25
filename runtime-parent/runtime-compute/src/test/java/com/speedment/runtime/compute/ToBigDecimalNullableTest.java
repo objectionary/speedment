@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -49,7 +49,7 @@ final class ToBigDecimalNullableTest {
         assertEquals(raw.apply(input), fromRaw.apply(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         ToBigDecimalNullable<String> nullValue = string -> null;
         assertDoesNotThrow(nullValue::orThrow);
@@ -100,7 +100,7 @@ final class ToBigDecimalNullableTest {
         assertNotEquals(0, hasValue.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         ToBigDecimalNullable<String> raw = string ->
                 string.length() > 4 ? BigDecimal.valueOf(string.length()) : null;
@@ -116,7 +116,7 @@ final class ToBigDecimalNullableTest {
         assertEquals(0, raw.compare(hasHas.getFirst(), hasHas.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         ToBigDecimalNullable<String> raw = string -> BigDecimal.valueOf(string.length());
 
@@ -127,7 +127,7 @@ final class ToBigDecimalNullableTest {
         assertNotNull(composed);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         ToBigDecimalNullable<String> nullValue = string -> null;
 

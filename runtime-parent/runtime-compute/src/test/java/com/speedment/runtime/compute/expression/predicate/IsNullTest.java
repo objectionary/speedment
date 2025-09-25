@@ -23,18 +23,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.speedment.runtime.compute.ToIntNullable;
 import com.speedment.runtime.compute.expression.Expressions;
 import com.speedment.runtime.compute.trait.ToNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class IsNullTest {
 
     private final IsNull<Integer, Integer> instance = new DummyIsNull();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullPredicateType() {
         assertEquals(NullPredicateType.IS_NULL, instance.nullPredicateType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         assertTrue(instance.test(null));
         assertFalse(instance.test(1));

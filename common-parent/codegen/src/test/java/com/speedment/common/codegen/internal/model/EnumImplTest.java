@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal.model;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Enum;
 import com.speedment.common.codegen.model.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 
@@ -47,12 +47,12 @@ final class EnumImplTest extends AbstractTest<Enum> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConstants() {
         assertTrue(instance().getConstants().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConstructors() {
         assertTrue(instance().getConstructors().isEmpty());
     }

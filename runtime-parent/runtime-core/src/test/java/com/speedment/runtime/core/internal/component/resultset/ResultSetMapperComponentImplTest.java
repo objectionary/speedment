@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.runtime.test_support.MockDbmsType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -36,7 +36,7 @@ final class ResultSetMapperComponentImplTest {
             Long::toString
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
         assertThrows(NullPointerException.class, () -> instance.put(null));
         assertThrows(NullPointerException.class, () -> instance.put(null, null));
@@ -44,7 +44,7 @@ final class ResultSetMapperComponentImplTest {
         assertDoesNotThrow(() -> instance.put(dbmsType, resultSetMapping));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         assertThrows(NullPointerException.class, () -> instance.apply(null));
 

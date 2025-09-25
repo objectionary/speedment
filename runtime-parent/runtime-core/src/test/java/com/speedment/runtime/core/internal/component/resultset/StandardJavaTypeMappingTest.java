@@ -18,11 +18,11 @@ package com.speedment.runtime.core.internal.component.resultset;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class StandardJavaTypeMappingTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stream() {
         assertNotEquals(0, StandardJavaTypeMapping.stream().count());
     }

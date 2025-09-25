@@ -18,7 +18,7 @@ package com.speedment.runtime.typemapper.other;
 
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.nio.ByteBuffer;
 import java.util.UUID;
@@ -41,7 +41,7 @@ final class BinaryToUuidMapperTest {
         uuidMapper = new BinaryToUuidMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeHex() throws Exception {
         final byte[] test = {
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
@@ -55,7 +55,7 @@ final class BinaryToUuidMapperTest {
         assertEquals(expected, actual, "Compare as HEX: ");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeUUID() throws Exception {
         final ByteBuffer test = ByteBuffer.wrap(new byte[] {
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
@@ -68,7 +68,7 @@ final class BinaryToUuidMapperTest {
         assertEquals(expected, actual, "Compare as UUID: ");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseType() throws Exception {
         final byte[] expected = {
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,

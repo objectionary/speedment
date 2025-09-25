@@ -19,17 +19,17 @@ package com.speedment.common.codegenxml;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DocumentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void preambleAdd() {
         final Document document = Document.of();
         assertEquals(document.preambleAdd(Elements.body()), document);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setRoot() {
         final Document document = Document.of();
         document.setRoot(TagElement.of("tag"));

@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -37,30 +37,30 @@ final class LicenseTermImplTest extends AbstractTest<LicenseTerm> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor() {
         final LicenseTerm licenseTerm = new LicenseTermImpl(TEXT);
         assertEquals(TEXT, licenseTerm.getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         final File file = File.of("V");
         instance().setParent(file);
         assertEquals(file, instance().getParent().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertEquals(Optional.empty(), instance().getParent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getText() {
         assertEquals("", instance().getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setText() {
         final String text = "V";
         instance().setText(text);

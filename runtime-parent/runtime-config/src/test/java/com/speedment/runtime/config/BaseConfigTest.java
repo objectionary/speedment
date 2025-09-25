@@ -26,7 +26,7 @@ import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasDeepCopy;
 import com.speedment.runtime.config.trait.HasMainInterface;
 import com.speedment.runtime.config.trait.HasMutator;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.nio.file.Path;
 import java.util.AbstractMap;
@@ -38,18 +38,18 @@ abstract class BaseConfigTest<T extends Document & HasMainInterface & HasDeepCop
 
     abstract T getDocumentInstance();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mainInterface() {
         assertTrue(Arrays.stream(getDocumentInstance().getClass().getInterfaces())
                 .anyMatch(x -> x.getName().equals(getDocumentInstance().mainInterface().getName())));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mutator() {
         assertNotNull(getDocumentInstance().mutator());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void deepCopy() {
         assertNotNull(getDocumentInstance().deepCopy());
     }

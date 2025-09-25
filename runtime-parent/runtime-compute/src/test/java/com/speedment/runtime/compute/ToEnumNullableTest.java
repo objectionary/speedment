@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -36,12 +36,12 @@ final class ToEnumNullableTest {
     private static final ToEnumNullable<String, TestEnum> DEFAULT_NULLABLE =
             ToEnumNullable.of(TestEnum.class, string -> string == null ? null : TestEnum.valueOf(string));
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumClass() {
         assertEquals(TestEnum.class, DEFAULT_NULLABLE.enumClass());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         assertEquals(ENUM_NULLABLE, DEFAULT_NULLABLE.expressionType());
     }
@@ -64,7 +64,7 @@ final class ToEnumNullableTest {
         assertNull(name.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         assertDoesNotThrow(DEFAULT_NULLABLE::orThrow);
 
@@ -166,7 +166,7 @@ final class ToEnumNullableTest {
         assertEquals(0, DEFAULT_NULLABLE.hash(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final Pair<String, String> pair1 = new Pair<>(null, null);
         final Pair<String, String> pair2 = new Pair<>("FIRST", null);
@@ -179,7 +179,7 @@ final class ToEnumNullableTest {
         assertEquals(-1, DEFAULT_NULLABLE.compare(pair4.getFirst(), pair4.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_NULLABLE.compose(null));
 

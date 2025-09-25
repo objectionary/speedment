@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.AnnotationUsage;
 import com.speedment.common.codegen.model.Value;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 
@@ -36,7 +36,7 @@ final class AnnotationUsageImplTest extends AbstractTest<AnnotationUsage> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void copyExtra() {
         instance().put("A", Value.ofNumber(1));
         final AnnotationUsage copy = instance().copy();

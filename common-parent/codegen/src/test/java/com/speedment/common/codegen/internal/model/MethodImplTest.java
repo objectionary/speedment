@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -48,90 +48,90 @@ final class MethodImplTest extends AbstractTest<Method> {
         );
     }
 
-/*    @Test
+/*    @com.yegor256.AggregateRepeatedTest(100)
     void constructor() {
         final Method method = new MethodImpl()
     }*/
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         final Interface inter = Interface.of("V");
         instance().setParent(inter);
         assertEquals(inter, instance().getParent().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertEquals(Optional.empty(), instance().getParent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertEquals(int.class, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCode() {
         assertTrue(instance().getCode().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(instance().getModifiers().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertFalse(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnnotations() {
         assertTrue(instance().getAnnotations().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setName() {
         final String name = "X";
         instance().setName(name);
         assertEquals(name, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         final Javadoc javadoc = Javadoc.of("A");
         instance().set(javadoc);
         assertEquals(javadoc, instance().getJavadoc().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getGenerics() {
         assertTrue(instance().getGenerics().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSet() {
         final Type type = boolean.class;
         instance().set(type);
         assertEquals(type, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getExceptions() {
         assertTrue(instance().getImports().isEmpty());
     }

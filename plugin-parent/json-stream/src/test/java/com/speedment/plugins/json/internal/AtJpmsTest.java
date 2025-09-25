@@ -16,7 +16,7 @@
  */
 package com.speedment.plugins.json.internal;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 final class AtJpmsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void atJpms() {
         try {
             String.class.getDeclaredField("value").setAccessible(true);

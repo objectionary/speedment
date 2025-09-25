@@ -17,7 +17,7 @@
 package com.speedment.common.codegenxml;
 
 import com.speedment.common.codegen.util.Formatting;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.common.codegenxml.Elements.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 final class ViewImplTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSimpleHTML() {
         final Document doc = Document.html(
             html()
@@ -44,7 +44,7 @@ final class ViewImplTest {
         assertTrue(html.contains("Welcome"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSimpleXML() {
         final Document doc = Document.xmlWithDocType(
             TagElement.of("project")

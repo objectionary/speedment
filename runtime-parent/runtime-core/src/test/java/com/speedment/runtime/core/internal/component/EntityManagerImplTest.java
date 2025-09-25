@@ -23,7 +23,7 @@ import com.speedment.runtime.core.component.ManagerComponent;
 import com.speedment.runtime.core.manager.Manager;
 import com.speedment.runtime.test_support.MockStringManager;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
@@ -41,21 +41,21 @@ class EntityManagerImplTest {
         instance.installManagers(managerComponent);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void persist() {
         assertThrows(NullPointerException.class, () -> instance.persist(null));
         assertThrows(IllegalStateException.class, () -> instance.persist(1));
         assertDoesNotThrow(() -> instance.persist("string"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void update() {
         assertThrows(NullPointerException.class, () -> instance.update(null));
         assertThrows(IllegalStateException.class, () -> instance.update(1));
         assertDoesNotThrow(() -> instance.update("string"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
         assertThrows(NullPointerException.class, () -> instance.remove(null));
         assertThrows(IllegalStateException.class, () -> instance.remove(1));

@@ -26,7 +26,7 @@ import com.speedment.runtime.core.provider.DelegateManagerComponent;
 import com.speedment.runtime.core.stream.parallel.ParallelStrategy;
 import com.speedment.runtime.field.Field;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -46,84 +46,84 @@ final class SingleColumnManagerTest {
 
     private static final SingleColumnManager INSTANCE = new SingleColumnManager(new MyStreamSupplierComponent(), DB, SCHEMA, TABLE, COLUMN);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void configureManagerComponent() {
         final ManagerComponent managerComponent = new DelegateManagerComponent();
         INSTANCE.configureManagerComponent(managerComponent);
         assertEquals(singleton(INSTANCE), managerComponent.stream().collect(toSet()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTableIdentifier() {
         assertSame(TableIdentifier.of(DB, SCHEMA, TABLE), INSTANCE.getTableIdentifier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getEntityClass() {
         assertEquals(String.class, INSTANCE.getEntityClass());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void fields() {
         assertEquals(1, INSTANCE.fields().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void primaryKeyFields() {
         assertEquals(1, INSTANCE.primaryKeyFields().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stream() {
         assertEquals(Stream.of(ITEMS).collect(toList()), INSTANCE.stream().collect(toList()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         assertUnsupported(SingleColumnManager::create);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void persist() {
         assertUnsupported(i -> INSTANCE.persist("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void persister() {
         assertUnsupported(SingleColumnManager::persister);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPersister() {
         assertUnsupported(i -> INSTANCE.persister(FieldSet.noneOf(String.class)).apply("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void update() {
         assertUnsupported(i -> INSTANCE.update("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void updater() {
         assertUnsupported(SingleColumnManager::updater);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testUpdater() {
         assertUnsupported(i -> INSTANCE.updater(FieldSet.noneOf(String.class)).apply("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
         assertUnsupported(i -> INSTANCE.remove("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remover() {
         assertUnsupported(SingleColumnManager::remover);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String actual = INSTANCE.toString();
         assertTrue(actual.contains(DB));

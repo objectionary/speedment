@@ -16,28 +16,28 @@
  */
 package com.speedment.common.injector.internal.util;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class StringUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void commaAnd0() {
         assertEquals("", StringUtil.commaAnd());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void commaAnd1() {
         assertEquals("A", StringUtil.commaAnd("A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void commaAnd2() {
         assertEquals("A and B", StringUtil.commaAnd("A", "B"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void commaAnd3() {
         assertEquals("A, B and C", StringUtil.commaAnd("A", "B", "C"));
     }

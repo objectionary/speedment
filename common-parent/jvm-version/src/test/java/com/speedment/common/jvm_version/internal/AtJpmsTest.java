@@ -18,14 +18,14 @@ package com.speedment.common.jvm_version.internal;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  * @author Mislav Milicevic
  */
 final class AtJpmsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void atJpms() {
         try {
             String.class.getDeclaredField("value").setAccessible(true);

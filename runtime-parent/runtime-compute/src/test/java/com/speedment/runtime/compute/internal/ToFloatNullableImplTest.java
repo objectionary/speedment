@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.speedment.runtime.compute.ToDoubleNullable;
 import com.speedment.runtime.compute.ToFloat;
 import com.speedment.runtime.compute.ToFloatNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -39,12 +39,12 @@ final class ToFloatNullableImplTest {
             Objects::isNull
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void inner() {
         assertNotNull(instance.inner());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNullPredicate() {
         assertNotNull(instance.isNullPredicate());
     }
@@ -62,13 +62,13 @@ final class ToFloatNullableImplTest {
         assertEquals(input.length(), instance.applyAsFloat(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         assertNotNull(instance.orThrow());
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElseGet() {
         final ToFloat<String> toFloat = instance.orElseGet(string -> 0);
 
@@ -77,7 +77,7 @@ final class ToFloatNullableImplTest {
         assertEquals(0, toFloat.applyAsFloat(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElse() {
         final ToFloat<String> toFloat = instance.orElse((float) 0);
 
@@ -86,7 +86,7 @@ final class ToFloatNullableImplTest {
         assertEquals(0, toFloat.applyAsFloat(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToDoubleIfPresent() {
         final ToDoubleNullable<String> toDoubleNullable = instance
                 .mapToDoubleIfPresent(f -> 1);
@@ -96,7 +96,7 @@ final class ToFloatNullableImplTest {
         assertNull(toDoubleNullable.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIfPresent() {
         final ToFloatNullable<String> toFloatNullable = instance.mapIfPresent(f -> 0);
 
@@ -112,7 +112,7 @@ final class ToFloatNullableImplTest {
         assertNotEquals(0, instance.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         assertEquals(0, instance.compare(null, null));
         assertEquals(1, instance.compare(null, "test"));
@@ -122,19 +122,19 @@ final class ToFloatNullableImplTest {
         assertEquals(-1, instance.compare("a", "test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNull() {
         assertTrue(instance.isNull(null));
         assertFalse(instance.isNull("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNotNull() {
         assertTrue(instance.isNotNull("test"));
         assertFalse(instance.isNotNull(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final ToFloatNullable<String> copy = instance;
         assertTrue(instance.equals(copy));
@@ -160,7 +160,7 @@ final class ToFloatNullableImplTest {
         assertFalse(instance.equals(isNullSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         assertNotEquals(0, instance.hashCode());
     }

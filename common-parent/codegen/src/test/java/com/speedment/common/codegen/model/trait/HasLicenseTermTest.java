@@ -19,7 +19,7 @@ package com.speedment.common.codegen.model.trait;
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -37,19 +37,19 @@ final class HasLicenseTermTest {
         file = File.of("a");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         file.set(LicenseTerm.of(TEXT));
         assertEquals(TEXT, file.getLicenseTerm().orElseThrow(NoSuchElementException::new).getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void licenseTerm() {
         file.licenseTerm(TEXT);
         assertEquals(TEXT, file.getLicenseTerm().orElseThrow(NoSuchElementException::new).getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLicenseTerm() {
         assertEquals(Optional.empty(), file.getLicenseTerm());
     }

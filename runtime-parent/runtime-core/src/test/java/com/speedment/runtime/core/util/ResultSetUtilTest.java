@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
@@ -71,7 +71,7 @@ final class ResultSetUtilTest {
     private static final ResultSet RESULT_SET = mockResultSet();
     private static final ResultSet NULL_RESULT_SET = mockNullResultSet();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getObject() throws SQLException {
         assertEquals(RS_OBJECT.getValue(), ResultSetUtil.getObject(RESULT_SET, RS_OBJECT.getLabel()));
         assertEquals(RS_OBJECT.getValue(), ResultSetUtil.getObject(RESULT_SET, RS_OBJECT.getIndex()));
@@ -80,7 +80,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getObject(NULL_RESULT_SET, RS_OBJECT.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBoolean() throws SQLException {
         assertEquals(RS_BOOLEAN.getValue(), ResultSetUtil.getBoolean(RESULT_SET, RS_BOOLEAN.getLabel()));
         assertEquals(RS_BOOLEAN.getValue(), ResultSetUtil.getBoolean(RESULT_SET, RS_BOOLEAN.getIndex()));
@@ -89,7 +89,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getBoolean(NULL_RESULT_SET, RS_BOOLEAN.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getByte() throws SQLException {
         assertEquals(RS_BYTE.getValue(), ResultSetUtil.getByte(RESULT_SET, RS_BYTE.getLabel()));
         assertEquals(RS_BYTE.getValue(), ResultSetUtil.getByte(RESULT_SET, RS_BYTE.getIndex()));
@@ -98,7 +98,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getByte(NULL_RESULT_SET, RS_BYTE.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getShort() throws SQLException {
         assertEquals(RS_SHORT.getValue(), ResultSetUtil.getShort(RESULT_SET, RS_SHORT.getLabel()));
         assertEquals(RS_SHORT.getValue(), ResultSetUtil.getShort(RESULT_SET, RS_SHORT.getIndex()));
@@ -107,7 +107,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getShort(NULL_RESULT_SET, RS_SHORT.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInt() throws SQLException {
         assertEquals(RS_INT.getValue(), ResultSetUtil.getInt(RESULT_SET, RS_INT.getLabel()));
         assertEquals(RS_INT.getValue(), ResultSetUtil.getInt(RESULT_SET, RS_INT.getIndex()));
@@ -116,7 +116,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getInt(NULL_RESULT_SET, RS_INT.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLong() throws SQLException {
         assertEquals(RS_LONG.getValue(), ResultSetUtil.getLong(RESULT_SET, RS_LONG.getLabel()));
         assertEquals(RS_LONG.getValue(), ResultSetUtil.getLong(RESULT_SET, RS_LONG.getIndex()));
@@ -125,7 +125,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getLong(NULL_RESULT_SET, RS_LONG.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFloat() throws SQLException {
         assertEquals(RS_FLOAT.getValue(), ResultSetUtil.getFloat(RESULT_SET, RS_FLOAT.getLabel()));
         assertEquals(RS_FLOAT.getValue(), ResultSetUtil.getFloat(RESULT_SET, RS_FLOAT.getIndex()));
@@ -134,7 +134,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getFloat(NULL_RESULT_SET, RS_FLOAT.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDouble() throws SQLException {
         assertEquals(RS_DOUBLE.getValue(), ResultSetUtil.getDouble(RESULT_SET, RS_DOUBLE.getLabel()));
         assertEquals(RS_DOUBLE.getValue(), ResultSetUtil.getDouble(RESULT_SET, RS_DOUBLE.getIndex()));
@@ -143,7 +143,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getDouble(NULL_RESULT_SET, RS_DOUBLE.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getString() throws SQLException {
         assertEquals(RS_STRING.getValue(), ResultSetUtil.getString(RESULT_SET, RS_STRING.getLabel()));
         assertEquals(RS_STRING.getValue(), ResultSetUtil.getString(RESULT_SET, RS_STRING.getIndex()));
@@ -152,7 +152,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getString(NULL_RESULT_SET, RS_STRING.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDate() throws SQLException {
         assertEquals(RS_DATE.getValue(), ResultSetUtil.getDate(RESULT_SET, RS_DATE.getLabel()));
         assertEquals(RS_DATE.getValue(), ResultSetUtil.getDate(RESULT_SET, RS_DATE.getIndex()));
@@ -161,7 +161,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getDate(NULL_RESULT_SET, RS_DATE.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTime() throws SQLException {
         assertEquals(RS_TIME.getValue(), ResultSetUtil.getTime(RESULT_SET, RS_TIME.getLabel()));
         assertEquals(RS_TIME.getValue(), ResultSetUtil.getTime(RESULT_SET, RS_TIME.getIndex()));
@@ -170,7 +170,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getTime(NULL_RESULT_SET, RS_TIME.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTimestamp() throws SQLException {
         assertEquals(RS_TIMESTAMP.getValue(), ResultSetUtil.getTimestamp(RESULT_SET, RS_TIMESTAMP.getLabel()));
         assertEquals(RS_TIMESTAMP.getValue(), ResultSetUtil.getTimestamp(RESULT_SET, RS_TIMESTAMP.getIndex()));
@@ -179,7 +179,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getTimestamp(NULL_RESULT_SET, RS_TIMESTAMP.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBigDecimal() throws SQLException {
         assertEquals(RS_BIG_DECIMAL.getValue(), ResultSetUtil.getBigDecimal(RESULT_SET, RS_BIG_DECIMAL.getLabel()));
         assertEquals(RS_BIG_DECIMAL.getValue(), ResultSetUtil.getBigDecimal(RESULT_SET, RS_BIG_DECIMAL.getIndex()));
@@ -188,14 +188,14 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getBigDecimal(NULL_RESULT_SET, RS_BIG_DECIMAL.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBigInteger() throws SQLException {
         assertEquals(RS_BIG_DECIMAL.getValueAs(BigDecimal.class).toBigInteger(), ResultSetUtil.getBigInteger(RESULT_SET, RS_BIG_DECIMAL.getIndex()));
 
         assertNull(ResultSetUtil.getBigInteger(NULL_RESULT_SET, RS_BIG_DECIMAL.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBlob() throws SQLException {
         assertEquals(RS_BLOB.getValue(), ResultSetUtil.getBlob(RESULT_SET, RS_BLOB.getLabel()));
         assertEquals(RS_BLOB.getValue(), ResultSetUtil.getBlob(RESULT_SET, RS_BLOB.getIndex()));
@@ -204,7 +204,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getBlob(NULL_RESULT_SET, RS_BLOB.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getClob() throws SQLException {
         assertEquals(RS_CLOB.getValue(), ResultSetUtil.getClob(RESULT_SET, RS_CLOB.getLabel()));
         assertEquals(RS_CLOB.getValue(), ResultSetUtil.getClob(RESULT_SET, RS_CLOB.getIndex()));
@@ -213,7 +213,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getClob(NULL_RESULT_SET, RS_CLOB.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getArray() throws SQLException {
         assertEquals(RS_ARRAY.getValue(), ResultSetUtil.getArray(RESULT_SET, RS_ARRAY.getLabel()));
         assertEquals(RS_ARRAY.getValue(), ResultSetUtil.getArray(RESULT_SET, RS_ARRAY.getIndex()));
@@ -222,7 +222,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getArray(NULL_RESULT_SET, RS_ARRAY.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRef() throws SQLException {
         assertEquals(RS_REF.getValue(), ResultSetUtil.getRef(RESULT_SET, RS_REF.getLabel()));
         assertEquals(RS_REF.getValue(), ResultSetUtil.getRef(RESULT_SET, RS_REF.getIndex()));
@@ -231,7 +231,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getRef(NULL_RESULT_SET, RS_REF.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getURL() throws SQLException {
         assertEquals(RS_URL.getValue(), ResultSetUtil.getURL(RESULT_SET, RS_URL.getLabel()));
         assertEquals(RS_URL.getValue(), ResultSetUtil.getURL(RESULT_SET, RS_URL.getIndex()));
@@ -240,7 +240,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getURL(NULL_RESULT_SET, RS_URL.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRowId() throws SQLException {
         assertEquals(RS_ROW_ID.getValue(), ResultSetUtil.getRowId(RESULT_SET, RS_ROW_ID.getLabel()));
         assertEquals(RS_ROW_ID.getValue(), ResultSetUtil.getRowId(RESULT_SET, RS_ROW_ID.getIndex()));
@@ -249,7 +249,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getRowId(NULL_RESULT_SET, RS_ROW_ID.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getNClob() throws SQLException {
         assertEquals(RS_NCLOB.getValue(), ResultSetUtil.getNClob(RESULT_SET, RS_NCLOB.getLabel()));
         assertEquals(RS_NCLOB.getValue(), ResultSetUtil.getNClob(RESULT_SET, RS_NCLOB.getIndex()));
@@ -258,7 +258,7 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getNClob(NULL_RESULT_SET, RS_NCLOB.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSQLXML() throws SQLException {
         assertEquals(RS_SQLXML.getValue(), ResultSetUtil.getSQLXML(RESULT_SET, RS_SQLXML.getLabel()));
         assertEquals(RS_SQLXML.getValue(), ResultSetUtil.getSQLXML(RESULT_SET, RS_SQLXML.getIndex()));
@@ -267,14 +267,14 @@ final class ResultSetUtilTest {
         assertNull(ResultSetUtil.getSQLXML(NULL_RESULT_SET, RS_SQLXML.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBytes() throws SQLException {
         assertEquals(RS_BYTES.getValue(), ResultSetUtil.getBytes(RESULT_SET, RS_BYTES.getIndex()));
 
         assertNull(ResultSetUtil.getBytes(NULL_RESULT_SET, RS_BYTES.getIndex()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getUUID() throws SQLException {
         assertEquals(RS_OBJECT.getValue(), ResultSetUtil.getUUID(RESULT_SET, RS_OBJECT.getLabel()));
         assertEquals(RS_OBJECT.getValue(), ResultSetUtil.getUUID(RESULT_SET, RS_OBJECT.getIndex()));

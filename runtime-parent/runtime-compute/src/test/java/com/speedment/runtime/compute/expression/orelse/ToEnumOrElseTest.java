@@ -20,11 +20,11 @@ import static com.speedment.runtime.compute.expression.NonNullableExpression.Nul
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.ToEnumNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ToEnumOrElseTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullStrategy() {
         assertEquals(USE_DEFAULT_VALUE, new DummyToEnumOrElseTest().nullStrategy());
     }

@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -60,60 +60,60 @@ final class SingletonLongStreamTest {
         cnt = new AtomicInteger();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         final LongStream ss = SingletonLongStream.of(OTHER_ELEMENT);
         final List<Long> s = ss.boxed().collect(toList());
         assertEquals(singletonList(OTHER_ELEMENT), s);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void filter() {
         assertEqualsApplying(s -> s.filter(i -> i == ELEMENT));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void filter2() {
         assertEqualsApplying(s -> s.filter(i -> i != ELEMENT));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void map() {
         assertEqualsApplying(s -> s.map(PLUS_ONE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToObj() {
         assertEqualsApplying(s -> s.mapToObj(Long::valueOf).mapToLong(i -> i));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToInt() {
         assertEqualsApplying(s -> s.mapToInt(i -> (int) i).mapToLong(l -> l));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToDouble() {
         final double actual = instance.mapToDouble(i -> i).findFirst().orElseThrow(NoSuchElementException::new);
         assertEquals(ELEMENT, actual, EPSILON);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void flatMap() {
         assertEqualsApplying(s -> s.flatMap(i -> LongStream.of(0, i)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void distinct() {
         assertEqualsApplying(LongStream::distinct);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void sorted() {
         assertEqualsApplying(LongStream::sorted);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void peek() {
         instance.peek(i -> cnt.incrementAndGet()).forEach(i -> {});
         assertEquals(1, cnt.get());
@@ -125,7 +125,7 @@ final class SingletonLongStreamTest {
         assertEqualsApplying(s -> s.limit(limit));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void limitNegative() {
         assertThrows(IllegalArgumentException.class, () -> instance.limit(-1));
     }
@@ -136,12 +136,12 @@ final class SingletonLongStreamTest {
         assertEqualsApplying(s -> s.skip(skip));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void skipNegative() {
         assertThrows(IllegalArgumentException.class, () -> instance.skip(-1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEach() {
         instance.forEach(i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
@@ -149,7 +149,7 @@ final class SingletonLongStreamTest {
         assertThrows(IllegalStateException.class, () -> instance.forEach(x -> {}));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachOrdered() {
         instance.forEachOrdered(i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
@@ -157,68 +157,68 @@ final class SingletonLongStreamTest {
         assertThrows(IllegalStateException.class, () -> instance.forEachOrdered(x -> {}));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toArray() {
         assertArrayEquals(reference.toArray(), instance.toArray());
 
         assertThrows(IllegalStateException.class, () -> instance.toArray());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void reduce() {
         assertEqualsReducing(s -> s.reduce(Long::sum));
 
         assertThrows(IllegalStateException.class, () -> instance.reduce(Long::sum));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReduce() {
         assertEqualsReducing(s -> s.reduce(3, Long::sum));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void collect() {
         assertEqualsReducing(s -> s.collect(ArrayList::new, ArrayList::add, ArrayList::addAll));
 
         assertThrows(IllegalStateException.class, () -> instance.collect(ArrayList::new, ArrayList::add, ArrayList::addAll));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void sum() {
         assertEqualsReducing(LongStream::sum);
 
         assertThrows(IllegalStateException.class, () -> instance.sum());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void min() {
         assertEqualsReducing(LongStream::min);
 
         assertThrows(IllegalStateException.class, () -> instance.min());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void max() {
         assertEqualsReducing(LongStream::max);
 
         assertThrows(IllegalStateException.class, () -> instance.max());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void count() {
         assertEqualsReducing(LongStream::count);
 
         assertThrows(IllegalStateException.class, () -> instance.count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void average() {
         assertEqualsReducing(LongStream::average);
 
         assertThrows(IllegalStateException.class, () -> instance.average());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void summaryStatistics() {
         assertSummaryStatisticsEquals(reference.summaryStatistics(), instance.summaryStatistics());
 
@@ -249,116 +249,116 @@ final class SingletonLongStreamTest {
         assertThrows(IllegalStateException.class, () -> instance.noneMatch(i -> i == value));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findFirst() {
         assertEqualsReducing(LongStream::findFirst);
 
         assertThrows(IllegalStateException.class, () -> instance.findFirst());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findAny() {
         assertEqualsReducing(LongStream::findAny);
 
         assertThrows(IllegalStateException.class, () -> instance.findAny());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asDoubleStream() {
         assertEqualsApplying(s -> s.asDoubleStream().mapToLong(l -> (int) l));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void boxed() {
         assertEqualsApplying(s -> s.boxed().mapToLong(i -> i));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void sequential() {
         assertEqualsApplying(LongStream::sequential);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parallel() {
         assertEqualsApplying(LongStream::parallel);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void iterator() {
         assertDoesNotThrow(() -> instance.iterator());
         assertThrows(IllegalStateException.class, () -> instance.iterator());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void iteratorIntConsumer() {
         instance.iterator().forEachRemaining((LongConsumer) i -> cnt.incrementAndGet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void iteratorConsumer() {
         instance.iterator().forEachRemaining((Consumer<Long>) i -> cnt.incrementAndGet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void spliterator() {
         assertDoesNotThrow(() -> instance.spliterator());
         assertThrows(IllegalStateException.class, () -> instance.spliterator());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorIntConsumer() {
         instance.spliterator().forEachRemaining((LongConsumer) i -> cnt.incrementAndGet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorConsumer() {
         instance.spliterator().forEachRemaining((Consumer<Long>) i -> cnt.incrementAndGet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isParallel() {
         assertFalse(instance.isParallel());
         final LongStream newStream = instance.parallel();
         assertTrue(newStream.isParallel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mutableParallel() {
         instance.parallel();
         assertTrue(instance.isParallel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void unordered() {
         assertEqualsApplying(LongStream::unordered);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mutableOnClose() {
         instance.onClose(cnt::incrementAndGet);
         instance.close();
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void onClose() {
         final LongStream newStream = instance.onClose(cnt::incrementAndGet);
         newStream.close();
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void close() {
         assertDoesNotThrow(instance::close);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void takeWhile() {
         assertEquals(1, instance.takeWhile(i -> ELEMENT == i).count());
         assertEquals(0, instance.takeWhile(i -> OTHER_ELEMENT == i).count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void dropWhile() {
         assertEquals(0, instance.dropWhile(i -> ELEMENT == i).count());
         assertEquals(1, instance.dropWhile(i -> OTHER_ELEMENT == i).count());

@@ -16,13 +16,13 @@
  */
 package com.speedment.common.injector.execution;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class ExecutionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyOrNullException() {
         final Execution.ClassMapper classMapper = new Execution.ClassMapper() {
             @Override
@@ -33,7 +33,7 @@ final class ExecutionTest {
         assertNull(classMapper.applyOrNull(Integer.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void applyOrNull() {
         final int expected = 1;

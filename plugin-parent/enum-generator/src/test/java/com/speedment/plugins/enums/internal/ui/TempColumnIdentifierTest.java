@@ -17,7 +17,7 @@
 package com.speedment.plugins.enums.internal.ui;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 @Disabled
@@ -30,27 +30,27 @@ final class TempColumnIdentifierTest {
 
     private static final TempColumnIdentifier INSTANCE = new TempColumnIdentifier(DB, SCHEMA, TABLE, COLUMN);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDbmsId() {
         assertEquals(DB, INSTANCE.getDbmsId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTableId() {
         assertEquals(TABLE, INSTANCE.getTableId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getColumnId() {
         assertEquals(COLUMN, INSTANCE.getColumnId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaId() {
         assertEquals(SCHEMA, INSTANCE.getSchemaId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final TempColumnIdentifier other = new TempColumnIdentifier(DB, SCHEMA, TABLE, COLUMN + "X");
         assertEquals(INSTANCE, INSTANCE);
@@ -60,13 +60,13 @@ final class TempColumnIdentifierTest {
         assertNotEquals(other, INSTANCE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         final TempColumnIdentifier other = new TempColumnIdentifier(DB, SCHEMA, TABLE, COLUMN + "X");
         assertNotEquals(INSTANCE.hashCode(), other.hashCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String actual = INSTANCE.toString();
         assertTrue(actual.contains(DB));

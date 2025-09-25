@@ -18,7 +18,7 @@ package com.speedment.common.injector.internal.util;
 
 import com.speedment.common.injector.Injector;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,20 +43,20 @@ final class InjectorUtilTest {
         injector = Injector.builder().withComponent(Foo.class, () -> foo).withComponent(Bar.class, () -> bar).build();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findInNotRequired() {
         final Foo expected = InjectorUtil.findIn(Foo.class, injector, instances, false);
         assertEquals(foo, expected);
         assertNull(InjectorUtil.findIn(Integer.class, injector, instances, false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findInRequired() {
         assertNotNull(InjectorUtil.findIn(Foo.class, injector, instances, true));
         assertThrows(IllegalArgumentException.class, () -> InjectorUtil.findIn(Integer.class, injector, instances, true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findInInjector() {
         assertSame(injector, InjectorUtil.findIn(Injector.class, injector, instances, true));
     }

@@ -18,7 +18,7 @@ package com.speedment.plugins.enums.internal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,17 +37,17 @@ final class GeneratedEnumTypeTest {
         instance = new GeneratedEnumType(TYPE_NAME, ENUM_CONSTANTS);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getEnumConstants() {
         assertEquals(ENUM_CONSTANTS, instance.getEnumConstants());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTypeName() {
         assertEquals(TYPE_NAME, instance.getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final List<String> otherConstants = new ArrayList<>(ENUM_CONSTANTS);
         otherConstants.add("Z");
@@ -60,14 +60,14 @@ final class GeneratedEnumTypeTest {
         assertNotEquals(other, instance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals2() {
         final GeneratedEnumType other = new GeneratedEnumType(TYPE_NAME + "Z", ENUM_CONSTANTS);
         assertNotEquals(instance, other);
         assertNotEquals(other, instance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         final List<String> otherConstants = new ArrayList<>(ENUM_CONSTANTS);
         otherConstants.add("Z");

@@ -19,7 +19,7 @@ package com.speedment.runtime.field;
 import com.speedment.runtime.config.Column;
 import com.speedment.runtime.field.comparator.FieldComparator;
 import com.speedment.runtime.field.predicate.Inclusion;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -57,12 +57,12 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         this.support = new RerferenceFieldTestSupport<>(field, Object::toString, TestEntity::getEnum, TestEntity::setEnum, TestEntity.TestEnum.TRYGGVE, TestEntity.TestEnum.SVEN);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSupportMethods() {
         support.testAll();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void equalIgnoreCase() {
         final List<TestEntity> expected = collect(e -> e.getEnum() != null && e.getEnum().toString().equalsIgnoreCase(TestEntity.TestEnum.GLENN.toString()));
         final List<TestEntity> result = collect(field.equalIgnoreCase(TestEntity.TestEnum.GLENN.toString().toLowerCase()));
@@ -78,7 +78,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
 
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void notEqualIgnoreCase() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && !getter.apply(e).toString().equalsIgnoreCase("abcdef"));
         final List<TestEntity> result = collect(field.notEqualIgnoreCase("abcdef"));
@@ -89,7 +89,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void startsWith() {
 
         //assertTrue(STARTS_WITH_PREDICATE.test("ab", "abc"));
@@ -106,7 +106,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void startsWithIgnoreCase() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && getter.apply(e).toString().toLowerCase().startsWith("abc"));
         final List<TestEntity> result = collect(field.startsWithIgnoreCase("abc"));
@@ -116,7 +116,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void endWithIgnoreCase() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && getter.apply(e).toString().toLowerCase().endsWith("e"));
         final List<TestEntity> result = collect(field.endsWithIgnoreCase("e"));
@@ -126,7 +126,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void endsWith() {
         
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && getter.apply(e).toString().endsWith("E"));
@@ -141,7 +141,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void contains()  {
 
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && getter.apply(e).toString().contains("y"));
@@ -156,21 +156,21 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isEmpty() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && getter.apply(e).toString().isEmpty());
         final List<TestEntity> result = collect(field.isEmpty());
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNotEmpty()  {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && !getter.apply(e).toString().isEmpty());
         final List<TestEntity> result = collect(field.isNotEmpty());
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void in() {
         final List<TestEntity> expected = collect(e -> SAMPLES.contains(getter.apply(e)));
         final List<TestEntity> result = collect(field.in(SAMPLES));
@@ -181,7 +181,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void notIn() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && !SAMPLES.contains(getter.apply(e)));
         final List<TestEntity> result = collect(field.notIn(SAMPLES));
@@ -194,7 +194,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
 
     // Todo: Rework the between test below to do something useful
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenIE() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && "b".compareTo(getter.apply(e).toString()) <= 0 && "f".compareTo(getter.apply(e).toString()) > 0);
         final List<TestEntity> result = collect(field.between("b", "f"));
@@ -208,7 +208,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenII() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && "b".compareTo(getter.apply(e).toString()) <= 0 && "f".compareTo(getter.apply(e).toString()) >= 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_INCLUSIVE_END_INCLUSIVE));
@@ -218,7 +218,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenEI() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && "b".compareTo(getter.apply(e).toString()) < 0 && "f".compareTo(getter.apply(e).toString()) >= 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_EXCLUSIVE_END_INCLUSIVE));
@@ -228,7 +228,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenEE() {
         final List<TestEntity> expected = collect(e -> getter.apply(e) != null && "b".compareTo(getter.apply(e).toString()) < 0 && "f".compareTo(getter.apply(e).toString()) > 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_EXCLUSIVE_END_EXCLUSIVE));
@@ -238,12 +238,12 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringTest() {
         assertNotNull(field.toString());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void comparator() {
         comparator(false);
     }
@@ -264,7 +264,7 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings({"raw", "unchecked"})
     void typemapper() {
         //when(column.findDatabaseType()).thenReturn((Class) String.class);
@@ -272,17 +272,17 @@ abstract class AbstractEnumFieldTest extends BaseFieldTest {
         assertEquals(TestEntity.TestEnum.class, fieldType);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isUnique() {
         assertFalse(field.isUnique());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tableAlias() {
         assertNotNull(field.tableAlias());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setTableAlias() {
         final String name = "tryggve";
         assertEquals(name, field.tableAlias(name).tableAlias());

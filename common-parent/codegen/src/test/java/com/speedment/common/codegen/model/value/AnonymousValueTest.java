@@ -17,14 +17,14 @@
 package com.speedment.common.codegen.model.value;
 
 import com.speedment.common.codegen.internal.model.value.AnonymousValueImpl;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class AnonymousValueTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         AnonymousValue anonymousValue = new AnonymousValueImpl();
         anonymousValue.add(String.class);

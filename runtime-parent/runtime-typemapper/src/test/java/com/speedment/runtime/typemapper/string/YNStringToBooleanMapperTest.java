@@ -17,7 +17,7 @@
 package com.speedment.runtime.typemapper.string;
 
 import com.speedment.runtime.typemapper.AbstractTypeMapperTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,7 +48,7 @@ final class YNStringToBooleanMapperTest extends AbstractTypeMapperTest<String, B
     }
 
     @Override
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     protected void getJavaType() {
         when(column().isNullable()).thenReturn(true);
         assertEquals(Boolean.class, typeMapper().getJavaType(column()));

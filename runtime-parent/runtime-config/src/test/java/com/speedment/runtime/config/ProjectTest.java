@@ -34,7 +34,7 @@ import com.speedment.runtime.config.exception.SpeedmentConfigException;
 import com.speedment.runtime.config.trait.HasEnableUtil;
 import com.speedment.runtime.config.trait.HasIdUtil;
 import com.speedment.runtime.config.trait.HasNameUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ProjectTest extends BaseConfigTest<Project> {
 
@@ -43,7 +43,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         return Project.create(map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCompanyName() {
         final Project project = Project.create(map(entry(COMPANY_NAME, "company")));
         assertEquals("company", project.getCompanyName());
@@ -51,7 +51,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertEquals(DEFAULT_COMPANY_NAME, getDocumentInstance().getCompanyName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getPackageLocation() {
         final Project project = Project.create(map(entry(PACKAGE_LOCATION, "package_location")));
         assertEquals("package_location", project.getPackageLocation());
@@ -59,7 +59,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertEquals(DEFAULT_PACKAGE_LOCATION, getDocumentInstance().getPackageLocation());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSpeedmentVersion() {
         final Project project = Project.create(map(entry(SPEEDMENT_VERSION, "3.2.9")));
         assertTrue(project.getSpeedmentVersion().isPresent());
@@ -67,7 +67,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertFalse(getDocumentInstance().getSpeedmentVersion().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAppId() {
         final Project project = Project.create(map(entry(APP_ID, "id")));
         assertEquals("id", project.getAppId());
@@ -75,7 +75,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertThrows(SpeedmentConfigException.class, getDocumentInstance()::getAppId);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConfigPath() {
         final Project project = Project.create(map(entry(CONFIG_PATH, "path")));
         assertTrue(project.getConfigPath().isPresent());
@@ -83,7 +83,7 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertFalse(getDocumentInstance().getConfigPath().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findTableByName() {
         assertThrows(IllegalArgumentException.class, () -> getDocumentInstance().findTableByName("dbms"));
         assertThrows(IllegalArgumentException.class, () -> getDocumentInstance().findTableByName("dbms.schema"));
@@ -116,13 +116,13 @@ final class ProjectTest extends BaseConfigTest<Project> {
         assertNotNull(project.findTableByName("dbms_id.schema_id.table_id"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void deepCopy() {
         super.deepCopy();
         assertNotNull(Project.deepCopy(getDocumentInstance()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         assertNotNull(Project.create(null, map()));
     }

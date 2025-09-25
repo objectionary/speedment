@@ -20,23 +20,23 @@ package com.speedment.runtime.config.identifier;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class SchemaIdentifierTest {
 
     private final SchemaIdentifier<String> schemaIdentifier = SchemaIdentifier.of("dbms", "schema");
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asDbmsIdentifier() {
         assertNotNull(schemaIdentifier.asDbmsIdentifier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDbmsId() {
         assertEquals("dbms", schemaIdentifier.getDbmsId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaId() {
         assertEquals("schema", schemaIdentifier.getSchemaId());
     }

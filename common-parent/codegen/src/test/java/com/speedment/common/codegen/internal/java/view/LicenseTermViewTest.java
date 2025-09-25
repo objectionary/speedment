@@ -23,7 +23,7 @@ import com.speedment.common.codegen.model.File;
 import com.speedment.common.codegen.model.LicenseTerm;
 import com.speedment.common.codegen.util.Formatting;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.common.codegen.util.Formatting.nl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,7 +44,7 @@ final class LicenseTermViewTest {
         Formatting.tab("    ");
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMain() {
         final File file = File.of("com/example/Main.java").add(Class.of("Main").final_()).set(LicenseTerm.of(licenseText));
         

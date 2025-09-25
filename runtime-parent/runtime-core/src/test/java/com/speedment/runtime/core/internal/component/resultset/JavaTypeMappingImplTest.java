@@ -19,7 +19,7 @@ package com.speedment.runtime.core.internal.component.resultset;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -32,17 +32,17 @@ final class JavaTypeMappingImplTest {
             Long::toString
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaClass() {
         assertNotNull(instance.getJavaClass());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getResultSetMethodName() {
         assertNotNull(instance.getResultSetMethodName(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parse() {
         final String testString = "test";
         final long testLong = 1L;
@@ -51,7 +51,7 @@ final class JavaTypeMappingImplTest {
         assertEquals(Long.toString(testLong), instance.parse(testLong));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void _toString() {
         assertNotNull(instance.toString());
     }

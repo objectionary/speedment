@@ -16,13 +16,13 @@
  */
 package com.speedment.common.codegen.model;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class InterfaceMethodTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
        assertNotNull(InterfaceMethod.of(Method.of("x", int.class)));
     }

@@ -19,7 +19,7 @@ package com.speedment.common.codegen.model.trait;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.File;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collections;
 
@@ -38,19 +38,19 @@ final class HasClassesTest {
         clazz = Class.of("A");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         file.add(clazz);
         assertEquals(singletonList(clazz), file.getClasses());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addAllClasses() {
         file.addAllClasses(singleton(clazz));
         assertEquals(singletonList(clazz), file.getClasses());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getClasses() {
         assertTrue(file.getClasses().isEmpty());
     }

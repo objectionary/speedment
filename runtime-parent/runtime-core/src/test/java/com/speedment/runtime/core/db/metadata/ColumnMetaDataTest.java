@@ -20,13 +20,13 @@ package com.speedment.runtime.core.db.metadata;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.sql.ResultSet;
 
 final class ColumnMetaDataTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void instance() {
         final ResultSet resultSet = mock(ResultSet.class);
 

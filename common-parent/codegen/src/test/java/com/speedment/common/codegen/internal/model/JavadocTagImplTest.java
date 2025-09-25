@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.JavadocTag;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -40,14 +40,14 @@ final class JavadocTagImplTest extends AbstractTest<JavadocTag> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor() {
         final String text = "T";
         final JavadocTag tag = new JavadocTagImpl(NAME, text);
         assertEquals(text, tag.getText().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor2() {
         final String text = "T";
         final String value = "V";
@@ -56,12 +56,12 @@ final class JavadocTagImplTest extends AbstractTest<JavadocTag> {
         assertEquals(text, tag.getText().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void imports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertFalse(instance().getValue().isPresent());
     }

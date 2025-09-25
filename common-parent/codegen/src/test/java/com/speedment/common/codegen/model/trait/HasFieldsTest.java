@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.model.Value;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.NoSuchElementException;
@@ -39,13 +39,13 @@ final class HasFieldsTest {
         field  = Field.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         method.add(field);
         assertEquals(singletonList(field), method.getFields());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void field() {
         final String name = "y";
         final Type type = int.class;
@@ -55,7 +55,7 @@ final class HasFieldsTest {
         assertEquals(type, field.getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testField() {
         final String name = "y";
         final String type = "int.class";
@@ -65,7 +65,7 @@ final class HasFieldsTest {
         assertEquals(type, field.getType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constant() {
         final String name = "y";
         final Type type = int.class;
@@ -77,7 +77,7 @@ final class HasFieldsTest {
         assertEquals(value, val);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConstant() {
         final String name = "y";
         final Type type = int.class;
@@ -89,7 +89,7 @@ final class HasFieldsTest {
         assertEquals(value, val);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConstant1() {
         final String name = "y";
         final Type type = String.class;
@@ -101,7 +101,7 @@ final class HasFieldsTest {
         assertEquals(value, val);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConstant2() {
         final String name = "y";
         final Type type = boolean.class;
@@ -113,13 +113,13 @@ final class HasFieldsTest {
         assertEquals(value, val);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addAllFields() {
         method.addAllFields(singletonList(field));
         assertEquals(singletonList(field), method.getFields());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(method.getFields().isEmpty());
     }

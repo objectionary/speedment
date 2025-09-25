@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.internal.util;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.net.URL;
 
@@ -26,7 +26,7 @@ final class UrlUtilTest {
 
     private static final String URL_STRING = "http://www,speedment.com";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryCreateURL() {
         final Object object = UrlUtil.tryCreateURL(URL_STRING);
         if (object instanceof URL) {
@@ -37,7 +37,7 @@ final class UrlUtilTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryCreateURLIllegal() {
         assertThrows(IllegalArgumentException.class, () -> UrlUtil.tryCreateURL("a"));
     }

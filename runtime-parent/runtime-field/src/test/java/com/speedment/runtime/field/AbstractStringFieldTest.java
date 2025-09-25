@@ -19,7 +19,7 @@ package com.speedment.runtime.field;
 import com.speedment.runtime.config.Column;
 import com.speedment.runtime.field.comparator.FieldComparator;
 import com.speedment.runtime.field.predicate.Inclusion;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -56,12 +56,12 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
 /*        this.support = new RerferenceFieldTestSupport<>(field);*/
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSupportMethods() {
         support.testAll();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void equalIgnoreCase() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && e.getName().equalsIgnoreCase("abcdef"));
         final List<TestEntity> result = collect(field.equalIgnoreCase("abcdef"));
@@ -74,7 +74,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void notEqualIgnoreCase() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && !e.getName().equalsIgnoreCase("abcdef"));
         final List<TestEntity> result = collect(field.notEqualIgnoreCase("abcdef"));
@@ -86,7 +86,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void startsWith() {
 
         //assertTrue(STARTS_WITH_PREDICATE.test("ab", "abc"));
@@ -103,7 +103,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void startsWithIgnoreCase() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && e.getName().toLowerCase().startsWith("abc"));
         final List<TestEntity> result = collect(field.startsWithIgnoreCase("abc"));
@@ -113,7 +113,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void endWithIgnoreCase() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && e.getName().toLowerCase().endsWith("c"));
         final List<TestEntity> result = collect(field.endsWithIgnoreCase("c"));
@@ -123,7 +123,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void endsWith() {
         
         final List<TestEntity> expected = collect(e -> e.getName() != null && e.getName().endsWith("f"));
@@ -138,7 +138,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void contains()  {
 
         final List<TestEntity> expected = collect(e -> e.getName() != null && e.getName().contains("a"));
@@ -153,21 +153,21 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isEmpty() {
         final List<TestEntity> expected = collect(e -> e.getName() == null || e.getName().isEmpty());
         final List<TestEntity> result = collect(field.isEmpty());
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNotEmpty()  {
         final List<TestEntity> expected = collect(e -> e.getName() != null && !e.getName().isEmpty());
         final List<TestEntity> result = collect(field.isNotEmpty());
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void in() {
         final List<TestEntity> expected = collect(e -> SAMPLES.contains(e.getName()));
         final List<TestEntity> result = collect(field.in(SAMPLES));
@@ -178,7 +178,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void notIn() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && !SAMPLES.contains(e.getName()));
         final List<TestEntity> result = collect(field.notIn(SAMPLES));
@@ -189,7 +189,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenIE() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && "b".compareTo(e.getName()) <= 0 && "f".compareTo(e.getName()) > 0);
         final List<TestEntity> result = collect(field.between("b", "f"));
@@ -203,7 +203,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenII() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && "b".compareTo(e.getName()) <= 0 && "f".compareTo(e.getName()) >= 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_INCLUSIVE_END_INCLUSIVE));
@@ -213,7 +213,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenEI() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && "b".compareTo(e.getName()) < 0 && "f".compareTo(e.getName()) >= 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_EXCLUSIVE_END_INCLUSIVE));
@@ -223,7 +223,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void betweenEE() {
         final List<TestEntity> expected = collect(e -> e.getName() != null && "b".compareTo(e.getName()) < 0 && "f".compareTo(e.getName()) > 0);
         final List<TestEntity> result = collect(field.between("b", "f", Inclusion.START_EXCLUSIVE_END_EXCLUSIVE));
@@ -233,7 +233,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringTest() {
         assertNotNull(field.toString());
     }
@@ -241,19 +241,19 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
 
 
     /*
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getField() {
         final StringField<TestEntity, String> other = field.getField();
         assertNotNull(other);
     }
 */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void comparator() {
         comparator(false);
     }
 
     /*
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void comparatorReversed() {
         comparator(true);
     }
@@ -276,7 +276,7 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings({"raw", "unchecked"})
     void typemapper() {
         when(column.findDatabaseType()).thenReturn((Class) String.class);
@@ -284,34 +284,34 @@ abstract class AbstractStringFieldTest extends BaseFieldTest {
         assertEquals(String.class, fieldType);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isUnique() {
         assertFalse(field.isUnique());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tableAlias() {
         assertNotNull(field.tableAlias());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setTableAlias() {
         final String name = "tryggve";
         assertEquals(name, field.tableAlias(name).tableAlias());
         assertEquals(field.identifier().getColumnId(), field.tableAlias(name).identifier().getColumnId());
     }
 /*
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getNullOrder() {
         assertEquals(NullOrder.LAST, field.getNullOrder());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isReversed() {
         assertFalse(field.isReversed());
     }
 */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setter() {
         final String expected = "Olle";
         final TestEntity entity = new TestEntityImpl(1, "A", null);

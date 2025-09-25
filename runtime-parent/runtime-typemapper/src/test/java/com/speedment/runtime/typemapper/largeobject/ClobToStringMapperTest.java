@@ -18,7 +18,7 @@ package com.speedment.runtime.typemapper.largeobject;
 
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,7 +31,7 @@ final class ClobToStringMapperTest {
         mapper = new ClobToStringMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaType() {
         assertEquals(String.class,mapper.getJavaType(null));
     }

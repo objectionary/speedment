@@ -31,7 +31,7 @@ import com.speedment.runtime.config.trait.HasNameUtil;
 import com.speedment.runtime.core.exception.SpeedmentException;
 import com.speedment.runtime.core.provider.DelegateInfoComponent;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -64,7 +64,7 @@ final class AbstractJavaClassTranslatorTest {
         return clazz.getSimpleName() + "#" + id;
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEmptyProjectForEveryProject() {
         testWithEmptyProject(b ->
             b.forEveryProject((clazz, p) -> {
@@ -74,7 +74,7 @@ final class AbstractJavaClassTranslatorTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEmptyProjectForEveryDbms() {
         testWithEmptyProject(b ->
             b.forEveryDbms((clazz, d) -> {
@@ -84,7 +84,7 @@ final class AbstractJavaClassTranslatorTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testProjectWithOneDbmsForEveryProject() {
         testWithOneDbms(b ->
                 b.forEveryProject((clazz, p) -> {
@@ -95,7 +95,7 @@ final class AbstractJavaClassTranslatorTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testProjectWithOneDbmsForEveryDbms() {
         testWithOneDbms(b ->
                 b.forEveryDbms((clazz, d) -> {
@@ -105,7 +105,7 @@ final class AbstractJavaClassTranslatorTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testProjectWithTwoDbmsesForEveryDbms() {
         testWithTwoDbms(b ->
                 b.forEveryDbms((clazz, d) -> {

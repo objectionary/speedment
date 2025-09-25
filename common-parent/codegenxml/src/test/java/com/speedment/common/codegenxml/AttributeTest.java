@@ -18,21 +18,21 @@ package com.speedment.common.codegenxml;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 class AttributeTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         assertNotNull(Attribute.of("string"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofUnescaped() {
         assertNotNull(Attribute.ofUnescaped("string"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setName() {
         final Attribute attribute = Attribute.of("string");
         attribute.setName("new_string");

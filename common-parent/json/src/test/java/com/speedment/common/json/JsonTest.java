@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -47,7 +47,7 @@ import java.util.stream.Stream;
 @Execution(ExecutionMode.CONCURRENT)
 final class JsonTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_String() {
         final String json = "{\"message\":\"Hello, World!\"}";
         @SuppressWarnings("unchecked")
@@ -56,7 +56,7 @@ final class JsonTest {
         assertEquals("Hello, World!", map.get("message"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_String2() {
         final String json = "{\"title\" : \"Greetings!\", \"message\" : \"Hello, World!\"}";
         @SuppressWarnings("unchecked")
@@ -66,7 +66,7 @@ final class JsonTest {
         assertEquals("Greetings!", map.get("title"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_Long() {
         final String json = "{\"id\" : 5678}";
         @SuppressWarnings("unchecked")
@@ -75,7 +75,7 @@ final class JsonTest {
         assertEquals(5678L, map.get("id"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_NegativeLong() {
         final String json = "{\"id\" : -5678}";
         @SuppressWarnings("unchecked")
@@ -84,7 +84,7 @@ final class JsonTest {
         assertEquals(-5678L, map.get("id"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_Double() {
         final String json = "{\"average\" : 0.6789}";
         @SuppressWarnings("unchecked")
@@ -93,7 +93,7 @@ final class JsonTest {
         assertEquals(0.6789, map.get("average"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_NegativeDouble() {
         final String json = "{\"average\" : -0.6789}";
         @SuppressWarnings("unchecked")
@@ -102,7 +102,7 @@ final class JsonTest {
         assertEquals(-0.6789, map.get("average"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_False() {
         final String json = "{\"condition\" : false}";
         @SuppressWarnings("unchecked")
@@ -111,7 +111,7 @@ final class JsonTest {
         assertEquals(false, map.get("condition"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_True() {
         final String json = "{\"condition\" : true}";
         @SuppressWarnings("unchecked")
@@ -120,7 +120,7 @@ final class JsonTest {
         assertEquals(true, map.get("condition"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_Null() {
         final String json = "{\"random\" : null}";
         @SuppressWarnings("unchecked")
@@ -130,7 +130,7 @@ final class JsonTest {
         assertNull(map.get("random"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_Array() {
         final String json = "{\"items\" : [\"one\", \"two\", \"three\"]}";
         @SuppressWarnings("unchecked")
@@ -140,7 +140,7 @@ final class JsonTest {
         assertEquals(expected, map.get("items"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_ArrayOfObjects() {
         final String json = "{\"numbers\" : [{\"one\":1}, {\"two\":2}, {\"three\":3}]}";
         @SuppressWarnings("unchecked")
@@ -155,7 +155,7 @@ final class JsonTest {
         assertEquals(3L, list.get(2).get("three"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_ArrayOfNegativeObjects() {
         final String json = "{\"numbers\" : [{\"one\":-1}, {\"two\":-2}, {\"three\":-3}]}";
         @SuppressWarnings("unchecked")
@@ -170,7 +170,7 @@ final class JsonTest {
         assertEquals(-3L, list.get(2).get("three"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParse_EscapedString() {
         final String json = "{\"message\":\"Hello, \\\"World\\\"!\\n\"}";
         @SuppressWarnings("unchecked")

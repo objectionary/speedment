@@ -22,7 +22,7 @@ import com.speedment.common.codegen.model.File;
 import com.speedment.common.codegen.model.Import;
 import com.speedment.common.codegen.model.Interface;
 import com.speedment.common.codegen.util.Formatting;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -37,7 +37,7 @@ abstract class AbstractExample {
 
     abstract void onFile(File file);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         final File file = File.of(simpleName());
         onFile(file);

@@ -16,7 +16,7 @@
  */
 package com.speedment.runtime.core.internal.component;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 final class StatisticsReporterSchedulerComponentImplTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void guardedCallStalled() {
 
         final AtomicBoolean called = new AtomicBoolean();
@@ -42,7 +42,7 @@ final class StatisticsReporterSchedulerComponentImplTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void guardedCallClean() {
 
         final AtomicBoolean called = new AtomicBoolean();

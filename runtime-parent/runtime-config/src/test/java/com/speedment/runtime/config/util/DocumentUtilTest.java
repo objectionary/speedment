@@ -25,7 +25,7 @@ import com.speedment.runtime.config.IndexColumn;
 import com.speedment.runtime.config.PrimaryKeyColumn;
 import com.speedment.runtime.config.Schema;
 import com.speedment.runtime.config.Table;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -38,7 +38,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Column_Column() {
         final Column[] columns = new Column[] {
             columnA1, columnA2, columnB1, columnB2,
@@ -60,7 +60,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_IndexColumn_IndexColumn() {
         final IndexColumn[] indexColumns = new IndexColumn[] {
             indexColumnA2, indexColumnB2
@@ -81,7 +81,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Index_Index() {
         final Index[] indexes = new Index[] {
             indexA2, indexB2
@@ -102,7 +102,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_PrimaryKeyColumn_PrimaryKeyColumn() {
         final PrimaryKeyColumn[] primaryKeyColumns = new PrimaryKeyColumn[] {
             primaryKeyColumnA1, primaryKeyColumnB1, 
@@ -124,7 +124,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_ForeignKeyColumn_ForeignKeyColumn() {
         final ForeignKeyColumn[] foreignKeyColumns = new ForeignKeyColumn[] {
             foreignKeyColumnA2_C1, foreignKeyColumnB2_D1
@@ -148,7 +148,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_ForeignKey_ForeignKey() {
         final ForeignKey[] foreignKeys = new ForeignKey[] {
             foreignKeyA2_C1, foreignKeyB2_D1
@@ -169,7 +169,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Table_Table() {
         final Table[] tables = new Table[] {
             tableA, tableB, tableC, tableD
@@ -190,7 +190,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Schema_Schema() {
         final Schema[] schemas = new Schema[] {
             schemaA, schemaB
@@ -211,7 +211,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Dbms_Dbms() {
         final Dbms[] dbmses = new Dbms[] {
             dbmsA, dbmsB
@@ -232,7 +232,7 @@ final class DocumentUtilTest extends AbstractDocumentTest {
     /**
      * Test of isSame method, of class DocumentDbUtil.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsSame_Project_Project() {
         assertTrue(
             DocumentDbUtil.isSame(project, project),

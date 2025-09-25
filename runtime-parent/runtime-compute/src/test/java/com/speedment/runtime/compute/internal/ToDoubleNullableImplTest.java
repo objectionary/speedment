@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.compute.ToDouble;
 import com.speedment.runtime.compute.ToDoubleNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -38,12 +38,12 @@ final class ToDoubleNullableImplTest {
             Objects::isNull
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void inner() {
         assertNotNull(instance.inner());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNullPredicate() {
         assertNotNull(instance.isNullPredicate());
     }
@@ -61,12 +61,12 @@ final class ToDoubleNullableImplTest {
         assertEquals(input.length(), instance.applyAsDouble(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         assertNotNull(instance.orThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElseGet() {
         final ToDouble<String> toDouble = instance.orElseGet(string -> 0);
 
@@ -75,7 +75,7 @@ final class ToDoubleNullableImplTest {
         assertEquals(0, toDouble.applyAsDouble(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElse() {
         final ToDouble<String> toDouble = instance.orElse((double) 0);
 
@@ -84,7 +84,7 @@ final class ToDoubleNullableImplTest {
         assertEquals(0, toDouble.applyAsDouble(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIfPresent() {
         final ToDoubleNullable<String> toDoubleNullable = instance.mapIfPresent(d -> 0);
 
@@ -101,7 +101,7 @@ final class ToDoubleNullableImplTest {
         assertNotEquals(0, instance.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         assertEquals(0, instance.compare(null, null));
         assertEquals(1, instance.compare(null, "test"));
@@ -111,19 +111,19 @@ final class ToDoubleNullableImplTest {
         assertEquals(-1, instance.compare("a", "test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNull() {
         assertTrue(instance.isNull(null));
         assertFalse(instance.isNull("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNotNull() {
         assertTrue(instance.isNotNull("test"));
         assertFalse(instance.isNotNull(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final ToDoubleNullable<String> copy = instance;
         assertTrue(instance.equals(copy));
@@ -149,7 +149,7 @@ final class ToDoubleNullableImplTest {
         assertFalse(instance.equals(isNullSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         assertNotEquals(0, instance.hashCode());
     }

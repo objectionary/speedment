@@ -21,7 +21,7 @@
  */
 package com.speedment.common.tuple;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,7 +56,7 @@ final class MappingTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple4() {
         final Tuple4<Integer, Integer, Integer, Integer> t4 = Tuples.of(1, 2, 3, 4);
         assertEquals(1, t4.get0());
@@ -65,7 +65,7 @@ final class MappingTest {
         assertEquals(4, t4.get3());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple1() {
         final List<Integer> actual = Stream.of(ARNE, TRYGGVE)
             .map(Tuples.toTuple(String::length))
@@ -74,7 +74,7 @@ final class MappingTest {
         assertEquals(Arrays.asList(ARNE.length(), TRYGGVE.length()), actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple2b() {
         final List<Tuple2<String, Integer>> actual = Stream.of(ARNE, TRYGGVE)
             .map(Tuples.toTuple(Function.identity(), String::length))
@@ -88,7 +88,7 @@ final class MappingTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple2Variant() {
         final List<Tuple2<String, Integer>> actual = Stream.of(ARNE, TRYGGVE)
             .map(Tuples.toTuple(Function.identity(), String::length))
@@ -98,7 +98,7 @@ final class MappingTest {
         assertEquals(2, actual.size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple2Nulls() {
         assertThrows(NullPointerException.class, () -> {
             Stream.of(ARNE, TRYGGVE)
@@ -107,7 +107,7 @@ final class MappingTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTuple2OfNullablesNulls() {
         final List<?> actual = Stream.of(ARNE,  TRYGGVE)
             .map(TuplesOfNullables.toTupleOfNullables(Function.identity(), s -> null))

@@ -18,7 +18,7 @@ package com.speedment.common.tuple;
 
 import com.speedment.common.tuple.getter.TupleGetter;
 import com.speedment.common.tuple.nullable.Tuple3OfNullables;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 final class TuplesOfNullablesExtraTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofArray() {
         IntStream.range(0, SIZE).forEach(i -> {
             final TupleOfNullables tuple = TuplesTestUtil.createTupleOfNullableFilled(i);

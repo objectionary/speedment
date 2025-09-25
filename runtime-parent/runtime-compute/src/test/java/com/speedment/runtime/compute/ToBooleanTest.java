@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.compute.util.Pair;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -50,7 +50,7 @@ final class ToBooleanTest {
         assertEquals(raw.test(input), fromRaw.applyAsBoolean(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         ToBoolean<String> toBooleanNullable = string -> true;
 
@@ -91,13 +91,13 @@ final class ToBooleanTest {
         assertNotEquals(inverted.applyAsBoolean(input), DEFAULT_TO.applyAsBoolean(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hash() {
         assertEquals(1, DEFAULT_TO.hash("test"));
         assertEquals(0, DEFAULT_TO.hash("a"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         Pair<String, String> nullNull = new Pair<>("foo", "bar");
         Pair<String, String> nullHas = new Pair<>("ab", "longer");
@@ -110,7 +110,7 @@ final class ToBooleanTest {
         assertEquals(0, DEFAULT_TO.compare(hasHas.getFirst(), hasHas.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_TO.compose(null));
 
@@ -119,7 +119,7 @@ final class ToBooleanTest {
         assertNotNull(composed);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void composeNullable() {
         assertThrows(NullPointerException.class, () -> DEFAULT_TO.composeNullable(null));
 

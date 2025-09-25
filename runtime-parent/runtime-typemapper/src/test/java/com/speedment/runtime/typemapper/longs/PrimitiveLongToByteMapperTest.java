@@ -17,7 +17,7 @@
 package com.speedment.runtime.typemapper.longs;
 
 import com.speedment.runtime.typemapper.AbstractTypeMapperTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ final class PrimitiveLongToByteMapperTest extends AbstractTypeMapperTest<Long, B
     }
 
     @Override
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     protected void getJavaType() {
         assertEquals(byte.class, typeMapper().getJavaType(column()));
     }

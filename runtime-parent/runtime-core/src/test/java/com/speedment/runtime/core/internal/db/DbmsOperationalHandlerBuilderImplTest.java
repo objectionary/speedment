@@ -27,7 +27,7 @@ import com.speedment.runtime.core.component.transaction.TransactionComponent;
 import com.speedment.runtime.core.component.transaction.TransactionHandler;
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.runtime.core.internal.component.ConnectionPoolComponentImpl;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -38,35 +38,35 @@ final class DbmsOperationalHandlerBuilderImplTest {
             new DummyConnectionPoolComponent(),
             new DummyTransactionComponent());
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withGeneratedKeysHandler() {
         assertThrows(NullPointerException.class, () -> instance.withGeneratedKeysHandler(null));
 
         assertDoesNotThrow(() -> instance.withGeneratedKeysHandler(((preparedStatement, longConsumer) -> {})));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withConfigureSelectPreparedStatement() {
         assertThrows(NullPointerException.class, () -> instance.withConfigureSelectPreparedStatement(null));
 
         assertDoesNotThrow(() -> instance.withConfigureSelectPreparedStatement(preparedStatement -> {}));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withConfigureSelectResultSet() {
         assertThrows(NullPointerException.class, () -> instance.withConfigureSelectResultSet(null));
 
         assertDoesNotThrow(() -> instance.withConfigureSelectResultSet(resultSet -> {}));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withInsertHandler() {
         assertThrows(NullPointerException.class, () -> instance.withInsertHandler(null));
 
         assertDoesNotThrow(() -> instance.withInsertHandler((dbms, connection, hasGeneratedKeys) -> {}));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void build() {
         assertNotNull(instance.build());
     }

@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,17 +26,17 @@ class FloatUnaryOperatorTest {
     private static final FloatUnaryOperator TIMES_TWO = f -> f * 2.0f;
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applyAsFloat() {
         assertEquals(1, PLUS_ONE.applyAsFloat(0f));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertEquals(2, TIMES_TWO.compose(PLUS_ONE).applyAsFloat(0f));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void andThen() {
         assertEquals(2, PLUS_ONE.andThen(TIMES_TWO).applyAsFloat(0f));
     }

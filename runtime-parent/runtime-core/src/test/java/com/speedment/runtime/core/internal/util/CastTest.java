@@ -22,14 +22,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 final class CastTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void cast() {
         assertThrows(NullPointerException.class, () -> Cast.cast("value", null));
 
@@ -44,7 +44,7 @@ final class CastTest {
         assertEquals(1, successfulOptional.get().intValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void castOrFail() {
         assertThrows(NullPointerException.class, () -> Cast.castOrFail("value", null));
         assertThrows(NoSuchElementException.class, () -> Cast.castOrFail(null, String.class));

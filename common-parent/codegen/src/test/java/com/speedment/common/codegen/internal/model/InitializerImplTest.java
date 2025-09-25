@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal.model;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Import;
 import com.speedment.common.codegen.model.Initializer;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -38,24 +38,24 @@ final class InitializerImplTest extends AbstractTest<Initializer> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         final Class c = Class.of("A");
         instance().setParent(c);
         assertEquals(c, instance().getParent().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertFalse(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCode() {
         final String code = "a++;";
         assertTrue(instance().getCode().isEmpty());
@@ -63,7 +63,7 @@ final class InitializerImplTest extends AbstractTest<Initializer> {
         assertEquals(singletonList(code), instance().getCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(instance().getModifiers().isEmpty());
     }

@@ -20,38 +20,38 @@ package com.speedment.runtime.config.identifier;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ColumnIdentifierTest {
 
     private final ColumnIdentifier<String> columnIdentifier = ColumnIdentifier.of("dbms", "schema", "table", "column");
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asTableIdentifier() {
         assertNotNull(columnIdentifier.asTableIdentifier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void label() {
         assertNotNull(columnIdentifier.label());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDbmsId() {
         assertEquals("dbms", columnIdentifier.getDbmsId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaId() {
         assertEquals("schema", columnIdentifier.getSchemaId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTableId() {
         assertEquals("table", columnIdentifier.getTableId());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getColumnId() {
         assertEquals("column", columnIdentifier.getColumnId());
     }

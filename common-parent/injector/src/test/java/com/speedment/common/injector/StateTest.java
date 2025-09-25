@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class StateTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void next() {
         assertEquals(State.INITIALIZED, State.CREATED.next());
         assertEquals(State.RESOLVED, State.INITIALIZED.next());
@@ -33,7 +33,7 @@ final class StateTest {
         assertThrows(NoSuchElementException.class, State.STOPPED::next);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void previous() {
         assertThrows(NoSuchElementException.class, State.CREATED::previous);
         assertEquals(State.CREATED, State.INITIALIZED.previous());
@@ -42,7 +42,7 @@ final class StateTest {
         assertEquals(State.STARTED, State.STOPPED.previous());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isBefore() {
         assertFalse(State.CREATED.isBefore(State.CREATED));
         assertTrue(State.CREATED.isBefore(State.INITIALIZED));

@@ -18,7 +18,7 @@ package com.speedment.common.tuple.internal.nonnullable;
 
 import com.speedment.common.tuple.Tuple;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -49,26 +49,26 @@ public abstract class AbstractTupleImplTest<T extends Tuple> {
         instance = constructor.get();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDegree() {
         assertEquals(degree, instance.degree());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet() {
         IntStream.range(0, degree).forEachOrdered(i -> {
             assertEquals(i, (int) instance.get(i));
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         final List<Integer> expected = IntStream.range(0, degree).boxed().collect(toList());
         final List<Object> actual = instance.stream().collect(toList());
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStreamOfType() {
         assertEquals(0, instance.streamOf(String.class).count());
         assertEquals(degree, instance.streamOf(Integer.class).count());

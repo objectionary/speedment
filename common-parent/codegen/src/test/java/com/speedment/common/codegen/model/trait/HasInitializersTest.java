@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Import;
 import com.speedment.common.codegen.model.Initializer;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 
@@ -38,13 +38,13 @@ final class HasInitializersTest {
         initializer = Initializer.of();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         clazz.add(initializer);
         assertEquals(singletonList(initializer), clazz.getInitializers());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInitializers() {
         assertTrue(clazz.getInitializers().isEmpty());
     }

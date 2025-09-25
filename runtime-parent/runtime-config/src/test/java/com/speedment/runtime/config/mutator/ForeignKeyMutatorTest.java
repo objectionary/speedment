@@ -23,7 +23,7 @@ import com.speedment.runtime.config.ForeignKey;
 import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -38,7 +38,7 @@ final class ForeignKeyMutatorTest implements
         return (ForeignKeyMutator<ForeignKey>) ForeignKey.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewForeignKeyColumn() {
         assertNotNull(getMutatorInstance().addNewForeignKeyColumn());
     }

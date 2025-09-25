@@ -18,7 +18,7 @@ package com.speedment.common.logger;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.mockito.Mock;
 
 import java.util.logging.LogManager;
@@ -44,35 +44,35 @@ final class LoggerManagerTest {
         LoggerManager.setFactory(defaultLoggerFactory);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setFactory() {
         LoggerManager.setFactory(loggerFactory);
         assertSame(loggerFactory, LoggerManager.getFactory());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFactory() {
         assertSame(defaultLoggerFactory, LoggerManager.getFactory());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLogger() {
         assertSame(defaultLoggerFactory.create(LoggerManagerTest.class), LoggerManager.getLogger(LoggerManagerTest.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetLogger() {
         assertSame(defaultLoggerFactory.create(LoggerManagerTest.class.getName() + "A"), LoggerManager.getLogger(LoggerManagerTest.class.getName() + "A"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLevel() {
         final Logger logger = LoggerManager.getLogger(LoggerManagerTest.class);
         LoggerManager.setLevel(LoggerManagerTest.class, Level.FATAL);
         assertEquals(Level.FATAL, logger.getLevel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSetLevel() {
         final Logger logger = LoggerManager.getLogger(LoggerManagerTest.class.getName() + "A");
         LoggerManager.setLevel(LoggerManagerTest.class.getName() + "A", Level.FATAL);

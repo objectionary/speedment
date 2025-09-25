@@ -142,7 +142,7 @@ abstract class AbstractToolActionTest extends ApplicationTest {
         action.installMenuItems(projectTree);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Install menu action")
     void testInstallMenuItems() {
         installContextMenu();

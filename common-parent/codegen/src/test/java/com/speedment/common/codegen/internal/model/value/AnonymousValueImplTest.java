@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Initializer;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.model.Value;
 import com.speedment.common.codegen.model.value.AnonymousValue;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -44,47 +44,47 @@ final class AnonymousValueImplTest extends AbstractValueTest<Type, AnonymousValu
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertNull(instance().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValues() {
         assertTrue(instance().getValues().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTypeParameters() {
         assertTrue(instance().getTypeParameters().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMethods() {
         assertTrue(instance().getMethods().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInitializers() {
         assertTrue(instance().getInitializers().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getClasses() {
         assertTrue(instance().getClasses().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setValue() {
         final Type type = Double.class;
         instance().setValue(type);

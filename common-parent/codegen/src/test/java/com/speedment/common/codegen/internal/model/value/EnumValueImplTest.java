@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.internal.model.value;
 
 import com.speedment.common.codegen.model.value.EnumValue;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,13 +32,13 @@ final class EnumValueImplTest extends AbstractValueTest<Enum<?>, EnumValue> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         instance().set(Foo2.class);
         assertEquals(Foo2.class, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertEquals(Foo.class, instance().getType());
     }

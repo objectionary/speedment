@@ -19,7 +19,7 @@ package com.speedment.runtime.application.provider;
 import com.speedment.runtime.TestInjectorProxy;
 import com.speedment.runtime.application.ApplicationBuilders;
 import com.speedment.runtime.core.Speedment;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 final class CreateSpeedmentInstanceTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createSpeedmentInstance() {
         final Speedment speedment = ApplicationBuilders.empty()
             .withSkipCheckDatabaseConnectivity()

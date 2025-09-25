@@ -21,48 +21,48 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DbmsTypeDefaultTest {
 
     private static final DbmsTypeDefault DBMS_TYPE_DEFAULT = DbmsTypeDefault.create();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDefaultSchema() {
         assertNotNull(DBMS_TYPE_DEFAULT.getDefaultSchemaName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasSchemaNames() {
         assertTrue(DBMS_TYPE_DEFAULT.hasSchemaNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasDatabaseNames() {
         assertTrue(DBMS_TYPE_DEFAULT.hasDatabaseNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasDatabaseUsers() {
         assertTrue(DBMS_TYPE_DEFAULT.hasDatabaseUsers());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasServerNames() {
         assertFalse(DBMS_TYPE_DEFAULT.hasServerNames());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConnectionType() {
         assertNotNull(DBMS_TYPE_DEFAULT.getConnectionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDefaultServerName() {
         assertNotNull(DBMS_TYPE_DEFAULT.getDefaultServerName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCollateFragment() {
         assertNotNull(DBMS_TYPE_DEFAULT.getCollateFragment());
     }

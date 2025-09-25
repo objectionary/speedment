@@ -24,7 +24,7 @@ package com.speedment.common.tuple.internal;
 import com.speedment.common.tuple.internal.nullable.Tuple2OfNullablesImpl;
 import com.speedment.common.tuple.nullable.Tuple2OfNullables;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,58 +49,58 @@ final class Tuple2OfNullableImplTest {
         t2 = new Tuple2OfNullablesImpl<>(ONE, TWO);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet0() {
         assertEquals(Optional.of(ONE), t2.get0());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet1() {
         assertEquals(Optional.of(TWO), t2.get1());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetIndex0() {
         assertEquals(Optional.of(ONE), t2.get(0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGetIndex1() {
         assertEquals(Optional.of(TWO), t2.get(1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDegree() {
         assertEquals(2, t2.degree());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         final List<Object> expected = Stream.of(ONE, TWO).map(Optional::of).collect(toList());
         final List<Object> actual = t2.stream().collect(toList());
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStreamOf() {
         final List<String> expected = Stream.of(TWO).collect(toList());
         final List<String> actual = t2.streamOf(String.class).collect(toList());
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final Tuple2OfNullables<Integer, String> expected = new Tuple2OfNullablesImpl<>(ONE, TWO);
         assertEquals(expected, t2);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashcode() {
         final Tuple2OfNullables<Integer, String> expected = new Tuple2OfNullablesImpl<>(ONE, TWO);
         assertEquals(expected.hashCode(), t2.hashCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String toString = t2.toString();
         System.out.println(toString);

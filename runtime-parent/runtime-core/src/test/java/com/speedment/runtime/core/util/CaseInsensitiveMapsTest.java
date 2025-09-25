@@ -19,11 +19,11 @@ package com.speedment.runtime.core.util;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class CaseInsensitiveMapsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newCaseInsensitiveMap() {
         assertNotNull(CaseInsensitiveMaps.newCaseInsensitiveMap());
     }

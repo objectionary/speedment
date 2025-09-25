@@ -25,7 +25,7 @@ import static org.mockserver.model.HttpResponse.response;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.mockserver.integration.ClientAndServer;
 
 import java.util.List;
@@ -48,7 +48,7 @@ final class RestTest {
         clientAndServer.stop();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void connect() {
         assertNotNull(Rest.connect("localhost"));
         assertNotNull(Rest.connect("localhost", 8080));
@@ -56,7 +56,7 @@ final class RestTest {
         assertNotNull(Rest.connect("localhost", "username", "password"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void connectHttps() {
         assertNotNull(Rest.connectHttps("localhost"));
         assertNotNull(Rest.connectHttps("localhost", 8080));
@@ -64,13 +64,13 @@ final class RestTest {
         assertNotNull(Rest.connectHttps("localhost", "username", "password"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void encode() {
         assertNotNull(Rest.encode("value"));
         assertDoesNotThrow(() -> Rest.encode("value"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()
@@ -88,7 +88,7 @@ final class RestTest {
         assertEquals("application/json", response.getHeaders().get("Content-Type").get(0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void post() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()
@@ -112,7 +112,7 @@ final class RestTest {
         assertEquals("application/json", response.getHeaders().get("Content-Type").get(0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void delete() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()
@@ -126,7 +126,7 @@ final class RestTest {
         assertEquals(204, response.getStatus());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()
@@ -145,7 +145,7 @@ final class RestTest {
         assertEquals(204, response.getStatus());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void options() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()
@@ -168,7 +168,7 @@ final class RestTest {
         assertTrue(headerValues.contains("HEAD"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void head() throws ExecutionException, InterruptedException {
         clientAndServer
             .when(request()

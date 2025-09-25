@@ -17,11 +17,11 @@
 package com.speedment.runtime.compute.expression.predicate;
 
 import com.speedment.runtime.compute.trait.ToNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class NullPredicateTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullPredicateType() {
         new DummyNullPredicate(NullPredicateType.IS_NULL);
         new DummyNullPredicate(NullPredicateType.IS_NOT_NULL);

@@ -18,11 +18,11 @@ package com.speedment.common.codegenxml;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class XmlDeclarationTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringTest() {
         final XmlDeclaration xmlDeclaration = XmlDeclaration.of();
 

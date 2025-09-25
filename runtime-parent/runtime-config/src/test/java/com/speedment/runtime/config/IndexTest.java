@@ -20,7 +20,7 @@ package com.speedment.runtime.config;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class IndexTest extends BaseConfigTest<Index> {
 
@@ -29,7 +29,7 @@ final class IndexTest extends BaseConfigTest<Index> {
         return Index.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isUnique() {
         final Index index = Index.create(null, map(entry(IndexUtil.UNIQUE, true)));
         assertTrue(index.isUnique());

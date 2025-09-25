@@ -24,7 +24,7 @@ package com.speedment.common.tuple.old_tests;
 import com.speedment.common.tuple.Tuple;
 import com.speedment.common.tuple.TupleBuilder;
 import com.speedment.common.tuple.Tuples;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
  */
 final class TupleBuilderTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBuilder() {
         final Tuple expected = Tuples.of("Arne", 1, 3L);
         final Tuple notExpected = Tuples.of("Arne", 1, 3L, "Tryggve");

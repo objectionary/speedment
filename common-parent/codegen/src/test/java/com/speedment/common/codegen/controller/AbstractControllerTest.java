@@ -25,7 +25,7 @@ import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.util.Formatting;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ abstract class AbstractControllerTest {
 
     abstract String expected();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void accept() {
         final File file = createFile();
         final String expected = expected();

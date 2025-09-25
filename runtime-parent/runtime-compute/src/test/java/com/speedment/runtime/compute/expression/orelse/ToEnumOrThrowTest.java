@@ -20,11 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.speedment.runtime.compute.ToEnumNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ToEnumOrThrowTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumClass() {
         ToEnumOrThrow<Integer, TestEnum> toEnumOrThrow = new ToEnumOrThrow<Integer, TestEnum>() {
             @Override

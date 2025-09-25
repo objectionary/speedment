@@ -36,11 +36,11 @@ import static com.speedment.runtime.compute.expression.MapperExpression.MapperTy
 import static com.speedment.runtime.compute.expression.MapperExpression.MapperType.STRING_TO_STRING;
 
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class MapperExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapperTypeEnum() {
         new DummyMapperExpression(BOOLEAN_TO_BOOLEAN);
         new DummyMapperExpression(BOOLEAN_TO_DOUBLE);

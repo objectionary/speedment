@@ -35,7 +35,7 @@ import com.speedment.runtime.field.IntField;
 import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -76,14 +76,14 @@ final class JsonComponentImplTest {
         when(projectComponent.getProject()).thenReturn(project);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNoneOf() {
         final JsonEncoder<Person> result = jsonComponent.noneOf(persons);
         final String json = persons.stream().collect(result.collector());
         assertEquals("[{},{},{},{},{},{},{},{}]", json);
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testAllOf() {
 //        when(persons.fields()).thenReturn(Stream.of(Person.ID, Person.NAME));
 //        final JsonEncoder<Person> result = jsonComponent.allOf(persons);
@@ -91,7 +91,7 @@ final class JsonComponentImplTest {
 //        System.out.println(json);
 //    }
 //
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testOf() {
 //        System.out.println("of");
 //        @SuppressWarnings("unchecked")

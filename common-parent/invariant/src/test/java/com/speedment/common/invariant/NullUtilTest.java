@@ -16,7 +16,7 @@
  */
 package com.speedment.common.invariant;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.*;
 
@@ -34,7 +34,7 @@ final class NullUtilTest {
     private static final List<String> LIST_WITHOUT_NULL = Arrays.asList(ARRAY_WITHOUT_NULL);
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_array_null() {
         assertThrows(NullPointerException.class, () -> {
             NullUtil.requireNonNullElements((Object[]) null);
@@ -42,26 +42,26 @@ final class NullUtilTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_array_no_nulls() {
         assertDoesNotThrow(() ->
             NullUtil.requireNonNullElements(ARRAY_WITHOUT_NULL)
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_array_contains_null() {
         assertThrows(NullPointerException.class, () -> {
             NullUtil.requireNonNullElements(ARRAY_WITH_NULL);
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_array_contains_no_nulls() {
         assertArrayEquals(ARRAY_WITHOUT_NULL, NullUtil.requireNonNullElements(ARRAY_WITHOUT_NULL));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_collection_null() {
         assertThrows(NullPointerException.class, () -> {
             Collection<String> collection = null;
@@ -69,19 +69,19 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_collection_whithout_null() {
         assertEquals(LIST_WITHOUT_NULL, NullUtil.requireNonNullElements(LIST_WITHOUT_NULL));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_collection_containts_null() {
         assertThrows(NullPointerException.class, () -> {
             NullUtil.requireNonNullElements(LIST_WITH_NULL);
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_GenericType_String() {
         assertThrows(NullPointerException.class, () -> {
             final String msg = "OlleOchTryggve";
@@ -94,13 +94,13 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNullElements_GenericType_String_Ok() {
         final String[] result = NullUtil.requireNonNullElements(ARRAY_WITHOUT_NULL, "A");
         assertArrayEquals(ARRAY_WITHOUT_NULL, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_Object() {
         assertThrows(NullPointerException.class, () -> {
             final String o0 = null;
@@ -108,7 +108,7 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_Object_NotNull() {
         assertDoesNotThrow(() -> {
             final String o0 = "A";
@@ -116,7 +116,7 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_Object_Object() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -125,7 +125,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_3args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -136,7 +136,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_4args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -149,7 +149,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2, obj3);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_5args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -164,7 +164,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2, obj3, obj4);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_6args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -181,7 +181,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2, obj3, obj4, obj5);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_7args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -200,7 +200,7 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2, obj3, obj4, obj5, obj6);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNulls_8args() {
         final String obj0 = "A";
         final String obj1 = "B";
@@ -221,21 +221,21 @@ final class NullUtilTest {
         NullUtil.requireNonNulls(obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_1() {
         assertThrows(NullPointerException.class, () -> {
             NullUtil.requireKeys(null);
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_1_NotNull() {
         assertDoesNotThrow(() ->
             NullUtil.requireKeys(new HashMap<String, String>())
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_2() {
         assertThrows(NullPointerException.class, () -> {
             final String[] arr = {"A"};
@@ -243,14 +243,14 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_2_2() {
         assertThrows(NullPointerException.class, () -> {
             NullUtil.requireKeys(new HashMap<String, String>(), (String) null);
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_2_3_err() {
         assertThrows(NoSuchElementException.class, () -> {
             final Map<String, String> map = new HashMap<>();
@@ -261,7 +261,7 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_2args_2_3() {
         final Map<String, String> map = new HashMap<>();
         map.put("A", "Tryggve");
@@ -271,7 +271,7 @@ final class NullUtilTest {
         assertEquals(map, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
      void testRequireKeys_3args() {
         assertThrows(NoSuchElementException.class, () -> {
             final Map<String, String> map = new HashMap<>();
@@ -281,7 +281,7 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_3args_2() {
         final Map<String, String> map = new HashMap<>();
         map.put("A", "Tryggve");
@@ -290,7 +290,7 @@ final class NullUtilTest {
         assertEquals(map, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_4args() {
         assertThrows(NoSuchElementException.class, () -> {
             final Map<String, String> map = new HashMap<>();
@@ -301,7 +301,7 @@ final class NullUtilTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireKeys_4args_2() {
         final Map<String, String> map = new HashMap<>();
         map.put("A", "Tryggve");
@@ -311,7 +311,7 @@ final class NullUtilTest {
         assertEquals(map, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createInstance() {
         assertThrows(Exception.class, () -> {
             NullUtil.class.getConstructor().newInstance();

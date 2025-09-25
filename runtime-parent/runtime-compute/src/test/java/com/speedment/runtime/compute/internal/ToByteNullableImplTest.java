@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.speedment.runtime.compute.ToByte;
 import com.speedment.runtime.compute.ToByteNullable;
 import com.speedment.runtime.compute.ToDoubleNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -39,12 +39,12 @@ final class ToByteNullableImplTest {
             Objects::isNull
     );
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void inner() {
         assertNotNull(instance.inner());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNullPredicate() {
         assertNotNull(instance.isNullPredicate());
     }
@@ -62,12 +62,12 @@ final class ToByteNullableImplTest {
         assertEquals(input.getBytes()[0], instance.applyAsByte(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         assertNotNull(instance.orThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElseGet() {
         ToByte<String> toByte = instance.orElseGet(string -> (byte) 0);
 
@@ -76,7 +76,7 @@ final class ToByteNullableImplTest {
         assertEquals((byte) 0, toByte.applyAsByte(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElse() {
         ToByte<String> toByte = instance.orElse((byte) 0);
 
@@ -85,7 +85,7 @@ final class ToByteNullableImplTest {
         assertEquals((byte) 0, toByte.applyAsByte(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToDoubleIfPresent() {
         ToDoubleNullable<String> toDoubleNullable = instance
                 .mapToDoubleIfPresent(b -> 1);
@@ -95,7 +95,7 @@ final class ToByteNullableImplTest {
         assertNull(toDoubleNullable.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIfPresent() {
         ToByteNullable<String> toByteNullable = instance.mapIfPresent(b -> (byte) 0);
 
@@ -111,7 +111,7 @@ final class ToByteNullableImplTest {
         assertNotEquals(0, instance.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         assertEquals(0, instance.compare(null, null));
         assertEquals(1, instance.compare(null, "test"));
@@ -123,19 +123,19 @@ final class ToByteNullableImplTest {
                 instance.compare("a", "test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNull() {
         assertTrue(instance.isNull(null));
         assertFalse(instance.isNull("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNotNull() {
         assertTrue(instance.isNotNull("test"));
         assertFalse(instance.isNotNull(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final ToByteNullable<String> copy = instance;
         assertTrue(instance.equals(copy));
@@ -161,7 +161,7 @@ final class ToByteNullableImplTest {
         assertFalse(instance.equals(isNullSame));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         assertNotEquals(0, instance.hashCode());
     }

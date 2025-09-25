@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -36,7 +36,7 @@ final class ForeignKeyColumnTest extends BaseConfigTest<ForeignKeyColumn> {
         return ForeignKeyColumn.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getForeignDatabaseName() {
         final ForeignKeyColumn foreignKeyColumn = ForeignKeyColumn.create(null, map(entry(FOREIGN_DATABASE_NAME, "database")));
         assertNotNull(foreignKeyColumn.getForeignDatabaseName());
@@ -44,7 +44,7 @@ final class ForeignKeyColumnTest extends BaseConfigTest<ForeignKeyColumn> {
         assertThrows(NoSuchElementException.class, getDocumentInstance()::getForeignDatabaseName);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getForeignSchemaName() {
         final ForeignKeyColumn foreignKeyColumn = ForeignKeyColumn.create(null, map(entry(FOREIGN_SCHEMA_NAME, "schema")));
         assertNotNull(foreignKeyColumn.getForeignSchemaName());
@@ -52,7 +52,7 @@ final class ForeignKeyColumnTest extends BaseConfigTest<ForeignKeyColumn> {
         assertThrows(NoSuchElementException.class, getDocumentInstance()::getForeignSchemaName);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getForeignTableName() {
         final ForeignKeyColumn foreignKeyColumn = ForeignKeyColumn.create(null, map(entry(FOREIGN_TABLE_NAME, "table")));
         assertNotNull(foreignKeyColumn.getForeignTableName());
@@ -60,7 +60,7 @@ final class ForeignKeyColumnTest extends BaseConfigTest<ForeignKeyColumn> {
         assertThrows(NoSuchElementException.class, getDocumentInstance()::getForeignTableName);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getForeignColumnName() {
         final ForeignKeyColumn foreignKeyColumn = ForeignKeyColumn.create(null, map(entry(FOREIGN_COLUMN_NAME, "column")));
         assertNotNull(foreignKeyColumn.getForeignColumnName());
@@ -68,12 +68,12 @@ final class ForeignKeyColumnTest extends BaseConfigTest<ForeignKeyColumn> {
         assertThrows(NoSuchElementException.class, getDocumentInstance()::getForeignColumnName);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findForeignTable() {
         assertFalse(getDocumentInstance().findForeignTable().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findForeignColumn() {
         assertFalse(getDocumentInstance().findForeignColumn().isPresent());
     }

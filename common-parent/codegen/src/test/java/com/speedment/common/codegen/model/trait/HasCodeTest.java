@@ -18,7 +18,7 @@ package com.speedment.common.codegen.model.trait;
 
 import com.speedment.common.codegen.model.Method;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -39,25 +39,25 @@ final class HasCodeTest {
         method = Method.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         method.add(A, B);
         assertEquals(Arrays.asList(A, B), method.getCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAdd() {
         method.add(A);
         assertEquals(singletonList(A), method.getCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAdd1() {
         method.add(Stream.of(A, B));
         assertEquals(Arrays.asList(A, B), method.getCode());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCode() {
         assertTrue(method.getCode().isEmpty());
     }

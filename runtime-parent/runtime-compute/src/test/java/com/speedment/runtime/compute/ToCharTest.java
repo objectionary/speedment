@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.common.function.ToCharFunction;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -46,22 +46,22 @@ class ToCharTest {
         assertEquals(DEFAULT_TO.applyAsChar(input), fromToChar.applyAsChar(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         assertEquals(CHAR, DEFAULT_TO.expressionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asDouble() {
         assertNotNull(DEFAULT_TO.asDouble());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asInt() {
         assertNotNull(DEFAULT_TO.asInt());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asLong() {
         assertNotNull(DEFAULT_TO.asLong());
     }
@@ -86,12 +86,12 @@ class ToCharTest {
         assertNotEquals(0, DEFAULT_TO.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         assertEquals(0, DEFAULT_TO.compare("input", "input"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_TO.compose(null));
 

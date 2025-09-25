@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasOrdinalPosition;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasOrdinalPositionMutatorMixin<TYPE extends Document & HasOrdinalPosition,
         MUTATOR extends DocumentMutator<TYPE> & HasOrdinalPositionMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setOrdinalPosition() {
         assertDoesNotThrow(() -> getMutatorInstance().setOrdinalPosition(1));
     }

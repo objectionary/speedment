@@ -17,7 +17,7 @@
 package com.speedment.common.tuple.mutable;
 
 import com.speedment.common.tuple.MutableTuples;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,30 +30,30 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 final class MutableTuplesTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree0() {
         final MutableTuple0 t0 = MutableTuples.create0();
         test(t0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor0() {
         final MutableTuple0 t0 = MutableTuples.constructor().get();
         test(t0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree1() {
         final MutableTuple1<Integer> t0 = MutableTuples.create1();
         test(t0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor1() {
         test(MutableTuples.constructor(Integer.class).get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor5() {
         final MutableTuple5<Integer, Integer, String, String, Long> t5 = MutableTuples.create5();
         t5.set0(0);

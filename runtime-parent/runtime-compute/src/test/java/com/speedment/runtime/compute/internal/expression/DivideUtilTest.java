@@ -32,7 +32,7 @@ import com.speedment.runtime.compute.expression.BinaryExpression.Operator;
 import com.speedment.runtime.compute.expression.BinaryObjExpression;
 import com.speedment.runtime.compute.internal.expression.DivideUtil.DivideObjToDouble;
 import com.speedment.runtime.compute.internal.expression.DivideUtil.DivideToDouble;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -291,7 +291,7 @@ final class DivideUtilTest {
         assertEquals(1, divide.second());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void divideToDouble() {
         final ToDouble<String> toDouble = String::length;
         final DivideToDouble<String, ToDouble<String>, ToDouble<String>> divide =
@@ -337,7 +337,7 @@ final class DivideUtilTest {
         assertFalse(divide.equals(another2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void divideObjToDouble() {
         final ToDouble<String> toDouble = String::length;
         final DivideObjToDouble<String, ToDouble<String>, Double> divide =

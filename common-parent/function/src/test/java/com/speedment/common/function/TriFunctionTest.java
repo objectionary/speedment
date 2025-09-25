@@ -16,13 +16,13 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TriFunctionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         final TriFunction<Integer, Integer, Integer, Integer> tf = (a, b, c) -> a + b + c;
         final Integer actual = tf.apply(1,2,3);

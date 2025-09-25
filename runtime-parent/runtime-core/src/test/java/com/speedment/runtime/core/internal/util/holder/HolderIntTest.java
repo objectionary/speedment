@@ -19,18 +19,18 @@ package com.speedment.runtime.core.internal.util.holder;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class HolderIntTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         final HolderInt intHolder = new HolderInt(1);
 
         assertEquals(1, intHolder.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         final HolderInt intHolder = new HolderInt();
         intHolder.set(1);

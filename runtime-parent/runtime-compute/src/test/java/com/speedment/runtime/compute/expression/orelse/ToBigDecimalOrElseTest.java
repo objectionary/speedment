@@ -20,13 +20,13 @@ import static com.speedment.runtime.compute.expression.NonNullableExpression.Nul
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.ToBigDecimalNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 
 final class ToBigDecimalOrElseTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullStrategy() {
         assertEquals(USE_DEFAULT_VALUE, new DummyToBigDecimalOrElse().nullStrategy());
     }

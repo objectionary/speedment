@@ -30,7 +30,7 @@ import com.speedment.runtime.config.trait.HasEnableUtil;
 import com.speedment.runtime.config.trait.HasIdUtil;
 import com.speedment.runtime.config.trait.HasNameUtil;
 import com.speedment.runtime.config.trait.HasTypeMapperUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class TableTest extends BaseConfigTest<Table> {
 
@@ -39,7 +39,7 @@ final class TableTest extends BaseConfigTest<Table> {
         return Table.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isView() {
         final Table table = Table.create(null, map(entry(IS_VIEW, true)));
         assertTrue(table.isView());
@@ -47,7 +47,7 @@ final class TableTest extends BaseConfigTest<Table> {
         assertFalse(getDocumentInstance()::isView);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findColumn() {
         final Table table = Table.create(null, map(entry(COLUMNS,
             map(
@@ -62,7 +62,7 @@ final class TableTest extends BaseConfigTest<Table> {
         assertTrue(table.findColumn("id").isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findIndex() {
         final Table table = Table.create(null, map(entry(INDEXES,
             map(
@@ -78,7 +78,7 @@ final class TableTest extends BaseConfigTest<Table> {
         assertTrue(table.findIndex("id").isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findForeignKey() {
         final Table table = Table.create(null, map(entry(FOREIGN_KEYS,
             map(
@@ -96,7 +96,7 @@ final class TableTest extends BaseConfigTest<Table> {
         assertTrue(table.findForeignKey("id").isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findPrimaryKeyColumn() {
         final Table table = Table.create(null, map(entry(PRIMARY_KEY_COLUMNS,
             map(

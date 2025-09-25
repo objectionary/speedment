@@ -25,14 +25,14 @@ import static org.mockito.Mockito.when;
 
 import com.speedment.common.logger.Level;
 import com.speedment.common.logger.Logger;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
 final class SqlQueryLoggerUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void logOperation() {
         final Logger logger = mock(Logger.class);
         when(logger.getLevel()).thenReturn(Level.DEBUG);

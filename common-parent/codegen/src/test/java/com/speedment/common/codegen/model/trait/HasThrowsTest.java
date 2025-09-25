@@ -18,7 +18,7 @@ package com.speedment.common.codegen.model.trait;
 
 import com.speedment.common.codegen.model.Method;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Collections.singleton;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,19 +33,19 @@ final class HasThrowsTest {
         method = Method.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         method.add(NullPointerException.class);
         assertEquals(singleton(NullPointerException.class), method.getExceptions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void throwing() {
         method.throwing(NullPointerException.class);
         assertEquals(singleton(NullPointerException.class), method.getExceptions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getExceptions() {
         assertTrue(method.getExceptions().isEmpty());
     }

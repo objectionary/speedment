@@ -23,13 +23,13 @@ import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.parameter.OrderType;
 import com.speedment.runtime.config.trait.HasOrderType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasOrderTypeMutatorMixin<TYPE extends Document & HasOrderType,
         MUTATOR extends DocumentMutator<TYPE> & HasOrderTypeMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setOrderType() {
         assertDoesNotThrow(() -> getMutatorInstance().setOrderType(OrderType.NONE));
     }

@@ -40,7 +40,7 @@ import com.speedment.common.tuple.nullable.Tuple6OfNullables;
 import com.speedment.common.tuple.nullable.Tuple7OfNullables;
 import com.speedment.common.tuple.nullable.Tuple8OfNullables;
 import com.speedment.common.tuple.nullable.Tuple9OfNullables;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -49,7 +49,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class TupleOfNullablesTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple1() {
         final Tuple1OfNullables<Integer> tuple = TuplesOfNullables.ofNullables(0);
         tupleTest(tuple);
@@ -63,7 +63,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple2() {
         final Tuple2OfNullables<Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1);
         tupleTest(tuple);
@@ -81,7 +81,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple3() {
         final Tuple3OfNullables<Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2);
         tupleTest(tuple);
@@ -103,7 +103,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple4() {
         final Tuple4OfNullables<Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3);
         tupleTest(tuple);
@@ -129,7 +129,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple5() {
         final Tuple5OfNullables<Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4);
         tupleTest(tuple);
@@ -159,7 +159,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple6() {
         final Tuple6OfNullables<Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5);
         tupleTest(tuple);
@@ -193,7 +193,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple7() {
         final Tuple7OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6);
         tupleTest(tuple);
@@ -231,7 +231,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple8() {
         final Tuple8OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7);
         tupleTest(tuple);
@@ -273,7 +273,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple9() {
         final Tuple9OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8);
         tupleTest(tuple);
@@ -319,7 +319,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple10() {
         final Tuple10OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         tupleTest(tuple);
@@ -369,7 +369,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple11() {
         final Tuple11OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         tupleTest(tuple);
@@ -423,7 +423,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple12() {
         final Tuple12OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
         tupleTest(tuple);
@@ -481,7 +481,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple13() {
         final Tuple13OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         tupleTest(tuple);
@@ -543,7 +543,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple14() {
         final Tuple14OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
         tupleTest(tuple);
@@ -609,7 +609,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple15() {
         final Tuple15OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
         tupleTest(tuple);
@@ -679,7 +679,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple16() {
         final Tuple16OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
         tupleTest(tuple);
@@ -753,7 +753,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple17() {
         final Tuple17OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
         tupleTest(tuple);
@@ -831,7 +831,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple18() {
         final Tuple18OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
         tupleTest(tuple);
@@ -913,7 +913,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple19() {
         final Tuple19OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
         tupleTest(tuple);
@@ -999,7 +999,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple20() {
         final Tuple20OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
         tupleTest(tuple);
@@ -1089,7 +1089,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple21() {
         final Tuple21OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
         tupleTest(tuple);
@@ -1183,7 +1183,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple22() {
         final Tuple22OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21);
         tupleTest(tuple);
@@ -1281,7 +1281,7 @@ final class TupleOfNullablesTest {
         tupleTest(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple23() {
         final Tuple23OfNullables<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = TuplesOfNullables.ofNullables(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
         tupleTest(tuple);

@@ -18,7 +18,7 @@ package com.speedment.common.codegen.model.trait;
 
 import com.speedment.common.codegen.model.Class;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -34,31 +34,31 @@ final class HasSupertypeTest {
         clazz = Class.of("A");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setSupertype() {
         clazz.setSupertype(List.class);
         assertEquals(List.class, clazz.getSupertype().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void extend() {
         clazz.extend(List.class, String.class);
         assertTrue(clazz.getSupertype().orElseThrow(NoSuchElementException::new).getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testExtend() {
         clazz.extend(List.class, "T");
         assertTrue(clazz.getSupertype().orElseThrow(NoSuchElementException::new).getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testExtend1() {
         clazz.extend(List.class);
         assertTrue(clazz.getSupertype().orElseThrow(NoSuchElementException::new).getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSupertype() {
         assertFalse(clazz.getSupertype().isPresent());
     }

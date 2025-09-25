@@ -17,7 +17,7 @@
 package com.speedment.common.function.internal.collector;
 
 import com.speedment.common.function.collector.LongCollector;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,32 +46,32 @@ final class LongCollectorImplTest {
     private static final LongCollectorImpl<List<Long>, Long> COLLECTOR = new LongCollectorImpl<>(
         SUPPLIER, ACCUMULATOR, COMBINER, FINISHER, CHARACTERISTICS);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void supplier() {
         assertSame(SUPPLIER, COLLECTOR.supplier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void accumulator() {
         assertSame(ACCUMULATOR, COLLECTOR.accumulator());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void combiner() {
         assertSame(COMBINER, COLLECTOR.combiner());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void finisher() {
         assertSame(FINISHER, COLLECTOR.finisher());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void characteristics() {
         assertSame(CHARACTERISTICS, COLLECTOR.characteristics());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void collect() {
         final long start = -5;
         final long stop = 10;
@@ -86,7 +86,7 @@ final class LongCollectorImplTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         final LongCollector<List<Long>, Long> collector = LongCollector.create(SUPPLIER, ACCUMULATOR, COMBINER, FINISHER, CHARACTERISTICS);
         assertNotNull(collector);

@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.compute.util.Pair;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -54,12 +54,12 @@ final class ToBooleanNullableTest {
         assertEquals(raw.apply(input), fromRaw.apply(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         Assertions.assertEquals(BOOLEAN_NULLABLE, DEFAULT_NULLABLE.expressionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         final ToBooleanNullable<String> nullValue = string -> null;
         assertDoesNotThrow(nullValue::orThrow);
@@ -96,7 +96,7 @@ final class ToBooleanNullableTest {
         assertEquals(input.length() > 2, toBoolean.applyAsBoolean(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapToDoubleIfPresent() {
         final ToDoubleNullable<String> toDoubleNullable = DEFAULT_NULLABLE
                 .mapToDoubleIfPresent(bool -> bool ? 1 : 0);
@@ -124,7 +124,7 @@ final class ToBooleanNullableTest {
         assertFalse(toDoubleNullable.isNull("test"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void mapIfPresent() {
         final ToBooleanNullable<String> toBooleanNullable = DEFAULT_NULLABLE.mapIfPresent(bool -> !bool);
 
@@ -159,7 +159,7 @@ final class ToBooleanNullableTest {
         assertEquals(2, DEFAULT_NULLABLE.hash("a"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final ToBooleanNullable<String> raw = string -> string.length() > 4 ? true : null;
 
@@ -174,7 +174,7 @@ final class ToBooleanNullableTest {
         assertEquals(0, raw.compare(hasHas.getFirst(), hasHas.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_NULLABLE.compose(null));
 

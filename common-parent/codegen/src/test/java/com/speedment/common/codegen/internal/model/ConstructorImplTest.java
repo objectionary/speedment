@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,59 +42,59 @@ final class ConstructorImplTest extends AbstractTest<Constructor> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         instance().setParent(Class.of("B"));
         assertTrue(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertFalse(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getCode() {
         assertTrue(instance().getCode().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(instance().getModifiers().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         instance().set(Javadoc.of("A"));
         assertTrue(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertFalse(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnnotations() {
         assertTrue(instance().getAnnotations().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getGenerics() {
         assertTrue(instance().getGenerics().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getExceptions() {
         assertTrue(instance().getExceptions().isEmpty());
     }

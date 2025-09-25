@@ -16,7 +16,7 @@
  */
 package com.speedment.common.tuple.internal.nullable;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
@@ -29,117 +29,117 @@ final class Tuple11OfNullablesImplTest<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T
         super(() -> new Tuple11OfNullablesImpl<>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 11);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get0Test() {
         assertEquals(0, (int) instance.get0().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get1Test() {
         assertEquals(1, (int) instance.get1().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get2Test() {
         assertEquals(2, (int) instance.get2().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get3Test() {
         assertEquals(3, (int) instance.get3().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get4Test() {
         assertEquals(4, (int) instance.get4().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get5Test() {
         assertEquals(5, (int) instance.get5().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get6Test() {
         assertEquals(6, (int) instance.get6().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get7Test() {
         assertEquals(7, (int) instance.get7().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get8Test() {
         assertEquals(8, (int) instance.get8().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get9Test() {
         assertEquals(9, (int) instance.get9().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get10Test() {
         assertEquals(10, (int) instance.get10().orElseThrow(NoSuchElementException::new));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull0Test() {
         assertEquals(0, (int) instance.getOrNull0());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull1Test() {
         assertEquals(1, (int) instance.getOrNull1());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull2Test() {
         assertEquals(2, (int) instance.getOrNull2());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull3Test() {
         assertEquals(3, (int) instance.getOrNull3());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull4Test() {
         assertEquals(4, (int) instance.getOrNull4());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull5Test() {
         assertEquals(5, (int) instance.getOrNull5());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull6Test() {
         assertEquals(6, (int) instance.getOrNull6());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull7Test() {
         assertEquals(7, (int) instance.getOrNull7());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull8Test() {
         assertEquals(8, (int) instance.getOrNull8());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull9Test() {
         assertEquals(9, (int) instance.getOrNull9());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrNull10Test() {
         assertEquals(10, (int) instance.getOrNull10());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         IntStream.range(0, 11).forEach(i -> assertEquals(i, instance.get(i).orElseThrow(NoSuchElementException::new)));
         assertThrows(IndexOutOfBoundsException.class, () -> instance.get(-1));

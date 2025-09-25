@@ -21,7 +21,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.model.trait.HasModifiers;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.UnaryOperator;
 
@@ -38,62 +38,62 @@ final class KeywordTest {
         field = Field.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void public_() {
         assertOnOff(Field::public_, Field::notPublic, Modifier.PUBLIC);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void protected_() {
         assertOnOff(Field::protected_, Field::notProtected, Modifier.PROTECTED);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void private_() {
         assertOnOff(Field::private_, Field::notPrivate, Modifier.PRIVATE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void static_() {
         assertOnOff(Field::static_, Field::notStatic, Modifier.STATIC);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void final_() {
         assertOnOff(Field::final_, Field::notFinal, Modifier.FINAL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstract_() {
         assertOnOff(Class.of("A"), Class::abstract_, Class::notAbstract, Modifier.ABSTRACT);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void strictFp() {
         assertOnOff(Class.of("A"), Class::strictfp_, Class::notStrictfp, Modifier.STRICTFP);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void synchronized_() {
         assertOnOff(Field::synchronized_, Field::notSynchronized, Modifier.SYNCHRONIZED);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void transient_() {
         assertOnOff(Field::transient_, Field::notTransient, Modifier.TRANSIENT);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void volatile_() {
         assertOnOff(Field::volatile_, Field::notVolatile, Modifier.VOLATILE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void native_() {
         assertOnOff(Method.of("A", int.class), Method::native_, Method::notNative, Modifier.NATIVE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void default_() {
         assertOnOff(Method.of("A", int.class), Method::default_, Method::notDefault, Modifier.DEFAULT);
     }

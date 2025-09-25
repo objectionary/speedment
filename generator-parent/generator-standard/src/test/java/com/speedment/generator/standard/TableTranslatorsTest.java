@@ -27,7 +27,7 @@ import com.speedment.generator.standard.manager.*;
 import com.speedment.generator.translator.Translator;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.config.util.DocumentDbUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
@@ -39,27 +39,27 @@ final class TableTranslatorsTest {
 
     private final Injector injector = TestUtil.injector();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void speedmentJson() {
         test(Projects.SPEEDMENT_JSON);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void spring() {
         test(Projects.SPRING_PLUGIN);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void dataStore() {
         test(Projects.DATA_STORE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void foreignKey() {
         test(Projects.FOREIGN_KEY);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void typeMapper() {
         test(Projects.TYPE_MAPPER);
     }

@@ -16,14 +16,14 @@
  */
 package com.speedment.maven.component;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 final class MavenPathComponentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testClassName() {
         assertEquals(
             "MavenPathComponent",

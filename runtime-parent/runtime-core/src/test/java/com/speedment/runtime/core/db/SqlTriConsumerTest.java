@@ -20,11 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.common.function.TriConsumer;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class SqlTriConsumerTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrap() {
         assertThrows(NullPointerException.class, () -> SqlTriConsumer.wrap(null));
 

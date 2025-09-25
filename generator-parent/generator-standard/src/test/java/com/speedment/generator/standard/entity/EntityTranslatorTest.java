@@ -25,7 +25,7 @@ import com.speedment.generator.translator.TranslatorBundle;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.config.util.DocumentDbUtil;
 import com.speedment.runtime.core.provider.DelegateInfoComponent;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 final class EntityTranslatorTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void makeCodeGenModel() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(DelegateInfoComponent.class)

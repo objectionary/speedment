@@ -16,7 +16,7 @@
  */
 package com.speedment.runtime.field;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.runtime.field.TestEntity.ID;
 import static com.speedment.runtime.field.TestEntity.NAME;
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 final class FieldTest extends BaseFieldTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testField() {
         assertEquals("id", ID.identifier().getColumnId());
         assertEquals("name", NAME.identifier().getColumnId());

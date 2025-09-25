@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.exception;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,17 +24,17 @@ final class NoDefaultConstructorExceptionTest {
 
     private static final String MSG = "Arne";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create1() {
         assertTrue(new NoDefaultConstructorException(MSG).getMessage().contains(MSG));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create2() {
         assertTrue(new NoDefaultConstructorException(new RuntimeException(MSG)).getMessage().contains(MSG));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createEx() {
         assertTrue(new NoDefaultConstructorException(MSG, new RuntimeException()).getMessage().contains(MSG));
     }

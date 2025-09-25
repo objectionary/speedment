@@ -30,7 +30,7 @@ import com.speedment.common.logger.Logger;
 import com.speedment.common.logger.LoggerManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -79,19 +79,19 @@ final class InjectorImplTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stream() {
         assertEquals(asList(Baz.class, Bar.class), injector.stream(Foo.class).map(Object::getClass).collect(toList()));
         assertEquals(singletonList(Bar.class), injector.stream(Bar.class).map(Object::getClass).collect(toList()));
         assertEquals(0, injector.stream(Integer.class).count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrThrow() {
         assertThrows(IllegalArgumentException.class, () ->  injector.getOrThrow(Integer.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAfterOrThrow() {
         final Foo expected = injector.getOrThrow(Bar.class);
         final Baz baz = injector.getOrThrow(Baz.class);
@@ -101,13 +101,13 @@ final class InjectorImplTest {
         assertThrows(IllegalArgumentException.class, () -> injector.getAfterOrThrow(Foo.class, bar));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
        assertTrue(injector.get(Foo.class).isPresent());
        assertFalse(injector.get(Integer.class).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAfter() {
         final Foo expected = injector.getOrThrow(Bar.class);
         final Baz baz = injector.getOrThrow(Baz.class);
@@ -117,13 +117,13 @@ final class InjectorImplTest {
         assertFalse(injector.getAfter(Foo.class, bar).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void injectables() {
         final Set<Class<?>> injectables = injector.injectables().collect(toSet());
         assertEquals(new HashSet<>(asList(Bar.class, Baz.class)), injectables);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void inject() {
         final Baz newBaz = new Baz();
         assertNull(newBaz.bar);
@@ -131,7 +131,7 @@ final class InjectorImplTest {
         assertNotNull(newBaz.bar);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void injectIllegal() {
         final class Bez {
             @Inject private int a; // private field
@@ -140,12 +140,12 @@ final class InjectorImplTest {
         assertThrows(IllegalArgumentException.class, () -> injector.inject(bez));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void classLoader() {
         assertSame(Injector.class.getClassLoader(),injector.classLoader());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stop() {
         final Logger logger = LoggerManager.getLogger(InjectorImpl.class);
         final Level level = logger.getLevel();
@@ -159,7 +159,7 @@ final class InjectorImplTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stopFailed() throws InstantiationException {
         final Logger logger = LoggerManager.getLogger(InjectorImpl.class);
         final Level level = logger.getLevel();
@@ -172,7 +172,7 @@ final class InjectorImplTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stopSkipInvocation() throws InstantiationException {
         final Logger logger = LoggerManager.getLogger(InjectorImpl.class);
         final Level level = logger.getLevel();
@@ -185,13 +185,13 @@ final class InjectorImplTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void newBuilder() {
         assertNotNull(injector.newBuilder());
         injector.newBuilder();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled("https://github.com/speedment/speedment/issues/853")
     void newBuilderIsNew() {
         final InjectorBuilder builder1 = injector.newBuilder();

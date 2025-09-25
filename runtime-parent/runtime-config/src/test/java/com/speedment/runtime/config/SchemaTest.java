@@ -21,7 +21,7 @@ import static com.speedment.runtime.config.SchemaUtil.DEFAULT_SCHEMA;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class SchemaTest extends BaseConfigTest<Schema> {
 
@@ -30,7 +30,7 @@ final class SchemaTest extends BaseConfigTest<Schema> {
         return Schema.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isDefaultSchema() {
         final Schema notDefaultSchema = Schema.create(null, map(entry(DEFAULT_SCHEMA, false)));
         assertFalse(notDefaultSchema.isDefaultSchema());

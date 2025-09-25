@@ -20,7 +20,7 @@ import com.speedment.common.codegen.constant.SimpleType;
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -38,35 +38,35 @@ final class HasImplementsTest {
         clazz = Class.of("Foo");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         clazz.add(List.class);
         final Type type = clazz.getInterfaces().iterator().next();
         assertEquals(List.class, type);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void implement() {
         clazz.implement(List.class, String.class);
         final Type type = clazz.getInterfaces().iterator().next();
         assertTrue(type.getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImplement() {
         clazz.implement(List.class, T);
         final Type type = clazz.getInterfaces().iterator().next();
         assertTrue(type.getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImplement1() {
         clazz.implement(List.class);
         final Type type = clazz.getInterfaces().iterator().next();
         assertTrue(type.getTypeName().contains(List.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInterfaces() {
         assertTrue(clazz.getInterfaces().isEmpty());
     }

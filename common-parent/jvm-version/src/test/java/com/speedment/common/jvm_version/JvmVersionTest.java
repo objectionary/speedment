@@ -16,7 +16,7 @@
  */
 package com.speedment.common.jvm_version;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,58 +27,58 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 final class JvmVersionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSpecificationTitle() {
         assertNotNull(JvmVersion.getSpecificationTitle());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSpecificationVersion() {
         assertNotNull(JvmVersion.getSpecificationVersion());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSpecificationVendor() {
         assertNotNull(JvmVersion.getSpecificationVendor());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImplementationTitle() {
         assertNotNull(JvmVersion.getImplementationTitle());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImplementationVersion() {
         assertNotNull(JvmVersion.getImplementationVersion());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImplementationVendor() {
         assertNotNull(JvmVersion.getImplementationVendor());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void major() {
         assertFalse(JvmVersion.major() == 0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void minor() {
         assertTrue(JvmVersion.minor() >= 0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void security() {
         assertTrue(JvmVersion.security() >= 0);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isJava8() {
         // We cannot build under Java 8 anyhow...
         assertFalse(JvmVersion.isJava8());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isJava9OrHigher() {
         assertTrue(JvmVersion.isJava9OrHigher());
     }

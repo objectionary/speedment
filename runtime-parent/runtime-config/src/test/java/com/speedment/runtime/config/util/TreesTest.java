@@ -17,7 +17,7 @@
 package com.speedment.runtime.config.util;
 
 import com.speedment.runtime.config.internal.util.Trees;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.runtime.config.internal.util.Trees.TraversalOrder.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +36,7 @@ public class TreesTest {
     /**
      * Test of traverse method, of class Trees.
      */
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTraverse() {
 
         final Node nodeE = new Node("E");

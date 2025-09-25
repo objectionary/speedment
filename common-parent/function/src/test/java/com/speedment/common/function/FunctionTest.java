@@ -16,13 +16,13 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class FunctionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void triFunction() {
         final TriFunction<Integer, Integer, Integer, Integer> fn =
             (a, b, c) -> a + b + c;
@@ -31,7 +31,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void quadFunction() {
         final QuadFunction<Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d) -> a + b + c + d;
@@ -40,7 +40,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function5() {
         final Function5<Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e) -> a + b + c + d + e;
@@ -49,7 +49,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function6() {
         final Function6<Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f) -> a + b + c + d + e + f;
@@ -58,7 +58,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function7() {
         final Function7<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g) -> a + b + c + d + e + f + g;
@@ -67,7 +67,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function8() {
         final Function8<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h) -> a + b + c + d + e + f + g + h;
@@ -76,7 +76,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function9() {
         final Function9<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i) -> a + b + c + d + e + f + g + h + i;
@@ -85,7 +85,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function10() {
         final Function10<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j) -> a + b + c + d + e + f + g + h + i + j;
@@ -94,7 +94,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function11() {
         final Function11<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k) -> a + b + c + d + e + f + g + h + i + j + k;
@@ -103,7 +103,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function12() {
         final Function12<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l) -> a + b + c + d + e + f + g + h + i + j + k + l;
@@ -112,7 +112,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function13() {
         final Function13<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m) -> a + b + c + d + e + f + g + h + i + j + k + l + m;
@@ -121,7 +121,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function14() {
         final Function14<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n;
@@ -130,7 +130,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function15() {
         final Function15<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o;
@@ -139,7 +139,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function16() {
         final Function16<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p;
@@ -148,7 +148,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function17() {
         final Function17<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q;
@@ -157,7 +157,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function18() {
         final Function18<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r;
@@ -166,7 +166,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function19() {
         final Function19<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s;
@@ -175,7 +175,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function20() {
         final Function20<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t;
@@ -184,7 +184,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function21() {
         final Function21<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u;
@@ -193,7 +193,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function22() {
         final Function22<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v;
@@ -202,7 +202,7 @@ final class FunctionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function23() {
         final Function23<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fn =
             (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, x) -> a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + x;

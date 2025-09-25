@@ -24,7 +24,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.File;
 import com.speedment.common.codegen.model.Import;
 import com.speedment.common.codegen.model.Javadoc;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.stream.Stream;
 
@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 final class ConstructorViewTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void transform() {
         final File file = File.of("com/example/Main.java")
             .add(Import.of(StringBuilder.class))

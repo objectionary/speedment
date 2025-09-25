@@ -31,7 +31,7 @@ import com.speedment.tool.core.TestInjectorProxy;
 import com.speedment.tool.core.ToolBundle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -65,7 +65,7 @@ final class DocumentPropertyComponentImplTest {
         component = speedment.getOrThrow(DocumentPropertyComponent.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void testStructure() {
         assertDoesNotThrow(() -> {
@@ -96,7 +96,7 @@ final class DocumentPropertyComponentImplTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDefaultInstallments() {
 
         final DocumentProperty project = component.getConstructor(DocumentPropertyComponentUtil.PROJECTS).create(null);
@@ -122,7 +122,7 @@ final class DocumentPropertyComponentImplTest {
         assertEquals(PrimaryKeyColumnProperty.class, primaryKey.getClass(), "Make sure PrimaryKeyColumnProperty is used by default: ");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAlternateInstallments() {
         component.setConstructor(parent -> new AlternativeDbms((Project) parent), DocumentPropertyComponentUtil.DBMSES);
 

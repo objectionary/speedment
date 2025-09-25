@@ -21,11 +21,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.speedment.runtime.compute.ToInt;
 import com.speedment.runtime.compute.expression.ExpressionType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class OrElseGetExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullStrategy() {
         assertEquals(APPLY_DEFAULT_METHOD, new DummyOrElseGetExpression().nullStrategy());
     }

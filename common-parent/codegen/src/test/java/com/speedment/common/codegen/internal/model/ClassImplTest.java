@@ -18,7 +18,7 @@ package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -49,18 +49,18 @@ final class ClassImplTest extends AbstractTest<Class> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setSupertype() {
         instance().setSupertype(List.class);
         assertEquals(List.class, instance().getSupertype().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSupertype() {
         assertEquals(Optional.empty(), instance().getSupertype());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConstructors() {
         assertTrue(instance().getConstructors().isEmpty());
     }

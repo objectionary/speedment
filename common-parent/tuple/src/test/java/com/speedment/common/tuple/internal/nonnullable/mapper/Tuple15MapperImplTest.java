@@ -17,7 +17,7 @@
 package com.speedment.common.tuple.internal.nonnullable.mapper;
 
 import com.speedment.common.tuple.Tuples;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -42,87 +42,87 @@ final class Tuple15MapperImplTest {
     private final Function<Integer, Integer> m14 = i -> i + 14;
     private final Tuple15MapperImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> instance = new Tuple15MapperImpl<>(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14);
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree() {
         assertEquals(15, instance.degree());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         assertEquals(Tuples.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14), instance.apply(0));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get0() {
         assertEquals(m0, instance.get0());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get1() {
         assertEquals(m1, instance.get1());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get2() {
         assertEquals(m2, instance.get2());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get3() {
         assertEquals(m3, instance.get3());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get4() {
         assertEquals(m4, instance.get4());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get5() {
         assertEquals(m5, instance.get5());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get6() {
         assertEquals(m6, instance.get6());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get7() {
         assertEquals(m7, instance.get7());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get8() {
         assertEquals(m8, instance.get8());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get9() {
         assertEquals(m9, instance.get9());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get10() {
         assertEquals(m10, instance.get10());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get11() {
         assertEquals(m11, instance.get11());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get12() {
         assertEquals(m12, instance.get12());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get13() {
         assertEquals(m13, instance.get13());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get14() {
         assertEquals(m14, instance.get14());
     }

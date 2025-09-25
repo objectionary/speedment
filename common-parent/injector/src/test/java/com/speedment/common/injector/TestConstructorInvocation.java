@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -55,7 +55,7 @@ class TestConstructorInvocation {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPrivateDefaultConstructor() {
 
         // Private constructors are not allowed since 3.2.0
@@ -67,7 +67,7 @@ class TestConstructorInvocation {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDefaultConstructor() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ClassWithDefaultConstructor.class)
@@ -79,7 +79,7 @@ class TestConstructorInvocation {
         assertNotNull(instance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConstructorWithOneParameter() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ClassWithOneParameterConstructor.class)
@@ -93,7 +93,7 @@ class TestConstructorInvocation {
         assertNotNull(instance.other);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testConstructorWithTwoParameters() throws InstantiationException {
         final Injector injector = Injector.builder()
             .withComponent(ClassWithTwoParametersConstructor.class)

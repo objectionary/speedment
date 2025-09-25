@@ -16,7 +16,7 @@
  */
 package com.speedment.common.function;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -29,13 +29,13 @@ class OptionalBooleanTest {
     private static final OptionalBoolean OBF = OptionalBoolean.of(false);
     private static final OptionalBoolean OBE = OptionalBoolean.ofNullable(null);
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void empty() {
         OptionalBoolean ob = OptionalBoolean.empty();
         assertSame(OptionalBoolean.EMPTY, ob);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         OptionalBoolean obT = OptionalBoolean.of(true);
         assertTrue(obT.getAsBoolean());
@@ -43,7 +43,7 @@ class OptionalBooleanTest {
         assertFalse(obF.getAsBoolean());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofNullable() {
         OptionalBoolean obT = OptionalBoolean.ofNullable(Boolean.TRUE);
         assertTrue(obT.getAsBoolean());
@@ -54,7 +54,7 @@ class OptionalBooleanTest {
         assertThrows(NoSuchElementException.class, obN::getAsBoolean);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void filter() {
         assertTrue(OBT.filter(b -> true).getAsBoolean());
         assertFalse(OBT.filter(b -> false).isPresent());
@@ -66,7 +66,7 @@ class OptionalBooleanTest {
         assertFalse(OBE.filter(b -> false).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAsBoolean() {
         assertTrue(OBT.filter(b -> true).getAsBoolean());
         assertFalse(OBT.filter(b -> false).isPresent());
@@ -78,7 +78,7 @@ class OptionalBooleanTest {
         assertFalse(OBE.filter(b -> false).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElse() {
         assertTrue(OBT.orElse(true));
         assertTrue(OBT.orElse(false));
@@ -90,7 +90,7 @@ class OptionalBooleanTest {
         assertFalse(OBE.orElse(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orElseThrow() {
         assertDoesNotThrow(() ->
             OBT.orElseThrow(RuntimeException::new)
@@ -103,14 +103,14 @@ class OptionalBooleanTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isPresent() {
         assertTrue(OBT.isPresent());
         assertTrue(OBF.isPresent());
         assertFalse(OBE.isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ifPresent() {
         {
             final AtomicBoolean atomicBoolean = new AtomicBoolean();

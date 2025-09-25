@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal.model;
 import com.speedment.common.codegen.internal.java.view.InterfaceView;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Import;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -39,39 +39,39 @@ final class ImportImplTest extends AbstractTest<Import> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         instance().setParent(Class.of(NAME));
         assertTrue(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertFalse(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         instance().set(String.class);
         assertEquals(String.class, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertEquals(Long.class, instance().getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(instance().getModifiers().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getStaticMember() {
         assertEquals(Optional.empty(), instance().getStaticMember());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setStaticMember() {
         final String memeber = "A";
         instance().setStaticMember(memeber);

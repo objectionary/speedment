@@ -16,7 +16,7 @@
  */
 package com.speedment.runtime.field.comparator;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.runtime.field.comparator.NullOrder.FIRST;
 import static com.speedment.runtime.field.comparator.NullOrder.LAST;
@@ -29,17 +29,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 final class NullOrderTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNoneReversed() {
         assertEquals(NONE, NONE.reversed());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFirstReversed() {
         assertEquals(LAST, FIRST.reversed());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLastReversed() {
         assertEquals(FIRST, LAST.reversed());
     }

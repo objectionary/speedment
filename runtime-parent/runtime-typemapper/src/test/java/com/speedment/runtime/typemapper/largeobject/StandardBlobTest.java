@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -39,17 +39,17 @@ class StandardBlobTest {
         standardBlob = new StandardBlob(BYTES);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBlobLength() throws SQLException {
         assertEquals(BYTES.length, standardBlob.length());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAllBytes() throws SQLException {
         assertArrayEquals(BYTES, standardBlob.getBytes(1, (int) standardBlob.length()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getPartialBytes() throws SQLException {
         final int startIndex = 2;
         final int endIndex = BYTES.length - 4;
@@ -60,12 +60,12 @@ class StandardBlobTest {
         assertArrayEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBlobStartPosition() throws SQLException {
         assertEquals(1, standardBlob.position(standardBlob, 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSliceStartPosition() throws SQLException {
         final int startIndex = 2;
         final int endIndex = BYTES.length - 4;
@@ -77,7 +77,7 @@ class StandardBlobTest {
         assertEquals(startIndex, sliceStartIndex - 1);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void overrideBlobContents() throws SQLException {
         byte[] originalBytes = standardBlob.getBytes(1, (int) standardBlob.length());
 
@@ -89,7 +89,7 @@ class StandardBlobTest {
         assertFalse(Arrays.equals(originalBytes, newBytes));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void truncateBlob() throws SQLException {
         long originalLength = standardBlob.length();
 
@@ -100,7 +100,7 @@ class StandardBlobTest {
         assertNotEquals(originalLength, newLength);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void freeBlob() throws SQLException {
         assertThrows(IllegalStateException.class, () -> {
             standardBlob.free();

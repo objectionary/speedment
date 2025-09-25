@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.core.db.DbmsType;
 import com.speedment.runtime.test_support.MockDbmsType;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DbmsHandlerComponentImplTest {
 
     private final DbmsHandlerComponentImpl instance = new DbmsHandlerComponentImpl();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void install() {
         assertThrows(NullPointerException.class, () -> instance.install(null));
 

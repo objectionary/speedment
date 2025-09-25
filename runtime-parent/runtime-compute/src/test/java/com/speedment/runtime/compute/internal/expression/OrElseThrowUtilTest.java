@@ -37,13 +37,13 @@ import com.speedment.runtime.compute.expression.orelse.ToLongOrThrow;
 import com.speedment.runtime.compute.expression.orelse.ToShortOrThrow;
 import com.speedment.runtime.compute.expression.orelse.ToStringOrThrow;
 import com.speedment.runtime.compute.internal.expression.OrElseThrowUtil.AbstractNonNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 
 final class OrElseThrowUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void doubleOrElseThrow() {
         final ToDoubleOrThrow<Double> toDoubleOrThrow = OrElseThrowUtil.doubleOrElseThrow(d -> d);
 
@@ -51,7 +51,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toDoubleOrThrow.applyAsDouble(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatOrElseThrow() {
         final ToFloatOrThrow<Float> toFloatOrThrow = OrElseThrowUtil.floatOrElseThrow(d -> d);
 
@@ -59,7 +59,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toFloatOrThrow.applyAsFloat(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void longOrElseThrow() {
         final ToLongOrThrow<Long> toLongOrThrow = OrElseThrowUtil.longOrElseThrow(d -> d);
 
@@ -67,7 +67,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toLongOrThrow.applyAsLong(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortOrElseThrow() {
         final ToShortOrThrow<Short> toShortOrThrow = OrElseThrowUtil.shortOrElseThrow(d -> d);
 
@@ -75,7 +75,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toShortOrThrow.applyAsShort(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void byteOrElseThrow() {
         final ToByteOrThrow<Byte> toByteOrThrow = OrElseThrowUtil.byteOrElseThrow(d -> d);
 
@@ -83,7 +83,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toByteOrThrow.applyAsByte(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void charOrElseThrow() {
         final ToCharOrThrow<Character> toCharOrThrow = OrElseThrowUtil.charOrElseThrow(d -> d);
 
@@ -91,7 +91,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toCharOrThrow.applyAsChar(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void booleanOrElseThrow() {
         final ToBooleanOrThrow<Boolean> toBooleanOrThrow = OrElseThrowUtil.booleanOrElseThrow(d -> d);
 
@@ -99,7 +99,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toBooleanOrThrow.applyAsBoolean(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stringOrElseThrow() {
         final ToStringOrThrow<String> toStringOrThrow = OrElseThrowUtil.stringOrElseThrow(d -> d);
 
@@ -107,7 +107,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toStringOrThrow.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void bigDecimalOrElseThrow() {
         final ToBigDecimalOrThrow<BigDecimal> toBigDecimalOrThrow = OrElseThrowUtil.bigDecimalOrElseThrow(d -> d);
 
@@ -115,7 +115,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toBigDecimalOrThrow.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumOrElseThrow() {
         final ToEnumOrThrow<String, TestEnum> toEnumOrThrow = OrElseThrowUtil.enumOrElseThrow(
                 ToEnumNullable.of(TestEnum.class, string -> string == null ?
@@ -125,7 +125,7 @@ final class OrElseThrowUtilTest {
         assertThrows(NullPointerException.class, () -> toEnumOrThrow.apply(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractNonNullable() {
         final DummyNonNullable instance = new DummyNonNullable(d -> d);
 

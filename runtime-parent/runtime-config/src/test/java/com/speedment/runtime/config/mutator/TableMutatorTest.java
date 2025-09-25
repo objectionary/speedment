@@ -25,7 +25,7 @@ import com.speedment.runtime.config.mutator.trait.HasAliasMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -41,27 +41,27 @@ final class TableMutatorTest implements
         return (TableMutator<Table>) Table.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setView() {
         assertDoesNotThrow(() -> getMutatorInstance().setView(true));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewColumn() {
         assertNotNull(getMutatorInstance().addNewColumn());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewIndex() {
         assertNotNull(getMutatorInstance().addNewIndex());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewForeignKey() {
         assertNotNull(getMutatorInstance().addNewForeignKey());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewPrimaryKey() {
         assertNotNull(getMutatorInstance().addNewPrimaryKeyColumn());
     }

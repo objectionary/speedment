@@ -19,7 +19,7 @@ package com.speedment.runtime.compute.trait;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.speedment.runtime.compute.ToBooleanNullable;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -28,7 +28,7 @@ final class ToNullableTest {
     private final ToBooleanNullable<String> instance = string -> string == null ?
             null : string.length() > 2;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isNull() {
         assertNotNull(instance.isNull());
         assertTrue(instance.isNull(null));

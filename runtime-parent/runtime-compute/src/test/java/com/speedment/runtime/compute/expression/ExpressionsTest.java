@@ -34,14 +34,14 @@ import com.speedment.runtime.compute.ToLongNullable;
 import com.speedment.runtime.compute.ToShort;
 import com.speedment.runtime.compute.ToShortNullable;
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 final class ExpressionsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor()
             throws NoSuchMethodException {
         Constructor<Expressions> constructor = Expressions.class.getDeclaredConstructor();
@@ -50,57 +50,57 @@ final class ExpressionsTest {
         assertThrows(InvocationTargetException.class, constructor::newInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void byteToDouble() {
         assertNotNull(Expressions.byteToDouble(b -> (byte) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortToDouble() {
         assertNotNull(Expressions.shortToDouble(b -> (short) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void intToDouble() {
         assertNotNull(Expressions.intToDouble(b -> (int) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void longToDouble() {
         assertNotNull(Expressions.longToDouble(b -> (long) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatToDouble() {
         assertNotNull(Expressions.floatToDouble(b -> (float) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void byteToDoubleNullable() {
         assertNotNull(Expressions.byteToDoubleNullable(b -> (byte) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortToDoubleNullable() {
         assertNotNull(Expressions.shortToDoubleNullable(b -> (short) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void intToDoubleNullable() {
         assertNotNull(Expressions.intToDoubleNullable(b -> (int) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void longToDoubleNullable() {
         assertNotNull(Expressions.longToDoubleNullable(b -> (long) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatToDoubleNullable() {
         assertNotNull(Expressions.floatToDoubleNullable(b -> (float) b));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void pow() {
         assertNotNull(Expressions.pow(ToByte.of(b -> (byte) 1), ToDouble.constant(1)));
         assertNotNull(Expressions.pow(ToShort.of(s -> (short) 1), ToDouble.constant(1)));
@@ -110,7 +110,7 @@ final class ExpressionsTest {
         assertNotNull(Expressions.pow(ToDouble.of(d -> 1), ToDouble.constant(1)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void powOrNull() {
         assertNotNull(Expressions.powOrNull(ToByteNullable.of(b -> (byte) 1), 1));
         assertNotNull(Expressions.powOrNull(ToByteNullable.of(b -> (byte) 1), ToInt.of(i -> 1)));
@@ -143,17 +143,17 @@ final class ExpressionsTest {
         assertNotNull(Expressions.powOrNull(ToDoubleNullable.of(d -> 1d), ToDouble.of(d -> 1)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negate() {
         assertNotNull(Expressions.negate(ToBoolean.of(b -> true)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negateOrNull() {
         assertNotNull(Expressions.negateOrNull(ToBooleanNullable.of(b -> true)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void plus() {
         assertNotNull(Expressions.plus(ToShort.of(s -> (short) 1), 1));
         assertNotNull(Expressions.plus(ToShort.of(s -> (short) 1), ToShort.of(s -> (short) 1)));
@@ -162,7 +162,7 @@ final class ExpressionsTest {
         assertNotNull(Expressions.plus(ToFloat.of(f -> 1f), ToFloat.of(f -> 1f)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void minus() {
         assertNotNull(Expressions.minus(ToShort.of(s -> (short) 1), 1));
         assertNotNull(Expressions.minus(ToShort.of(s -> (short) 1), ToShort.of(s -> (short) 1)));
@@ -171,7 +171,7 @@ final class ExpressionsTest {
         assertNotNull(Expressions.minus(ToFloat.of(f -> 1f), ToFloat.of(f -> 1f)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void multiply() {
         assertNotNull(Expressions.multiply(ToShort.of(s -> (short) 1), 1));
         assertNotNull(Expressions.multiply(ToShort.of(s -> (short) 1), ToShort.of(s -> (short) 1)));
@@ -180,7 +180,7 @@ final class ExpressionsTest {
         assertNotNull(Expressions.multiply(ToFloat.of(f -> 1f), ToFloat.of(f -> 1f)));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void joining() {
         assertNotNull(Expressions.joining(
             ToString.of(string -> (String) string),

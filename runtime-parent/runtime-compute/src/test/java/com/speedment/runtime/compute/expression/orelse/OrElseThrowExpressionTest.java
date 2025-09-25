@@ -21,11 +21,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.speedment.runtime.compute.ToInt;
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.expression.NonNullableExpression.NullStrategy;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class OrElseThrowExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullStrategy() {
         assertEquals(NullStrategy.THROW_EXCEPTION, new DummyOrElseThrowExpression().nullStrategy());
     }

@@ -18,7 +18,7 @@ package com.speedment.runtime.typemapper.bytes;
 
 import com.speedment.runtime.typemapper.AbstractTypeMapperTest;
 import com.speedment.runtime.typemapper.TypeMapper;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -21,11 +21,11 @@ import static com.speedment.runtime.compute.expression.NonNullableExpression.Nul
 import static com.speedment.runtime.compute.expression.NonNullableExpression.NullStrategy.USE_DEFAULT_VALUE;
 
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class NonNullableExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nullStrategyEnum() {
         new DummyNonNullableExpression(USE_DEFAULT_VALUE);
         new DummyNonNullableExpression(APPLY_DEFAULT_METHOD);

@@ -18,7 +18,7 @@ package com.speedment.runtime.compute.internal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -34,7 +34,7 @@ final class ConstantDoubleImplTest {
         assertEquals(CONSTANT, instance.applyAsDouble(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void value() {
         assertEquals(CONSTANT, instance.value());
     }

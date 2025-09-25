@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.model.modifier.Modifier;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Collections.singleton;
 import static java.util.Collections.singletonList;
@@ -35,7 +35,7 @@ final class HasModifiersTest {
         clazz = Class.of("A");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
         assertTrue(clazz.getModifiers().isEmpty());
         ((Class)clazz).private_();

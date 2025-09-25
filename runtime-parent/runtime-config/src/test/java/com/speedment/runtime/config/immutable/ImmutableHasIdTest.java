@@ -32,7 +32,7 @@ import com.speedment.runtime.config.internal.immutable.ImmutableTable;
 import com.speedment.runtime.config.trait.HasId;
 import com.speedment.runtime.config.trait.HasName;
 import com.speedment.runtime.config.util.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Set;
 import static java.util.stream.Collectors.toSet;
@@ -45,7 +45,7 @@ final class ImmutableHasIdTest extends AbstractDocumentTest {
 
     private static final String ID = "TryggveArneOchSven";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIdMutator() {
         dbmsA.mutator().setId(ID);
         final Project immutableProject = Project.createImmutable(project);
@@ -62,7 +62,7 @@ final class ImmutableHasIdTest extends AbstractDocumentTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testImmutableIdTrait() {
 
         final Set<Class<?>> hasImmutableName = immutableClasses()

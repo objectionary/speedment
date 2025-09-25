@@ -28,7 +28,7 @@ import com.speedment.runtime.core.component.ProjectComponent;
 import com.speedment.tool.config.component.DocumentPropertyComponent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.mockito.Mock;
 
 import java.io.File;
@@ -63,7 +63,7 @@ final class ConfigFileHelperTest {
         helper.setCurrentlyOpenFile(mockedCurrentlyOpenFile);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void clearTablesAndSaveToFile() throws Exception {
 
@@ -83,7 +83,7 @@ final class ConfigFileHelperTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled
     void clearTablesAndSaveToFileNoTables() throws Exception {
 

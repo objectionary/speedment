@@ -28,7 +28,7 @@ import com.speedment.runtime.core.component.ProjectComponent;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -150,7 +150,7 @@ class SqliteMetadataHandlerTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void readSchemaMetadata() {
         final SqliteMetadataHandler metadataHandler = injector.getOrThrow(SqliteMetadataHandler.class);
         final ProjectComponent projects = injector.getOrThrow(ProjectComponent.class);

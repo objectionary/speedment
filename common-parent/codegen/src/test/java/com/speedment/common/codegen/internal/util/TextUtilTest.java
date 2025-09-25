@@ -16,7 +16,7 @@
  */
 package com.speedment.common.codegen.internal.util;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +29,7 @@ final class TextUtilTest {
 
     private static final String[] TEXT_ARRAY = {"The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog.", "The", "rain", "in", "Spain", "keeps", "mainly", "on", "the", "plain."};
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWordsOf() {
         final String text = Stream.of(TEXT_ARRAY).collect(Collectors.joining(" "));
         final List<String> expResult = Stream.of(TEXT_ARRAY).collect(toList());
@@ -38,7 +38,7 @@ final class TextUtilTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatTextBox() {
         String text = "A AB ABC AB Abc ad skh sjh ajsh a aksjka ka sdja aVeryLongWordThatCertainlyWillOverflow bye";
         int width = 10;
@@ -61,7 +61,7 @@ final class TextUtilTest {
         assertEquals(expResult, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFormatJavaDocBox() {
         String text = "123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789.";
         String eRes = "123456789 123456789 123456789 123456789 123456789 123456789 123456789\n123456789 123456789 123456789 123456789 123456789 123456789.";

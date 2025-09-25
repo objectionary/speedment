@@ -19,7 +19,7 @@ package com.speedment.runtime.core.internal.stream.builder;
 import com.speedment.runtime.core.internal.stream.builder.pipeline.PipelineImpl;
 import com.speedment.runtime.core.internal.stream.builder.streamterminator.StreamTerminator;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.function.Executable;
 
 import java.util.stream.Stream;
@@ -43,7 +43,7 @@ final class ReferenceStreamBuilderTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIssue384() {
         final Stream<String> s0 = instance;
         final Stream<String> s1 = s0.map(s -> s + " Svensson");

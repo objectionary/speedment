@@ -23,7 +23,7 @@ import com.speedment.runtime.config.ForeignKeyColumn;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasOrdinalPositionMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -38,22 +38,22 @@ final class ForeignKeyColumnMutatorTest implements
         return (ForeignKeyColumnMutator<ForeignKeyColumn>) ForeignKeyColumn.create(null, new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setForeignTableName() {
         assertDoesNotThrow(() -> getMutatorInstance().setForeignTableName("table"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setForeignColumnName() {
         assertDoesNotThrow(() -> getMutatorInstance().setForeignColumnName("column"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setForeignDatabaseName() {
         assertDoesNotThrow(() -> getMutatorInstance().setForeignDatabaseName("database"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setForeignSchemaName() {
         assertDoesNotThrow(() -> getMutatorInstance().setForeignSchemaName("table"));
     }

@@ -17,7 +17,7 @@
 package com.speedment.common.singletonstream.internal;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Spliterator;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,75 +39,75 @@ final class SingletonPrimitiveSpliteratorOfLongTest {
         cnt = new AtomicInteger();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void trySplit() {
         assertNull(instance.trySplit());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceIntConsumer() {
         assertTrue(instance.tryAdvance((LongConsumer) i -> cnt.incrementAndGet()));
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceConsumer() {
         assertTrue(instance.tryAdvance((Consumer<Long>) i -> cnt.incrementAndGet()));
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceIntConsumerAfterAdvance() {
         instance.tryAdvance((LongConsumer) i -> {});
         assertFalse(instance.tryAdvance((LongConsumer) i -> cnt.incrementAndGet()));
         assertEquals(0, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceConsumerAfterAdvance() {
         instance.tryAdvance((Consumer<Long>) i -> {});
         assertFalse(instance.tryAdvance((Consumer<Long>) i -> cnt.incrementAndGet()));
         assertEquals(0, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingIntConsumer() {
         instance.forEachRemaining((LongConsumer) i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingConsumer() {
         instance.forEachRemaining((Consumer<Long>) i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingIntConsumerAfterAdvance() {
         instance.tryAdvance((Consumer<Long>) i -> {});
         instance.forEachRemaining((LongConsumer) i -> cnt.incrementAndGet());
         assertEquals(0, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingConsumerAfterAdvance() {
         instance.tryAdvance((Consumer<Long>) i -> {});
         instance.forEachRemaining((Consumer<Long>) i -> cnt.incrementAndGet());
         assertEquals(0, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void estimateSize() {
         assertEquals(1L, instance.estimateSize());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void estimateSizeAfterAdvance() {
         instance.tryAdvance((Consumer<Long>) i -> {});
         assertEquals(0L, instance.estimateSize());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void characteristics() {
         assertNotEquals(0, instance.characteristics() & Spliterator.NONNULL);
         assertNotEquals(0, instance.characteristics() & Spliterator.SIZED);

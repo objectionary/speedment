@@ -18,7 +18,7 @@ package com.speedment.common.mapstream.util;
 
 import com.speedment.common.mapstream.MapStream;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ final class CollectorUtilTest {
         collector = CollectorUtil.groupBy(String::length);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void groupBy() {
         final Map<Integer, List<String>> expected = new HashMap<>();
         expected.put(1, Stream.of("A", "A").collect(toList()));
@@ -48,7 +48,7 @@ final class CollectorUtilTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void groupHolder() {
         final CollectorUtil.GroupHolder<Integer, String> holder1 = new CollectorUtil.GroupHolder<>(String::length);
         final CollectorUtil.GroupHolder<Integer, String> holder2 = new CollectorUtil.GroupHolder<>(String::length);

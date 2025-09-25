@@ -19,7 +19,7 @@ package com.speedment.common.codegen.internal.model;
 import com.speedment.common.codegen.model.*;
 import com.speedment.common.codegen.model.Class;
 import com.speedment.common.codegen.model.Enum;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 
@@ -45,70 +45,70 @@ final class EnumConstantImplTest extends AbstractTest<EnumConstant> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setParent() {
         instance().setParent(Enum.of("B"));
         assertTrue(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getParent() {
         assertFalse(instance().getParent().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getImports() {
         assertTrue(instance().getImports().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setName() {
         instance().setName(OTHER_NAME);
         assertEquals(OTHER_NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(NAME, instance().getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValues() {
         assertTrue(instance().getValues().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         instance().set(Javadoc.of("C"));
         assertTrue(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavadoc() {
         assertFalse(instance().getJavadoc().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getClasses() {
         assertTrue(instance().getClasses().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInitializers() {
         assertTrue(instance().getInitializers().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMethods() {
         assertTrue(instance().getMethods().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFields() {
         assertTrue(instance().getFields().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnnotations() {
         assertTrue(instance().getAnnotations().isEmpty());
     }

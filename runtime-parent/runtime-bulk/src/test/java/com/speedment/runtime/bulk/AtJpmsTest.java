@@ -18,7 +18,7 @@ package com.speedment.runtime.bulk;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -28,7 +28,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 final class AtJpmsTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void atJpms() {
         try {
             String.class.getDeclaredField("value").setAccessible(true);

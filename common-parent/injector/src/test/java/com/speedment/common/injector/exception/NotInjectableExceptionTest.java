@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.exception;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,14 +24,14 @@ final class NotInjectableExceptionTest {
 
     private static final String MSG = "Arne";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create1() {
         final NotInjectableException ex = new NotInjectableException(Integer.class);
         assertTrue(ex.getMessage().contains(Integer.class.getSimpleName()));
         assertMsgReasonable(ex);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create2() {
         final NotInjectableException ex = new NotInjectableException(Integer.class, new RuntimeException());
         assertTrue(ex.getMessage().contains(Integer.class.getSimpleName()));

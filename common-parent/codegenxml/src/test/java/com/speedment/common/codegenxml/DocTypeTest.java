@@ -18,11 +18,11 @@ package com.speedment.common.codegenxml;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DocTypeTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setRootType() {
         final DocType docType = DocType.of("root");
         docType.setRootType("new_root");

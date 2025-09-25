@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.HashMap;
@@ -37,17 +37,17 @@ final class ResponseTest {
 
     private final Response instance = new Response(200, "{}", new HashMap<>());
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getStatus() {
         assertNotEquals(0, instance.getStatus());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getText() {
         assertNotNull(instance.getText());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getHeaders() {
         assertNotNull(instance.getHeaders());
     }
@@ -70,7 +70,7 @@ final class ResponseTest {
         return Stream.concat(successful, unsuccessful);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void decodeJson() {
         assertNotEquals(Optional.empty(), instance.decodeJson());
 
@@ -78,7 +78,7 @@ final class ResponseTest {
         assertEquals(Optional.empty(), fail.decodeJson());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void decodeJsonArray() {
         final Response array = new Response(200, "[]", new HashMap<>());
         assertNotNull(array.decodeJsonArray());

@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.Generic;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -39,66 +39,66 @@ final class GenericImplTest extends AbstractTest<Generic> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct() {
         final GenericImpl generic = new GenericImpl("T");
         assertEquals("T", generic.getLowerBound().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct2() {
         final GenericImpl generic = new GenericImpl(int.class, long.class);
         assertEquals(Stream.of(int.class, long.class).collect(toList()), generic.getUpperBounds());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void construct3() {
         final GenericImpl generic = new GenericImpl("T", int.class, long.class);
         assertEquals(Stream.of(int.class, long.class).collect(toList()), generic.getUpperBounds());
         assertEquals("T", generic.getLowerBound().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLowerBound() {
         final String low = "A";
         instance().setLowerBound(low);
         assertEquals(low, instance().getLowerBound().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLowerBound() {
         assertFalse(instance().getLowerBound().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setBoundType() {
         instance().setBoundType(Generic.BoundType.SUPER);
         assertEquals(Generic.BoundType.SUPER, instance().getBoundType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getBoundType() {
         assertEquals(Generic.BoundType.EXTENDS, instance().getBoundType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getUpperBounds() {
         assertTrue(instance().getUpperBounds().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asTypeIllegal() {
         assertThrows(UnsupportedOperationException.class, instance()::asType);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asTypeIllegal2() {
         instance().add(Integer.class);
         instance().add(List.class);
         assertThrows(UnsupportedOperationException.class, instance()::asType);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asType() {
         instance().setLowerBound("T");
         instance().add(Integer.class);
@@ -107,7 +107,7 @@ final class GenericImplTest extends AbstractTest<Generic> {
         assertTrue(type.getTypeName().contains("T"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void asTypeWildcard() {
         instance().setLowerBound("?");
         assertThrows(UnsupportedOperationException.class, instance()::asType);

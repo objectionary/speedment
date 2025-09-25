@@ -32,7 +32,7 @@ import com.speedment.runtime.test_support.MockDbmsType;
 import com.speedment.runtime.test_support.MockEntity;
 import com.speedment.runtime.test_support.MockEntityUtil;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -67,84 +67,84 @@ public class FilterSortedSkipOptimizer_MetricsTest {
         instance = new FilterSortedSkipOptimizer<>();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1Order1Skip1() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(3, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1OrderMulti1Skip1() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION_MULTI, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(3, metrics.getPipelineReductions());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1OrderMultiVariant1Skip1() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION_MULTI_VARIANT, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(3, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter0Order1Skip1() {
         final Pipeline pipeline = pipelineOf(SORTED_ACTION, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1Order0Skip1() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1Order1Skip0() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter1Order0Skip0() {
         final Pipeline pipeline = pipelineOf(SORTED_ACTION, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter0Order1Skip0() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SKIP_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter0Order0Skip1() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SORTED_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testFilter0Order0Skip0() {
         final Pipeline pipeline = pipelineOf();
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(0, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testSkip0LimitFilter0Order0() {
         final Pipeline pipeline = pipelineOf(SKIP_ACTION, LIMIT_ACTION, FILTER_ACTION, SORTED_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
         assertEquals(2, metrics.getPipelineReductions());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void focus() {
         final Pipeline pipeline = pipelineOf(FILTER_ACTION, SKIP_ACTION, SORTED_ACTION, LIMIT_ACTION, PEEK_ACTION);
         final Metrics metrics = instance.metrics(pipeline, DBMS_TYPE);
@@ -152,7 +152,7 @@ public class FilterSortedSkipOptimizer_MetricsTest {
     }
 
     //// Polution...
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testPolution() {
         Permutation.of(FILTER_ACTION, SORTED_ACTION, SKIP_ACTION, LIMIT_ACTION, PEEK_ACTION)
             .map(s -> s.collect(toList()))

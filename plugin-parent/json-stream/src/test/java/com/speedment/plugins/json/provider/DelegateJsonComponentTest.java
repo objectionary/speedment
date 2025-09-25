@@ -25,7 +25,7 @@ import com.speedment.runtime.core.component.ProjectComponent;
 import com.speedment.runtime.core.provider.DelegateProjectComponent;
 import com.speedment.runtime.field.Field;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Set;
 
@@ -56,21 +56,21 @@ final class DelegateJsonComponentTest {
         System.out.println("fields = " + fields);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void a() {
         User user = null;
         UserManager userManager = new UserManager();
         userManager.fields();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void noneOf() {
         final JsonEncoder<User> encoder = instance.noneOf(userManager);
         final String actual = encoder.apply(user);
         assertEquals("{}", actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void allOf() {
         final JsonEncoder<User> encoder = instance.allOf(userManager);
         final String actual = encoder.apply(user);
@@ -80,7 +80,7 @@ final class DelegateJsonComponentTest {
         assertTrue(actual.contains(NAME));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         final JsonEncoder<User> encoder = instance.of(userManager, User.NAME);
         final String actual = encoder.apply(user);

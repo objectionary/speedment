@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.util.document;
 
 import com.speedment.runtime.config.util.DocumentDbUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 final class DocumentDbUtilTest extends AbstractDocumentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsUnique() {
         assertTrue( DocumentDbUtil.isUnique(columnA1), "  Is " + columnA1.getId() + " unique: ");
         assertFalse(DocumentDbUtil.isUnique(columnA2), "  Is " + columnA2.getId() + " unique: ");

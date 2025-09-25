@@ -23,11 +23,11 @@ import static com.speedment.runtime.compute.expression.UnaryExpression.Operator.
 import static com.speedment.runtime.compute.expression.UnaryExpression.Operator.SQRT;
 
 import com.speedment.runtime.compute.ToString;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class UnaryExpressionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void operatorEnum() {
         new DummyUnaryExpression(ABS);
         new DummyUnaryExpression(CAST);

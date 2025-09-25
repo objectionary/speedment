@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,21 +60,21 @@ final class StreamCompositionTest {
         throw new RuntimeException("Opps, something went south.");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPureStream() {
         List<String> result = StreamComposition.concatAndAutoClose(a, b, c).collect(toList());
         assertEquals(Arrays.asList("A", "B", "C"), result);
         assertAllClosed();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testParallelStream() {
         List<String> result = StreamComposition.concatAndAutoClose(a.parallel(), b, c).collect(toList());
         assertEquals(Arrays.asList("A", "B", "C"), result);
         assertAllClosed();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPartialIteration() {
         Optional<String> result = StreamComposition.concatAndAutoClose(a, b, c).findFirst();
         assertEquals(Optional.of("A"), result);
@@ -83,7 +83,7 @@ final class StreamCompositionTest {
         assertAllClosed();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testException() {
         final AtomicBoolean fClosed = new AtomicBoolean();
         boolean gotException = false;
@@ -99,7 +99,7 @@ final class StreamCompositionTest {
         assertTrue(fClosed.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testExceptionInClose() {
         final AtomicBoolean fClosed = new AtomicBoolean();
         final AtomicBoolean gClosed = new AtomicBoolean();
@@ -124,7 +124,7 @@ final class StreamCompositionTest {
         assertTrue(gClosed.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testChainedStreams() {
         // This test makes sure that "chained" streams gets closed all the way up to the "root"
         final AtomicBoolean fClosed = new AtomicBoolean();
@@ -145,7 +145,7 @@ final class StreamCompositionTest {
         assertTrue(fClosed.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void concat() {
         assertNotNull(StreamComposition.concat(a, b, c));
     }

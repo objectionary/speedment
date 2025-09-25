@@ -23,7 +23,7 @@ import com.speedment.runtime.core.Speedment;
 import com.speedment.runtime.core.component.PasswordComponent;
 import com.speedment.runtime.core.component.ProjectComponent;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
@@ -77,32 +77,32 @@ final class AbstractApplicationBuilderTest {
             .withSkipValidateRuntimeConfig();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void checkVersion() {
         assertEquals(Optional.of(Boolean.TRUE), instance.isVersionOk());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withColumnTest() {
         withDocTest((ref) -> instance.withColumn(COLUMN_IDENTITY, ref::set));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withTableTest() {
         withDocTest((ref) -> instance.withTable(COLUMN_IDENTITY, ref::set));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withSchemaTest() {
         withDocTest((ref) -> instance.withSchema(COLUMN_IDENTITY, ref::set));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withDbmsTest() {
         withDocTest((ref) -> instance.withDbms(COLUMN_IDENTITY, ref::set));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withPasswordCharArrayTest() {
         final char[] expected = "Olle".toCharArray();
         instance.withPassword(COLUMN_IDENTITY, expected);
@@ -110,7 +110,7 @@ final class AbstractApplicationBuilderTest {
         assertArrayEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withPasswordStringTest() {
         final String expected = "Olle";
         instance.withPassword(COLUMN_IDENTITY, expected);
@@ -118,7 +118,7 @@ final class AbstractApplicationBuilderTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withUsername() {
         final String expected = "SvenGlenn";
         instance.withUsername(COLUMN_IDENTITY, expected);
@@ -126,7 +126,7 @@ final class AbstractApplicationBuilderTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withIpAddressTest() {
         final String expected = "Olle";
         instance.withIpAddress(COLUMN_IDENTITY, expected);
@@ -134,7 +134,7 @@ final class AbstractApplicationBuilderTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withPortTest() {
         final int expected = 42;
         instance.withPort(COLUMN_IDENTITY, expected);

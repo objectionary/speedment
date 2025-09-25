@@ -18,7 +18,7 @@ package com.speedment.common.logger.internal;
 
 import com.speedment.common.logger.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 
@@ -62,7 +62,7 @@ final class AbstractLoggerFactoryTest {
         loggerEventListener = le -> loggerEvent = le;
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         final Logger logger = instance.create(AbstractLoggerFactoryTest.class);
         assertEquals(MyLogger.class, logger.getClass());
@@ -70,12 +70,12 @@ final class AbstractLoggerFactoryTest {
         assertTrue(output.contains(AbstractLoggerFactoryTest.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void makeNameFrom() {
         assertEquals("c.s.c.l.i.AbstractLoggerFactoryTest", instance.makeNameFrom(AbstractLoggerFactoryTest.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCreate() {
         final String text = "SomeText";
         final Logger logger = instance.create("SomeBinding");
@@ -84,7 +84,7 @@ final class AbstractLoggerFactoryTest {
         assertTrue(output.contains(text));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setFormatter() {
         instance.setFormatter(FORMATTER);
         assertEquals(FORMATTER, instance.getFormatter());
@@ -93,14 +93,14 @@ final class AbstractLoggerFactoryTest {
         assertTrue(output.contains(FORMATTER_TEXT));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFormatter() {
         assertNotNull(instance.getFormatter());
         instance.setFormatter(FORMATTER);
         assertEquals(FORMATTER, instance.getFormatter());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addListener() {
         instance.addListener(loggerEventListener);
         final Logger logger = instance.create(AbstractLoggerFactory.class);
@@ -108,7 +108,7 @@ final class AbstractLoggerFactoryTest {
         assertNotNull(loggerEvent);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void removeListener() {
         instance.addListener(loggerEventListener);
         instance.removeListener(loggerEventListener);
@@ -117,21 +117,21 @@ final class AbstractLoggerFactoryTest {
         assertNull(loggerEvent);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void listeners() {
         assertEquals(0, instance.listeners().count());
         instance.addListener(loggerEventListener);
         assertEquals(loggerEventListener, instance.listeners().findFirst().orElseThrow(NoSuchElementException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void loggers() {
         assertEquals(0, instance.loggers().count());
         instance.create("A");
         assertEquals(1, instance.loggers().count());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLevel() {
         final String binding = "A";
         final Logger logger = instance.create(binding);
@@ -139,7 +139,7 @@ final class AbstractLoggerFactoryTest {
         assertEquals(Level.FATAL, logger.getLevel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSetLevel() {
         final Logger logger = instance.create(AbstractLoggerFactoryTest.class);
         instance.setLevel(AbstractLoggerFactoryTest.class, Level.FATAL);

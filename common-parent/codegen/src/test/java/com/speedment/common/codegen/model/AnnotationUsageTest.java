@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.model;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Map;
 
@@ -34,7 +34,7 @@ final class AnnotationUsageTest {
         instance = AnnotationUsage.of(Integer.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
         instance.put(A, B);
         final Map.Entry<String, Value<?>> entry = instance.getValues().iterator().next();
@@ -42,7 +42,7 @@ final class AnnotationUsageTest {
         assertEquals(B, entry.getValue().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPut() {
         instance.put(A, Value.ofText(B));
         final Map.Entry<String, Value<?>> entry = instance.getValues().iterator().next();
@@ -50,7 +50,7 @@ final class AnnotationUsageTest {
         assertEquals(B, entry.getValue().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testPut1() {
         instance.put(A, 1);
         final Map.Entry<String, Value<?>> entry = instance.getValues().iterator().next();
@@ -58,12 +58,12 @@ final class AnnotationUsageTest {
         assertEquals(1, entry.getValue().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValues() {
         assertTrue(instance.getValues().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         assertNotNull(AnnotationUsage.of(Integer.class));
     }

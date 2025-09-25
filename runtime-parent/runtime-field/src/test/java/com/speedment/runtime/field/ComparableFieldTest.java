@@ -16,7 +16,7 @@
  */
 package com.speedment.runtime.field;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.List;
 import java.util.Set;
@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 final class ComparableFieldTest extends BaseFieldTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReferenceFieldComparatorNullFieldsFirst() {
         final List<TestEntity> result = entities.stream().sorted(NAME.comparatorNullFieldsFirst().thenComparing(ID.comparator())).collect(toList());
         final List<TestEntity> expected = entities.stream()
@@ -49,7 +49,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testReferenceFieldComparatorNullFieldsLast() {
         final List<TestEntity> result = entities.stream().sorted(NAME.comparator().thenComparing(ID.comparator())).collect(toList());
         final List<TestEntity> expected = entities.stream()
@@ -62,7 +62,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         assertEquals(expected, result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsNull() {
         assertEquals(
             collect(e -> e.getName() == null).size(),
@@ -70,7 +70,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIsNotNull() {
         assertEquals(
             collect(e -> e.getName() != null).size(),
@@ -78,7 +78,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEqual() {
         assertEquals(
             collect(e -> "a".equals(e.getName())).size(),
@@ -86,7 +86,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNotEqual() {
         assertEquals(
             collect(e -> e.getName() != null && !"a".equals(e.getName())).size(),
@@ -94,7 +94,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void lessThan() {
         assertEquals(
             collect(e -> e.getName() != null && "f".compareTo(e.getName()) > 0),
@@ -102,7 +102,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void lessOrEqual() {
         assertEquals(
             collect(e -> e.getName() != null && "f".compareTo(e.getName()) >= 0),
@@ -110,7 +110,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void greaterThan() {
         assertEquals(
             collect(e -> e.getName() != null && "f".compareTo(e.getName()) < 0),
@@ -118,7 +118,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void greaterOrEqual() {
         assertEquals(
             collect(e -> e.getName() != null && "f".compareTo(e.getName()) <= 0),
@@ -126,7 +126,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void between2Arg() {
 
         final List<TestEntity> expected = collect(e -> e.getId() != null && e.getId() >= 2 && e.getId() < 6);
@@ -148,7 +148,7 @@ final class ComparableFieldTest extends BaseFieldTest {
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void between3ArgInclIncl() {
 
         final List<TestEntity> expected = collect(e -> e.getId() != null && e.getId() >= 2 && e.getId() <= 6);
@@ -163,7 +163,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         assertEquals(1, collect(ID.between(2, 2, START_INCLUSIVE_END_INCLUSIVE)).size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void between3ArgExclIncl() {
 
         final List<TestEntity> expected = collect(e -> e.getId() != null && e.getId() > 2 && e.getId() <= 6);
@@ -178,7 +178,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         assertEquals(0, collect(ID.between(2, 2, START_EXCLUSIVE_END_INCLUSIVE)).size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void between3ArgExclExcl() {
 
         final List<TestEntity> expected = collect(e -> e.getId() != null && e.getId() > 2 && e.getId() < 6);
@@ -193,7 +193,7 @@ final class ComparableFieldTest extends BaseFieldTest {
         assertEquals(0, collect(ID.between(2, 2, START_EXCLUSIVE_END_EXCLUSIVE)).size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void in() {
 
         final Integer[] ints = {2, 3, 5, 7, 11, 13, 16};

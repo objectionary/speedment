@@ -108,7 +108,7 @@ class ConnectTest extends ApplicationTest {
         loader.loadAndShow("Connect");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         clickOn("#fieldHost");
 

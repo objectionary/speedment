@@ -24,7 +24,7 @@ package com.speedment.common.tuple.old_tests;
 import com.speedment.common.tuple.Tuple2;
 import com.speedment.common.tuple.Tuples;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -50,43 +50,43 @@ public class Tuple2Test {
         instance = Tuples.of(FIRST, SECOND);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet0() {
        assertEquals(FIRST, instance.get0().intValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet1() {
         assertEquals(SECOND, instance.get1().intValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGet() {
         assertEquals(FIRST, instance.get(0));
         assertEquals(SECOND, instance.get(1));
     }
 
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSet0() {
 //        System.out.println("set0");
 //        instance.set1(32);
 //        assertEquals(32, instance.get1().intValue());
 //    }
 //
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testSet1() {
 //        System.out.println("set1");
 //        instance.set1(64);
 //        assertEquals(64, instance.get1().intValue());
 //    }
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void testDefConstructor() {
 //        System.out.println("Default constructor");
 //        final Tuple2<Integer, Integer> newInstance = Tuples.of(this, this)new Tuple2<>();
 //        assertNull(newInstance.get0());
 //        assertNull(newInstance.get1());
 //    }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHash() {
         int hashCodeInstance = instance.hashCode();
         final Tuple2<Integer, Integer> newInstance = Tuples.of(FIRST, SECOND);
@@ -94,27 +94,27 @@ public class Tuple2Test {
         assertEquals(hashCodeInstance, hashCodenewInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final Tuple2<Integer, Integer> newInstance = Tuples.of(FIRST, SECOND);
         assertEquals(instance, newInstance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final Tuple2<Integer, Integer> newInstance = Tuples.of(FIRST, SECOND);
         final String result = newInstance.toString();
         assertNotNull(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStream() {
         List<Object> content = instance.stream().collect(toList());
         List<Integer> expected = Arrays.asList(FIRST, SECOND);
         assertEquals(expected, content);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testStreamOf() {
         final Tuple2<Integer, String> newInstance = Tuples.of(FIRST, "Olle");
         List<Integer> content = newInstance.streamOf(Integer.class).collect(toList());

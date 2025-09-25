@@ -25,7 +25,7 @@ import com.speedment.runtime.config.Table;
 import com.speedment.runtime.typemapper.TypeMapperComponent;
 import com.speedment.tool.propertyeditor.provider.DelegatePropertyEditorComponent;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Disabled
 final class EnumGeneratorComponentTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void include() {
         final Set<Class<?>> classes = EnumGeneratorComponent.include().injectables().collect(toSet());
         assertTrue(classes.contains(StandardTypeMapperComponent.class));
@@ -43,7 +43,7 @@ final class EnumGeneratorComponentTest {
         assertTrue(classes.contains(DelegatePropertyEditorComponent.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void installDecorators() throws InstantiationException {
         final InjectorBuilder builder = Injector.builder();
         EnumGeneratorComponent.include().injectables().forEach(builder::withComponent);

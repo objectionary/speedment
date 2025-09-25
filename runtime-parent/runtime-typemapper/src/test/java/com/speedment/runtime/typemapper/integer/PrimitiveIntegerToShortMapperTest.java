@@ -17,7 +17,7 @@
 package com.speedment.runtime.typemapper.integer;
 
 import com.speedment.runtime.typemapper.AbstractTypeMapperTest;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +37,7 @@ final class PrimitiveIntegerToShortMapperTest extends AbstractTypeMapperTest<Int
     }
 
     @Override
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     protected void getJavaType() {
         assertEquals(short.class, typeMapper().getJavaType(column()));
     }

@@ -24,7 +24,7 @@ import com.speedment.runtime.config.util.DocumentDbUtil;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 
@@ -83,34 +83,34 @@ final class IntegerToEnumTypeMapperTest {
         injector.inject(instance);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLabel() {
         assertTrue(instance.getLabel().toLowerCase().contains("enum"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled("Why is this mapper not applicable to the tool?")
     void isToolApplicable() {
         assertTrue(instance.isToolApplicable());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaType() {
         final Type type = instance.getJavaType(column);
         assertTrue(type.getTypeName().toLowerCase().contains(COLUMN_NAME.toLowerCase()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaTypeNull() {
         assertThrows(NullPointerException.class, () ->  instance.getJavaType(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getJavaTypeCategory() {
         assertEquals(TypeMapper.Category.ENUM, instance.getJavaTypeCategory(column));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaType() {
         final User.Name actual = instance.toJavaType(column, User.class, 0);
         assertEquals(User.Name.ZERO,  actual);
@@ -118,22 +118,22 @@ final class IntegerToEnumTypeMapperTest {
         assertEquals(User.Name.ZERO,  instance.toJavaType(column, User.class, 0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeNull() {
         assertNull(instance.toJavaType(column, User.class, null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toJavaTypeOutOfBounds() {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> instance.toJavaType(column, User.class, 43));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseType() {
         assertEquals(0, instance.toDatabaseType(User.Name.ZERO));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDatabaseTypeNull() {
         assertNull(instance.toDatabaseType(null));
     }

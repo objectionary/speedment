@@ -17,13 +17,13 @@
 package com.speedment.common.tuple;
 
 import com.speedment.common.tuple.getter.TupleGetter;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class ManualTupleTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tuple2() {
         final Tuple2<Integer, Integer> tuple2 = Tuples.of(0, 1);
         final TupleGetter<Tuple2<Integer, Integer>, Integer> getter0 = Tuple2.getter0();

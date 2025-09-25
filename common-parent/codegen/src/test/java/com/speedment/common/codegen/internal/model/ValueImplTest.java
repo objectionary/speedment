@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.internal.model;
 
 import com.speedment.common.codegen.model.*;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -34,14 +34,14 @@ final class ValueImplTest extends AbstractTest<Value<String>> {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setValue() {
         final String value = "V";
         instance().setValue(value);
         assertEquals(value, instance().getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertEquals(VALUE, instance().getValue());
     }

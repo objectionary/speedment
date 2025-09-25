@@ -28,7 +28,7 @@ import com.speedment.common.codegen.util.Formatting;
 import com.speedment.example.Person;
 import com.speedment.example.PersonImpl;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ final class TypeViewTest {
         Formatting.tab("    ");
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testMain() {
         final File file = File.of("com/example/Main.java")
             .add(Class.of("Main")
@@ -92,7 +92,7 @@ final class TypeViewTest {
         assertEquals( expected, actual, "Make sure generated file matches expected:");
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testList() {
         final File file = File.of("com/example/EntityList.java")
             .add(Import.of(ArrayList.class))
@@ -164,7 +164,7 @@ final class TypeViewTest {
         assertEquals(expected, actual, "Make sure generated file matches expected:");
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInnerClassImport() {
         final File file = File.of("com/example/PersonFactory.java")
             .add(Import.of(PersonImpl.class))

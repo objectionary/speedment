@@ -20,18 +20,18 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 class PasswordComponentImplTest {
 
     private final PasswordComponentImpl instance = new PasswordComponentImpl();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void put() {
         assertThrows(NullPointerException.class, () -> instance.put((String) null, null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         assertThrows(NullPointerException.class, () -> instance.get((String) null));
         assertFalse(instance.get("nonExistentDbms").isPresent());

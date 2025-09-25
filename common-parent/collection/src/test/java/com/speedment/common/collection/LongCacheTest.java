@@ -16,20 +16,20 @@
  */
 package com.speedment.common.collection;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class LongCacheTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrCompute() {
         final LongCache<String> lc = new LongCache<>(10);
         final long actual = lc.getOrCompute("one", () -> 1L);
         assertEquals(1L, actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final LongCache<String> lc = new LongCache<>(10);
         final long actual = lc.getOrCompute("Olle", () -> 42L);
@@ -37,7 +37,7 @@ final class LongCacheTest {
         assertTrue(lc.toString().contains("42"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrComputeMany() {
         final LongCache<String> lc = new LongCache<>(2);
         final long actual1 = lc.getOrCompute("one", () -> 1L);
@@ -49,7 +49,7 @@ final class LongCacheTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getOrComputeSlow() throws InterruptedException {
         final LongCache<String> lc = new LongCache<>(10);
         Thread t1 = new Thread(() -> lc.getOrCompute("t1", () -> {

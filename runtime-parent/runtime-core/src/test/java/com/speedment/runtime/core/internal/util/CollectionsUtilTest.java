@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +31,7 @@ import java.util.Optional;
 
 final class CollectionsUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void findAnyIn() {
         final List<String> populatedList = Collections.singletonList("value");
         final Optional<String> populatedOptional = CollectionsUtil.findAnyIn(populatedList);
@@ -45,7 +45,7 @@ final class CollectionsUtilTest {
         assertFalse(emptyOptional.isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnyFrom() {
         final List<String> populatedList = Collections.singletonList("value");
         assertEquals("value", CollectionsUtil.getAnyFrom(populatedList));

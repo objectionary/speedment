@@ -23,11 +23,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class ProgressMeasureTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isDone() {
         final ProgressMeasure progressMeasure = ProgressMeasure.create();
 
@@ -47,7 +47,7 @@ final class ProgressMeasureTest {
         assertTrue(progressMeasure.isDone());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setAndGetCurrentAction() {
         final ProgressMeasure progressMeasure = ProgressMeasure.create();
 
@@ -55,7 +55,7 @@ final class ProgressMeasureTest {
         assertEquals("action", progressMeasure.getCurrentAction());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addListener() {
         final ProgressMeasure progressMeasure = ProgressMeasure.create();
 

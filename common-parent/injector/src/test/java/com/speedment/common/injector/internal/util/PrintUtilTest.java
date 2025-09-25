@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.internal.util;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.stream.IntStream;
 
@@ -27,17 +27,17 @@ final class PrintUtilTest {
 
     private static final String CHARS = IntStream.rangeClosed('a', 'z').mapToObj(i -> (char) i).map(Object::toString).collect(joining());
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void limitSmall() {
         assertEquals("a", PrintUtil.limit(CHARS, 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void limitLarge() {
         assertEquals(CHARS, PrintUtil.limit(CHARS, CHARS.length()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void limit() {
         assertEquals("abc...wxyz", PrintUtil.limit(CHARS, 10));
         assertEquals("abcd...wxyz", PrintUtil.limit(CHARS, 11));

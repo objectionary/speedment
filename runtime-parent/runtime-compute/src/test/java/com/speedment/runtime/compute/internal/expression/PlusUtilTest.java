@@ -34,23 +34,23 @@ import com.speedment.runtime.compute.internal.expression.PlusUtil.AbstractPlusDo
 import com.speedment.runtime.compute.internal.expression.PlusUtil.AbstractPlusFloat;
 import com.speedment.runtime.compute.internal.expression.PlusUtil.AbstractPlusInt;
 import com.speedment.runtime.compute.internal.expression.PlusUtil.AbstractPlusLong;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class PlusUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortPlusInt() {
         final ToInt<Short> instance = PlusUtil.shortPlusInt(s -> s, 1);
         assertEquals(1, instance.applyAsInt((short) 0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void shortPlusShort() {
         final ToShort<Short> instance = PlusUtil.shortPlusShort(s -> s, s -> s);
         assertEquals(2, instance.applyAsShort((short) 1));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void floatPlusFloat() {
         ToFloat<Float> instance = PlusUtil.floatPlusFloat(f -> f, f -> f);
         assertEquals(2, instance.applyAsFloat((float) 1));
@@ -59,7 +59,7 @@ final class PlusUtilTest {
         assertEquals(1, instance.applyAsFloat((float) 0));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlus() {
         final DummyPlus instance = new DummyPlus(i -> i, i -> i);
 
@@ -91,7 +91,7 @@ final class PlusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlusByte() {
         final DummyPlusByte instance = new DummyPlusByte(i -> i, (byte) 1);
 
@@ -123,7 +123,7 @@ final class PlusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlusInt() {
         final DummyPlusInt instance = new DummyPlusInt(i -> i, 1);
 
@@ -155,7 +155,7 @@ final class PlusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlusLong() {
         final DummyPlusLong instance = new DummyPlusLong(i -> i, 1);
 
@@ -187,7 +187,7 @@ final class PlusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlusFloat() {
         final DummyPlusFloat instance = new DummyPlusFloat(i -> i, 1);
 
@@ -219,7 +219,7 @@ final class PlusUtilTest {
         assertFalse(instance.equals(allDifferent));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractPlusDouble() {
         final DummyPlusDouble instance = new DummyPlusDouble(i -> i, 1);
 

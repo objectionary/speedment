@@ -25,7 +25,7 @@ import com.speedment.runtime.field.expression.FieldMapper;
 import com.speedment.runtime.field.method.ReferenceGetter;
 import com.speedment.runtime.field.method.ReferenceSetter;
 import com.speedment.runtime.typemapper.bigdecimal.BigDecimalToDouble;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.math.BigDecimal;
 import java.util.List;

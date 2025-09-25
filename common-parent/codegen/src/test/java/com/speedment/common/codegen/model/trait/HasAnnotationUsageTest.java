@@ -18,7 +18,7 @@ package com.speedment.common.codegen.model.trait;
 
 import com.speedment.common.codegen.model.Field;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.common.codegen.constant.DefaultAnnotationUsage.DEPRECATED;
 import static java.util.Collections.singletonList;
@@ -34,32 +34,32 @@ final class HasAnnotationUsageTest {
         field = Field.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         field.add(DEPRECATED);
         assertEquals(singletonList(DEPRECATED), field.getAnnotations());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void annotate() {
         field.annotate(DEPRECATED);
         assertEquals(singletonList(DEPRECATED), field.getAnnotations());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAnnotate() {
         field.annotate(Deprecated.class);
         assertEquals(1, field.getAnnotations().size());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAnnotate1() {
         field.annotate(Deprecated.class, "Never used");
         assertEquals(1, field.getAnnotations().size());
 
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getAnnotations() {
         assertTrue(field.getAnnotations().isEmpty());
     }

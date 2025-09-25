@@ -19,7 +19,7 @@ package com.speedment.common.codegenxml;
 import com.speedment.common.codegen.internal.model.FieldImpl;
 import com.speedment.common.codegen.model.Field;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -31,12 +31,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 final class EncapsulationTest {
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void internalNotAccessible() {
         assertThrows(IllegalAccessError.class, () -> new FieldImpl("s", String.class), "The module com.speedment.common.codegen is not encapsulated");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void deepReflection() {
         final Field f = Field.of("s", String.class);
 

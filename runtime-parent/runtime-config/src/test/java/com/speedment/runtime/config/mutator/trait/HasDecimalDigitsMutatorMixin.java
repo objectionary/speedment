@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasDecimalDigits;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasDecimalDigitsMutatorMixin<TYPE extends Document & HasDecimalDigits,
         MUTATOR extends DocumentMutator<TYPE> & HasDecimalDigitsMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setDecimalDigits() {
         assertDoesNotThrow(() -> getMutatorInstance().setDecimalDigits(1));
     }

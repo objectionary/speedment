@@ -16,7 +16,7 @@
  */
 package com.speedment.common.codegen;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 final class TransformTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void is() {
         final Transform<String, String> t1 = new T1();
         final Transform<String, String> t2 = new T2();

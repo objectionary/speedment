@@ -19,13 +19,13 @@ package com.speedment.runtime.core.db;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Consumer;
 
 final class SqlConsumerTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrap() {
         assertThrows(NullPointerException.class, () -> SqlConsumer.wrap(null));
 

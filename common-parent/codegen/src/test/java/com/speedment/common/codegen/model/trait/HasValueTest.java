@@ -20,7 +20,7 @@ import com.speedment.common.codegen.model.Field;
 import com.speedment.common.codegen.model.Method;
 import com.speedment.common.codegen.model.Value;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -36,31 +36,31 @@ final class HasValueTest {
         field = Field.of("x", int.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         field.set(1);
         assertEquals(1, field.getValue().orElseThrow(NoSuchElementException::new).getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSet() {
         field.set("A");
         assertEquals("A", field.getValue().orElseThrow(NoSuchElementException::new).getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSet1() {
         field.set(true);
         assertEquals(true, field.getValue().orElseThrow(NoSuchElementException::new).getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSet2() {
         field.set(Value.ofReference("x"));
         assertEquals("x", field.getValue().orElseThrow(NoSuchElementException::new).getValue());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getValue() {
         assertEquals(Optional.empty(), field.getValue());
     }

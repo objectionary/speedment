@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,52 +31,52 @@ final class DbmsTypeDefaultImplTest {
 
     private final DbmsTypeDefaultImpl instance = new DbmsTypeDefaultImpl();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getResultSetTableSchema() {
         assertNotNull(instance.getResultSetTableSchema());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaTableDelimiter() {
         assertNotNull(instance.getSchemaTableDelimiter());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getInitialQuery() {
         assertNotNull(instance.getInitialQuery());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDataTypes() {
         assertNotNull(instance.getDataTypes());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDefaultDbmsName() {
         assertNotNull(instance.getDefaultDbmsName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getColumnHandler() {
         assertNotNull(instance.getColumnHandler());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSkipLimitSupport() {
         assertNotNull(instance.getSkipLimitSupport());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSubSelectAlias() {
         assertNotNull(instance.getSubSelectAlias());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSortByNullOrderInsertion() {
         assertNotNull(instance.getSortByNullOrderInsertion());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void applySkipLimit() {
         assertThrows(IllegalArgumentException.class, () -> instance.applySkipLimit("",
                 Collections.emptyList(), -1, -1));

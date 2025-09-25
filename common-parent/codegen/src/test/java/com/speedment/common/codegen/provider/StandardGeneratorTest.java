@@ -21,7 +21,7 @@ import com.speedment.common.codegen.TransformFactory;
 import com.speedment.common.codegen.internal.DefaultDependencyManager;
 import com.speedment.common.codegen.model.Field;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 
@@ -31,22 +31,22 @@ final class StandardGeneratorTest {
 
     private StandardGenerator INSTANCE = new StandardGenerator(new DefaultDependencyManager(), new StandardTransformFactory("A"));
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDependencyMgr() {
         assertNotNull(INSTANCE.getDependencyMgr());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRenderStack() {
         assertNotNull(INSTANCE.getRenderStack());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void metaOn() {
         assertNotNull(INSTANCE.metaOn(Integer.class, String.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void transform() {
         final TransformFactory factory = new StandardTransformFactory("A");
         final Transform<Integer, String> transform = (g, i) -> Optional.of(Integer.toString(i));

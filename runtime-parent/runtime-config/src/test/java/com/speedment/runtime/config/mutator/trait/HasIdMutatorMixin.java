@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasId;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasIdMutatorMixin<TYPE extends Document & HasId,
         MUTATOR extends DocumentMutator<TYPE> & HasIdMutator<TYPE>>
         extends BaseTraitMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setId() {
         assertDoesNotThrow(() -> getMutatorInstance().setId("id"));
 

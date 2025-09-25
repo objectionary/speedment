@@ -16,7 +16,7 @@
  */
 package com.speedment.common.codegen.constant;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -28,157 +28,157 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class DefaultTypeTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void genericType() {
         final ParameterizedType genericType = (ParameterizedType) DefaultType.genericType(List.class, String.class);
         assertEquals(List.class.getName(), genericType.getRawType().getTypeName());
         assertArrayEquals(new Type[]{String.class}, genericType.getActualTypeArguments());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGenericType() {
         final ParameterizedType genericType = (ParameterizedType) DefaultType.genericType(List.class, String.class.getName());
         assertEquals(List.class.getName(), genericType.getRawType().getTypeName());
         assertArrayEquals(new String[]{String.class.getName()}, Stream.of(genericType.getActualTypeArguments()).map(Type::getTypeName).toArray());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void classOf() {
         assertSingleParameter(Class.class, Integer.class, DefaultType::classOf);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void list() {
         assertSingleParameter(List.class, Integer.class, DefaultType::list);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void set() {
         assertSingleParameter(Set.class, Integer.class, DefaultType::set);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void map() {
         assertDoubleParameters(Map.class, Integer.class, Long.class,  DefaultType::map);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void queue() {
         assertSingleParameter(Queue.class, Integer.class, DefaultType::queue);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stack() {
         assertSingleParameter(Stack.class, Integer.class, DefaultType::stack);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void optional() {
         assertSingleParameter(Optional.class, Integer.class, DefaultType::optional);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void entry() {
         assertDoubleParameters(Map.Entry.class, Integer.class, Long.class,  DefaultType::entry);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void function() {
         assertDoubleParameters(Function.class, Integer.class, Long.class,  DefaultType::function);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void bifunction() {
         assertTripleParameters(BiFunction.class, Integer.class, Long.class, Float.class,  DefaultType::bifunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void intFunction() {
         assertSingleParameter(IntFunction.class, Long.class, DefaultType::intFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void longFunction() {
         assertSingleParameter(LongFunction.class, Integer.class, DefaultType::longFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void doubleFunction() {
         assertSingleParameter(DoubleFunction.class, Integer.class, DefaultType::doubleFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toIntFunction() {
         assertSingleParameter(ToIntFunction.class, Long.class, DefaultType::toIntFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toLongFunction() {
         assertSingleParameter(ToLongFunction.class, Integer.class, DefaultType::toLongFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toDoubleFunction() {
         assertSingleParameter(ToDoubleFunction.class, Integer.class, DefaultType::toDoubleFunction);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void unaryOperator() {
         assertSingleParameter(UnaryOperator.class, Integer.class, DefaultType::unaryOperator);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void binaryOperator() {
         assertSingleParameter(BinaryOperator.class, Integer.class, DefaultType::binaryOperator);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void predicate() {
         assertSingleParameter(Predicate.class, Integer.class, DefaultType::predicate);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void bipredicate() {
         assertDoubleParameters(BiPredicate.class, Integer.class, Long.class,  DefaultType::bipredicate);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void consumer() {
         assertSingleParameter(Consumer.class, Integer.class, DefaultType::consumer);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void biconsumer() {
         assertDoubleParameters(BiConsumer.class, Integer.class, Long.class,  DefaultType::biconsumer);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void supplier() {
         assertSingleParameter(Supplier.class, Integer.class, DefaultType::supplier);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stream() {
         assertSingleParameter(Stream.class, Integer.class, DefaultType::stream);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isPrimitive() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isWrapper() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrapperFor() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void primitiveTypes() {
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void wrapperTypes() {
     }
 

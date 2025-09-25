@@ -39,7 +39,7 @@ import com.speedment.runtime.core.stream.parallel.ParallelStrategy;
 import com.speedment.runtime.test_support.MockDbmsType;
 import com.speedment.runtime.test_support.MockEntity;
 import com.speedment.runtime.test_support.MockEntityUtil;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ final class SqlStreamTerminatorTest {
     private String lastCountingSql;
     private List<Object> lastCountingValues;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCountGeneralFilter() {
         lastCountingSql = null;
         final Action<Stream<MockEntity>, Stream<MockEntity>> filterAction = new FilterAction<>(e -> e.getId() % 10 == 3);
@@ -67,14 +67,14 @@ final class SqlStreamTerminatorTest {
         assertNull(lastCountingSql);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testCountSizePreservingFilter() {
         final Action<Stream<MockEntity>, Stream<Integer>> mapAction = new MapAction<>(MockEntity::getId);
         assertEquals(SQL_COUNT_RESULT, countStreamOf(mapAction));
         assertEquals(SELECT_COUNT_SQL, lastCountingSql);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testCountFieldPredicateFilter() {
         final Predicate<MockEntity> predicate = MockEntity.NAME.equal("ABBA");
@@ -84,7 +84,7 @@ final class SqlStreamTerminatorTest {
         assertEquals(singletonList("ABBA"), lastCountingValues);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @SuppressWarnings("unchecked")
     void testCountFieldPredicateFilterPolluted() {
         final Predicate<MockEntity> predicate = MockEntity.NAME.equal("ABBA").or(me -> me.getName().equals("Olle"));

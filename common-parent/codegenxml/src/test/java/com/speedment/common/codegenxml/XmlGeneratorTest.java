@@ -27,7 +27,7 @@ import com.speedment.common.codegen.TransformFactory;
 import com.speedment.common.codegen.provider.StandardTransformFactory;
 import com.speedment.common.codegen.util.Formatting;
 import com.speedment.common.codegenxml.internal.view.DocumentView;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ final class XmlGeneratorTest {
 
     private final XmlGenerator generator = new XmlGenerator();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSimpleHTML() {
         final Document doc = Document.html(
             html()
@@ -56,7 +56,7 @@ final class XmlGeneratorTest {
         assertTrue(html.contains("Welcome"));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSimpleXML() {
         final Document doc = Document.xml(
             TagElement.of("project")
@@ -71,17 +71,17 @@ final class XmlGeneratorTest {
         assertTrue(html.contains("Speedment"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDependencyMgr() {
         assertNotNull(generator.getDependencyMgr());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getRenderStack() {
         assertNotNull(generator.getRenderStack());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void metaOn() {
         assertNotNull(generator.metaOn(Document.of(), String.class));
         assertNotNull(generator.metaOn(Document.of(), String.class, DocumentView.class));
@@ -91,24 +91,24 @@ final class XmlGeneratorTest {
         assertNotNull(generator.metaOn(new ArrayList<>(), String.class, DocumentView.class));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void on() {
         assertNotNull(generator.on(""));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void onEach() {
         assertNotNull(generator.onEach(new ArrayList<>()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void transform() {
         final TransformFactory transformFactory = new StandardTransformFactory("factory");
 
         assertNotNull(generator.transform(new DocumentView(), Document.of(), transformFactory));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forJava() {
         assertNotNull(XmlGenerator.forJava());
     }

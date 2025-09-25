@@ -24,7 +24,7 @@ import com.speedment.runtime.config.Project;
 import com.speedment.runtime.config.mutator.trait.HasEnabledMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasIdMutatorMixin;
 import com.speedment.runtime.config.mutator.trait.HasNameMutatorMixin;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.HashMap;
 
@@ -39,32 +39,32 @@ final class ProjectMutatorTest implements
         return (ProjectMutator<Project>) Project.create(new HashMap<>()).mutator();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setSpeedmentVersion() {
         assertDoesNotThrow(() -> getMutatorInstance().setSpeedmentVersion("3.2.9"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setCompanyName() {
         assertDoesNotThrow(() -> getMutatorInstance().setCompanyName("3.2.9"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setPackageName() {
         assertDoesNotThrow(() -> getMutatorInstance().setPackageName("package"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setPackageLocation() {
         assertDoesNotThrow(() -> getMutatorInstance().setPackageLocation("location"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setConfigPath() {
         assertDoesNotThrow(() -> getMutatorInstance().setConfigPath("path"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addNewDbms() {
         assertNotNull(getMutatorInstance().addNewDbms());
     }

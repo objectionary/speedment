@@ -24,7 +24,7 @@ import com.speedment.common.injector.execution.Execution;
 import com.speedment.common.injector.internal.dependency.DependencyImpl;
 import com.speedment.common.injector.internal.dependency.DependencyNodeImpl;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
@@ -62,32 +62,32 @@ final class AbstractExecutionTest {
         };
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertTrue(instance.getName().contains(Integer.class.getSimpleName()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getType() {
         assertEquals(Foo.class, instance.getType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getState() {
         assertEquals(STATE, instance.getState());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDependencies() {
         assertEquals(singleton(dependency), instance.getDependencies());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMissingArgumentStrategy() {
         assertEquals(STRATEGY, instance.getMissingArgumentStrategy());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String toString = instance.toString();
         assertTrue(toString.toLowerCase().contains(STATE_REQUIRED.name().toLowerCase()));

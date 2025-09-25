@@ -16,7 +16,7 @@
  */
 package com.speedment.common.injector.internal;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Supplier;
 
@@ -28,37 +28,37 @@ final class InjectableTest {
     private static final Supplier<Integer> SUPPLIER = () -> VALUE;
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         final Injectable<Integer> injectable = new Injectable<>(Integer.class, SUPPLIER);
         assertEquals(Integer.class, injectable.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasSupplierYes() {
         final Injectable<Integer> injectable = new Injectable<>(Integer.class, SUPPLIER);
         assertTrue(injectable.hasSupplier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasSupplierNo() {
         final Injectable<Integer> injectable = new Injectable<>(Integer.class, null);
         assertFalse(injectable.hasSupplier());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void supplierYes() {
         final Injectable<Integer> injectable = new Injectable<>(Integer.class, SUPPLIER);
         assertEquals(VALUE, injectable.supplier().get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void supplierNo() {
         final Injectable<Integer> injectable = new Injectable<>(Integer.class, null);
         assertThrows(UnsupportedOperationException.class, injectable::supplier);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEquals() {
         final Injectable<Integer> injectable1 = new Injectable<>(Integer.class, SUPPLIER);
         final Injectable<Integer> injectable2 = new Injectable<>(Integer.class, SUPPLIER);
@@ -77,7 +77,7 @@ final class InjectableTest {
         assertFalse(injectable1.equals(null));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testHashCode() {
         final int injectable1 = new Injectable<>(Integer.class, SUPPLIER).hashCode();
         final int injectable2 = new Injectable<>(Integer.class, SUPPLIER).hashCode();

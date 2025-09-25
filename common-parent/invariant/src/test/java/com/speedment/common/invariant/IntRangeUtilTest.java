@@ -16,7 +16,7 @@
  */
 package com.speedment.common.invariant;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -38,56 +38,56 @@ final class IntRangeUtilTest {
     private static final IntPredicate IS_NEGATIVE = l -> l < 0;
     private static final IntPredicate IS_ZERO = l -> l == 0;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requirePositive() {
         testHelper(IS_POSITIVE, IntRangeUtil::requirePositive);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireNegative() {
         testHelper(IS_NEGATIVE, IntRangeUtil::requireNegative);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireZero() {
         testHelper(IS_ZERO, IntRangeUtil::requireZero);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireNonPositive() {
         testHelper(IS_POSITIVE.negate(), IntRangeUtil::requireNonPositive);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireNonNegative() {
         testHelper(IS_NEGATIVE.negate(), IntRangeUtil::requireNonNegative);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireNonZero() {
         testHelper(IS_ZERO.negate(), IntRangeUtil::requireNonZero);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireEquals() {
         final int otherVal = 3;
         testHelper(l -> l == otherVal, l -> IntRangeUtil.requireEquals(l, otherVal));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireNotEquals() {
         final int otherVal = 3;
         testHelper(l -> l != otherVal, l -> IntRangeUtil.requireNotEquals(l, otherVal));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireInRange() {
         final int first = -1;
         final int lastExclusive = 4;
         testHelper(l -> l >= first && l < lastExclusive, l -> IntRangeUtil.requireInRange(l, first, lastExclusive));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void requireInRangeClosed() {
         final int first = -1;
         final int lastInclusive = 4;
@@ -108,187 +108,187 @@ final class IntRangeUtilTest {
             }
         });
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequirePositive() {
         assertEquals(1, IntRangeUtil.requirePositive(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequirePositive2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requirePositive(-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequirePositive3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requirePositive(0, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNegative() {
         assertEquals(-1, IntRangeUtil.requireNegative(-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNegative2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNegative(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNegative3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNegative(0, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireZero() {
         assertEquals(0, IntRangeUtil.requireZero(0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireZero2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireZero(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireZero3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireZero(-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonPositive() {
         assertEquals(-1.0, IntRangeUtil.requireNonPositive(-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonPositive2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNonPositive(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonPositive3() {
         assertEquals(0.0, IntRangeUtil.requireNonPositive(0, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNegative() {
         assertEquals(1, IntRangeUtil.requireNonNegative(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNegative2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNonNegative(-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonNegative3() {
         assertEquals(0.0, IntRangeUtil.requireNonNegative(0, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonZero() {
         assertEquals(1, IntRangeUtil.requireNonZero(1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonZero2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNonZero(0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireNonZero3() {
         assertEquals(-1, IntRangeUtil.requireNonZero(-1, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals() {
         assertEquals(0, IntRangeUtil.requireEquals(0, 0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(0,-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(0,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals4() {
         assertEquals(1.0, IntRangeUtil.requireEquals(1, 1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals5() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(1,0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals6() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(1,-1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals7() {
         assertEquals(-1.0, IntRangeUtil.requireEquals(-1, -1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals8() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(-1,0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireEquals9() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireEquals(-1,1, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals() {
         assertEquals(0.0, IntRangeUtil.requireNotEquals(0, -1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals2() {
         assertEquals(0.0, IntRangeUtil.requireNotEquals(0, 1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNotEquals(0,0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals4() {
         assertEquals(1.0, IntRangeUtil.requireNotEquals(1, 0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals5() {
         assertEquals(1.0, IntRangeUtil.requireNotEquals(1, -1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals6() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNotEquals(1,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals7() {
         assertEquals(-1.0, IntRangeUtil.requireNotEquals(-1, 0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals8() {
         assertEquals(-1.0, IntRangeUtil.requireNotEquals(-1, 1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRestRequireNotEquals9() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireNotEquals(-1,-1, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRange() {
         assertEquals(0.0, IntRangeUtil.requireInRange(0, -1,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRange2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireInRange(-1,0,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRange3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireInRange(1,-1,0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRange4() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireInRange(0,-1,0, RuntimeException::new));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRangeClosed() {
         assertEquals(0.0, IntRangeUtil.requireInRangeClosed(0, -1,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRangeClosed2() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireInRangeClosed(-1,0,1, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRangeClosed3() {
         assertThrows(RuntimeException.class, () -> IntRangeUtil.requireInRangeClosed(1,-1,0, RuntimeException::new));
     }
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRequireInRangeClosed4() {
         assertEquals(0.0, IntRangeUtil.requireInRangeClosed(0, -1,0, RuntimeException::new));
     }

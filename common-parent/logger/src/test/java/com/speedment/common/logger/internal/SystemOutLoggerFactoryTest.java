@@ -16,18 +16,18 @@
  */
 package com.speedment.common.logger.internal;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SystemOutLoggerFactoryTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void make() {
         // Tested indirectly
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void loggerClass() {
         assertEquals(SystemOutLogger.class,  new SystemOutLoggerFactory().loggerClass());
     }

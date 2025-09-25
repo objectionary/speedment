@@ -16,23 +16,23 @@
  */
 package com.speedment.common.injector;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class InjectorTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void builder() {
         assertNotNull(Injector.builder());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBuilder() {
         assertNotNull(Injector.builder(InjectorTest.class.getClassLoader()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void logger() {
         assertNotNull(Injector.logger());
     }

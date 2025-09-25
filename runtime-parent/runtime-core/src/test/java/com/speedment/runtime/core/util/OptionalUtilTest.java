@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.common.function.OptionalBoolean;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 import java.util.OptionalDouble;
@@ -32,7 +32,7 @@ import java.util.OptionalLong;
 
 final class OptionalUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void unwrap() {
         assertEquals("string", OptionalUtil.unwrap("string"));
         assertEquals("string", OptionalUtil.unwrap((Object) Optional.of("string")));
@@ -55,7 +55,7 @@ final class OptionalUtilTest {
         assertNull(OptionalUtil.unwrap(OptionalBoolean.empty()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void ofNullable() {
         assertTrue(OptionalUtil.ofNullable(1L).isPresent());
         assertTrue(OptionalUtil.ofNullable(1).isPresent());
@@ -68,25 +68,25 @@ final class OptionalUtilTest {
         assertFalse(OptionalUtil.ofNullable((Boolean) null).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseLong() {
         assertTrue(OptionalUtil.parseLong("1").isPresent());
         assertFalse(OptionalUtil.parseLong(null).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseInt() {
         assertTrue(OptionalUtil.parseInt("1").isPresent());
         assertFalse(OptionalUtil.parseInt(null).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseDouble() {
         assertTrue(OptionalUtil.parseDouble("1").isPresent());
         assertFalse(OptionalUtil.parseDouble(null).isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void parseBoolean() {
         assertTrue(OptionalUtil.parseBoolean("true").isPresent());
         assertFalse(OptionalUtil.parseBoolean(null).isPresent());

@@ -41,7 +41,7 @@ import com.speedment.common.tuple.mutable.MutableTuple6;
 import com.speedment.common.tuple.mutable.MutableTuple7;
 import com.speedment.common.tuple.mutable.MutableTuple8;
 import com.speedment.common.tuple.mutable.MutableTuple9;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -51,7 +51,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class MutableTuplesTest {
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create0() {
         final MutableTuple0 tuple = MutableTuples.create0();
         test(tuple);
@@ -63,7 +63,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor0() {
         final Supplier<MutableTuple0> constructor = MutableTuples.constructor();
         test(constructor.get());
@@ -75,7 +75,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(0));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create1() {
         final MutableTuple1<Integer> tuple = MutableTuples.create1();
         test(tuple);
@@ -94,7 +94,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor1() {
         final Supplier<MutableTuple1<Integer>> constructor = MutableTuples.constructor(Integer.class);
         test(constructor.get());
@@ -113,7 +113,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(1));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create2() {
         final MutableTuple2<Integer, Integer> tuple = MutableTuples.create2();
         test(tuple);
@@ -141,7 +141,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor2() {
         final Supplier<MutableTuple2<Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class);
         test(constructor.get());
@@ -167,7 +167,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(2));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create3() {
         final MutableTuple3<Integer, Integer, Integer> tuple = MutableTuples.create3();
         test(tuple);
@@ -204,7 +204,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor3() {
         final Supplier<MutableTuple3<Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -237,7 +237,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(3));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create4() {
         final MutableTuple4<Integer, Integer, Integer, Integer> tuple = MutableTuples.create4();
         test(tuple);
@@ -283,7 +283,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor4() {
         final Supplier<MutableTuple4<Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -323,7 +323,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(4));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create5() {
         final MutableTuple5<Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create5();
         test(tuple);
@@ -378,7 +378,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor5() {
         final Supplier<MutableTuple5<Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -425,7 +425,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(5));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create6() {
         final MutableTuple6<Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create6();
         test(tuple);
@@ -489,7 +489,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor6() {
         final Supplier<MutableTuple6<Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -543,7 +543,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(6));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create7() {
         final MutableTuple7<Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create7();
         test(tuple);
@@ -616,7 +616,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor7() {
         final Supplier<MutableTuple7<Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -677,7 +677,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(7));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create8() {
         final MutableTuple8<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create8();
         test(tuple);
@@ -759,7 +759,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor8() {
         final Supplier<MutableTuple8<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -827,7 +827,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(8));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create9() {
         final MutableTuple9<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create9();
         test(tuple);
@@ -918,7 +918,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor9() {
         final Supplier<MutableTuple9<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -993,7 +993,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(9));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create10() {
         final MutableTuple10<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create10();
         test(tuple);
@@ -1093,7 +1093,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor10() {
         final Supplier<MutableTuple10<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -1175,7 +1175,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(10));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create11() {
         final MutableTuple11<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create11();
         test(tuple);
@@ -1284,7 +1284,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor11() {
         final Supplier<MutableTuple11<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -1373,7 +1373,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(11));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create12() {
         final MutableTuple12<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create12();
         test(tuple);
@@ -1491,7 +1491,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor12() {
         final Supplier<MutableTuple12<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -1587,7 +1587,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(12));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create13() {
         final MutableTuple13<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create13();
         test(tuple);
@@ -1714,7 +1714,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor13() {
         final Supplier<MutableTuple13<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -1817,7 +1817,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(13));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create14() {
         final MutableTuple14<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create14();
         test(tuple);
@@ -1953,7 +1953,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor14() {
         final Supplier<MutableTuple14<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -2063,7 +2063,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(14));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create15() {
         final MutableTuple15<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create15();
         test(tuple);
@@ -2208,7 +2208,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor15() {
         final Supplier<MutableTuple15<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -2325,7 +2325,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(15));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create16() {
         final MutableTuple16<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create16();
         test(tuple);
@@ -2479,7 +2479,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor16() {
         final Supplier<MutableTuple16<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -2603,7 +2603,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(16));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create17() {
         final MutableTuple17<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create17();
         test(tuple);
@@ -2766,7 +2766,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor17() {
         final Supplier<MutableTuple17<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -2897,7 +2897,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(17));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create18() {
         final MutableTuple18<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create18();
         test(tuple);
@@ -3069,7 +3069,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor18() {
         final Supplier<MutableTuple18<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -3207,7 +3207,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(18));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create19() {
         final MutableTuple19<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create19();
         test(tuple);
@@ -3388,7 +3388,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor19() {
         final Supplier<MutableTuple19<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -3533,7 +3533,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(19));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create20() {
         final MutableTuple20<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create20();
         test(tuple);
@@ -3723,7 +3723,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor20() {
         final Supplier<MutableTuple20<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -3875,7 +3875,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(20));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create21() {
         final MutableTuple21<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create21();
         test(tuple);
@@ -4074,7 +4074,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor21() {
         final Supplier<MutableTuple21<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -4233,7 +4233,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(21));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create22() {
         final MutableTuple22<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create22();
         test(tuple);
@@ -4441,7 +4441,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor22() {
         final Supplier<MutableTuple22<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());
@@ -4607,7 +4607,7 @@ final class MutableTuplesTest {
         assertThrows(IndexOutOfBoundsException.class, () -> tuple.get(22));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create23() {
         final MutableTuple23<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> tuple = MutableTuples.create23();
         test(tuple);
@@ -4824,7 +4824,7 @@ final class MutableTuplesTest {
         test(defaultTuple);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor23() {
         final Supplier<MutableTuple23<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer>> constructor = MutableTuples.constructor(Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class);
         test(constructor.get());

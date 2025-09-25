@@ -20,7 +20,7 @@ import com.speedment.common.injector.State;
 import com.speedment.common.injector.execution.ExecutionZeroParamBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -43,7 +43,7 @@ final class ExecutionZeroParamBuilderTest {
         cnt = new AtomicInteger();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withStateInitialized() {
         prepareMock(State.INITIALIZED);
         when(builder.withStateInitialized(Long.class)).thenCallRealMethod();
@@ -51,7 +51,7 @@ final class ExecutionZeroParamBuilderTest {
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withStateResolved() {
         prepareMock(State.RESOLVED);
         when(builder.withStateResolved(Long.class)).thenCallRealMethod();
@@ -59,7 +59,7 @@ final class ExecutionZeroParamBuilderTest {
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withStateStarted() {
         prepareMock(State.STARTED);
         when(builder.withStateStarted(Long.class)).thenCallRealMethod();
@@ -67,7 +67,7 @@ final class ExecutionZeroParamBuilderTest {
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withStateStopped() {
         prepareMock(State.STOPPED);
         when(builder.withStateStopped(Long.class)).thenCallRealMethod();

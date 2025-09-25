@@ -27,7 +27,7 @@ import com.speedment.runtime.join.JoinComponent;
 import com.speedment.runtime.join.JoinStreamSupplierComponent;
 import com.speedment.runtime.join.internal.component.join.test_support.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -87,7 +87,7 @@ final class JoinTest {
         jssc = injector.getOrThrow(JoinStreamSupplierComponent.class);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void crossJoin2() {
         assertDoesNotThrow(() -> {
             final Join<Tuple2OfNullables<JoinTestUtil.E0, JoinTestUtil.E1>> join = jc
@@ -99,7 +99,7 @@ final class JoinTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void innerJoin2() {
         assertDoesNotThrow(() -> {
             final Join<Tuple2OfNullables<JoinTestUtil.E0, JoinTestUtil.E1>> join = jc
@@ -114,7 +114,7 @@ final class JoinTest {
 
 
     //
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void crossJoin2() {
 //
 ////        final Join<Tuple2OfNullables<E0, E1>> join = jc.from(E0Manager.IDENTIFIER)
@@ -127,7 +127,7 @@ final class JoinTest {
 //
 //    }
 //
-//    @Test
+//    @com.yegor256.AggregateRepeatedTest(100)
 //    public void innerJoin2() {
 //
 ////        final Join<Tuple2OfNullables<E0, E1>> join = jc.from(E0Manager.IDENTIFIER)

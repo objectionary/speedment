@@ -17,7 +17,7 @@
 package com.speedment.runtime.core.internal.stream;
 
 import com.speedment.runtime.core.db.SqlFunction;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -40,7 +40,7 @@ final class ResultSetIteratorTest {
     private static final SqlFunction<ResultSet, Integer> RS_MAPPER = rs -> rs.getInt(1);
     private static final int SIZE = 33;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testZero() {
         final AtomicInteger counter = new AtomicInteger(0);
         final ResultSet rs = new MockResultSet(0);
@@ -53,7 +53,7 @@ final class ResultSetIteratorTest {
         assertEquals(0, counter.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testOne() {
         final AtomicInteger counter = new AtomicInteger(0);
         final ResultSet rs = new MockResultSet(1);
@@ -67,7 +67,7 @@ final class ResultSetIteratorTest {
         assertEquals(1, counter.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTwo() {
         final AtomicInteger counter = new AtomicInteger(0);
         final ResultSet rs = new MockResultSet(2);
@@ -84,7 +84,7 @@ final class ResultSetIteratorTest {
         assertEquals(2, counter.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIterate() {
         final ResultSet rs = new MockResultSet(SIZE);
         final InternalStreamUtil.ResultSetIterator<Integer> it
@@ -97,7 +97,7 @@ final class ResultSetIteratorTest {
         assertFalse(it.hasNext());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testForEachRemaining() {
         for (int initialNext = 0; initialNext < SIZE; initialNext++) {
             final ResultSet rs = new MockResultSet(SIZE);
@@ -119,7 +119,7 @@ final class ResultSetIteratorTest {
         }
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEmpty() {
         final ResultSet rs = new MockResultSet(0);
         final InternalStreamUtil.ResultSetIterator<Integer> it
@@ -130,7 +130,7 @@ final class ResultSetIteratorTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testRemove() {
         final ResultSet rs = new MockResultSet(1);
         final InternalStreamUtil.ResultSetIterator<Integer> it

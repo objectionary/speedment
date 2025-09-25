@@ -19,7 +19,7 @@ package com.speedment.runtime.core.abstracts;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Collections;
 import java.util.Set;
@@ -43,40 +43,40 @@ final class AbstractDatabaseNamingConventionTest {
         }
     };
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void fullNameOf() {
         assertNotNull(DATABASE_NAMING_CONVENTION.fullNameOf("schema", "table"));
         assertNotNull(DATABASE_NAMING_CONVENTION.fullNameOf("schema", "table", "column"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void quoteField() {
         assertNotNull(DATABASE_NAMING_CONVENTION.quoteField("field"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void encloseField() {
         assertNotNull(DATABASE_NAMING_CONVENTION.encloseField("field"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldQuoteStart() {
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldQuoteStart());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldQuoteEnd() {
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldQuoteEnd());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldEncloserStart() {
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldEncloserStart());
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldEncloserStart(true));
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldEncloserStart(false));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldEncloserEnd() {
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldEncloserEnd());
         assertNotNull(DATABASE_NAMING_CONVENTION.getFieldEncloserEnd(true));

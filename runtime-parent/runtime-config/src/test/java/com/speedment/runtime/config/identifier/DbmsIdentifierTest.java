@@ -19,11 +19,11 @@ package com.speedment.runtime.config.identifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DbmsIdentifierTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getDbmsId() {
         final DbmsIdentifier<String> dbmsIdentifier = DbmsIdentifier.of("dbms");
 

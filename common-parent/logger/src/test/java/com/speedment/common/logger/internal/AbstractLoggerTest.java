@@ -21,7 +21,7 @@ import com.speedment.common.logger.LoggerEvent;
 import com.speedment.common.logger.LoggerEventListener;
 import com.speedment.common.logger.LoggerFormatter;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -60,26 +60,26 @@ final class AbstractLoggerTest {
         instance.setLevel(LEVEL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void output() {
         instance.output(TEXT);
         assertEquals(TEXT, output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLevel() {
         instance.setLevel(LEVEL);
         assertEquals(LEVEL, instance.getLevel());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLevel() {
         instance.setLevel(Level.INFO);
         assertEquals(Level.INFO, instance.getLevel());
         instance.setLevel(LEVEL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setLevelAndCheckNoOutput() {
         instance.setLevel(Level.FATAL);
         instance.warn("SomeText");
@@ -87,24 +87,24 @@ final class AbstractLoggerTest {
         instance.setLevel(LEVEL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertEquals(LOGGER_NAME, instance.getName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setFormatter() {
         final LoggerFormatter newFormatter = (level, name, message) -> null;
         instance.setFormatter(newFormatter);
         assertSame(newFormatter, instance.getFormatter());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFormatter() {
         assertEquals(LOGGER_FORMATTER, instance.getFormatter());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void addListener() {
         final AtomicReference<LoggerEvent> event = new AtomicReference<>();
         final LoggerEventListener listener = event::set;
@@ -115,7 +115,7 @@ final class AbstractLoggerTest {
         instance.addListener(listener);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void removeListener() {
         final AtomicReference<LoggerEvent> event = new AtomicReference<>();
         final LoggerEventListener listener = event::set;
@@ -129,78 +129,78 @@ final class AbstractLoggerTest {
 
     // Trace
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void trace() {
         instance.trace(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.TRACE, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace() {
         instance.trace(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.TRACE.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTraceThrowableNull() {
         instance.trace((Throwable) null);
         assertTrue(output.contains(Level.TRACE.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace1() {
         instance.trace(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace2() {
         instance.trace(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace3() {
         instance.trace(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace4() {
         instance.trace(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace5() {
         instance.trace(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace6() {
         instance.trace(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace7() {
         instance.trace(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace8() {
         instance.trace(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTrace9() {
         instance.trace(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));
@@ -209,78 +209,78 @@ final class AbstractLoggerTest {
 
     // Debug
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void debug() {
         instance.debug(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.DEBUG, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug() {
         instance.debug(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.DEBUG.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebugThrowableNull() {
         instance.debug((Throwable) null);
         assertTrue(output.contains(Level.DEBUG.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug1() {
         instance.debug(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug2() {
         instance.debug(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug3() {
         instance.debug(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug4() {
         instance.debug(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug5() {
         instance.debug(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug6() {
         instance.debug(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug7() {
         instance.debug(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug8() {
         instance.debug(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebug9() {
         instance.debug(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));
@@ -289,78 +289,78 @@ final class AbstractLoggerTest {
 
     // Info
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void info() {
         instance.info(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.INFO, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo() {
         instance.info(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.INFO.toText()), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfoThrowableNull() {
         instance.info((Throwable) null);
         assertTrue(output.contains(Level.INFO.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo1() {
         instance.info(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo2() {
         instance.info(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo3() {
         instance.info(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo4() {
         instance.info(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo5() {
         instance.info(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo6() {
         instance.info(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo7() {
         instance.info(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo8() {
         instance.info(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInfo9() {
         instance.info(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));
@@ -369,78 +369,78 @@ final class AbstractLoggerTest {
 
     // Warn
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void warn() {
         instance.warn(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.WARN, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn() {
         instance.warn(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.WARN.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarnThrowableNull() {
         instance.warn((Throwable) null);
         assertTrue(output.contains(Level.WARN.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn1() {
         instance.warn(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn2() {
         instance.warn(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn3() {
         instance.warn(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn4() {
         instance.warn(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn5() {
         instance.warn(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn6() {
         instance.warn(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn7() {
         instance.warn(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn8() {
         instance.warn(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testWarn9() {
         instance.warn(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));
@@ -449,78 +449,78 @@ final class AbstractLoggerTest {
 
     // Error
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void error() {
         instance.error(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.ERROR, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError() {
         instance.error(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.ERROR.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testErrorThrowableNull() {
         instance.error((Throwable) null);
         assertTrue(output.contains(Level.ERROR.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError1() {
         instance.error(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError2() {
         instance.error(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError3() {
         instance.error(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError4() {
         instance.error(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError5() {
         instance.error(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError6() {
         instance.error(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError7() {
         instance.error(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError8() {
         instance.error(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testError9() {
         instance.error(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));
@@ -529,78 +529,78 @@ final class AbstractLoggerTest {
     
     // Fatal
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void fatal() {
         instance.fatal(MESSAGE);
         assertEquals(LOGGER_FORMATTER.apply(Level.FATAL, LOGGER_NAME, MESSAGE), output);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal() {
         instance.fatal(EXCEPTION);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(Level.FATAL.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatalThrowableNull() {
         instance.fatal((Throwable) null);
         assertTrue(output.contains(Level.FATAL.toText()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal1() {
         instance.fatal(EXCEPTION, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal2() {
         instance.fatal(EXCEPTION, FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal3() {
         instance.fatal(FORMATTING_MESSAGE, MESSAGE);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal4() {
         instance.fatal(FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal5() {
         instance.fatal(FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal6() {
         instance.fatal(FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3 + "|" + MESSAGE4));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal7() {
         instance.fatal(EXCEPTION, FORMATTING_MESSAGE2, MESSAGE, MESSAGE2);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal8() {
         instance.fatal(EXCEPTION, FORMATTING_MESSAGE3, MESSAGE, MESSAGE2, MESSAGE3);
         assertTrue(output.contains(RuntimeException.class.getName()));
         assertTrue(output.contains(FORMATTING_MESSAGE_PREFIX + "|" + MESSAGE + "|" + MESSAGE2 + "|" + MESSAGE3));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFatal9() {
         instance.fatal(EXCEPTION, FORMATTING_MESSAGE4, MESSAGE, MESSAGE2, MESSAGE3, MESSAGE4);
         assertTrue(output.contains(RuntimeException.class.getName()));

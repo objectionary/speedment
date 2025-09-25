@@ -21,11 +21,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.speedment.runtime.compute.ToDouble;
 import com.speedment.runtime.compute.expression.UnaryExpression.Operator;
 import com.speedment.runtime.compute.internal.expression.SqrtUtil.AbstractSqrt;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class SqrtUtilTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void abstractSqrt() {
         final DummySqrt sqrt = new DummySqrt(d -> d);
 

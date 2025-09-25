@@ -25,7 +25,7 @@ import com.speedment.common.injector.execution.Execution;
 import com.speedment.common.injector.internal.dependency.DependencyImpl;
 import com.speedment.common.injector.internal.dependency.DependencyNodeImpl;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -63,24 +63,24 @@ final class ReflectionExecutionImplTest {
         instance = new ReflectionExecutionImpl<>(Foo.class, STATE, singleton(dependency), method, new MyInjectorProxy());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void directMethodInvocation() throws InvocationTargetException, IllegalAccessException {
         final Foo foo = new Foo(0);
         method.invoke(foo);
         assertEquals(1, foo.value);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getName() {
         assertTrue(instance.getName().contains("Foo.inc()"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getMethod() {
         assertSame(method, instance.getMethod());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void invoke() throws InvocationTargetException, IllegalAccessException {
         final Foo foo = new Foo(0);
         final Execution.ClassMapper classMapper = new Execution.ClassMapper() {
@@ -93,7 +93,7 @@ final class ReflectionExecutionImplTest {
         assertEquals(1, foo.value);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testToString() {
         final String toString = instance.toString();
         System.out.println("toString = " + toString);

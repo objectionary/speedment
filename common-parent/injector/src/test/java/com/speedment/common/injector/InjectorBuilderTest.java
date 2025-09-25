@@ -16,14 +16,14 @@
  */
 package com.speedment.common.injector;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 final class InjectorBuilderTest {
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void logger() {
         assertNotNull(InjectorBuilder.logger());
     }

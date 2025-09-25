@@ -18,7 +18,7 @@ package com.speedment.common.injector.dependency;
 
 import com.speedment.common.injector.State;
 import com.speedment.common.injector.internal.dependency.DependencyImpl;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -32,7 +32,7 @@ final class DependencyTest {
     @Mock
     private DependencyNode dependencyNode;
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isSatisfied() {
         final Dependency dependency = new DependencyImpl(dependencyNode, State.STARTED);
         when(dependencyNode.is(State.STARTED)).thenReturn(false);

@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.compute.expression.ExpressionType;
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -49,12 +49,12 @@ class ToStringNullableTest {
         assertEquals(input, fromToString.apply(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         assertEquals(ExpressionType.STRING_NULLABLE, DEFAULT_NULLABLE.expressionType());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void orThrow() {
         assertDoesNotThrow(DEFAULT_NULLABLE::orThrow);
 
@@ -95,7 +95,7 @@ class ToStringNullableTest {
         assertNotEquals(0, DEFAULT_NULLABLE.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final Pair<String, String> pair1 = new Pair<>(null, null);
         final Pair<String, String> pair2 = new Pair<>(null, "bar");
@@ -109,7 +109,7 @@ class ToStringNullableTest {
                 DEFAULT_NULLABLE.compare(pair4.getFirst(), pair4.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_NULLABLE.compose(null));
 

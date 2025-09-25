@@ -17,7 +17,7 @@
 package com.speedment.runtime.field;
 
 import com.speedment.runtime.typemapper.TypeMapper;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -39,7 +39,7 @@ final class RerferenceFieldTest {
         );
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testAll() {
         final RerferenceFieldTestSupport<String> support = new RerferenceFieldTestSupport<>(field, Function.identity(), TestEntity::getName, TestEntity::setName, RerferenceFieldTestSupport.NAME, "Sven");
         support.testAll();

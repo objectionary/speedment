@@ -22,7 +22,7 @@ import com.speedment.common.injector.exception.InjectorException;
 import com.speedment.common.logger.Logger;
 import com.speedment.common.logger.LoggerManager;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.io.File;
 import java.net.URL;
@@ -45,27 +45,27 @@ final class PropertiesUtilTest {
         private String val; // Cannot access
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void loadProperties() {
         final Properties properties = PropertiesUtil.loadProperties(LOGGER, file("test.properties"));
         assertNotNull(properties);
         assertEquals("1", properties.getProperty("a"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void loadPropertiesNoFile() {
         final Properties properties = PropertiesUtil.loadProperties(LOGGER, new File("jHS%3563qGHGJHg"));
         assertNotNull(properties);
         assertTrue(properties.isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @Disabled("How do we simulate IOException on a file?")
     void loadPropertiesCorrupted() {
         assertThrows(InjectorException.class, () -> PropertiesUtil.loadProperties(LOGGER, file("corrupted.properties")));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void configureParams() {
         final Foo foo = new Foo();
         final Properties properties = PropertiesUtil.loadProperties(LOGGER, file("test.properties"));
@@ -73,7 +73,7 @@ final class PropertiesUtilTest {
         assertEquals("1", foo.val);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void configureParamsIllegal() {
         final Bar bar = new Bar();
         final Properties properties = PropertiesUtil.loadProperties(LOGGER, file("test.properties"));

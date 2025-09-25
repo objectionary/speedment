@@ -17,7 +17,7 @@
 package com.speedment.common.benchmark;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,21 +34,21 @@ final class StopwatchTest {
         sw = Stopwatch.create();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void elapsed() {
         sw.start();
         shortSleep();
         assertTrue(sw.elapsed(TimeUnit.NANOSECONDS) > 0L);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void elapsedMillis() {
         sw.start();
         shortSleep();
         assertTrue(sw.elapsedMillis() > 0L);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void elapsedNanos() {
         assertEquals(0L, sw.elapsedNanos());
         sw.start();
@@ -58,14 +58,14 @@ final class StopwatchTest {
         assertTrue(sw.elapsedNanos() > 0L);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isStarted() {
         assertFalse(sw.isStarted());
         sw.start();
         assertTrue(sw.isStarted());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isStopped() {
         assertFalse(sw.isStopped());
         sw.start();
@@ -74,24 +74,24 @@ final class StopwatchTest {
         assertTrue(sw.isStopped());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void start() {
         sw.start();
         assertTrue(sw.isStarted());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void startTwice() {
         sw.start();
         assertThrows(IllegalStateException.class, () -> sw.start());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stopBeforeStart() {
         assertThrows(IllegalStateException.class, () -> sw.stop());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stop() {
         assertDoesNotThrow(() -> {
             sw.start();
@@ -99,7 +99,7 @@ final class StopwatchTest {
         });
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void stopTwice() {
         sw.start();
         sw.stop();
@@ -107,7 +107,7 @@ final class StopwatchTest {
     }
 
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void reset() {
         sw.start();
         shortSleep();
@@ -117,25 +117,25 @@ final class StopwatchTest {
         assertEquals(0L, sw.elapsedNanos());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void createStarted() {
         final Stopwatch stopwatch = Stopwatch.createStarted();
         assertTrue(stopwatch.isStarted());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         final Stopwatch stopwatch = Stopwatch.create();
         assertFalse(stopwatch.isStarted());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringNotStarted() {
         final String actual = sw.toString();
         assertEquals("0.00 ns", actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringStarted() {
         sw.start();
         shortSleep();
@@ -143,7 +143,7 @@ final class StopwatchTest {
         assertNotEquals("0.00 ns", actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringNano() {
         sw.start();
         sleep(1);
@@ -151,7 +151,7 @@ final class StopwatchTest {
         assertNotNull(actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringMicro() {
         sw.start();
         sleep(1 * 2_000);
@@ -159,7 +159,7 @@ final class StopwatchTest {
         assertNotNull(actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringMilli() {
         sw.start();
         sleep(1 * 2_000_000);
@@ -167,7 +167,7 @@ final class StopwatchTest {
         assertNotNull(actual);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void toStringSecond() {
         sw.start();
         sleep(1 * 2_000_000_000);

@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -47,7 +47,7 @@ class ToStringTest {
         assertEquals(input, fromToString.apply(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expressionType() {
         assertEquals(STRING, DEFAULT_TO.expressionType());
     }
@@ -70,7 +70,7 @@ class ToStringTest {
         assertEquals(input.hashCode(), DEFAULT_TO.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final Pair<String, String> pair1 = new Pair<>("foo", "foo");
         final Pair<String, String> pair2 = new Pair<>("foo1", "bar");
@@ -84,7 +84,7 @@ class ToStringTest {
             DEFAULT_TO.compare(pair3.getFirst(), pair3.getSecond()));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compose() {
         assertThrows(NullPointerException.class, () -> DEFAULT_TO.compose(null));
 

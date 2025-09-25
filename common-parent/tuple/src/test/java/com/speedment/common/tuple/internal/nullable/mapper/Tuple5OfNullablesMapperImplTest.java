@@ -17,7 +17,7 @@
 package com.speedment.common.tuple.internal.nullable.mapper;
 
 import com.speedment.common.tuple.TuplesOfNullables;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -32,37 +32,37 @@ final class Tuple5OfNullablesMapperImplTest {
     private final Function<Integer, Integer> m4 = i -> i + 4;
     private final Tuple5OfNullablesMapperImpl<Integer, Integer, Integer, Integer, Integer, Integer> instance = new Tuple5OfNullablesMapperImpl<>(m0, m1, m2, m3, m4);
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree() {
         assertEquals(5, instance.degree());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         assertEquals(TuplesOfNullables.ofNullables(0, 1, 2, 3, 4), instance.apply(0));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get0() {
         assertEquals(m0, instance.get0());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get1() {
         assertEquals(m1, instance.get1());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get2() {
         assertEquals(m2, instance.get2());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get3() {
         assertEquals(m3, instance.get3());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get4() {
         assertEquals(m4, instance.get4());
     }

@@ -18,29 +18,29 @@ package com.speedment.runtime.core.internal.db;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DefaultDatabaseNamingConventionTest {
 
     private final DefaultDatabaseNamingConvention instance = new DefaultDatabaseNamingConvention();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void fullName() {
         assertNotNull(instance.fullNameOf("schema", "table"));
         assertNotNull(instance.fullNameOf("schema", "table", "table"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getSchemaExcludeSet() {
         assertNotNull(instance.getSchemaExcludeSet());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldQuoteStart() {
         assertNotNull(instance.getFieldQuoteStart());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getFieldQuoteEnd() {
         assertNotNull(instance.getFieldQuoteEnd());
     }

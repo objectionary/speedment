@@ -18,7 +18,7 @@ package com.speedment.runtime.core.internal.config.mapper.string;
 
 import com.speedment.runtime.typemapper.string.TrueFalseStringToBooleanMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -37,7 +37,7 @@ public class TrueFalseStringToBooleanMapperTest {
         mapper = new TrueFalseStringToBooleanMapper();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testStringTrueMapping() {
         String string = "TRUE";
 
@@ -48,7 +48,7 @@ public class TrueFalseStringToBooleanMapperTest {
         assertTrue(string.equalsIgnoreCase(databaseType), "DatabaseType should have value 'true'");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void testStringFalseMapping() {
         String string = "FALSE";
 

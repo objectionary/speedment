@@ -17,7 +17,7 @@
 package com.speedment.common.singletonstream.internal;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -38,64 +38,64 @@ final class SingletonPrimitiveIteratorOfIntTest {
         cnt = new AtomicInteger();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasNext() {
         assertTrue(instance.hasNext());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void hasNextAfterConsumed() {
         instance.next();
         assertFalse(instance.hasNext());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nextInt() {
         assertEquals(ELEMENT, instance.nextInt());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nextIntAfterNext() {
         instance.next();
         assertThrows(NoSuchElementException.class, instance::nextInt);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void next() {
         assertEquals(ELEMENT, instance.next());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void nextAfterNext() {
         instance.next();
         assertThrows(NoSuchElementException.class, instance::next);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void remove() {
         assertThrows(UnsupportedOperationException.class, instance::remove);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingIntConsumer() {
         instance.forEachRemaining((IntConsumer)i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingConsumer() {
         instance.forEachRemaining((Consumer<Integer>) i -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingIntConsumerAfterNext() {
         instance.next();
         instance.forEachRemaining((IntConsumer)i -> cnt.incrementAndGet());
         assertEquals(0, cnt.get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingConsumerAfterNext() {
         instance.next();
         instance.forEachRemaining((Consumer<Integer>) i -> cnt.incrementAndGet());

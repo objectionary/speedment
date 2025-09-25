@@ -19,7 +19,7 @@ package com.speedment.common.logger.internal;
 import com.speedment.common.logger.Level;
 import com.speedment.common.logger.Logger;
 import com.speedment.common.logger.LoggerManager;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -34,7 +34,7 @@ final class LoggerTest {
     private static final String MESSAGE_1 = "We trust reason";
     private static final String MESSAGE_2 = "We are superstitious";
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void test() {
         LOGGER.setLevel(Level.TRACE);
         assertEquals(Level.TRACE, LOGGER.getLevel());

@@ -18,12 +18,12 @@ package com.speedment.common.json.exception;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.function.ThrowingSupplier;
 
 final class JsonExceptionTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void constructor() {
         assertDoesNotThrow((ThrowingSupplier<JsonException>) JsonException::new);
 

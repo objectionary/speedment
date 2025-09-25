@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.config.exception.SpeedmentConfigException;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DbmsTest extends BaseConfigTest<Dbms> {
 
@@ -39,7 +39,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         return Dbms.create(null, map());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getTypeName() {
         final Dbms dbms = Dbms.create(null, map(entry(TYPE_NAME, "dbms_type")));
         assertNotNull(dbms.getTypeName());
@@ -47,7 +47,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertThrows(SpeedmentConfigException.class, getDocumentInstance()::getTypeName);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getIpAddress() {
         final Dbms dbms = Dbms.create(null, map(entry(IP_ADDRESS, "ip_address")));
         assertTrue(dbms.getIpAddress().isPresent());
@@ -55,7 +55,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertFalse(getDocumentInstance().getIpAddress().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getPort() {
         final Dbms dbms = Dbms.create(null, map(entry(PORT, 0)));
         assertTrue(dbms.getPort().isPresent());
@@ -63,7 +63,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertFalse(getDocumentInstance().getPort().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getLocalPath() {
         final Dbms dbms = Dbms.create(null, map(entry(LOCAL_PATH, "/local/path")));
         assertTrue(dbms.getLocalPath().isPresent());
@@ -71,7 +71,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertFalse(getDocumentInstance().getLocalPath().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConnectionUrl() {
         final Dbms dbms = Dbms.create(null, map(entry(CONNECTION_URL, "https://connection.url/")));
         assertTrue(dbms.getConnectionUrl().isPresent());
@@ -79,7 +79,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertFalse(getDocumentInstance().getConnectionUrl().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getUsername() {
         final Dbms dbms = Dbms.create(null, map(entry(USERNAME, "username")));
         assertTrue(dbms.getUsername().isPresent());
@@ -87,7 +87,7 @@ final class DbmsTest extends BaseConfigTest<Dbms> {
         assertFalse(getDocumentInstance().getUsername().isPresent());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getServerName() {
         final Dbms dbms = Dbms.create(null, map(entry(SERVER_NAME, "server")));
         assertTrue(dbms.getServerName().isPresent());

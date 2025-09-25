@@ -23,7 +23,7 @@ import com.speedment.common.injector.execution.ExecutionBuilder;
 import com.speedment.common.injector.execution.ExecutionOneParamBuilder;
 import com.speedment.common.injector.execution.ExecutionZeroParamBuilder;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -44,20 +44,20 @@ final class ExecutionZeroParamBuilderImplTest {
         builder = new ExecutionZeroParamBuilderImpl<>(Integer.class, State.RESOLVED);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withState() {
         final ExecutionOneParamBuilder<Integer, String> e1 = builder.withState(State.CREATED, String.class);
         assertNotNull(e1);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void withExecute() {
         final AtomicInteger cnt = new AtomicInteger();
         final ExecutionBuilder<Integer> b = builder.withExecute(cnt::set);
         assertNotNull(b);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void build() {
         builder.withExecute(i -> {});
         final Execution<Integer> e = builder.build(dependencyGraph);

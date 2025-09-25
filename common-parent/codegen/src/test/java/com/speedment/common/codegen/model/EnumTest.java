@@ -17,7 +17,7 @@
 package com.speedment.common.codegen.model;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,18 +32,18 @@ final class EnumTest {
         instance = Enum.of("E");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void add() {
         instance.add(enumConstant);
         assertEquals(singletonList(enumConstant), instance.getConstants());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getConstants() {
         assertTrue(instance.getConstants().isEmpty());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void of() {
         assertNotNull(Enum.of("E"));
     }

@@ -34,7 +34,7 @@ import com.speedment.generator.standard.lifecycle.GeneratedMetadataTranslator;
 import com.speedment.generator.standard.lifecycle.InjectorProxyTranslator;
 import com.speedment.generator.translator.Translator;
 import com.speedment.runtime.config.Project;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
@@ -44,32 +44,32 @@ final class ProjectTranslatorsTest {
 
     private final Injector injector = TestUtil.injector();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void speedmentJson() {
         test(Projects.SPEEDMENT_JSON);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void spring() {
         test(Projects.SPRING_PLUGIN);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void dataStore() {
         test(Projects.DATA_STORE);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void foreignKey() {
         test(Projects.FOREIGN_KEY);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void typeMapper() {
         test(Projects.TYPE_MAPPER);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void serveralDbmses() {
         test(Projects.SEVERAL_DBMSES);
     }

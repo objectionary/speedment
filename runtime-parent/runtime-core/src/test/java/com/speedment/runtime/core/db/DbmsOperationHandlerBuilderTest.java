@@ -22,11 +22,11 @@ import static org.mockito.Mockito.mock;
 
 import com.speedment.runtime.core.component.connectionpool.ConnectionPoolComponent;
 import com.speedment.runtime.core.component.transaction.TransactionComponent;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 final class DbmsOperationHandlerBuilderTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void create() {
         final ConnectionPoolComponent connectionPoolComponent = mock(ConnectionPoolComponent.class);
         final TransactionComponent transactionComponent = mock(TransactionComponent.class);

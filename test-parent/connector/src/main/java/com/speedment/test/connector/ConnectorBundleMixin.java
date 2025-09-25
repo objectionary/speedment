@@ -20,7 +20,7 @@ package com.speedment.test.connector;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.speedment.common.injector.InjectBundle;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 /**
  * @author Mislav Milicevic
@@ -30,7 +30,7 @@ public interface ConnectorBundleMixin {
 
     InjectBundle getBundleInstance();
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void injectables() {
         assertNotNull(getBundleInstance().injectables());
     }

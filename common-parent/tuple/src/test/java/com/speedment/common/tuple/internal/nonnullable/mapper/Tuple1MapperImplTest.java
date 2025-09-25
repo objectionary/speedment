@@ -17,7 +17,7 @@
 package com.speedment.common.tuple.internal.nonnullable.mapper;
 
 import com.speedment.common.tuple.Tuples;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.function.Function;
 
@@ -28,17 +28,17 @@ final class Tuple1MapperImplTest {
     private final Function<Integer, Integer> m0 = i -> i + 0;
     private final Tuple1MapperImpl<Integer, Integer> instance = new Tuple1MapperImpl<>(m0);
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void degree() {
         assertEquals(1, instance.degree());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void apply() {
         assertEquals(Tuples.of(0), instance.apply(0));
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get0() {
         assertEquals(m0, instance.get0());
     }

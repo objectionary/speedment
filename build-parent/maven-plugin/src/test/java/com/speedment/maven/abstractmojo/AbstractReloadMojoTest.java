@@ -21,7 +21,7 @@ import com.speedment.tool.core.internal.util.ConfigFileHelper;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -60,7 +60,7 @@ public class AbstractReloadMojoTest {
         };
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void execute() throws Exception {
         // Given
         when(mockedMavenProject.getBasedir()).thenReturn(new File("baseDir"));
@@ -75,7 +75,7 @@ public class AbstractReloadMojoTest {
         verify(mockedConfigFileHelper).loadFromDatabaseAndSaveToFile();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     public void executeException() throws Exception {
         // Given
         when(mockedMavenProject.getBasedir()).thenReturn(new File("baseDir"));
@@ -89,7 +89,7 @@ public class AbstractReloadMojoTest {
         // Then
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebugTrue() {
         // Given
         mojo.setDebug(TRUE);
@@ -101,7 +101,7 @@ public class AbstractReloadMojoTest {
         assertTrue(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebugFalse() {
         // Given
         mojo.setDebug(FALSE);
@@ -113,7 +113,7 @@ public class AbstractReloadMojoTest {
         assertFalse(result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDebugNull() {
         // Given
         mojo.setDebug(null);

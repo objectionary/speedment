@@ -16,7 +16,7 @@
  */
 package com.speedment.common.tuple.internal.nonnullable;
 
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.stream.IntStream;
 
@@ -28,22 +28,22 @@ final class Tuple3ImplTest<T0, T1, T2> extends AbstractTupleImplTest<Tuple3Impl<
         super(() -> new Tuple3Impl<>(0, 1, 2), 3);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get0Test() {
         assertEquals(0, (int) instance.get0());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get1Test() {
         assertEquals(1, (int) instance.get1());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get2Test() {
         assertEquals(2, (int) instance.get2());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void get() {
         IntStream.range(0, 3).forEach(i -> assertEquals(i, instance.get(i)));
         assertThrows(IndexOutOfBoundsException.class, () -> instance.get(-1));

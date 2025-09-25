@@ -17,7 +17,7 @@
 package com.speedment.plugins.enums;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Disabled
 final class EnumGeneratorBundleTest {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void injectables() {
         final Set<Class<?>> classes = new EnumGeneratorBundle().injectables().collect(toSet());
         assertTrue(classes.contains(EnumGeneratorComponent.class));

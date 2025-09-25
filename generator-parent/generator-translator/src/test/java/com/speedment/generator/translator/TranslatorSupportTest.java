@@ -27,7 +27,7 @@ import com.speedment.generator.translator.provider.StandardJavaLanguageNamer;
 import com.speedment.runtime.config.Table;
 import com.speedment.runtime.core.exception.SpeedmentException;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Optional;
 
@@ -51,208 +51,208 @@ final class TranslatorSupportTest extends SimpleModel {
         instance = new TranslatorSupport<>(INJECTOR, table);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNamer() {
         assertEquals(INJECTOR.getOrThrow(JavaLanguageNamer.class), instance.namer());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDocument() {
         assertEquals(table, instance.tableOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEntityName() {
         assertEquals("User", instance.entityName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEntityImplName() {
         assertEquals("UserImpl", instance.entityImplName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedEntityName() {
         assertEquals("GeneratedUser", instance.generatedEntityName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedEntityImplName() {
         assertEquals("GeneratedUserImpl", instance.generatedEntityImplName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerName() {
         assertEquals("UserManager", instance.managerName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerImplName() {
         assertEquals("UserManagerImpl", instance.managerImplName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedManagerName() {
         assertEquals("GeneratedUserManager", instance.generatedManagerName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedManagerImplName() {
         assertEquals("GeneratedUserManagerImpl", instance.generatedManagerImplName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEntityType() {
         assertEquals(fullName("User"), instance.entityType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEntityImplType() {
         assertEquals(fullName("UserImpl"), instance.entityImplType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
      void testGeneratedEntityType() {
         assertEquals(fullNameGen("GeneratedUser"), instance.generatedEntityType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedEntityImplType() {
         assertEquals(fullNameGen("GeneratedUserImpl"), instance.generatedEntityImplType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerType() {
         assertEquals(fullName("UserManager"), instance.managerType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerImplType() {
         assertEquals(fullName("UserManagerImpl"), instance.managerImplType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedManagerType() {
         assertEquals(fullNameGen("GeneratedUserManager"), instance.generatedManagerType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGeneratedManagerImplType() {
         assertEquals(fullNameGen("GeneratedUserManagerImpl"), instance.generatedManagerImplType().getTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testVariableName_0args() {
         assertEquals("user", instance.variableName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testVariableName_HasAlias() {
         assertEquals("mySchema", instance.variableName(schema));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTypeName_0args() {
         assertEquals("User", instance.typeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTypeName_HasAlias() {
         assertEquals("MySchema", instance.typeName(schema));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTypeName_Project() {
         assertEquals("MyProject", instance.typeName(project));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerTypeName_0args() {
         assertEquals("UserManager", instance.managerTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testManagerTypeName_HasAlias() {
         assertEquals("UserManager", instance.managerTypeName(table));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFullyQualifiedTypeName_0args() {
         assertEquals(fullName("User"), instance.fullyQualifiedTypeName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFullyQualifiedTypeName_String() {
         assertEquals(fullName("olle.User"), instance.fullyQualifiedTypeName("olle"));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testFullyQualifiedTypeName_String_String() {
         final String result = instance.fullyQualifiedTypeName("subPath", "filePrefix");
         assertEquals(PATH + ".subPath." + "FilePrefix" + instance.typeName(table), result);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBasePackageName() {
         assertEquals(PATH, instance.basePackageName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBaseDirectoryName() {
         assertEquals(PATH.replace('.', '/'), instance.baseDirectoryName());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testProject() {
         assertEquals(project, instance.project().get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDbms() {
         assertEquals(dbms, instance.dbms().get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSchema() {
         assertEquals(schema, instance.schema().get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTable() {
         assertEquals(table, instance.table().get());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testColumn() {
         assertEquals(Optional.empty(), instance.column());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testProjectOrThrow() {
         assertEquals(project, instance.projectOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testDbmsOrThrow() {
         assertEquals(dbms, instance.dbmsOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testSchemaOrThrow() {
         assertEquals(schema, instance.schemaOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testTableOrThrow() {
         assertEquals(table, instance.tableOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testColumnOrThrow() {
         assertThrows(IllegalStateException.class, () -> instance.columnOrThrow());
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testShortTableName() {
         final TranslatorSupport<Table> support = new TranslatorSupport<>(injector(), table2);
         assertEquals("sP", support.variableName());

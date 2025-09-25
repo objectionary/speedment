@@ -23,7 +23,7 @@ import com.speedment.runtime.field.comparator.NullOrder;
 import com.speedment.runtime.field.predicate.Inclusion;
 import com.speedment.runtime.typemapper.TypeMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 
@@ -105,7 +105,7 @@ final class ByteForeignKeyFieldTest {
         entities = asList(a, b, c, d, e, f, g, h, i, j, k, l);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testBetween() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.between((byte) 0, (byte) 2);
@@ -140,7 +140,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 5: between(0, 2, START_INCLUSIVE_END_INCLUSIVE):", a5, e5, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testEqual() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.equal((byte) -1);
@@ -187,7 +187,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: equal(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGreaterOrEqual() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.greaterOrEqual((byte) -1);
@@ -234,7 +234,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: greaterOrEqual(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testGreaterThan() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.greaterThan((byte) -1);
@@ -281,7 +281,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: greaterThan(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testIn() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.in();
@@ -328,7 +328,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: in(-100):",                    a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testInSet() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.in(Collections.emptySet());
@@ -375,7 +375,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: inSet(-100):",                    a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLessThan() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.lessThan((byte) -1);
@@ -422,7 +422,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: lessThan(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testLessOrEqual() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.lessOrEqual((byte) -1);
@@ -469,7 +469,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: lessOrEqual(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNotBetween() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.notBetween((byte) 0, (byte) 2);
@@ -504,7 +504,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 5: notBetween(0, 2, START_INCLUSIVE_END_INCLUSIVE):", a5, e5, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNotEqual() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.notEqual((byte) -1);
@@ -551,7 +551,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: notEqual(100):",       a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNotIn() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.notIn();
@@ -598,7 +598,7 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: notIn(-100):",                    a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void testNotInSet() {
         // Create a number of predicates
         final Predicate<BasicEntity> t0 = field.notIn(Collections.emptySet());
@@ -645,18 +645,18 @@ final class ByteForeignKeyFieldTest {
         TestUtil.assertListEqual("Test 8: notInSet(-100):",                    a8, e8, FORMATTER);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getField() {
         final ByteField<BasicEntity, Byte> other = field.getField();
         assertNotNull(other);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void comparator() {
         comparator(false);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void comparatorReversed() {
         comparator(true);
     }
@@ -671,41 +671,41 @@ final class ByteForeignKeyFieldTest {
         assertEquals(expected, actual);
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void typemapper() {
         when(column.getDatabaseType()).thenReturn(Byte.class.getName());
         final Type fieldType = field.typeMapper().getJavaType(column);
         assertEquals(byte.class.getSimpleName(), fieldType.getTypeName());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isUnique() {
         assertFalse(field.isUnique());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void tableAlias() {
         assertNotNull(field.tableAlias());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setTableAlias() {
         final String name = "tryggve";
         assertEquals(name, field.tableAlias(name).tableAlias());
         assertEquals(field.identifier().getColumnId(), field.tableAlias(name).identifier().getColumnId());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void getNullOrder() {
         assertEquals(NullOrder.LAST, field.getNullOrder());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void isReversed() {
         assertFalse(field.isReversed());
     }
     
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void setter() {
         final byte expected = (byte) 1;
         final BasicEntity entity = new BasicEntity();

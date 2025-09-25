@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.speedment.runtime.compute.expression.predicate.IsNotNull;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import java.util.Objects;
 
@@ -29,12 +29,12 @@ final class IsNullImplTest {
 
     private final IsNullImpl<String, Boolean> instance = new IsNullImpl<>(of(Objects::isNull));
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void negate() {
         assertTrue(instance.negate() instanceof IsNotNull);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void expression() {
         assertNotNull(instance.expression());
     }

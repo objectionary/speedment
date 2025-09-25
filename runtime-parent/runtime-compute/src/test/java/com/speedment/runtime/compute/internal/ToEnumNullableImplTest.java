@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.speedment.runtime.compute.util.Pair;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -30,7 +30,7 @@ final class ToEnumNullableImplTest {
     private final ToEnumNullableImpl<String, TestEnum> instance =
             new ToEnumNullableImpl<>(TestEnum.class, string -> string == null ? null : TestEnum.valueOf(string));
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void enumClass() {
         assertEquals(TestEnum.class, instance.enumClass());
     }
@@ -62,7 +62,7 @@ final class ToEnumNullableImplTest {
         assertNotEquals(0, instance.hash(input));
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     void compare() {
         final Pair<String, String> pair1 = new Pair<>(null, null);
         final Pair<String, String> pair2 = new Pair<>("FIRST", null);

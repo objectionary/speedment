@@ -18,7 +18,7 @@ package com.speedment.tool.actions.internal.menues;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 import static com.speedment.tool.actions.internal.menues.ToggleExpandedActionImpl.COLLAPSE_ALL;
 import static com.speedment.tool.actions.internal.menues.ToggleExpandedActionImpl.EXPAND_ALL;
@@ -37,26 +37,26 @@ class ToggleExpandedActionImplTest extends AbstractToolActionTest {
         return new ToggleExpandedActionImpl();
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Table context menu not empty")
     void testTableContextMenuNotEmpty() {
         assertAnyMenuExistsFor(table1);
         assertAnyMenuExistsFor(table2);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Schema context menu not empty")
     void testSchemaContextMenuNotEmpty() {
         assertAnyMenuExistsFor(schema);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Dbms context menu not empty")
     void testDbmsContextMenuNotEmpty() {
         assertAnyMenuExistsFor(dbms);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("'Expand/Collapse' shows up in context menu for tables")
     void testMenuItemShowsUpForTables() {
         assertMenuExistsFor(table1, EXPAND_ALL);
@@ -65,21 +65,21 @@ class ToggleExpandedActionImplTest extends AbstractToolActionTest {
         assertMenuExistsFor(table2, COLLAPSE_ALL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("'Expand/Collapse' shows up in context menu for schema")
     void testMenuItemShowsUpForSchema() {
         assertMenuExistsFor(schema, EXPAND_ALL);
         assertMenuExistsFor(schema, COLLAPSE_ALL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("'Expand/Collapse' shows up in context menu for dbms")
     void testMenuItemShowsUpForDbms() {
         assertMenuExistsFor(dbms, EXPAND_ALL);
         assertMenuExistsFor(dbms, COLLAPSE_ALL);
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Test clicking on 'Expand/Collapse' for table")
     void testToggleTable() {
         installContextMenu();
@@ -91,7 +91,7 @@ class ToggleExpandedActionImplTest extends AbstractToolActionTest {
         assertFalse(table1.isExpanded(), "Table is expanded");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Test clicking on 'Expand/Collapse' for schema")
     void testToggleSchema() {
         installContextMenu();
@@ -103,7 +103,7 @@ class ToggleExpandedActionImplTest extends AbstractToolActionTest {
         assertFalse(schema.isExpanded(), "Schema is expanded");
     }
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     @DisplayName("Test clicking on 'Expand/Collapse' for schema")
     void testToggleDbms() {
         installContextMenu();

@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import com.speedment.runtime.config.Document;
 import com.speedment.runtime.config.mutator.DocumentMutator;
 import com.speedment.runtime.config.trait.HasAlias;
-import org.junit.jupiter.api.Test;
+import com.yegor256.AggregateRepeatedTest;
 
 public interface HasAliasMutatorMixin<TYPE extends Document & HasAlias,
         MUTATOR extends DocumentMutator<TYPE> & HasAliasMutator<TYPE>>
         extends HasNameMutatorMixin<TYPE, MUTATOR> {
 
-    @Test
+    @com.yegor256.AggregateRepeatedTest(100)
     default void setAlias() {
         assertDoesNotThrow(() -> getMutatorInstance().setAlias("alias"));
     }
