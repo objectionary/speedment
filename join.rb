@@ -6,18 +6,25 @@
 tests = {}
 File.readlines(ARGV[0]).each do |ln|
   n, t = ln.split(' ')
-  tests[n] = { before: t.to_f }
+  tests[n] = { before: t.to_i }
 end
 File.readlines(ARGV[1]).each do |ln|
   n, t = ln.split(' ')
   next unless tests[n]
-  tests[n][:after] = t.to_f
+  tests[n][:after] = t.to_i
 end
 
+gain = 0
+total = 0
+
 tests.each do |n, h|
-  next if h[:before] < 0.01
+  total += h[:before]
   sec = h[:before] - h[:after]
-  diff = (sec) / h[:before]
-  next if diff.abs < 0.1
-  puts "#{n.split('#')[1]} #{format('%.1f', diff * 100)}% #{(sec * 1000).round}ms"
+  diff = sec.to_f / h[:before]
+  next if diff.abs < 0.05
+  gain += sec
+  puts "#{n.split('#')[1]} #{h[:before]} #{h[:after]} #{sec} #{format('%.1f', diff * 100)}%"
 end
+
+puts "Total duration: #{total.to_f / 1_000_000_000} seconds"
+puts "Total gain: #{gain.to_f / 1_000_000_000} seconds (#{format('%.1f', 100.to_f * gain / total)}%)"
