@@ -8,6 +8,9 @@ name: deep
     branches:
       - master
     paths-ignore: [ 'README.md' ]
+concurrency:
+  group: aws-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   start-instance:
     runs-on: ubuntu-24.04
@@ -27,7 +30,7 @@ jobs:
           aws-resource-tags: '[{"Key":"Name","Value":"speedment"}]'
           github-token: ${{ secrets.AWS_PAT }}
           ec2-image-id: ${{ secrets.AWS_AMI }}
-          ec2-instance-type: t3.2xlarge
+          ec2-instance-type: c5.metal
           subnet-id: ${{ secrets.AWS_SUBNET }}
           security-group-id: ${{ secrets.AWS_SGROUP }}
   deep:
