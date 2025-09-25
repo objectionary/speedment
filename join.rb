@@ -26,5 +26,5 @@ tests.each do |n, h|
   puts "#{n.split('#')[1]} #{h[:before]} #{h[:after]} #{sec} #{format('%.1f', diff * 100)}%"
 end
 
-puts "Total duration: #{total.to_f / 1_000_000_000} seconds"
-puts "Total gain: #{gain.to_f / 1_000_000_000} seconds (#{format('%.1f', 100.to_f * gain / total)}%)"
+puts "Total duration: #{(total.to_f / 1_000_000_000).round} seconds"
+puts "Total gain: #{format('%.2f', gain.to_f / 1_000_000_000)} seconds (#{format('%.2f', 100.to_f * gain / total)}%)"
