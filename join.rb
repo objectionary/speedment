@@ -20,7 +20,7 @@ total = 0
 tests.each do |n, h|
   total += h[:before]
   ns = h[:before] - h[:after]
-  next if ns < 1_000_000
+  next if ns.abs < 1_000_000
   diff = ns.to_f / h[:before]
   next if diff.abs < 0.05
   gain += ns
