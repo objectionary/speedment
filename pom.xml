@@ -281,7 +281,6 @@
           <artifactId>hone-maven-plugin</artifactId>
           <version>0.17.0</version>
           <configuration>
-            <skip>true</skip>
             <timeout>600</timeout>
             <threads>0</threads>
             <jeoVersion>0.14.8</jeoVersion>
@@ -1082,4 +1081,11 @@
 
     </dependencies>
   </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.yegor256</groupId>
+      <artifactId>aggregate-repeated-test</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>
