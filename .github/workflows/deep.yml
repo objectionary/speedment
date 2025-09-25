@@ -54,9 +54,9 @@ jobs:
           git clone https://github.com/yegor256/aggregate-repeated-test
           mvn --file aggregate-repeated-test/pom.xml clean install -DskipTests
           mvn clean test -Dhone.skip=true
-          cp /tmp/aggregate-repeated-test.txt before.txt
+          mv /tmp/aggregate-repeated-test.txt before.txt
           mvn clean test -Dhone.skip=false
-          cp /tmp/aggregate-repeated-test.txt after.txt
+          mv /tmp/aggregate-repeated-test.txt after.txt
           ./join.rb before.txt after.txt
   terminate-instance:
     needs:
