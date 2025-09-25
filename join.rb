@@ -19,11 +19,12 @@ total = 0
 
 tests.each do |n, h|
   total += h[:before]
-  sec = h[:before] - h[:after]
-  diff = sec.to_f / h[:before]
+  ns = h[:before] - h[:after]
+  next if ns < 1_000_000
+  diff = ns.to_f / h[:before]
   next if diff.abs < 0.05
-  gain += sec
-  puts "#{n.split('#')[1]} #{h[:before]} #{h[:after]} #{sec} #{format('%.1f', diff * 100)}%"
+  gain += ns
+  puts "#{n.split('#')[1]} #{h[:before]} #{h[:after]} #{ns} #{format('%.1f', diff * 100)}%"
 end
 
 puts "Total duration: #{(total.to_f / 1_000_000_000).round} seconds"
