@@ -107,7 +107,7 @@ final class MappingTest {
         });
     }
 
-    @Test()
+    @Test
     void testTuple2OfNullablesNulls() {
         final List<?> actual = Stream.of(ARNE,  TRYGGVE)
             .map(TuplesOfNullables.toTupleOfNullables(Function.identity(), s -> null))

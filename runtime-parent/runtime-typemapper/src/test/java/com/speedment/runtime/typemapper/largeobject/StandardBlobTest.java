@@ -100,7 +100,7 @@ class StandardBlobTest {
         assertNotEquals(originalLength, newLength);
     }
 
-    @Test()
+    @Test
     void freeBlob() throws SQLException {
         assertThrows(IllegalStateException.class, () -> {
             standardBlob.free();
