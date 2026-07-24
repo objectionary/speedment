@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+Copyright (c) 2006-2020, Speedment, Inc. All Rights Reserved.
 
+Licensed under the Apache License, Version 2.0 (the "License"); You may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at:
 
-    Copyright (c) 2006-2020, Speedment, Inc. All Rights Reserved.
+http://www.apache.org/licenses/LICENSE-2.0
 
-    Licensed under the Apache License, Version 2.0 (the "License"); You may not
-    use this file except in compliance with the License. You may obtain a copy of
-    the License at:
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-    License for the specific language governing permissions and limitations under
-    the License.
-
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <!-- For OSSRH on SonaType -->
-  <!-- -->
+  <!--  -->
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
     <version>9</version>
   </parent>
-  <!-- -->
-
+  <!--  -->
   <groupId>com.speedment</groupId>
   <artifactId>speedment-parent</artifactId>
   <version>3.2.10</version>
   <packaging>pom</packaging>
-
   <!-- Project Metadata -->
   <name>Speedment</name>
   <description>
     Read and modify your database using standard Java 8-streams and
     generated entity classes.
   </description>
-
   <!-- Modules -->
   <modules>
     <module>common-parent</module>
@@ -54,13 +44,11 @@
     <module>plugin-parent</module>
     <module>test-parent</module>
   </modules>
-
   <!-- Properties -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit.jupiter.version>5.7.0</junit.jupiter.version>
@@ -69,7 +57,6 @@
     <archunit.version>0.14.1</archunit.version>
     <speedment.version>${project.version}</speedment.version>
     <common.version>${project.version}</common.version>
-
     <!-- later maven-javadoc-plugin versions does not support aggregate? -->
     <maven-javadoc-plugin-version>3.2.0</maven-javadoc-plugin-version>
     <maven-source-plugin-version>3.2.1</maven-source-plugin-version>
@@ -77,12 +64,10 @@
     <maven-shade-plugin-version>3.2.4</maven-shade-plugin-version>
     <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
   </properties>
-
   <organization>
     <name>Speedment, Inc.</name>
     <url>http://www.speedment.com/</url>
   </organization>
-
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -90,7 +75,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
   <developers>
     <developer>
       <id>Minborg</id>
@@ -114,7 +98,6 @@
       <timezone>America/Los_Angeles</timezone>
     </developer>
   </developers>
-
   <contributors>
     <contributor>
       <name>Fatih Dirlikli (GitHub:orwashere)</name>
@@ -173,19 +156,16 @@
       <timezone>Europe/Zagreb</timezone>
     </contributor>
   </contributors>
-
   <!-- Distribution Details -->
   <issueManagement>
     <system>Github</system>
     <url>https://github.com/speedment/speedment/issues</url>
   </issueManagement>
-
   <scm>
     <connection>scm:git:git://github.com/speedment/speedment.git</connection>
     <developerConnection>scm:git:git@github.com:speedment/speedment.git</developerConnection>
     <url>https://github.com/speedment/speedment/</url>
   </scm>
-
   <distributionManagement>
     <!-- For OSSRH on SonaType -->
     <snapshotRepository>
@@ -193,70 +173,57 @@
       <name>Sonatype Nexus snapshot repository</name>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
-
     <repository>
       <id>sonatype-nexus-staging</id>
       <name>Sonatype Nexus release staging repository</name>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
-
   <!-- Plugins -->
   <build>
     <pluginManagement>
       <plugins>
-
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
           <version>1.6.8</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.2</version>
-
           <configuration>
             <useFile>false</useFile>
             <trimStackTrace>false</trimStackTrace>
           </configuration>
         </plugin>
-
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
           <version>${maven-source-plugin-version}</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.2.0</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.9.1</version>
@@ -265,17 +232,14 @@
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${maven-dependency-plugin-version}</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven-javadoc-plugin-version}</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-shade-plugin</artifactId>
           <version>${maven-shade-plugin-version}</version>
         </plugin>
-
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>hone-maven-plugin</artifactId>
@@ -288,10 +252,8 @@
             <rules>streams/*</rules>
           </configuration>
         </plugin>
-
       </plugins>
     </pluginManagement>
-
     <plugins>
       <plugin>
         <groupId>com.speedment</groupId>
@@ -301,15 +263,12 @@
           <minVersion>${speedment.version}</minVersion>
         </configuration>
       </plugin>
-
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-
         <configuration>
           <compilerArgument>-Xlint:all</compilerArgument>
           <showWarnings>true</showWarnings>
           <showDeprecation>true</showDeprecation>
-
           <fork>true</fork>
           <optimize>true</optimize>
           <showDeprecation>true</showDeprecation>
@@ -330,7 +289,6 @@
               <release>8</release>
             </configuration>
           </execution>
-
           <execution>
             <id>module-compile</id>
             <phase>compile</phase>
@@ -350,7 +308,6 @@
               </compilerArgs>
             </configuration>
           </execution>
-
           <execution>
             <id>module-testCompile</id>
             <phase>compile</phase>
@@ -369,9 +326,7 @@
             </configuration>
           </execution>
         </executions>
-
       </plugin>
-
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
@@ -386,23 +341,20 @@
           </archive>
           <skipIfEmpty>true</skipIfEmpty>
           <excludes>
-            <!--Remove the module-info in the main dir because it is generated for the test phase-->
+            <!-- Remove the module-info in the main dir because it is generated for the test phase -->
             <exclude>module-info.class</exclude>
           </excludes>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>3.0.5</version>
       </plugin>
-
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
       </plugin>
-
-      <!-- Use mvn versions:display-plugin-updates to see available updates-->
+      <!-- Use mvn versions:display-plugin-updates to see available updates -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
@@ -411,7 +363,6 @@
           <generateBackupPoms>false</generateBackupPoms>
         </configuration>
       </plugin>
-
       <!-- Use mvn com.ning.maven.plugins:maven-dependency-versions-check-plugin:list to analyze dependencies -->
       <plugin>
         <groupId>com.ning.maven.plugins</groupId>
@@ -426,52 +377,52 @@
           </execution>
         </executions>
       </plugin>
+      <!--
+      <plugin>
+      <groupId>com.atlassian.maven.plugins</groupId>
+      <artifactId>maven-jgitflow-plugin</artifactId>
+      <version>1.0-alpha27</version>
+      <configuration>
+      Enable this to push to origin using SSH keys
+      <enableSshAgent>true</enableSshAgent>
 
+      Keep your maven submodules at the same version as the parent POM
+      <autoVersionSubmodules>true</autoVersionSubmodules>
 
-      <!--            <plugin>
-                      <groupId>com.atlassian.maven.plugins</groupId>
-                      <artifactId>maven-jgitflow-plugin</artifactId>
-                      <version>1.0-alpha27</version>
-                      <configuration>
-                          Enable this to push to origin using SSH keys
-                          <enableSshAgent>true</enableSshAgent>
+      Pusing in-development features to origin allows all devs to see what each other
+      are working on
 
-                          Keep your maven submodules at the same version as the parent POM
-                          <autoVersionSubmodules>true</autoVersionSubmodules>
+      <pushFeatures>true</pushFeatures>
 
-                          Pusing in-development features to origin allows all devs to see what each other
-                          are working on
+      This allows the CI server (e.g. Jenkins) to automatically push new releases to
+      origin; you can then either manually deploy them or, if you are doing Continuous
+      Deployments, auto-deploy them to prod
 
-                          <pushFeatures>true</pushFeatures>
+      <pushReleases>true</pushReleases>
 
-                          This allows the CI server (e.g. Jenkins) to automatically push new releases to
-                          origin; you can then either manually deploy them or, if you are doing Continuous
-                          Deployments, auto-deploy them to prod
+      Hot Fixes should be pushed to origin as well so that any dev can pick them up
 
-                          <pushReleases>true</pushReleases>
+      <pushHotfixes>true</pushHotfixes>
 
-                          Hot Fixes should be pushed to origin as well so that any dev can pick them up
+      Prevents deployments from dev workstations so that they can be done by a CI
+      server
 
-                          <pushHotfixes>true</pushHotfixes>
+      <noDeploy>true</noDeploy>
+      <flowInitContext>
 
-                          Prevents deployments from dev workstations so that they can be done by a CI
-                          server
+      You can customize your development branch name. Why? Because it's faster to type
+      'git push origin dvlp'
+      than
+      'git push origin develop'
+      ;-)
 
-                          <noDeploy>true</noDeploy>
-                          <flowInitContext>
-
-                              You can customize your development branch name. Why? Because it's faster to type
-                              'git push origin dvlp'
-                              than
-                              'git push origin develop'
-                              ;-)
-
-                              <developBranchName>develop-3.0</developBranchName>
-                              You can also customize your tag prefixes
-                              <versionTagPrefix>rev-</versionTagPrefix>
-                          </flowInitContext>
-                      </configuration>
-                  </plugin>  -->
+      <developBranchName>develop-3.0</developBranchName>
+      You can also customize your tag prefixes
+      <versionTagPrefix>rev-</versionTagPrefix>
+      </flowInitContext>
+      </configuration>
+      </plugin>
+      -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -489,47 +440,47 @@
               <goal>report</goal>
             </goals>
           </execution>
-
-          <!--                   <execution>
-                                 <id>default-check</id>
-                                 <goals>
-                                     <goal>check</goal>
-                                 </goals>
-                                 <configuration>
-                                     <rules>
-                                         &lt;!&ndash;-
-                                         <rule implementation="org.jacoco.maven.RuleConfiguration">
-                                             <element>BUNDLE</element>
-                                             <limits>
-                                                 <limit implementation="org.jacoco.report.check.Limit">
-                                                     <counter>INSTRUCTION</counter>
-                                                     <value>COVEREDRATIO</value>
-                                                     <minimum>0.10</minimum>
-                                                 </limit>
-                                                 <limit implementation="org.jacoco.report.check.Limit">
-                                                     <counter>CLASS</counter>
-                                                     <value>MISSEDCOUNT</value>
-                                                     <maximum>0</maximum>
-                                                 </limit>
-                                             </limits>
-                                         </rule>
-                                         &ndash;&gt;
-                                         <rule implementation="org.jacoco.maven.RuleConfiguration">
-                                             <element>BUNDLE</element>
-                                             <limits>
-                                                 <limit implementation="org.jacoco.report.check.Limit">
-                                                     <counter>COMPLEXITY</counter>
-                                                     <value>COVEREDRATIO</value>
-                                                     <minimum>0.00</minimum>
-                                                 </limit>
-                                             </limits>
-                                         </rule>
-                                     </rules>
-              </configuration>
-          </execution>-->
+          <!--
+          <execution>
+          <id>default-check</id>
+          <goals>
+          <goal>check</goal>
+          </goals>
+          <configuration>
+          <rules>
+          &lt;!&ndash;-
+          <rule implementation="org.jacoco.maven.RuleConfiguration">
+          <element>BUNDLE</element>
+          <limits>
+          <limit implementation="org.jacoco.report.check.Limit">
+          <counter>INSTRUCTION</counter>
+          <value>COVEREDRATIO</value>
+          <minimum>0.10</minimum>
+          </limit>
+          <limit implementation="org.jacoco.report.check.Limit">
+          <counter>CLASS</counter>
+          <value>MISSEDCOUNT</value>
+          <maximum>0</maximum>
+          </limit>
+          </limits>
+          </rule>
+          &ndash;&gt;
+          <rule implementation="org.jacoco.maven.RuleConfiguration">
+          <element>BUNDLE</element>
+          <limits>
+          <limit implementation="org.jacoco.report.check.Limit">
+          <counter>COMPLEXITY</counter>
+          <value>COVEREDRATIO</value>
+          <minimum>0.00</minimum>
+          </limit>
+          </limits>
+          </rule>
+          </rules>
+          </configuration>
+          </execution>
+          -->
         </executions>
       </plugin>
-
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <version>3.0.0-M3</version>
@@ -553,7 +504,6 @@
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>hone-maven-plugin</artifactId>
@@ -574,14 +524,11 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
-
   <profiles>
     <profile>
       <id>release</id>
-
       <reporting>
         <plugins>
           <plugin>
@@ -596,7 +543,6 @@
               </reportSet>
             </reportSets>
           </plugin>
-
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>findbugs-maven-plugin</artifactId>
@@ -604,40 +550,32 @@
           </plugin>
         </plugins>
       </reporting>
-
       <build>
         <pluginManagement>
           <plugins>
-
             <plugin>
               <groupId>org.sonatype.plugins</groupId>
               <artifactId>nexus-staging-maven-plugin</artifactId>
               <version>1.6.8</version>
             </plugin>
-
           </plugins>
         </pluginManagement>
-
         <plugins>
-
           <plugin>
             <artifactId>maven-javadoc-plugin</artifactId>
             <version>${maven-javadoc-plugin-version}</version>
-
-            <!--                            <inherited>true</inherited> 999 -->
+            <!-- <inherited>true</inherited> 999 -->
             <executions>
               <execution>
                 <phase>package</phase>
                 <goals>
                   <goal>jar</goal>
-                  <!--                                    <goal>aggregate-jar</goal>-->
+                  <!-- <goal>aggregate-jar</goal> -->
                 </goals>
               </execution>
             </executions>
-
-
             <configuration>
-              <!--                                <source>8</source>-->
+              <!-- <source>8</source> -->
               <additionalOptions>
                 <option>--add-modules</option>
                 <option>${module-name}</option>
@@ -727,26 +665,21 @@
                   <packages>com.speedment.runtime.connector:com.speedment.runtime.connector.*
                   </packages>
                 </group>
-
               </groups>
-
-              <!--                                <aggregate>true</aggregate>-->
+              <!-- <aggregate>true</aggregate> -->
               <keywords>true</keywords>
-              <!--                                <docfilessubdirs>true</docfilessubdirs>-->
+              <!-- <docfilessubdirs>true</docfilessubdirs> -->
               <excludePackageNames>*.internal:*.internal.*</excludePackageNames>
-              <!--                                <includeDependencySources>true</includeDependencySources>-->
-
+              <!-- <includeDependencySources>true</includeDependencySources> -->
               <additionalJOptions>
                 <additionalJOption>-J-Xmx1g</additionalJOption>
               </additionalJOptions>
             </configuration>
           </plugin>
-
           <plugin>
             <artifactId>maven-source-plugin</artifactId>
             <version>${maven-source-plugin-version}</version>
             <inherited>true</inherited>
-
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -756,20 +689,16 @@
               </execution>
             </executions>
           </plugin>
-
           <plugin>
             <groupId>org.sonarsource.scanner.maven</groupId>
             <artifactId>sonar-maven-plugin</artifactId>
             <version>3.7.0.1746</version>
           </plugin>
-
-          <!--The license-maven-plugin plugin MUST BE COMMENTED OUT DURING DEPLOYMENT, otherwise nexus-staging-maven-plugin will fail (sic!)-->
-
+          <!-- The license-maven-plugin plugin MUST BE COMMENTED OUT DURING DEPLOYMENT, otherwise nexus-staging-maven-plugin will fail (sic!) -->
           <plugin>
             <groupId>com.mycila</groupId>
             <artifactId>license-maven-plugin</artifactId>
             <version>3.0</version>
-
             <configuration>
               <header>license_header.txt</header>
               <properties>
@@ -799,7 +728,6 @@
                 <exclude>build.gradle</exclude>
               </excludes>
             </configuration>
-
             <executions>
               <execution>
                 <goals>
@@ -808,13 +736,11 @@
               </execution>
             </executions>
           </plugin>
-
           <plugin>
             <!-- http://eclemma.org/jacoco/trunk/doc/maven.html -->
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>${jacoco-maven-plugin.version}</version>
-
             <executions>
               <execution>
                 <id>default-prepare-agent</id>
@@ -823,8 +749,10 @@
                 </goals>
                 <configuration>
                   <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-                  <!-- passing property which will contains settings for JaCoCo agent.
-                  If not specified, then "argLine" would be used for "jar" packaging -->
+                  <!--
+                  passing property which will contains settings for JaCoCo agent.
+                  If not specified, then "argLine" would be used for "jar" packaging
+                  -->
                   <propertyName>surefireArgLine</propertyName>
                 </configuration>
               </execution>
@@ -841,35 +769,35 @@
                   <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
                 </configuration>
               </execution>
-              <!--                            <execution>
-                                              <id>default-check</id>
-                                              <goals>
-                                                  <goal>check</goal>
-                                              </goals>
-                                              <configuration>
-                                                  <rules>
-                                                      &lt;!&ndash;  implementation is needed only for Maven 2  &ndash;&gt;
-                                                      <rule implementation="org.jacoco.maven.RuleConfiguration">
-                                                          <element>BUNDLE</element>
-                                                          <limits>
-                                                              &lt;!&ndash;  implementation is needed only for Maven 2  &ndash;&gt;
-                                                              <limit implementation="org.jacoco.report.check.Limit">
-                                                                  <counter>COMPLEXITY</counter>
-                                                                  <value>COVEREDRATIO</value>
-                                                                  <minimum>0.01</minimum>
-                                                              </limit>
-                                                          </limits>
-                                                      </rule>
-                                                  </rules>
-                                              </configuration>
-                                          </execution>-->
+              <!--
+              <execution>
+              <id>default-check</id>
+              <goals>
+              <goal>check</goal>
+              </goals>
+              <configuration>
+              <rules>
+              &lt;!&ndash;  implementation is needed only for Maven 2  &ndash;&gt;
+              <rule implementation="org.jacoco.maven.RuleConfiguration">
+              <element>BUNDLE</element>
+              <limits>
+              &lt;!&ndash;  implementation is needed only for Maven 2  &ndash;&gt;
+              <limit implementation="org.jacoco.report.check.Limit">
+              <counter>COMPLEXITY</counter>
+              <value>COVEREDRATIO</value>
+              <minimum>0.01</minimum>
+              </limit>
+              </limits>
+              </rule>
+              </rules>
+              </configuration>
+              </execution>
+              -->
             </executions>
           </plugin>
-
           <plugin>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>1.6</version>
-
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -879,14 +807,12 @@
                 </goals>
               </execution>
             </executions>
-
             <configuration>
               <keyname>${gpg.keyname}</keyname>
               <passphrase>${gpg.passphrase}</passphrase>
               <executable>${gpg.executable}</executable>
             </configuration>
           </plugin>
-
           <plugin>
             <artifactId>maven-deploy-plugin</artifactId>
             <configuration>
@@ -894,13 +820,10 @@
               <skip>true</skip>
             </configuration>
           </plugin>
-
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-
             <extensions>true</extensions>
-
             <executions>
               <execution>
                 <id>default-deploy</id>
@@ -910,7 +833,6 @@
                 </goals>
               </execution>
             </executions>
-
             <configuration>
               <serverId>sonatype-nexus-staging</serverId>
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
@@ -920,18 +842,15 @@
         </plugins>
       </build>
     </profile>
-
-
     <profile>
       <id>license-check</id>
       <build>
         <plugins>
-          <!--The license-maven-plugin plugin MUST BE COMMENTED OUT DURING DEPLOYMENT, otherwise nexus-staging-maven-plugin will fail (sic!)-->
+          <!-- The license-maven-plugin plugin MUST BE COMMENTED OUT DURING DEPLOYMENT, otherwise nexus-staging-maven-plugin will fail (sic!) -->
           <plugin>
             <groupId>com.mycila</groupId>
             <artifactId>license-maven-plugin</artifactId>
             <version>3.0</version>
-
             <configuration>
               <header>license_header.txt</header>
               <properties>
@@ -961,7 +880,6 @@
                 <exclude>build.gradle</exclude>
               </excludes>
             </configuration>
-
             <executions>
               <execution>
                 <goals>
@@ -973,10 +891,7 @@
         </plugins>
       </build>
     </profile>
-
-
   </profiles>
-
   <dependencyManagement>
     <dependencies>
       <!-- Test Dependencies -->
@@ -986,14 +901,12 @@
         <version>2.2</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
         <version>4.0.0-alpha-6</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>com.opera</groupId>
         <artifactId>operadriver</artifactId>
@@ -1006,79 +919,68 @@
           </exclusion>
         </exclusions>
       </dependency>
-
-      <!--Mockito-->
+      <!-- Mockito -->
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
         <version>${mockito.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-inline</artifactId>
         <version>${mockito.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
         <version>${mockito.version}</version>
         <scope>test</scope>
       </dependency>
-
-      <!--JUnit5-->
+      <!-- JUnit5 -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${junit.jupiter.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
         <version>${junit.jupiter.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.junit.platform</groupId>
         <artifactId>junit-platform-engine</artifactId>
         <version>${junit.platform.provider.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.junit.platform</groupId>
         <artifactId>junit-platform-launcher</artifactId>
         <version>${junit.platform.provider.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>com.tngtech.archunit</groupId>
         <artifactId>archunit</artifactId>
         <version>${archunit.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>com.tngtech.archunit</groupId>
         <artifactId>archunit-junit5-api</artifactId>
         <version>${archunit.version}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>com.tngtech.archunit</groupId>
         <artifactId>archunit-junit5-engine</artifactId>
         <version>${archunit.version}</version>
         <scope>test</scope>
       </dependency>
-
     </dependencies>
   </dependencyManagement>
   <dependencies>
