@@ -34,6 +34,8 @@ final class EnumConstantTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         final NumberValue value = Value.ofNumber(1);
         enumConstant.add(value);
         assertEquals(singletonList(value), enumConstant.getValues());

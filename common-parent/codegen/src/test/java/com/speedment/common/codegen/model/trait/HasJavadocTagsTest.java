@@ -42,6 +42,8 @@ final class HasJavadocTagsTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         javadoc.add(javadocTag);
         assertEquals(singletonList(javadocTag), javadoc.getTags());
     }

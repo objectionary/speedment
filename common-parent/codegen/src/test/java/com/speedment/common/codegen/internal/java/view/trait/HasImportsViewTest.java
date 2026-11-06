@@ -77,6 +77,8 @@ final class HasImportsViewTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void testRenderImports() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setUp();
         // Given
         final String expected = Formatting.separate(nl(), 
             "import java.util.Objects;",

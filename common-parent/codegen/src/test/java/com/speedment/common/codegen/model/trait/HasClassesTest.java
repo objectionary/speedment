@@ -40,12 +40,16 @@ final class HasClassesTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         file.add(clazz);
         assertEquals(singletonList(clazz), file.getClasses());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void addAllClasses() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         file.addAllClasses(singleton(clazz));
         assertEquals(singletonList(clazz), file.getClasses());
     }

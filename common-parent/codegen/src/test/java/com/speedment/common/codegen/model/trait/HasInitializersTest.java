@@ -40,6 +40,8 @@ final class HasInitializersTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         clazz.add(initializer);
         assertEquals(singletonList(initializer), clazz.getInitializers());
     }

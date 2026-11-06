@@ -41,18 +41,24 @@ final class HasCodeTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         method.add(A, B);
         assertEquals(Arrays.asList(A, B), method.getCode());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void testAdd() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         method.add(A);
         assertEquals(singletonList(A), method.getCode());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void testAdd1() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         method.add(Stream.of(A, B));
         assertEquals(Arrays.asList(A, B), method.getCode());
     }
