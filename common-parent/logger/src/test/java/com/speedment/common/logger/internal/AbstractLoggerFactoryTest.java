@@ -119,6 +119,8 @@ final class AbstractLoggerFactoryTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void listeners() {
+        // Aggregate repetitions reuse the fixture without invoking @BeforeEach.
+        setup();
         assertEquals(0, instance.listeners().count());
         instance.addListener(loggerEventListener);
         assertEquals(loggerEventListener, instance.listeners().findFirst().orElseThrow(NoSuchElementException::new));
@@ -126,6 +128,8 @@ final class AbstractLoggerFactoryTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void loggers() {
+        // Aggregate repetitions reuse the fixture without invoking @BeforeEach.
+        setup();
         assertEquals(0, instance.loggers().count());
         instance.create("A");
         assertEquals(1, instance.loggers().count());
