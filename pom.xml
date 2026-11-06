@@ -51,10 +51,10 @@ the License.
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <junit.jupiter.version>5.7.0</junit.jupiter.version>
-    <junit.platform.provider.version>1.7.0</junit.platform.provider.version>
-    <mockito.version>3.5.13</mockito.version>
-    <archunit.version>0.14.1</archunit.version>
+    <junit.jupiter.version>5.11.4</junit.jupiter.version>
+    <junit.platform.provider.version>1.11.4</junit.platform.provider.version>
+    <mockito.version>4.11.0</mockito.version>
+    <archunit.version>0.22.0</archunit.version>
     <speedment.version>${project.version}</speedment.version>
     <common.version>${project.version}</common.version>
     <!-- later maven-javadoc-plugin versions does not support aggregate? -->
@@ -898,13 +898,13 @@ the License.
       <dependency>
         <groupId>org.hamcrest</groupId>
         <artifactId>hamcrest-core</artifactId>
-        <version>2.2</version>
+        <version>3.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.0.0-alpha-6</version>
+        <version>4.13.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
