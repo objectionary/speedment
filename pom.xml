@@ -698,7 +698,7 @@ the License.
           <plugin>
             <groupId>com.mycila</groupId>
             <artifactId>license-maven-plugin</artifactId>
-            <version>3.0</version>
+            <version>5.1.2</version>
             <configuration>
               <header>license_header.txt</header>
               <properties>
@@ -850,7 +850,7 @@ the License.
           <plugin>
             <groupId>com.mycila</groupId>
             <artifactId>license-maven-plugin</artifactId>
-            <version>3.0</version>
+            <version>5.1.2</version>
             <configuration>
               <header>license_header.txt</header>
               <properties>
