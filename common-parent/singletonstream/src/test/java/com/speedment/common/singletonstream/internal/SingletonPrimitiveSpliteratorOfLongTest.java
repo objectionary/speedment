@@ -46,12 +46,14 @@ final class SingletonPrimitiveSpliteratorOfLongTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceIntConsumer() {
+        setup();
         assertTrue(instance.tryAdvance((LongConsumer) i -> cnt.incrementAndGet()));
         assertEquals(1, cnt.get());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void tryAdvanceConsumer() {
+        setup();
         assertTrue(instance.tryAdvance((Consumer<Long>) i -> cnt.incrementAndGet()));
         assertEquals(1, cnt.get());
     }

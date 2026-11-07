@@ -51,6 +51,7 @@ final class InjectorDependencyNodeTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void getCurrentState() {
+        setup();
         assertEquals(State.STARTED, instance.getCurrentState());
         instance.setState(State.STOPPED);
         assertEquals(State.STOPPED, instance.getCurrentState());
@@ -63,6 +64,7 @@ final class InjectorDependencyNodeTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void canBe() {
+        setup();
         assertFalse(instance.canBe(State.CREATED));
         assertFalse(instance.canBe(State.INITIALIZED));
         assertFalse(instance.canBe(State.RESOLVED));
@@ -78,6 +80,7 @@ final class InjectorDependencyNodeTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void is() {
+        setup();
         assertTrue(instance.is(State.CREATED));
         assertTrue(instance.is(State.INITIALIZED));
         assertTrue(instance.is(State.RESOLVED));

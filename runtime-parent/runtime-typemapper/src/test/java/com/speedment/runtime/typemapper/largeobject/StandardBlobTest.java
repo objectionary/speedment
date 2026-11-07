@@ -79,6 +79,7 @@ class StandardBlobTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void overrideBlobContents() throws SQLException {
+        createBlob();
         byte[] originalBytes = standardBlob.getBytes(1, (int) standardBlob.length());
 
         byte[] newBytes = new byte[BYTES.length];
@@ -91,6 +92,7 @@ class StandardBlobTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void truncateBlob() throws SQLException {
+        createBlob();
         long originalLength = standardBlob.length();
 
         standardBlob.truncate(originalLength - 5);
