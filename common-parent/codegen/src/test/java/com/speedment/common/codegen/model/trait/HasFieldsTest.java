@@ -41,6 +41,8 @@ final class HasFieldsTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         method.add(field);
         assertEquals(singletonList(field), method.getFields());
     }
@@ -115,6 +117,8 @@ final class HasFieldsTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void addAllFields() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         method.addAllFields(singletonList(field));
         assertEquals(singletonList(field), method.getFields());
     }

@@ -72,6 +72,7 @@ final class DependencyGraphImplTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void get() {
+        setup();
         assertThrows(IllegalArgumentException.class, () -> instance.get(Foo.class));
         instance.getOrCreate(Foo.class);
         final DependencyNode dependencyNode = instance.get(Foo.class);
@@ -86,6 +87,7 @@ final class DependencyGraphImplTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void getIfPresent() {
+        setup();
         assertFalse(instance.getIfPresent(Foo.class).isPresent());
         ;
         instance.getOrCreate(Foo.class);
@@ -95,6 +97,7 @@ final class DependencyGraphImplTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void inject() {
+        setup();
         instance.getOrCreate(Foo.class);
         final DependencyGraph dependencyGraph = instance.inject();
         final DependencyNode dependencyNode = dependencyGraph.get(Foo.class);
@@ -103,6 +106,7 @@ final class DependencyGraphImplTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void nodes() {
+        setup();
         instance.nodes().forEach(System.out::println);
         // Injector is always present
         assertEquals(1, instance.nodes().count());

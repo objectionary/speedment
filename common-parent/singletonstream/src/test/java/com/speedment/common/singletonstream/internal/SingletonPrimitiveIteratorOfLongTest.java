@@ -45,28 +45,33 @@ final class SingletonPrimitiveIteratorOfLongTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void hasNextAfterConsumed() {
+        setup();
         instance.next();
         assertFalse(instance.hasNext());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void nextInt() {
+        setup();
         assertEquals(ELEMENT, instance.nextLong());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void nextIntAfterNext() {
+        setup();
         instance.next();
         assertThrows(NoSuchElementException.class, instance::nextLong);
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void next() {
+        setup();
         assertEquals(ELEMENT, instance.next());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void nextAfterNext() {
+        setup();
         instance.next();
         assertThrows(NoSuchElementException.class, instance::next);
     }
@@ -90,6 +95,7 @@ final class SingletonPrimitiveIteratorOfLongTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingIntConsumerAfterNext() {
+        setup();
         instance.next();
         instance.forEachRemaining((LongConsumer)i -> cnt.incrementAndGet());
         assertEquals(0, cnt.get());
@@ -97,6 +103,7 @@ final class SingletonPrimitiveIteratorOfLongTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void forEachRemainingConsumerAfterNext() {
+        setup();
         instance.next();
         instance.forEachRemaining((Consumer<Long>) i -> cnt.incrementAndGet());
         assertEquals(0, cnt.get());

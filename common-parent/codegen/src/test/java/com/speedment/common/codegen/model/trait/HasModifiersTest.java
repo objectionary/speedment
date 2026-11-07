@@ -37,6 +37,8 @@ final class HasModifiersTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void getModifiers() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         assertTrue(clazz.getModifiers().isEmpty());
         ((Class)clazz).private_();
         assertEquals(singleton(Modifier.PRIVATE), clazz.getModifiers());

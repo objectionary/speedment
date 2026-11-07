@@ -38,6 +38,8 @@ final class HasMethodsTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         clazz.add(method);
         assertEquals(singletonList(method), clazz.getMethods());
     }

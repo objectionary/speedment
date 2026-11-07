@@ -36,24 +36,32 @@ final class HasAnnotationUsageTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         field.add(DEPRECATED);
         assertEquals(singletonList(DEPRECATED), field.getAnnotations());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void annotate() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         field.annotate(DEPRECATED);
         assertEquals(singletonList(DEPRECATED), field.getAnnotations());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void testAnnotate() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         field.annotate(Deprecated.class);
         assertEquals(1, field.getAnnotations().size());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void testAnnotate1() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         field.annotate(Deprecated.class, "Never used");
         assertEquals(1, field.getAnnotations().size());
 

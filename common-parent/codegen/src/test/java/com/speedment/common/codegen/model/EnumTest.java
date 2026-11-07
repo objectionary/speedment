@@ -34,6 +34,8 @@ final class EnumTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void add() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         instance.add(enumConstant);
         assertEquals(singletonList(enumConstant), instance.getConstants());
     }

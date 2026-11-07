@@ -36,6 +36,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void elapsed() {
+        setup();
         sw.start();
         shortSleep();
         assertTrue(sw.elapsed(TimeUnit.NANOSECONDS) > 0L);
@@ -43,6 +44,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void elapsedMillis() {
+        setup();
         sw.start();
         shortSleep();
         assertTrue(sw.elapsedMillis() > 0L);
@@ -50,6 +52,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void elapsedNanos() {
+        setup();
         assertEquals(0L, sw.elapsedNanos());
         sw.start();
         shortSleep();
@@ -60,6 +63,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void isStarted() {
+        setup();
         assertFalse(sw.isStarted());
         sw.start();
         assertTrue(sw.isStarted());
@@ -67,6 +71,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void isStopped() {
+        setup();
         assertFalse(sw.isStopped());
         sw.start();
         assertFalse(sw.isStopped());
@@ -76,12 +81,14 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void start() {
+        setup();
         sw.start();
         assertTrue(sw.isStarted());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void startTwice() {
+        setup();
         sw.start();
         assertThrows(IllegalStateException.class, () -> sw.start());
     }
@@ -93,6 +100,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void stop() {
+        setup();
         assertDoesNotThrow(() -> {
             sw.start();
             sw.stop();
@@ -101,6 +109,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void stopTwice() {
+        setup();
         sw.start();
         sw.stop();
         assertThrows(IllegalStateException.class, () -> sw.stop());
@@ -137,6 +146,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toStringStarted() {
+        setup();
         sw.start();
         shortSleep();
         final String actual = sw.toString();
@@ -145,6 +155,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toStringNano() {
+        setup();
         sw.start();
         sleep(1);
         final String actual = sw.toString();
@@ -153,6 +164,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toStringMicro() {
+        setup();
         sw.start();
         sleep(1 * 2_000);
         final String actual = sw.toString();
@@ -161,6 +173,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toStringMilli() {
+        setup();
         sw.start();
         sleep(1 * 2_000_000);
         final String actual = sw.toString();
@@ -169,6 +182,7 @@ final class StopwatchTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toStringSecond() {
+        setup();
         sw.start();
         sleep(1 * 2_000_000_000);
         final String actual = sw.toString();

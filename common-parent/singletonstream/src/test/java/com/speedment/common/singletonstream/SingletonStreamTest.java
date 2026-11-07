@@ -166,16 +166,19 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void distinct() {
+        setUp();
         assertEquals(1, instance.distinct().count());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void sorted() {
+        setUp();
         assertEquals(1, instance.sorted().count());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void sortedArg() {
+        setUp();
         assertEquals(1, instance.sorted(Comparator.reverseOrder()).count());
     }
 
@@ -188,6 +191,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void limit() {
+        setUp();
         assertEquals(1, instance.limit(1).count());
     }
 
@@ -208,6 +212,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void skip0() {
+        setUp();
         assertEquals(1, instance.skip(0).count());
     }
 
@@ -219,6 +224,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void forEach() {
+        setUp();
         final List<String> strings = new ArrayList<>();
         instance.forEach(strings::add);
         assertEquals(1, strings.size());
@@ -228,6 +234,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void forEachOrdered() {
+        setUp();
         final List<String> strings = new ArrayList<>();
         instance.forEachOrdered(strings::add);
         assertEquals(1, strings.size());
@@ -237,6 +244,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toArray() {
+        setUp();
         assertEquals(1, instance.toArray().length);
 
         assertThrows(IllegalStateException.class, () -> instance.toArray());
@@ -244,6 +252,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void toArrayGenerator() {
+        setUp();
         assertEquals(1, instance.toArray(String[]::new).length);
 
         assertThrows(IllegalStateException.class, () -> instance.toArray(String[]::new));
@@ -251,6 +260,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void reduce() {
+        setUp();
         assertEquals(Optional.of(ELEMENT), instance.reduce((a, b) -> a + b));
 
         assertThrows(IllegalStateException.class, () -> instance.reduce((a, b) -> a + b));
@@ -258,6 +268,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void reduce2Arg() {
+        setUp();
         assertEquals(OTHER_ELEMENT + ELEMENT, instance.reduce(OTHER_ELEMENT, (a, b) -> a + b));
 
         assertThrows(IllegalStateException.class, () -> instance.reduce(OTHER_ELEMENT, (a, b) -> a + b));
@@ -265,6 +276,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void reduce3Arg() {
+        setUp();
         assertEquals(OTHER_ELEMENT + ELEMENT, instance.reduce(OTHER_ELEMENT, (a, b) -> a + b, (a, b) -> a + b));
 
         assertThrows(IllegalStateException.class, () -> instance.reduce(OTHER_ELEMENT, (a, b) -> a + b, (a, b) -> a + b));
@@ -272,6 +284,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void collect() {
+        setUp();
         assertEquals(ELEMENT, instance.collect(Collectors.joining()));
 
         assertThrows(IllegalStateException.class, () -> instance.collect(Collectors.joining()));
@@ -279,6 +292,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void collect3Arg() {
+        setUp();
         assertEquals(singletonList(ELEMENT), instance.collect(ArrayList::new, List::add, ArrayList::addAll));
 
         assertThrows(IllegalStateException.class, () -> instance.collect(ArrayList::new, List::add, ArrayList::addAll));
@@ -287,6 +301,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void min() {
+        setUp();
         assertEquals(Optional.of(ELEMENT), instance.min(Comparator.naturalOrder()));
 
         assertThrows(IllegalStateException.class, () -> instance.min(Comparator.naturalOrder()));
@@ -294,6 +309,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void max() {
+        setUp();
         assertEquals(Optional.of(ELEMENT), instance.max(Comparator.naturalOrder()));
 
         assertThrows(IllegalStateException.class, () -> instance.max(Comparator.naturalOrder()));
@@ -301,6 +317,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void count() {
+        setUp();
         assertEquals(1, instance.count());
 
         assertThrows(IllegalStateException.class, () -> instance.count());
@@ -308,6 +325,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void anyMatch() {
+        setUp();
         assertTrue(instance.anyMatch(ELEMENT::equals));
         assertFalse(SingletonStream.of(OTHER_ELEMENT).anyMatch(ELEMENT::equals));
 
@@ -316,6 +334,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void allMatch() {
+        setUp();
         assertTrue(instance.allMatch(ELEMENT::equals));
         assertFalse(SingletonStream.of(OTHER_ELEMENT).allMatch(ELEMENT::equals));
 
@@ -324,6 +343,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void noneMatch() {
+        setUp();
         assertFalse(instance.noneMatch(ELEMENT::equals));
         assertTrue(SingletonStream.of(OTHER_ELEMENT).noneMatch(ELEMENT::equals));
 
@@ -332,6 +352,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void findFirst() {
+        setUp();
         assertEquals(Optional.of(ELEMENT), instance.findFirst());
 
         assertThrows(IllegalStateException.class, () -> instance.findFirst());
@@ -339,6 +360,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void findAny() {
+        setUp();
         assertEquals(Optional.of(ELEMENT), instance.findAny());
 
         assertThrows(IllegalStateException.class, () -> instance.findAny());
@@ -346,6 +368,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void iterator() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         instance.iterator().forEachRemaining(s -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
@@ -356,6 +379,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void iteratorNextAndThenForEachRemaining() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         final Iterator<String> iterator = instance.iterator();
         iterator.next();
@@ -365,6 +389,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void iteratorNext() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         final Iterator<String> iterator = instance.iterator();
         while (iterator.hasNext()) {
@@ -376,6 +401,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void iteratorOutOfRange() {
+        setUp();
         final Iterator<String> iterator = instance.iterator();
         String element = iterator.next();
         assertThrows(NoSuchElementException.class, iterator::next);
@@ -383,11 +409,13 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void iteratorRemove() {
+        setUp();
         assertThrows(UnsupportedOperationException.class, () -> instance.iterator().remove());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void spliterator() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         instance.spliterator().forEachRemaining(s -> cnt.incrementAndGet());
         assertEquals(1, cnt.get());
@@ -405,6 +433,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorCharacteristics() {
+        setUp();
         final int c = instance.spliterator().characteristics();
         assertHasFlag(c, Spliterator.DISTINCT);
         assertHasFlag(c, Spliterator.IMMUTABLE);
@@ -420,6 +449,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorEstimateSize() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         final Spliterator<String> spliterator = instance.spliterator();
         assertEquals(1, spliterator.estimateSize());
@@ -430,11 +460,13 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorTrySplit() {
+        setUp();
         assertNull(instance.spliterator().trySplit());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void spliteratorTryAdvance() {
+        setUp();
         final Spliterator<String> spliterator = instance.spliterator();
         final AtomicInteger cnt = new AtomicInteger();
         assertTrue(spliterator.tryAdvance(e -> cnt.incrementAndGet()));
@@ -444,6 +476,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void isParallel() {
+        setUp();
         assertFalse(instance.isParallel());
         final Stream<String> newStream = instance.parallel();
         assertTrue(newStream.isParallel());
@@ -473,6 +506,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void mutableOnClose() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         instance.onClose(cnt::incrementAndGet);
         instance.close();
@@ -481,6 +515,7 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void onClose() {
+        setUp();
         final AtomicInteger cnt = new AtomicInteger();
         final Stream<String> newStream = instance.onClose(cnt::incrementAndGet);
         newStream.close();
@@ -494,12 +529,14 @@ final class SingletonStreamTest {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void takeWhile() {
+        setUp();
         assertEquals(1, instance.takeWhile(ELEMENT::equals).count());
         assertEquals(0, instance.takeWhile(OTHER_ELEMENT::equals).count());
     }
 
     @com.yegor256.AggregateRepeatedTest(100)
     void dropWhile() {
+        setUp();
         assertEquals(0, instance.dropWhile(ELEMENT::equals).count());
         assertEquals(1, instance.dropWhile(OTHER_ELEMENT::equals).count());
     }

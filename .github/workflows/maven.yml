@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+name: maven
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+permissions:
+  contents: read
+concurrency:
+  group: maven-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: 24
+          cache: maven
+      - name: Install repeated-test helper
+        run: |
+          git clone https://github.com/yegor256/aggregate-repeated-test "${RUNNER_TEMP}/aggregate-repeated-test"
+          mvn --batch-mode --no-transfer-progress --file "${RUNNER_TEMP}/aggregate-repeated-test/pom.xml" clean install -DskipTests
+      - name: Build and test without optimization
+        run: mvn --batch-mode --no-transfer-progress clean test -Dhone.skip=true

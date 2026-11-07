@@ -57,6 +57,8 @@ final class InitializerImplTest extends AbstractTest<Initializer> {
 
     @com.yegor256.AggregateRepeatedTest(100)
     void getCode() {
+        // Aggregate repetitions do not invoke @BeforeEach.
+        setup();
         final String code = "a++;";
         assertTrue(instance().getCode().isEmpty());
         instance().add(code);
